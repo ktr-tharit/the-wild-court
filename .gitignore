@@ -1,0 +1,64 @@
+# macOS and editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+
+# Node and package-manager caches
+node_modules/
+.pnpm-store/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Web build and runtime output
+.next/
+.vinext/
+dist/
+out/
+.wrangler/
+.vercel/
+coverage/
+
+# Local previews and generated working files
+outputs/
+work/
+
+# Environment files and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local databases and runtime state
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal

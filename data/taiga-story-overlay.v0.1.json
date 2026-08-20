@@ -1,0 +1,195 @@
+{
+  "story_version": "0.1",
+  "status": "prototype",
+  "title": "The First Winter",
+  "player_role": "The Unmarked Wayfarer",
+  "continuity_mode": "remembered",
+  "opening": [
+    "หิมะแรกควรมาถึงในอีกสิบสองวัน แต่เช้านี้โลกทั้งใบกลับขาวโพลนไปแล้ว",
+    "ในกระเป๋าเสื้อของคุณมีข้อความจากชายแดนซึ่งหมึกถูกน้ำละลายไปเกือบครึ่ง เหลือเพียงชื่อ Hearthhold และคำเตือนว่าเส้นทางกำลังจะปิด",
+    "คุณไม่มีตราของตระกูลหรืออาณาจักรใด ที่นี่จึงเรียกคุณเพียงอย่างเดียวว่า—ผู้เดินทางไร้ตรา"
+  ],
+  "acts": {
+    "Arrival": {
+      "title": "Arrival — The Unmarked Gate",
+      "intro": "ก่อนจะมีใครถามว่าคุณเชื่ออะไร Hearthhold จะเห็นก่อนว่าคุณเดินเข้าสู่สิ่งที่ไม่รู้จักอย่างไร",
+      "outro": "เมื่อประตูปิดลงด้านหลัง ข่าวจากหอส่งสัญญาณก็มาถึง: แสงทางเหนือดับก่อนเวลา"
+    },
+    "Bonds": {
+      "title": "Bonds — What Begins to Matter",
+      "intro": "สถานที่ซึ่งเคยเป็นเพียงจุดหมายเริ่มมีใบหน้า มีน้ำเสียง และมีคนที่จำได้ว่าคุณเลือกยืนตรงไหน",
+      "outro": "คืนก่อนการประชุม Keeper of the Passage หายตัวไป ห้องประชุมยังเปิดอยู่ แต่ไม่มีใครยอมเป็นคนพูดก่อน"
+    },
+    "Fracture": {
+      "title": "Fracture — When Trust Breaks",
+      "intro": "พายุทำให้ถนนขาด ข่าวลือทำให้ผู้คนแยกออกจากกัน และสิ่งที่เคยเป็นข้อดีของทุกคนเริ่มมีราคาที่ต้องจ่าย",
+      "outro": "เมื่อพายุเบาลง ข้อความในมือคุณก็อ่านได้มากพอจะรู้ว่าไม่มีคนทรยศเพียงคนเดียว—มีเพียงคำมั่นหลายข้อที่ไม่มีใครดูแล"
+    }
+  },
+  "judgment": {
+    "intro": "รุ่งเช้า Court ไม่ถามว่าใครควรถูกลงโทษก่อน แต่ถามถึงสิ่งหนึ่งที่เกิดขึ้นซ้ำในการเลือกของคุณ: เมื่อความหนาวเข้ามาใกล้ คุณปกป้องอะไร และปกป้องมันอย่างไร",
+    "transition_to_result": "ไม่มีใครมอบธรรมชาติชิ้นใหม่ให้คุณในห้องนี้ Court เพียงตั้งชื่อให้กับสิ่งที่คุณแสดงออกมาตลอดการเดินทาง"
+  },
+  "scenes": [
+    {
+      "order": 1,
+      "question_id": "Q02",
+      "location": "Northroad fork",
+      "intensity": "low",
+      "setup": "ก่อนเห็นกำแพง Hearthhold คุณกับผู้เดินทางอีกสามคนพบว่าหิมะกลบเครื่องหมายบนทางแยกเกือบหมด",
+      "scenario": "เส้นทางหลักไป Hearthhold ปลอดภัยกว่าแต่ช้า ส่วนทางตัดผ่านแนวสนอาจพาไปถึงก่อนประตูค่ำ ไม่มีใครยืนยันได้ว่าทางนั้นยังผ่านได้ คุณจะเลือกอย่างไร?",
+      "transition_after": "ไม่ว่าคุณเลือกทางใด ลมก็แรงขึ้นจนทุกคนต้องยอมรับว่าแผนเดิมใช้ไม่ได้แล้ว",
+      "option_tags": {"A": ["kept_known", "trusted_instinct"], "B": ["kept_known", "checked_evidence"], "C": ["took_risk", "trusted_instinct"], "D": ["took_risk", "checked_evidence"]}
+    },
+    {
+      "order": 2,
+      "question_id": "Q03",
+      "location": "Storm road",
+      "intensity": "medium",
+      "setup": "พายุฉีกแผนที่ของคณะออกจากมือและลบรอยทางกลับภายในไม่กี่นาที ทุกคนหันมามองกันเพื่อรอว่าใครจะขยับ",
+      "scenario": "กำหนดการเดินทางใช้ไม่ได้ทั้งหมด แต่คนท้องถิ่นคนหนึ่งยังพออ่านแนวลมได้ คุณจะช่วยให้คณะไปต่ออย่างไร?",
+      "transition_after": "เมื่อแสงจาก Hearthhold ปรากฏผ่านพายุ คนในคณะคนหนึ่งพยักหน้าให้คุณราวกับจดจำวิธีที่คุณพาพวกเขามาถึง",
+      "option_tags": {"A": ["followed_expertise", "adapted_in_motion"], "B": ["stepped_forward", "adapted_in_motion"], "C": ["followed_expertise", "kept_structure"], "D": ["stepped_forward", "kept_structure"]}
+    },
+    {
+      "order": 3,
+      "question_id": "Q01",
+      "location": "Hearthhold receiving hall",
+      "intensity": "low",
+      "setup": "ภายในกำแพง Rowan รับเสื้อคลุมเปียกหิมะของคุณไป ก่อนชี้ไปยังห้องรับรองที่เต็มไปด้วยคนซึ่งรู้จักกันอยู่แล้ว",
+      "scenario": "Keeper ยังมาไม่ถึงและไม่มีใครรู้จักผู้เดินทางไร้ตราอย่างคุณ คุณจะใช้ช่วงเวลานี้อย่างไร?",
+      "transition_after": "ก่อนระฆังพิธีดัง Rowan กลับมาพร้อมแถบผ้าสีเงินซึ่งใช้รับรองแขกที่ยังไม่มีฝ่าย",
+      "option_tags": {"A": ["observed_first", "held_feeling"], "B": ["acted_alone", "showed_feeling"], "C": ["gathered_people", "held_feeling"], "D": ["gathered_people", "showed_feeling"]}
+    },
+    {
+      "order": 4,
+      "question_id": "Q04",
+      "location": "Guest chamber",
+      "intensity": "low",
+      "setup": "ตามธรรมเนียม ผู้ได้รับ guest-right ต้องสวมแถบผ้าของ Hearthhold แต่ Rowan บอกเบา ๆ ว่าแขกแต่ละคนมักตีความมันต่างกัน",
+      "scenario": "คุณสามารถสวมเครื่องหมายตามพิธีหรือปรับรายละเอียดให้สะท้อนตัวเอง คุณจะทำอย่างไร?",
+      "transition_after": "ระหว่างพิธี แสงของหอส่งสัญญาณทางเหนือดับลง ทั้งที่ยังไม่ถึงเวลาปิดไฟ",
+      "option_tags": {"A": ["self_authored", "held_feeling"], "B": ["self_authored", "showed_feeling"], "C": ["honored_duty", "held_feeling"], "D": ["honored_duty", "showed_feeling"]}
+    },
+    {
+      "order": 5,
+      "question_id": "Q07",
+      "location": "Lower hearth",
+      "intensity": "medium",
+      "setup": "แม้ข่าวจากหอจะไม่ดี Hearthhold ยังต้องเปิดเตาและที่พักรับผู้เดินทาง Rowan พาคุณลงไปยังห้องซึ่งงานค้างอยู่ทุกด้าน",
+      "scenario": "ผู้ดูแลเริ่มหมดแรงและคุณมีเวลาช่วยจำกัด ก่อนประตูจะเปิดรับคนกลุ่มใหม่ คุณจะเข้าไปช่วยแบบไหน?",
+      "transition_after": "งานส่วนที่เหลือเดินหน้าต่อ และ Rowan เริ่มพูดกับคุณเหมือนคนที่อาจขอความช่วยเหลือได้อีกครั้ง",
+      "option_tags": {"A": ["acted_alone", "adapted_in_motion"], "B": ["gathered_people", "adapted_in_motion"], "C": ["acted_alone", "kept_structure"], "D": ["gathered_people", "kept_structure"]}
+    },
+    {
+      "order": 6,
+      "question_id": "Q06",
+      "location": "Supply hall",
+      "intensity": "medium",
+      "setup": "ทีมเตรียมที่พักแบ่งเป็นสองฝ่าย ฝ่ายหนึ่งอยากเปิดห้องเพิ่มทันที อีกฝ่ายกลัวว่าฟืนจะไม่พอถึงปลายฤดู",
+      "scenario": "ทั้งสองฝ่ายเริ่มพูดข้ามกันและไม่มีข้อเสนอใดชนะชัดเจน คุณจะเข้าไปช่วยอย่างไร?",
+      "transition_after": "Sable ซึ่งยืนฟังอยู่ข้างประตูขอคุยกับคุณตามลำพัง",
+      "option_tags": {"A": ["acted_alone", "supported_others"], "B": ["acted_alone", "stepped_forward"], "C": ["gathered_people", "supported_others"], "D": ["gathered_people", "stepped_forward"]}
+    },
+    {
+      "order": 7,
+      "question_id": "Q05",
+      "location": "Map archive",
+      "intensity": "medium",
+      "setup": "Sable บอกว่าหอทางเหนือไม่ได้ดับเอง มีคนเลื่อนเวรตรวจมาหลายสัปดาห์ แต่ขอให้คุณเก็บเรื่องนี้ไว้จนกว่าจะตรวจหลักฐานเสร็จ",
+      "scenario": "ต่อมาคุณพบว่าการปิดข่าวทำให้คณะเดินทางอีกกลุ่มกำลังใช้เส้นทางที่อาจไม่ปลอดภัย คุณจะทำอย่างไรกับความลับของ Sable?",
+      "transition_after": "ไม่ว่าคุณรักษาหรือเปิดเผยเรื่องนี้ ความสัมพันธ์ระหว่างคุณกับ Sable ก็ไม่เหมือนก่อน",
+      "option_tags": {"A": ["protected_principle", "self_authored"], "B": ["protected_principle", "honored_duty"], "C": ["protected_bond", "self_authored"], "D": ["protected_bond", "honored_duty"]}
+    },
+    {
+      "order": 8,
+      "question_id": "Q08",
+      "location": "North window",
+      "intensity": "medium",
+      "setup": "คืนนั้นข้อความส่วนตัวที่เดินทางมาพร้อมคุณถูกส่งคืน เจ้าของบ้านเดิมขอให้คุณกลับไปรับหน้าที่ซึ่งว่างลง ขณะเดียวกัน Keeper เสนอให้คุณร่วมคณะตรวจเส้นทางเมื่อพายุผ่าน",
+      "scenario": "คุณต้องเลือกระหว่างเส้นทางใหม่ที่อยากลองกับบทบาทมั่นคงซึ่งคนที่บ้านคาดหวัง คุณจะตัดสินใจอย่างไร?",
+      "transition_after": "คุณพับข้อความเก็บไว้โดยยังไม่รู้ว่าพรุ่งนี้จะเหลือเส้นทางให้เลือกกี่ทาง",
+      "option_tags": {"A": ["self_authored", "kept_known"], "B": ["self_authored", "took_risk"], "C": ["honored_duty", "kept_known"], "D": ["honored_duty", "took_risk"]}
+    },
+    {
+      "order": 9,
+      "question_id": "Q09",
+      "location": "Hearth infirmary",
+      "intensity": "high",
+      "setup": "ผู้เดินทางจากชายแดนมาถึงพร้อมอาการหนาวกัดเกินกว่าที่คลังยาคาดไว้ Rowan วางบัญชีจำนวนยาไว้ตรงหน้าคุณ",
+      "scenario": "ยาไม่พอสำหรับทุกคนและข้อมูลอาการเปลี่ยนทุกชั่วโมง หากคุณต้องเสนอวิธีแจกจ่าย คุณจะใช้หลักใด?",
+      "transition_after": "รายชื่อผู้รอรับยายาวขึ้น ขณะที่เสียงระฆังเรียก Keeper ไปยังห้องเจรจา",
+      "option_tags": {"A": ["protected_principle", "adapted_in_motion"], "B": ["protected_principle", "kept_structure"], "C": ["protected_bond", "adapted_in_motion"], "D": ["protected_bond", "kept_structure"]}
+    },
+    {
+      "order": 10,
+      "question_id": "Q10",
+      "location": "Passage chamber",
+      "intensity": "high",
+      "setup": "คืนก่อนเจรจา ประตูห้องของ Keeper เปิดค้าง แผนที่หายไปหนึ่งฉบับ และไม่มีใครพบเจ้าของห้อง",
+      "scenario": "ตัวแทนแต่ละฝ่ายกำลังรอว่าใครจะขยับก่อน คุณจะตอบสนองต่อช่องว่างนี้อย่างไร?",
+      "transition_after": "ก่อนจะหาคำตอบได้ ข่าวลือก็แพร่ไปทั่ว Hearthhold ว่า Keeper อาจหนีไปพร้อมข้อมูลเส้นทาง",
+      "option_tags": {"A": ["supported_others", "trusted_instinct"], "B": ["supported_others", "checked_evidence"], "C": ["stepped_forward", "trusted_instinct"], "D": ["stepped_forward", "checked_evidence"]}
+    },
+    {
+      "order": 11,
+      "question_id": "Q11",
+      "location": "Watch room",
+      "intensity": "high",
+      "setup": "รอยตราบนแผนที่ที่หายไปตรงกับกล่องเครื่องมือของ Sable หลายคนจึงกล่าวหาว่าเขาส่งข้อมูลออกนอกกำแพง",
+      "scenario": "หลักฐานชี้ไปยังคนที่คุณเริ่มไว้ใจ แต่เรื่องเล่ายังมีช่องโหว่ คุณจะปฏิบัติต่อ Sable อย่างไร?",
+      "transition_after": "Sable ยอมส่งกุญแจคลังแผนที่ให้ แต่ไม่ขอให้คุณเชื่อใจอีก",
+      "option_tags": {"A": ["protected_principle", "trusted_instinct"], "B": ["protected_principle", "checked_evidence"], "C": ["protected_bond", "trusted_instinct"], "D": ["protected_bond", "checked_evidence"]}
+    },
+    {
+      "order": 12,
+      "question_id": "Q12",
+      "location": "Flooded passage",
+      "intensity": "high",
+      "setup": "เสียงน้ำแข็งแตกดังมาจากหุบเขา เส้นทางอพยพที่เตรียมไว้กำลังถูกน้ำท่วม แต่ Sable ชี้ให้เห็นทางเก่าซึ่งยังสำรวจไม่ครบ",
+      "scenario": "คุณต้องเสนอเส้นทางก่อนระดับน้ำสูงขึ้น จะรักษาทางเดิมหรือทดลองทางใหม่อย่างไร?",
+      "transition_after": "การตัดสินใจถูกส่งต่อไปยังทีมอพยพ ก่อนคุณจะกลับถึงห้องประชุม เสียงโต้เถียงก็ดังออกมาถึงทางเดิน",
+      "option_tags": {"A": ["kept_known", "adapted_in_motion"], "B": ["kept_known", "kept_structure"], "C": ["took_risk", "adapted_in_motion"], "D": ["took_risk", "kept_structure"]}
+    },
+    {
+      "order": 13,
+      "question_id": "Q13",
+      "location": "Covenant hall",
+      "intensity": "high",
+      "setup": "Elder Vael ซึ่งเคยรับรองสิทธิให้คุณพูด กลับประกาศต่อที่ประชุมว่าคำแนะนำของคนนอกไม่มีผลผูกพัน ทำให้แผนที่คุณช่วยสร้างถูกพักทันที",
+      "scenario": "ข้อตกลงถูกปฏิเสธต่อหน้าทุกคนและชื่อเสียงของคุณเสียหาย คุณจะตอบสนองอย่างไร?",
+      "transition_after": "คำตอบของคุณเปลี่ยนบรรยากาศในห้อง แต่ก่อนการประชุมจะเดินต่อ เสียงเคาะประตูจากด้านนอกก็ดังขึ้น",
+      "option_tags": {"A": ["held_feeling", "supported_others"], "B": ["held_feeling", "stepped_forward"], "C": ["showed_feeling", "supported_others"], "D": ["showed_feeling", "stepped_forward"]}
+    },
+    {
+      "order": 14,
+      "question_id": "Q14",
+      "location": "Outer gate",
+      "intensity": "high",
+      "setup": "ครอบครัวจากชายแดนยืนอยู่หน้าประตูพร้อมหิมะที่ตามหลังมา กฎเก่าห้าม Hearthhold รับคนเกินจำนวนเมื่อคลังลดต่ำกว่าเส้นฤดูหนาว",
+      "scenario": "หากไม่เปิดประตู คนกลุ่มนี้อาจไม่รอด แต่การรับพวกเขาขัดกับกฎซึ่งใช้กับทุกคน คุณจะเสนออะไร?",
+      "transition_after": "ขณะที่ผู้ใหญ่ยังตัดสินใจ Rowan พบว่ามีเด็กคนหนึ่งหายไปจากกลุ่มหน้าประตู",
+      "option_tags": {"A": ["protected_principle", "self_authored"], "B": ["protected_principle", "honored_duty"], "C": ["protected_bond", "self_authored"], "D": ["protected_bond", "honored_duty"]}
+    },
+    {
+      "order": 15,
+      "question_id": "Q15",
+      "location": "Snowfield beyond the gate",
+      "intensity": "peak",
+      "setup": "รอยเท้าเล็ก ๆ หายเข้าไปในแนวสน พายุรอบใหม่กำลังปิดท้องฟ้าและทางลัดบางส่วนยังไม่มีใครตรวจ",
+      "scenario": "มีเวลาไม่มากก่อนรอยเท้าจะถูกกลบ คุณจะจัดการค้นหาอย่างไร?",
+      "transition_after": "เสียงตอบรับดังขึ้นจากหลังแนวสน เด็กถูกพบพร้อมกระบอกข้อความของ Keeper ซึ่งตกอยู่ข้าง beacon เก่า",
+      "option_tags": {"A": ["kept_known", "acted_alone"], "B": ["kept_known", "gathered_people"], "C": ["took_risk", "acted_alone"], "D": ["took_risk", "gathered_people"]}
+    },
+    {
+      "order": 16,
+      "question_id": "Q16",
+      "location": "Beacon room",
+      "intensity": "high",
+      "setup": "ข้อความของ Keeper ระบุว่าหอส่งสัญญาณไม่ได้ถูกทำลายโดยคนคนเดียว หลายชุมชนละเว้นการดูแลเส้นทางร่วมกันมานาน แต่หมึกบางส่วนยังอ่านไม่ชัด",
+      "scenario": "ข้อมูลนี้อาจเปลี่ยนทิศทางของ Court แต่ยังยืนยันไม่ได้ทั้งหมดและอาจทำให้ผู้คนแตกตื่น คุณจะจัดการมันอย่างไร?",
+      "transition_after": "เมื่อคุณตัดสินใจว่าจะถือความจริงนี้อย่างไร ระฆัง Judgment ก็ดังขึ้นเป็นครั้งแรกนับจากพายุเริ่ม",
+      "option_tags": {"A": ["held_feeling", "trusted_instinct"], "B": ["held_feeling", "checked_evidence"], "C": ["showed_feeling", "trusted_instinct"], "D": ["showed_feeling", "checked_evidence"]}
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "model_version": "0.3",
+  "status": "review",
+  "dimensions": [
+    {"id": "AFF", "negative": "Independent", "positive": "Collaborative"},
+    {"id": "AGY", "negative": "Accommodating", "positive": "Directive"},
+    {"id": "SEN", "negative": "Intuitive", "positive": "Analytical"},
+    {"id": "STR", "negative": "Responsive", "positive": "Structuring"},
+    {"id": "EXP", "negative": "Guarded", "positive": "Expressive"},
+    {"id": "RSK", "negative": "Preserving", "positive": "Exploring"},
+    {"id": "DCL", "negative": "Impartial", "positive": "Relational"},
+    {"id": "ALG", "negative": "Self-authored", "positive": "Duty-bound"}
+  ],
+  "kingdom_fingerprints": {
+    "Taiga":      [-0.5,  0.3,  0.6,  0.7, -0.7, -0.5, -0.2,  0.3],
+    "Arctic":     [ 0.4, -0.1,  0.4,  0.8, -0.7, -0.7, -0.1,  0.9],
+    "Savanna":    [ 0.5,  0.8, -0.1,  0.4,  0.8,  0.3, -0.1,  0.2],
+    "Rainforest": [ 0.8, -0.1, -0.3, -0.7,  0.4,  0.5,  0.8,  0.3],
+    "Desert":     [-0.3,  0.2,  0.7,  0.8, -0.5, -0.7, -0.6,  0.2],
+    "Ocean":      [ 0.2, -0.2, -0.4, -0.9,  0.1,  0.8,  0.2, -0.7],
+    "Alpine":     [-0.4,  0.6,  0.7,  0.6, -0.4,  0.4, -0.7, -0.1],
+    "Wetland":    [ 0.4,  0.0,  0.5,  0.2, -0.6, -0.2,  0.6,  0.7]
+  },
+  "animals": {
+    "Grey Wolf": {
+      "kingdom": "Taiga",
+      "vector": [-0.2, 0.7, 0.6, 0.8, -0.6, -0.1, -0.2, 0.5],
+      "design_note": "Strategic, directive and structuring; selective belonging with pack duty."
+    },
+    "Reindeer": {
+      "kingdom": "Taiga",
+      "vector": [0.8, -0.3, 0.1, 0.3, 0.1, -0.3, 0.7, 0.8],
+      "design_note": "Collaborative and duty-bound; preserves the group through relational navigation."
+    },
+    "Lynx": {
+      "kingdom": "Taiga",
+      "vector": [-0.9, 0.0, 0.5, 0.1, -0.9, -0.1, -0.1, -0.7],
+      "design_note": "Highly independent, guarded and self-authored; observes without needing control."
+    },
+    "Bear": {
+      "kingdom": "Taiga",
+      "vector": [-0.3, 0.3, 0.0, 0.6, -0.5, -0.8, 0.6, 0.6],
+      "design_note": "Protective and preserving; structures safety around particular bonds and duties."
+    },
+    "Moose": {
+      "kingdom": "Taiga",
+      "vector": [0.0, 0.4, -0.2, 0.7, -0.3, -0.8, -0.5, 0.1],
+      "design_note": "Boundary-oriented and imposing; preserves territory through direct, impersonal order."
+    },
+    "Wolverine": {
+      "kingdom": "Taiga",
+      "vector": [-0.7, 0.8, -0.4, -0.3, -0.1, 0.7, 0.1, -0.6],
+      "design_note": "Defiant frontier actor; directive but responsive, exploratory and resistant to inherited duty."
+    }
+  },
+  "validation_thresholds": {
+    "minimum_animal_distance": 0.35,
+    "minimum_dimension_span": 0.80,
+    "minimum_kingdom_distance": 0.30,
+    "minimum_recovery_accuracy": 0.90,
+    "recovery_noise_sigma": 0.25,
+    "recovery_samples_per_animal": 5000
+  }
+}
