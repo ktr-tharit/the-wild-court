@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-async function render() {
+async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
-  return worker.fetch(new Request("http://localhost/", { headers: { accept: "text/html" } }), { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } }, { waitUntil() {}, passThroughOnException() {} });
+  return worker.fetch(new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }), { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } }, { waitUntil() {}, passThroughOnException() {} });
 }
 
 test("renders The Wild Court product shell", async () => {
@@ -16,4 +16,23 @@ test("renders The Wild Court product shell", async () => {
   assert.match(html, /Winter remembers/);
   assert.match(html, /Cross the threshold/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Building your site/);
+});
+
+test("renders the Desert realm visual review", async () => {
+  const response = await render("/visual-review/desert-realm");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /The Sunless Crown/);
+  assert.match(html, /\/biomes\/desert\/realm-v1\.jpg/);
+  assert.match(html, /\/sigils\/desert\.svg/);
+  assert.match(html, /Want less\. Waste nothing\. Owe carefully\./);
+});
+
+test("renders the Desert animal visual review", async () => {
+  const response = await render("/visual-review/desert-animals");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  for (const animal of ["Fennec Fox", "Caracal", "Cobra", "Camel", "Scorpion", "Oryx"]) assert.match(html, new RegExp(animal));
+  assert.match(html, /\/animals\/desert\/fennec-fox-v1\.jpg/);
+  assert.match(html, /1122×1402/);
 });

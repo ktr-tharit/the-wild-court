@@ -90,4 +90,4 @@ Negative direction ต้องย้ำร่วมกันว่า: no photo
 
 ## Expansion rule
 
-เมื่อเพิ่ม biome ใหม่ ให้คงระดับ abstraction, composition และ narrative density เดิม แต่เปลี่ยน material language ตามระบบนิเวศ เช่น Ocean อาจใช้ translucent wash และ shell inlay ส่วน Desert อาจใช้ dry brush และ sun-bleached textile โดยห้ามเปลี่ยนจนดูเหมือนคนละเกม
+เมื่อเพิ่ม biome ใหม่ ให้คงระดับ abstraction, composition และ narrative density เดิม แต่เปลี่ยน material language ตามระบบนิเวศ เช่น Ocean อาจใช้ translucent wash และ shell inlay ส่วน Desert ใช้ dry brush, mineral pigment และ sun-bleached textile โดยห้ามเปลี่ยนจนดูเหมือนคนละเกม ดูระบบ Desert ที่ [The Measured Sun](desert-visual-direction.md)

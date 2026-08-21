@@ -60,15 +60,28 @@
 - [x] ตรวจ per-animal regression และ critical collision clusters
 - [ ] ตรวจ construct coverage กับ remaining animals หลัง anchor sandbox ผ่าน
 - [ ] ทำ Taiga + Desert full cross-biome slice
+- [x] ออกแบบ Desert Animal Bible architecture และ pairwise distinctions
+- [x] approve Desert identity fantasy, titles และ ambiguity clusters
+- [x] เขียน Desert–Taiga boundary bank ครบ 6 Desert anchors
+- [x] กระจาย Desert motive probes อย่างน้อย 3 domains
+- [x] แตก Desert architecture เป็น Animal Bibles รายตัว 6 ไฟล์
+- [x] กำหนด provisional Desert vectors และทดสอบร่วมกับ Taiga
+- [x] implement weighted evidence + confidence-aware distance + animal softmax
+- [x] normalize realm/animal priors และ sum animal probabilities เป็น realm probability
+- [x] เพิ่ม boundary item คู่ที่สองให้ Taiga–Desert collision clusters
+- [x] implement expected-information-gain selector พร้อม domain diversity
+- [x] ผ่าน paired regression gate และ adaptive budget ไม่เกิน 2 ข้อ
 - [ ] เขียน motive probes อย่างน้อย 3 domains และ residual boundary questions
-- [ ] รวม weighted evidence เข้า Scoring Model v0.4 หลัง question-level simulation
+- [x] รวม weighted evidence เข้า Scoring Model v0.4 sandbox
+- [x] promote Scoring Model v0.4 เข้า TypeScript scoring engine พร้อม Python parity test
+- [x] เชื่อม information-gain selector เข้า playable session flow
 
 ## Later
 
 - [ ] ทำ kingdom vectors ครบ 8 แห่ง
 - [ ] ขยาย animal profiles ไป biome อื่น
 - [x] ล็อก central story premise สำหรับ Taiga prototype
-- [ ] สร้าง adaptive question selection
+- [x] สร้าง adaptive question selection
 - [x] ออกแบบ result experience architecture v0.1
 - [ ] วาง telemetry และ calibration plan
 
@@ -97,6 +110,12 @@
 - [x] เชื่อม core questions ครบ 16 ข้อกับ TypeScript scoring runtime
 - [x] เชื่อม Judgment และ animal result ทั้ง 6 ตัว
 - [x] สร้าง canonical web bundle จาก Python source of truth
+- [x] export two-biome scoring contract: 12 animals + boundary bank 16 ข้อ
+- [x] port weighted softmax, realm aggregation และ information gain เข้า TypeScript
+- [x] เปลี่ยน playable flow จาก Taiga-only evaluation เป็น Taiga–Desert evaluation
+- [x] เชื่อม Desert result manifest และ visual assets
+- [x] ออกแบบและเชื่อม Desert Court sigil เข้ากับ realm reveal
+- [x] ผ่าน automated mobile end-to-end QA สำหรับ Taiga และ Desert ที่ `390×844`
 - [x] เพิ่ม back, restart และ local save/resume
 - [ ] accessibility และ mobile playtest
 
@@ -122,6 +141,14 @@
 - [x] ทดลอง crop ภาพใน desktop และ mobile result reveal
 - [ ] target-user review ด้าน recognition, desirability และ tone
 - [ ] ล็อก production art direction หลังทดสอบ biome ที่สอง
+- [x] ออกแบบ Desert visual direction `The Measured Sun` ระดับ v0.1
+- [x] ใช้ Desert visual direction สร้าง concept set v1 ครบ realm + animals
+- [x] สร้าง Desert realm image v1 และ web asset ขนาดเดียวกับ Taiga
+- [x] approve Desert realm image หลัง desktop/mobile result-layout review
+- [x] สร้าง Caracal/Oryx calibration pair
+- [x] สร้าง Desert animal portraits ที่เหลือครบ 6 ตัว
+- [x] normalize Desert master/web portraits เป็น `1122×1402` / `1120×1400`
+- [x] approve Desert animal portraits หลัง result-layout crop QA
 
 ## Parking lot
 
