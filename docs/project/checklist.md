@@ -1,7 +1,7 @@
 # Current Checklist
 
 **Status:** Active  
-**Last updated:** 2026-08-21
+**Last updated:** 2026-08-22
 
 เอกสารนี้คือหน้าหลักสำหรับเริ่มและจบทุก design session
 
@@ -42,6 +42,26 @@
 - [x] เขียน adaptive tie-breakers 6 ข้อสำหรับ Wolf/Bear/Moose
 - [x] จำลอง adaptive question cost และ accuracy lift
 - [ ] target-user review Animal Bible และ result copy
+
+## Realm and roster architecture
+
+- [x] แยก player-facing realm identity ออกจาก politics และ governance
+- [x] สร้าง Realm Identity Matrix v0.2 ครบ 8 realms
+- [x] เขียน belonging currency, gift, shadow และ public share line ครบทุก realm
+- [x] เขียน anti-overlap statements สำหรับ realm ที่ใกล้กัน
+- [x] สร้าง Animal Admission Gate v0.1
+- [x] audit draft roster ทุกตัวเป็น `Approve / Revise / Reserve / Cut`
+- [x] เขียน qualitative `embody / resist realm` สำหรับ proposed core roster 48 slots
+- [x] incorporate desirability feedback และปรับ roster เป็น v0.3
+- [x] ทำ qualitative construct audit ด้วย 16 anchors จากทั้ง 8 realms
+- [x] ระบุ candidate motive facets และ critical cross-realm collisions
+- [x] สร้าง Question Evidence Schema v0.2 ที่แยก construct, value และ weight
+- [x] ทำ numeric sandbox 16 anchors แบบ core-only เทียบ core+facet
+- [x] ตรวจ per-animal regression และ critical collision clusters
+- [ ] ตรวจ construct coverage กับ remaining animals หลัง anchor sandbox ผ่าน
+- [ ] ทำ Taiga + Desert full cross-biome slice
+- [ ] เขียน motive probes อย่างน้อย 3 domains และ residual boundary questions
+- [ ] รวม weighted evidence เข้า Scoring Model v0.4 หลัง question-level simulation
 
 ## Later
 

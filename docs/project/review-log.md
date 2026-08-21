@@ -137,3 +137,51 @@
 - เพิ่ม restrained entry motion, one-shot response ring และรองรับ reduced motion
 - visual asset review และ production build ผ่าน
 - รอบถัดไป: ออกแบบ sigil ของ biome ที่สองพร้อมกับ vertical slice นั้น ไม่ต้องสร้างครบทุก biome ล่วงหน้า
+
+## 2026-08-22 — Realm Identity Matrix v0.2
+
+- แยก emotional worldview ที่ผู้เล่นได้รับออกจาก politics ที่ใช้สร้าง story pressure
+- ล็อก core fantasy, belonging currency, gift, hardened shadow และ public share line ครบทั้ง 8 realms
+- เพิ่ม anti-overlap ระหว่าง Taiga/Desert/Alpine, Arctic/Wetland, Rainforest/Ocean และคู่ใกล้เคียงอื่น
+- ยืนยันว่า realm ไม่ map หนึ่งต่อหนึ่งกับ 8 dimensions และต้อง derive จาก animal evidence
+- เพิ่ม shareability gate ระดับ realm ก่อนเริ่มสร้าง roster 40–50 ตัว
+- รอบถัดไป: สร้าง Animal Admission Gate แล้ว audit roster เป็น `Keep / Revise / Cut / Candidate`
+
+## 2026-08-22 — Animal Admission Gate and Roster Audit v0.2
+
+- สร้าง admission gate 7 ด้าน: desire, identity, visual, ecology, distinction, realm dialectic และ prestige parity
+- audit draft roster ทุกตัวและเสนอ core portfolio สูงสุด 48 slots โดยไม่บังคับเติม quota
+- เก็บ Taiga และ Savanna เดิม, sharpen species ใน Arctic/Ocean/Alpine และ rebuild Rainforest/Wetland บางส่วน
+- ตัด Panther ซึ่งซ้ำ Jaguar, Alligator ซึ่งซ้ำ Crocodile และ generic Frog result
+- เพิ่ม embody/resist relationship และ qualitative trait direction ให้ทุก proposed animal
+- ระบุ cross-realm collision risks 10 clusters สำหรับ construct audit รอบถัดไป
+- รอบถัดไป: review emotional desirability ของ replacements แล้วทำ construct coverage โดยยังไม่ใส่ numeric vectors
+
+## 2026-08-22 — Roster Desirability Revision v0.3
+
+- เพิ่ม beauty prestige ใน Rainforest ด้วย Golden Lion Tamarin และ Blue Morpho แทน Orangutan/Tapir
+- เพิ่มความหลากหลายด้าน scale และ silhouette ใน Ocean ด้วย Green Sea Turtle แทน Whale และ Great White แทน Hammerhead
+- ลด bird count ของ Alpine ด้วย Red Panda แทน Himalayan Monal
+- เปลี่ยน Axolotl เป็น Giant River Otter เพื่อให้ Wetland มี relational result ที่ active และทรงพลังขึ้น
+- ecology spot-check ผ่านสำหรับ candidate ใหม่ทั้งหมด แต่ Red Panda ถูกระบุว่าเป็น high-elevation mountain forest ไม่ใช่ above-tree-line alpine
+- รอบถัดไป: review working titles และ nearest-pair desirability ก่อน construct coverage
+
+## 2026-08-22 — Cross-Biome Construct Audit v0.1
+
+- เลือก sample ทั้ง 8 realms ก่อนทำ Taiga/Desert แบบ full เพื่อหลีกเลี่ยง architecture overfit
+- audit 16 anchors แบบ embody/resist พร้อม desire, fear, relationship strategy, qualitative traits และ question seeds
+- ยืนยันว่า 8 core dimensions อธิบาย behavioral style ได้ดีและยังไม่ควรถูกตัด
+- พบ motive gaps 5 กลุ่ม: Recognition, Mastery, Reciprocity, Continuity และ Restraint
+- พบ collision สำคัญที่ core traits อย่างเดียวอาจแยกไม่พอ: Wolf/Eagle, Polar Bear/Camel/Crocodile, Hyena/Tamarin/Giant Otter และ Arctic Fox/Fennec
+- รอบถัดไป: Question Evidence Schema v0.2 และ numeric sandbox แบบ core-only เทียบ core+facet
+
+## 2026-08-22 — Question Evidence Schema + Numeric Sandbox v0.1
+
+- แยก `construct`, `value`, `weight` และ `role` ใน evidence contract v0.2
+- กำหนด motive เป็น ordinal `0 / 0.5 / 1` และ weight tier คงที่ แทน decimal tuning
+- simulate 16 anchors × 5,000 observations ด้วย seed คงที่
+- overall recovery เพิ่ม 73.90% → 81.85%; critical-cluster recovery เพิ่ม 87.41% → 90.72%
+- animal ทั้ง 16 ตัวดีขึ้นโดยไม่มี per-animal regression
+- residual collisions หลักคือ Otter/Orca และ Jaguar/Wolverine
+- ยืนยัน 8 core dimensions; motive facets ยังเป็น probes ไม่ใช่ production axes
+- รอบถัดไป: Taiga + Desert full cross-biome slice พร้อม motive questions และ boundary cases

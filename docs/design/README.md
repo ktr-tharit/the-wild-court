@@ -6,9 +6,13 @@
 |---|---|---|
 | Psychological traits | Candidate model | [Traits](traits.md) |
 | Animal archetypes | Schema ready; profiles incomplete | [Animals](animals/README.md) |
+| Animal portfolio | Accepted for construct audit v0.3 | [Admission Gate](animal-admission-gate.md) · [Roster Audit](animal-roster-audit-v0.3.md) |
 | Scoring | Architecture accepted | [Scoring](scoring.md) |
 | Narrative quiz flow | Concept accepted | [Quiz Flow](quiz-flow.md) |
 | Result experience | Playable deep result v0.2 | [Result Experience Bible](result-experience.md) · [Wireframe](result-wireframe.md) |
+| Realm identities | Accepted for construct audit v0.2 | [Realm Identity Matrix](realm-identity-matrix.md) |
+| Cross-biome constructs | Review v0.1 | [16-Anchor Audit](cross-biome-construct-audit-v0.1.md) |
+| Question evidence | Sandbox contract v0.2 | [Evidence Schema](question-evidence-schema-v0.2.md) |
 | Visual theme | Prototype v0.1 | [Boreal Ceremonial](theme-system.md) |
 | Animal visuals | Concept review v0.1 | [Boreal Tapestry](animal-visual-system.md) |
 | Court symbols | Prototype accepted v0.1 | [Court Sigils](court-sigils.md) |
@@ -33,6 +37,7 @@
 - [Vector Validation v0.3](../reports/vector-validation-v0.3.md) — Taiga animal separation, simulated recovery และ kingdom collision
 - [Question Simulation v0.1](../reports/question-simulation-v0.1.md) — 16 narrative questions, trait coverage และ answer-to-animal recovery
 - [Adaptive Simulation v0.1](../reports/adaptive-simulation-v0.1.md) — pair-specific Judgment questions, accuracy lift และ question cost
+- [Cross-Biome Numeric Sandbox v0.1](../reports/cross-biome-numeric-sandbox-v0.1.md) — 16 anchors, core-only vs core+facet ablation และ residual collisions
 
 ## Dependency order
 

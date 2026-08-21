@@ -24,9 +24,9 @@ Ocean ไม่เชื่อใน rigid borders เพราะกระแ�
 ## Draft court roles
 
 - Orca — dynastic clans / war fleets
-- Whale — elder houses / memory keepers
+- Green Sea Turtle — navigators / keepers of returning routes
 - Octopus — intelligence / diplomacy / espionage
-- Shark — independent military powers
+- Great White — independent powers / open-water sovereignty
 - Dolphin — ambassadors / traders
 - Manta — spiritual orders
 
@@ -41,4 +41,3 @@ Ocean ไม่เชื่อใน rigid borders เพราะกระแ�
 - High Court เคลื่อนที่หรือมีนครหลวงหรือไม่
 - authority เปลี่ยนตาม currents อย่างเป็นทางการแค่ไหน
 - Ocean law บังคับใช้กับ independent powers อย่างไร
-

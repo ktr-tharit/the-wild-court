@@ -24,10 +24,11 @@ Stone, monastery, snow line, flags, bells และ eagle standards สังค
 ## Draft court roles
 
 - Snow Leopard — elite solitary order
-- Eagle — high council / vision / command
+- Golden Eagle — high council / vision / command
 - Ibex — climbers / civil administration
 - Yak — infrastructure / working guilds
-- Lammergeier — death rites / historians
+- Bearded Vulture — death rites / historians
+- Red Panda — restorative orders / quiet craft houses at the forest line
 
 ## Relations
 
@@ -40,4 +41,3 @@ Stone, monastery, snow line, flags, bells และ eagle standards สังค
 - trials ใครออกแบบและใครตรวจสอบ
 - ผู้พิการหรือผู้ที่ล้มเหลวจากโชคร้ายมีสถานะอย่างไร
 - First Among the Proven ถูกถอดถอนได้ด้วยวิธีใด
-

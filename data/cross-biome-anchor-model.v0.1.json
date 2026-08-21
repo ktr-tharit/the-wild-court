@@ -1,0 +1,53 @@
+{
+  "model_version": "0.1",
+  "status": "sandbox",
+  "ordinal_mapping": {
+    "strong_negative": -0.8,
+    "negative": -0.4,
+    "contextual": 0.0,
+    "positive": 0.4,
+    "strong_positive": 0.8,
+    "motive_absent": 0.0,
+    "motive_supporting": 0.5,
+    "motive_defining": 1.0
+  },
+  "core_dimensions": ["AFF", "AGY", "SEN", "STR", "EXP", "RSK", "DCL", "ALG"],
+  "motive_facets": ["REC", "MAS", "RCP", "CON", "RST"],
+  "facet_names": {
+    "REC": "Recognition",
+    "MAS": "Mastery",
+    "RCP": "Reciprocity",
+    "CON": "Continuity",
+    "RST": "Restraint"
+  },
+  "facet_group_weight": 0.5,
+  "animals": {
+    "Grey Wolf": {"realm": "Taiga", "role": "embody", "core": [-0.4, 0.8, 0.4, 0.8, -0.4, 0.0, -0.4, 0.4], "facets": [0.0, 0.5, 0.0, 0.5, 0.0]},
+    "Wolverine": {"realm": "Taiga", "role": "resist", "core": [-0.8, 0.8, -0.4, -0.4, 0.0, 0.8, 0.0, -0.8], "facets": [0.0, 0.0, 0.0, 0.0, 0.0]},
+    "Polar Bear": {"realm": "Arctic", "role": "embody", "core": [-0.4, 0.4, 0.0, 0.4, -0.4, -0.8, 0.4, 0.8], "facets": [0.0, 0.0, 0.0, 1.0, 1.0]},
+    "Arctic Fox": {"realm": "Arctic", "role": "resist", "core": [0.0, 0.0, 0.4, -0.8, -0.8, 0.0, 0.0, 0.4], "facets": [0.0, 0.0, 0.0, 0.5, 0.5]},
+    "Lion": {"realm": "Savanna", "role": "embody", "core": [0.4, 0.8, 0.0, 0.4, 0.8, 0.4, 0.0, 0.4], "facets": [1.0, 0.5, 0.0, 0.0, 0.0]},
+    "Hyena": {"realm": "Savanna", "role": "resist", "core": [0.8, 0.4, 0.4, -0.4, 0.4, 0.4, 0.4, -0.4], "facets": [0.5, 0.0, 0.5, 0.0, 0.0]},
+    "Golden Lion Tamarin": {"realm": "Rainforest", "role": "embody", "core": [0.8, 0.0, 0.0, -0.4, 0.4, 0.0, 0.8, 0.4], "facets": [0.0, 0.0, 1.0, 0.0, 0.0]},
+    "Jaguar": {"realm": "Rainforest", "role": "resist", "core": [-0.8, 0.8, 0.0, -0.4, -0.4, 0.4, -0.4, -0.4], "facets": [0.0, 0.5, 0.0, 0.0, 0.5]},
+    "Camel": {"realm": "Desert", "role": "embody", "core": [0.4, 0.0, 0.4, 0.8, -0.4, -0.8, 0.0, 0.4], "facets": [0.0, 0.5, 0.0, 0.5, 1.0]},
+    "Fennec Fox": {"realm": "Desert", "role": "resist", "core": [0.4, 0.0, -0.4, -0.8, 0.0, 0.4, 0.4, -0.4], "facets": [0.0, 0.0, 0.0, 0.0, 0.0]},
+    "Octopus": {"realm": "Ocean", "role": "embody", "core": [-0.8, 0.4, 0.8, -0.8, -0.4, 0.8, 0.0, -0.8], "facets": [0.0, 0.0, 0.0, 0.0, 0.0]},
+    "Orca": {"realm": "Ocean", "role": "resist", "core": [0.8, 0.8, 0.4, -0.4, 0.4, 0.4, 0.4, 0.8], "facets": [0.0, 0.0, 1.0, 0.5, 0.0]},
+    "Golden Eagle": {"realm": "Alpine", "role": "embody", "core": [-0.4, 0.8, 0.8, 0.4, 0.4, 0.4, -0.4, 0.4], "facets": [0.5, 1.0, 0.0, 0.0, 0.0]},
+    "Red Panda": {"realm": "Alpine", "role": "resist", "core": [-0.4, -0.4, 0.0, 0.4, -0.4, -0.8, 0.0, -0.4], "facets": [0.0, 0.5, 0.0, 0.0, 1.0]},
+    "Crocodile": {"realm": "Wetland", "role": "embody", "core": [-0.4, 0.4, -0.4, 0.8, -0.8, -0.8, -0.4, 0.8], "facets": [0.0, 0.0, 0.0, 1.0, 0.5]},
+    "Giant River Otter": {"realm": "Wetland", "role": "resist", "core": [0.8, 0.8, 0.4, 0.4, 0.8, 0.4, 0.4, 0.4], "facets": [0.0, 0.0, 1.0, 0.5, 0.0]}
+  },
+  "critical_clusters": [
+    ["Grey Wolf", "Golden Eagle"],
+    ["Polar Bear", "Camel", "Crocodile"],
+    ["Hyena", "Golden Lion Tamarin", "Giant River Otter"],
+    ["Arctic Fox", "Fennec Fox"]
+  ],
+  "simulation": {
+    "seed": 20260824,
+    "samples_per_animal": 5000,
+    "observation_noise_sigma": 0.45
+  }
+}
