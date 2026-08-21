@@ -58,46 +58,49 @@ P(realm R) = Σ P(j | θ), j ∈ R
 
 - 12 animals: Taiga 6 + Desert 6
 - 16 core questions
-- 6 Desert–Taiga boundary questions
+- Boundary Bank v0.2: 16 Desert–Taiga questions across independent domains
 - 3,000 stochastic playthroughs ต่อ animal ต่อ mode
 - 36,000 playthroughs ต่อ mode
-- fixed seed `20260825`
+- paired seed `20260825`: core responses ของ animal/playthrough เดียวกันเหมือนกันข้ามทุก mode
 - response choice ใช้ weighted option-distance softmax ที่ temperature `0.7`
 - animal ranking ใช้ softmax temperature `0.2`
+- information-gain selector เลือกไม่เกิน 2 items และไม่ซ้ำ domain
 
 ## Ablation results
 
 | Mode | Question policy | Facets scored | Animal accuracy | Realm accuracy | Mean true-animal probability | Avg extra questions |
 |---|---|---:|---:|---:|---:|---:|
-| `core_softmax` | core 16 | no | 76.41% | 79.56% | 0.296 | 0.00 |
-| `weighted_boundaries_core` | ask all 22 | no | 79.99% | 80.26% | 0.279 | 0.00 |
-| `weighted_full` | ask all 22 | yes | 78.36% | 79.61% | 0.260 | 0.00 |
-| `adaptive_weighted_core` | core + matching boundary | no | 76.99% | 80.11% | 0.295 | 0.44 |
-| `adaptive_weighted_full` | core + matching boundary | yes | 76.95% | 80.13% | 0.294 | 0.44 |
+| `core_softmax` | core 16 | no | 76.83% | 80.02% | 0.295 | 0.00 |
+| `weighted_boundaries_core` | ask all 32 | no | 82.47% | 80.72% | 0.254 | 0.00 |
+| `weighted_full` | ask all 32 | yes | 78.86% | 80.45% | 0.232 | 0.00 |
+| `adaptive_weighted_core` | exact pair matching | no | 77.64% | 80.53% | 0.293 | 1.18 |
+| `adaptive_weighted_full` | exact pair matching | yes | 77.59% | 80.79% | 0.290 | 1.18 |
+| `information_gain_core` | entropy reduction + domain diversity | no | 78.85% | 81.01% | 0.292 | 2.00 |
+| `information_gain_full` | entropy reduction + domain diversity | yes | 78.73% | 80.58% | 0.289 | 2.00 |
 
 ## Findings
 
-### Weighted questions work, but asking every boundary is not safe
+### Weighted questions work, but asking every boundary is not the product policy
 
-การถามทั้ง 6 boundary questions เพิ่ม overall animal accuracy `+3.58 pp` แต่ Scorpion ลดจาก `71.80%` เป็น `65.07%` เพราะผู้เล่นทุกตัวถูกบังคับตอบ items ที่ไม่ได้ออกแบบสำหรับ candidate pair ของตน
+การถามทั้ง 16 boundary questions เพิ่ม animal accuracy `+5.64 pp` แต่ใช้ 32 questions กับผู้เล่นทุกคน, mean true-animal probability ลด และไม่ตอบโจทย์ pacing ของ identity adventure
 
-ดังนั้นไม่ใช้ `weighted_boundaries_core` เป็น production policy แม้ aggregate score สูงสุด
+ดังนั้นใช้ mode นี้เป็น upper-bound diagnostic ไม่ใช่ production policy แม้ aggregate top-1 สูงสุด
 
-### Adaptive weighted softmax is the current candidate
+### Information gain is the current candidate
 
-`adaptive_weighted_core`:
+`information_gain_core` คำนวณ expected entropy reduction จาก current animal softmax posterior และ predicted answer likelihood ของแต่ละ item:
 
-- เพิ่ม animal accuracy `+0.58 pp`
-- เพิ่ม realm accuracy `+0.55 pp`
-- ใช้คำถามเพิ่มเฉลี่ยเพียง `0.44` ข้อ
-- ลด Lynx → Caracal confusion จาก `22.13%` เป็น `20.07%`
-- ไม่บังคับผู้เล่นตอบ boundary questions ที่ไม่ตรงกับ top candidate pair
+- เพิ่ม animal accuracy `+2.02 pp`
+- เพิ่ม realm accuracy `+0.99 pp`
+- ใช้ adaptive budget 2 ข้อ
+- สัตว์ 11 ตัวดีขึ้น; Reindeer ลดเพียง `0.50 pp` ซึ่งผ่าน tolerance `1 pp`
+- domain-diversity constraint ป้องกัน adaptive questions สองข้อถามสถานการณ์ประเภทเดียวกัน
 
-Camel และ Oryx ยังมี regression เล็กน้อย (`−1.37 pp`, `−0.67 pp`) แสดงว่าหนึ่ง item ต่อ boundary ยังเปราะเกินกว่าจะ lock bank
+Mean true-animal probability ลด `0.003` แม้ top-1 ดีขึ้น แปลว่า softmax temperature ยังไม่ควรถูกอ้างเป็น calibrated confidence จนมี response data จริง
 
 ### Motive facets are not ready for final scoring
 
-เมื่อถามทุกข้อ การเปิด motive facets ลด animal accuracy จาก `79.99%` เป็น `78.36%` และลด mean true-animal probability ด้วย สาเหตุหลักคือ:
+เมื่อถามทุกข้อ การเปิด motive facets ลด animal accuracy จาก `82.47%` เป็น `78.86%`; ใน information-gain mode ลดจาก `78.85%` เป็น `78.73%` และ realm accuracy ลดด้วย สาเหตุหลักคือ:
 
 - `RST` มีหลาย domains แต่ facet อื่นแทบไม่มี evidence
 - `CON` มีเพียงหนึ่ง scenario
@@ -105,7 +108,7 @@ Camel และ Oryx ยังมี regression เล็กน้อย (`−1.
 
 จึงเก็บ motive responses เป็น telemetry/construct probes แต่ไม่ใส่ final score ใน candidate mode
 
-## Remaining collision priorities
+## Boundary coverage achieved
 
 1. Lynx / Caracal
 2. Reindeer / Oryx
@@ -114,15 +117,15 @@ Camel และ Oryx ยังมี regression เล็กน้อย (`−1.
 5. Cobra / Moose
 6. Camel / Reindeer / Bear
 
-แต่ละ cluster ต้องมีอย่างน้อยสอง independent scenarios คนละ domain ก่อน adaptive bank lock
+แต่ละ cluster มีอย่างน้อยสอง independent scenarios และสอง domains แล้ว แต่ frequency จาก information gain ไม่เท่ากัน บางข้อไม่ถูกเลือกใน synthetic posterior ปัจจุบัน จึงยังเก็บไว้สำหรับ story-fit/manual review แทนการลบทิ้งจาก simulation เดียว
 
 ## Decision
 
 1. รับ weighted evidence contract และ softmax animal/realm scoring เป็น Scoring Model v0.4 candidate
-2. ใช้ `adaptive_weighted_core` เป็น default experiment
+2. ใช้ `information_gain_core` พร้อม domain diversity เป็น default experiment
 3. เก็บ motive probes แต่ไม่ score จน coverage และ ablation ผ่าน
 4. ไม่ tune animal decimals เพื่อชดเชย item wording ที่ยังบาง
-5. ขั้นถัดไปคือเพิ่ม boundary item คู่ที่สองให้ collision priorities แล้ว rerun แบบ paired simulation
+5. Boundary regression gate ผ่าน ขั้นถัดไปคือ integrate v0.4 engine/selector เข้า session runtime โดยยังไม่แสดง softmax probability เป็น calibrated certainty
 
 ## Reproduce
 

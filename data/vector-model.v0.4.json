@@ -32,6 +32,9 @@
   "simulation": {
     "seed": 20260825,
     "playthroughs_per_animal": 3000,
-    "response_softmax_temperature": 0.7
+    "response_softmax_temperature": 0.7,
+    "max_adaptive_questions": 2,
+    "minimum_information_gain": 0.01,
+    "require_adaptive_domain_diversity": true
   }
 }

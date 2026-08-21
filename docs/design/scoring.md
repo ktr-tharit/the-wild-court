@@ -82,6 +82,25 @@ QuestionScore(q)
 
 การเลือก purely maximum information อาจถามหัวข้อเดิมซ้ำจน pacing แย่ จึงต้องรวม game-design constraints
 
+### v0.4 information-gain candidate
+
+Boundary Bank v0.2 ใช้ current animal softmax posterior เป็น prior สำหรับแต่ละ item:
+
+```text
+P(option o | q) = Σⱼ P(j)P(o | j, q)
+P(j | o, q) ∝ P(j)P(o | j, q)
+IG(q) = H(P(j)) − Σₒ P(o | q)H(P(j | o, q))
+```
+
+Selector เลือก item ที่ `IG` สูงสุดแบบ sequential หลังเห็นคำตอบจริง โดย:
+
+- ไม่เกิน 2 adaptive questions
+- ไม่ถาม domain ซ้ำใน adaptive phase เดียวกัน
+- หยุดเมื่อ information gain ต่ำกว่า `0.01`
+- motive evidence เก็บเป็น telemetry แต่ไม่เข้า final score
+
+นี่เป็น information criterion สำหรับ measurement; narrative runtime ยังต้องตรวจ story position และ repetition กับฉากก่อนแสดงคำถามจริง
+
 ## Calibration checks
 
 - animal and biome distribution

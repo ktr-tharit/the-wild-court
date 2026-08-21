@@ -224,3 +224,16 @@
 - asking all boundary questions ได้ animal 79.99% แต่ทำให้ Scorpion regression จึงไม่ใช้เป็น default
 - motive facets ลด aggregate performance เมื่อเปิดทุกข้อ จึงยังเป็น telemetry เท่านั้น
 - รอบถัดไป: เพิ่ม independent boundary item คู่ที่สองให้ collision clusters แล้ว rerun
+
+## 2026-08-22 — Boundary Bank v0.2 + Information Gain
+
+- เพิ่ม boundary questions 10 ข้อ รวม bank เป็น 16 ข้อ
+- collision หลักทุก cluster มีอย่างน้อย 2 scenarios และอย่างน้อย 2 domains
+- เปลี่ยน simulation เป็น paired random streams เพื่อเทียบ mode โดย core responses เดียวกัน
+- implement expected information gain จาก softmax posterior และ predicted option likelihoods
+- บังคับ adaptive domain diversity และงบสูงสุด 2 questions
+- core softmax baseline: animal 76.83%, realm 80.02%
+- information-gain core: animal 78.85%, realm 81.01%, extra questions 2.00
+- Reindeer ลด 0.50 pp; animal อื่นดีขึ้นทั้งหมด จึงผ่าน no-regression tolerance 1 pp
+- motive facets ยังลดผลรวม จึงคงเป็น telemetry
+- รอบถัดไป: integrate Scoring Model v0.4 และ selector เข้า session/runtime

@@ -236,4 +236,5 @@ Questions ต้องแยก `keep options open`, `carry the selected weight`
 - [x] เขียน cross-realm boundary questions สำหรับ Taiga neighbors ตัวละอย่างน้อยหนึ่งข้อ
 - [x] สร้างไฟล์ `desert/*.md` ครบ 6 ตัว
 - [x] กำหนด provisional vectors พร้อมกันใน joint Taiga–Desert model
-- [ ] เพิ่ม boundary item คู่ที่สองให้ remaining collision clusters
+- [x] เพิ่ม boundary item คู่ที่สองให้ remaining collision clusters
+- [x] ผ่าน paired information-gain simulation โดยไม่มี regression เกิน 1 pp

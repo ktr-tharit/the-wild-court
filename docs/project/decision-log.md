@@ -140,4 +140,12 @@
 - **Status:** Accepted for sandbox
 - **Decision:** estimate constructs ด้วย evidence weights/confidence แล้วแปลง weighted animal distances เป็น probability ผ่าน softmax; realm probability เกิดจากผลรวม animal probabilities พร้อม equal-realm/equal-animal priors
 - **Reason:** final result ต้องรักษาความไม่แน่นอนและไม่ให้ evidence ทุกชิ้นหรือ roster size มีอำนาจเท่ากันโดยอัตโนมัติ Taiga–Desert simulation ยืนยันว่า weighted boundaries ช่วย classification แต่ motive facets ยังมี evidence ไม่พอ
-- **Consequence:** ใช้ `adaptive_weighted_core` เป็น experiment default; motive probes เก็บข้อมูลแต่ยังไม่เข้า final score และ boundary bank ต้องมีสอง items ต่อ collision ก่อน runtime promotion
+- **Consequence:** ใช้ `information_gain_core` เป็น experiment default พร้อม domain diversity และไม่เกิน 2 items; motive probes เก็บข้อมูลแต่ยังไม่เข้า final score
+
+## D-019 — เลือก Information Gain สำหรับ Adaptive Boundary Selection
+
+- **Date:** 2026-08-22
+- **Status:** Accepted for runtime candidate
+- **Decision:** rank boundary items ด้วย expected posterior entropy reduction จาก animal softmax probabilities เลือกไม่เกิน 2 ข้อ และห้าม adaptive items ซ้ำ domain ใน playthrough เดียว
+- **Reason:** paired simulation เพิ่ม animal accuracy 76.83% → 78.85% และ realm accuracy 80.02% → 81.01%; ไม่มี animal regression เกิน 1 pp ขณะที่ exact top-pair matching เพิ่มได้น้อยกว่า
+- **Consequence:** Boundary Bank v0.2 ผ่าน regression gate ขั้นถัดไปคือ integrate weighted-softmax + information gain เข้า session/runtime โดย motive facets ยังเป็น telemetry

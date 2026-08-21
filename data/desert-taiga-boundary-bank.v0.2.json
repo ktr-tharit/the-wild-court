@@ -1,0 +1,149 @@
+{
+  "schema_version": "0.2",
+  "bank_version": "0.2",
+  "status": "design_review",
+  "language": "th",
+  "extends": "desert-taiga-boundary-bank.v0.1.json",
+  "questions": [
+    {
+      "id": "DTB07",
+      "domain": "uncertainty_exploration",
+      "title": "งานที่ถูกเห็นก่อนคุณพร้อม",
+      "scenario": "งานที่คุณยังปรับไม่เสร็จถูกนำไปวางในพื้นที่ review โดยไม่ได้ตั้งใจ จุดบกพร่องยังแก้ได้ก่อนกำหนดส่ง แต่คนอื่นเริ่มแสดงความคิดเห็นแล้ว คุณทำอย่างไร?",
+      "discriminates": ["Lynx", "Caracal"],
+      "constructs": ["EXP", "SEN"],
+      "options": [
+        {"id": "A", "copy": "นำงานกลับไป ตรวจข้อบกพร่องด้วยตัวเอง และไม่เข้าร่วมบทสนทนาจนกว่าจะเห็นภาพครบ", "evidence": [{"construct": "EXP", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "SEN", "value": 0.4, "weight": 1.0, "role": "primary"}]},
+        {"id": "B", "copy": "ระบุสั้น ๆ ว่าส่วนใดยังไม่ถึงมาตรฐาน แก้จุดสำคัญอย่างแม่น แล้วส่งกลับโดยไม่อธิบายตัวเองเกินจำเป็น", "evidence": [{"construct": "EXP", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "SEN", "value": 0.8, "weight": 1.0, "role": "primary"}]},
+        {"id": "C", "copy": "ขอให้คนที่เห็นช่วยตรวจตามเกณฑ์ชัดเจน แล้วใช้ feedback เปรียบเทียบกับสิ่งที่คุณพบ", "evidence": [{"construct": "EXP", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "SEN", "value": 0.8, "weight": 1.0, "role": "primary"}]},
+        {"id": "D", "copy": "เปิดงานไว้และเล่าว่ากำลังทดลองอะไร เพราะ reaction ตอนนี้อาจเผย direction ที่คุณยังมองไม่เห็น", "evidence": [{"construct": "EXP", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "SEN", "value": -0.4, "weight": 1.0, "role": "primary"}]}
+      ]
+    },
+    {
+      "id": "DTB08",
+      "domain": "care_community",
+      "title": "ประเพณีในปีที่ทุกคนหมดแรง",
+      "scenario": "ชุมชนจัดงานประจำปีต่อเนื่องมาหลายรุ่น แต่ปีนี้ทุกคนเหนื่อยและทรัพยากรน้อย การยกเลิกจะตัดความต่อเนื่องที่หลายคนยึดถือ คุณเสนออะไร?",
+      "discriminates": ["Reindeer", "Oryx"],
+      "constructs": ["ALG", "RST", "CON"],
+      "options": [
+        {"id": "A", "copy": "จัดต่อในรูปแบบที่ทุกคนช่วยกันถือ เพราะความต่อเนื่องของชุมชนมีค่าพอให้รับภาระร่วม", "evidence": [{"construct": "ALG", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 0.5, "weight": 0.5, "role": "motive_probe"}, {"construct": "CON", "value": 1.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "B", "copy": "ทำเพียงส่วนเล็กที่หล่อเลี้ยงใจและตัดพิธีที่กลายเป็นภาระ เพื่อให้ปีนี้ยังงดงามโดยไม่มีใครต้องฝืน", "evidence": [{"construct": "ALG", "value": 0.0, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}, {"construct": "CON", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "C", "copy": "พักงานหนึ่งปีและใช้ทรัพยากรฟื้นตัว โดยไม่ถือว่าตนติดหนี้รูปแบบเดิม", "evidence": [{"construct": "ALG", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}, {"construct": "CON", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "D", "copy": "รักษาความหมายหลักไว้แต่ชวนทุกคนออกแบบรูปแบบใหม่ที่อาจกลายเป็นประเพณีสำหรับอนาคต", "evidence": [{"construct": "ALG", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 0.0, "weight": 0.5, "role": "motive_probe"}, {"construct": "CON", "value": 0.5, "weight": 0.5, "role": "motive_probe"}]}
+      ]
+    },
+    {
+      "id": "DTB09",
+      "domain": "relationship_boundaries",
+      "title": "ของชิ้นเดิมในบ้านหลังใหม่",
+      "scenario": "ครอบครัวคาดหวังให้คุณเก็บของชิ้นใหญ่ที่ส่งต่อกันมาหลายรุ่น แต่บ้านใหม่มีพื้นที่จำกัดและคุณอยากให้ที่นั้นเบาและมีชีวิต คุณเลือกอย่างไร?",
+      "discriminates": ["Reindeer", "Oryx"],
+      "constructs": ["AFF", "ALG", "RST"],
+      "options": [
+        {"id": "A", "copy": "เก็บไว้และชวนครอบครัวช่วยกันดูแล เพราะการพกสิ่งนี้ต่อทำให้เรื่องราวร่วมไม่ขาดตอน", "evidence": [{"construct": "AFF", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "ALG", "value": 0.8, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.5, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "B", "copy": "เก็บเฉพาะส่วนที่สร้างความหมายและปล่อยน้ำหนักส่วนเกิน เพื่อให้บ้านยังมีพื้นที่สำหรับชีวิตปัจจุบัน", "evidence": [{"construct": "AFF", "value": 0.6, "weight": 1.0, "role": "primary"}, {"construct": "ALG", "value": 0.0, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "C", "copy": "ปฏิเสธของชิ้นนั้นทั้งหมด บ้านควรเกิดจากสิ่งที่คุณเลือกเอง ไม่ใช่หนี้จากอดีต", "evidence": [{"construct": "AFF", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "ALG", "value": -0.8, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "D", "copy": "นำมาใช้ใหม่ร่วมกันในแบบที่ต่างจากเดิม แม้ต้องใช้พื้นที่มาก เพราะความทรงจำควรเปลี่ยนตามคนที่ยังอยู่", "evidence": [{"construct": "AFF", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "ALG", "value": -0.4, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]}
+      ]
+    },
+    {
+      "id": "DTB10",
+      "domain": "public_power",
+      "title": "ทางผ่านที่เริ่มกลายเป็นสิทธิ์",
+      "scenario": "คุณเคยอนุญาตให้คนกลุ่มหนึ่งผ่านพื้นที่ที่ดูแลเป็นกรณีพิเศษ ตอนนี้พวกเขาเริ่มอ้างว่าการผ่านซ้ำทำให้มีสิทธิ์ถาวร คุณตอบอย่างไร?",
+      "discriminates": ["Scorpion", "Moose"],
+      "constructs": ["ALG", "EXP"],
+      "options": [
+        {"id": "A", "copy": "ตั้งกฎทางผ่านที่ประกาศต่อทุกคนและใช้เหมือนกัน เพื่อให้พื้นที่ไม่ขึ้นกับการอนุญาตเฉพาะครั้ง", "evidence": [{"construct": "ALG", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "EXP", "value": 0.4, "weight": 0.5, "role": "secondary"}]},
+        {"id": "B", "copy": "ถอน access ทันทีและยืนยันว่าการเคยได้รับอนุญาตไม่เปลี่ยนสิทธิ์ในการตัดสินใจของเจ้าของพื้นที่", "evidence": [{"construct": "ALG", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "EXP", "value": -0.8, "weight": 0.5, "role": "secondary"}]},
+        {"id": "C", "copy": "คุยกับตัวแทนกลุ่มและออกข้อตกลงใหม่ที่สะท้อนความสัมพันธ์กับเหตุจำเป็นปัจจุบัน", "evidence": [{"construct": "ALG", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "EXP", "value": 0.4, "weight": 0.5, "role": "secondary"}]},
+        {"id": "D", "copy": "ส่งเรื่องให้ authority ที่มีหน้าที่กำหนดสิทธิ์ แม้คุณจะไม่เปิดเผย stance ส่วนตัว", "evidence": [{"construct": "ALG", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "EXP", "value": -0.4, "weight": 0.5, "role": "secondary"}]}
+      ]
+    },
+    {
+      "id": "DTB11",
+      "domain": "relationship_boundaries",
+      "title": "กุญแจสำรองที่ถูกใช้ผิดความหมาย",
+      "scenario": "คนที่อยู่ร่วมกันมีกุญแจสำรองสำหรับเหตุฉุกเฉิน แต่เริ่มเข้าห้องของคุณเพื่อหยิบของโดยไม่ถาม คุณเลือกวิธีแก้อย่างไร?",
+      "discriminates": ["Scorpion", "Moose"],
+      "constructs": ["AGY", "STR"],
+      "options": [
+        {"id": "A", "copy": "กำหนดกฎการใช้กุญแจและเหตุฉุกเฉินที่ใช้กับทุกคนในบ้าน พร้อมระบบบันทึกที่ตรวจได้", "evidence": [{"construct": "AGY", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.8, "weight": 0.5, "role": "secondary"}]},
+        {"id": "B", "copy": "เปลี่ยนกุญแจและบอกว่า access ถูกถอนจนกว่าคุณจะเลือกให้ใหม่ ไม่ว่าความสัมพันธ์เดิมจะใกล้แค่ไหน", "evidence": [{"construct": "AGY", "value": 0.6, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.4, "weight": 0.5, "role": "secondary"}]},
+        {"id": "C", "copy": "ย้ายของสำคัญและหลีกเลี่ยงการปะทะก่อน รอดูว่าเหตุการณ์จะเกิดซ้ำหรือไม่", "evidence": [{"construct": "AGY", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": -0.4, "weight": 0.5, "role": "secondary"}]},
+        {"id": "D", "copy": "เผชิญหน้าทันทีและเปลี่ยนรูปแบบการอยู่ร่วมกันทั้งหมด แม้ยังไม่ได้คิดระบบถาวร", "evidence": [{"construct": "AGY", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": -0.4, "weight": 0.5, "role": "secondary"}]}
+      ]
+    },
+    {
+      "id": "DTB12",
+      "domain": "identity_expression",
+      "title": "คำขอดูเบื้องหลังผลงาน",
+      "scenario": "คนที่วิจารณ์ผลงานคุณต่อสาธารณะขอดูบันทึกส่วนตัวและกระบวนการทั้งหมดเพื่อพิสูจน์ว่าคุณซื่อตรง คุณตอบอย่างไร?",
+      "discriminates": ["Scorpion", "Caracal"],
+      "constructs": ["EXP", "STR"],
+      "options": [
+        {"id": "A", "copy": "ชี้แจงมาตรฐานและข้อเท็จจริงที่จำเป็นอย่างแม่น แต่ไม่ทำชีวิตส่วนตัวให้เป็นหลักฐานของคุณค่า", "evidence": [{"construct": "EXP", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.4, "weight": 0.5, "role": "secondary"}]},
+        {"id": "B", "copy": "ปฏิเสธและปิดช่องทางเข้าถึงทั้งหมด การถูกตั้งคำถามไม่ได้สร้างสิทธิ์เหนือบันทึกของคุณ", "evidence": [{"construct": "EXP", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.8, "weight": 0.5, "role": "secondary"}]},
+        {"id": "C", "copy": "แชร์เฉพาะส่วนที่ตอบข้อสงสัยและกำหนดขอบเขตว่าข้อมูลใดไม่เกี่ยวกับการตรวจสอบ", "evidence": [{"construct": "EXP", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.4, "weight": 0.5, "role": "secondary"}]},
+        {"id": "D", "copy": "เปิดกระบวนการทั้งหมดต่อสาธารณะเพื่อยุติข้อสงสัยและให้คนอื่นตัดสินจากภาพรวม", "evidence": [{"construct": "EXP", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": -0.4, "weight": 0.5, "role": "secondary"}]}
+      ]
+    },
+    {
+      "id": "DTB13",
+      "domain": "relationship_boundaries",
+      "title": "คำขอโทษที่ขอคำอธิบายกลับ",
+      "scenario": "คนใกล้ตัวขอโทษที่ตัดสินคุณผิด แต่บอกว่าจะ repair ได้ก็ต่อเมื่อคุณอธิบายความรู้สึกลึก ๆ และเหตุผลทั้งหมดให้เขาเข้าใจ คุณทำอย่างไร?",
+      "discriminates": ["Scorpion", "Caracal"],
+      "constructs": ["AFF", "ALG"],
+      "options": [
+        {"id": "A", "copy": "รับคำขอโทษแต่บอกว่าการ repair ต้องเคารพ dignity โดยไม่เรียกร้องให้คุณ perform ความเปราะบาง", "evidence": [{"construct": "AFF", "value": -0.6, "weight": 1.0, "role": "primary"}, {"construct": "ALG", "value": -0.4, "weight": 0.5, "role": "secondary"}]},
+        {"id": "B", "copy": "ยืนยันว่า access ส่วนนั้นถูกถอน คำขอโทษไม่ทำให้เขามีสิทธิ์กำหนดเงื่อนไขการเปิดเผยของคุณ", "evidence": [{"construct": "AFF", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "ALG", "value": -0.8, "weight": 0.5, "role": "secondary"}]},
+        {"id": "C", "copy": "เล่าส่วนที่คุณเลือกเพื่อช่วยให้เข้าใจกัน แต่ไม่ยอมรับว่าความสัมพันธ์สร้างหน้าที่ต้องเปิดทั้งหมด", "evidence": [{"construct": "AFF", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "ALG", "value": -0.4, "weight": 0.5, "role": "secondary"}]},
+        {"id": "D", "copy": "อธิบายอย่างเต็มที่เพราะความสัมพันธ์ที่กำลังซ่อมทำให้คุณมีหน้าที่ช่วยให้อีกฝ่ายเข้าใจ", "evidence": [{"construct": "AFF", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "ALG", "value": 0.4, "weight": 0.5, "role": "secondary"}]}
+      ]
+    },
+    {
+      "id": "DTB14",
+      "domain": "relationship_boundaries",
+      "title": "เส้นเดิมกับคนที่สำคัญ",
+      "scenario": "คนที่สำคัญกับคุณทำพฤติกรรมเดิมซ้ำหลังเคยรับปากว่าจะหยุด เขายอมรับผลกระทบแต่ขอโอกาสโดยไม่มีแผนชัด คุณตอบอย่างไร?",
+      "discriminates": ["Cobra", "Moose"],
+      "constructs": ["EXP", "STR", "RST"],
+      "options": [
+        {"id": "A", "copy": "บอก harm และ consequence เฉพาะที่ชัด พร้อมให้เขาเลือกว่าจะรับเงื่อนไขสุดท้ายนี้หรือถอย", "evidence": [{"construct": "EXP", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.0, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "B", "copy": "ใช้ rule และ consequence เดิมโดยไม่เปลี่ยนตามความใกล้ชิด เพราะเส้นจะมีความหมายเมื่อคงที่", "evidence": [{"construct": "EXP", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.8, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.5, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "C", "copy": "ลดการเข้าถึงอย่างเงียบ ๆ และเก็บพลังไว้ก่อน โดยยังไม่ประกาศว่าจะเกิดอะไรต่อ", "evidence": [{"construct": "EXP", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.4, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "D", "copy": "คุยว่าความสัมพันธ์ต้องการอะไรตอนนี้และลองรูปแบบใหม่ก่อนกำหนด consequence", "evidence": [{"construct": "EXP", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": -0.4, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]}
+      ]
+    },
+    {
+      "id": "DTB15",
+      "domain": "care_community",
+      "title": "เวรดูแลที่ไม่มีใครรับต่อ",
+      "scenario": "กลุ่มดูแลสมาชิกที่ฟื้นตัวช้า ตารางเดิมกำลังพังและทุกคนเสนอเหตุผลว่าทำไมตนรับเวรเพิ่มไม่ได้ คุณจะจัดการส่วนของตัวเองอย่างไร?",
+      "discriminates": ["Camel", "Reindeer", "Bear"],
+      "constructs": ["AFF", "DCL", "ALG"],
+      "options": [
+        {"id": "A", "copy": "ประเมิน capacity จริง รับช่วงเวลาที่ถือไหว และทำให้ commitment นั้นแน่นอนโดยไม่รับเกินข้อตกลง", "evidence": [{"construct": "AFF", "value": 0.5, "weight": 1.0, "role": "primary"}, {"construct": "DCL", "value": 0.2, "weight": 0.5, "role": "secondary"}, {"construct": "ALG", "value": 0.6, "weight": 0.5, "role": "secondary"}]},
+        {"id": "B", "copy": "ชวนทั้งกลุ่มแบ่งตารางใหม่และรับส่วนที่ช่วยให้ไม่มีใครหลุดจากวงดูแล แม้ทุกคนต้องขยับร่วมกัน", "evidence": [{"construct": "AFF", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "DCL", "value": 0.7, "weight": 0.5, "role": "secondary"}, {"construct": "ALG", "value": 0.8, "weight": 0.5, "role": "secondary"}]},
+        {"id": "C", "copy": "อยู่กับผู้ฟื้นตัวในช่วงที่เปราะบางที่สุดและรับ burden ตรงนั้น แม้ระบบส่วนอื่นต้องหาทางปรับเอง", "evidence": [{"construct": "AFF", "value": -0.3, "weight": 1.0, "role": "primary"}, {"construct": "DCL", "value": 0.6, "weight": 0.5, "role": "secondary"}, {"construct": "ALG", "value": 0.6, "weight": 0.5, "role": "secondary"}]},
+        {"id": "D", "copy": "ปฏิเสธตารางเดิมและสร้างทางเลือกที่ไม่มีใครต้องผูกกับภาระซึ่งระบบจัดการไม่ได้", "evidence": [{"construct": "AFF", "value": -0.7, "weight": 1.0, "role": "primary"}, {"construct": "DCL", "value": -0.2, "weight": 0.5, "role": "secondary"}, {"construct": "ALG", "value": -0.6, "weight": 0.5, "role": "secondary"}]}
+      ]
+    },
+    {
+      "id": "DTB16",
+      "domain": "uncertainty_exploration",
+      "title": "พายุที่ทำให้คนกับเสบียงไปต่อพร้อมกันไม่ได้",
+      "scenario": "พายุทำให้คณะต้องเลือกระหว่างรักษาเสบียงระยะยาว พาคนบาดเจ็บไปหาที่พัก หรือชะลอทั้งกลุ่มจนทุกคนเคลื่อนไปพร้อมกัน คุณเสนออะไร?",
+      "discriminates": ["Camel", "Reindeer", "Bear"],
+      "constructs": ["STR", "RSK", "DCL"],
+      "options": [
+        {"id": "A", "copy": "คำนวณ reserve ใหม่ ตัดสิ่งที่ไม่จำเป็น และรักษาเส้นทางที่ทำให้ภาระสำคัญไปถึงโดยไม่หมดกลางทาง", "evidence": [{"construct": "STR", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "RSK", "value": -0.8, "weight": 0.5, "role": "secondary"}, {"construct": "DCL", "value": 0.2, "weight": 0.5, "role": "secondary"}]},
+        {"id": "B", "copy": "หยุดสร้างที่พักรอบผู้บาดเจ็บก่อนและยอมให้แผนเสบียงเปลี่ยนตามชีวิตที่ต้องปกป้องตอนนี้", "evidence": [{"construct": "STR", "value": 0.6, "weight": 1.0, "role": "primary"}, {"construct": "RSK", "value": -0.8, "weight": 0.5, "role": "secondary"}, {"construct": "DCL", "value": 0.6, "weight": 0.5, "role": "secondary"}]},
+        {"id": "C", "copy": "ชะลอทั้งคณะและแบ่งน้ำหนักใหม่เพื่อให้ทุกคนยังอยู่ในการเดินทางเดียวกัน", "evidence": [{"construct": "STR", "value": 0.3, "weight": 1.0, "role": "primary"}, {"construct": "RSK", "value": -0.3, "weight": 0.5, "role": "secondary"}, {"construct": "DCL", "value": 0.7, "weight": 0.5, "role": "secondary"}]},
+        {"id": "D", "copy": "ทิ้งแผนเดิมและเปิดเส้นทางเสี่ยงใหม่ทันที เพราะการพยายามรักษาทุกอย่างจะทำให้เสียทั้งหมด", "evidence": [{"construct": "STR", "value": -0.3, "weight": 1.0, "role": "primary"}, {"construct": "RSK", "value": 0.7, "weight": 0.5, "role": "secondary"}, {"construct": "DCL", "value": 0.1, "weight": 0.5, "role": "secondary"}]}
+      ]
+    }
+  ]
+}

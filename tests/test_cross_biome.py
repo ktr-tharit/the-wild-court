@@ -14,6 +14,7 @@ from scripts.validate_question_evidence import (
 
 ROOT = Path(__file__).resolve().parents[1]
 BOUNDARY_BANK = ROOT / "data" / "desert-taiga-boundary-bank.v0.1.json"
+BOUNDARY_BANK_V02 = ROOT / "data" / "desert-taiga-boundary-bank.v0.2.json"
 DESERT_BIBLE_DIR = ROOT / "docs" / "design" / "animals" / "desert"
 
 
@@ -32,6 +33,35 @@ class CrossBiomeSandboxTests(unittest.TestCase):
     def test_desert_taiga_boundary_bank_schema(self):
         bank = json.loads(BOUNDARY_BANK.read_text(encoding="utf-8"))
         self.assertEqual(evidence_errors(bank), [])
+        extension = json.loads(BOUNDARY_BANK_V02.read_text(encoding="utf-8"))
+        self.assertEqual(evidence_errors(extension), [])
+
+    def test_v02_collision_clusters_have_two_independent_items(self):
+        base = json.loads(BOUNDARY_BANK.read_text(encoding="utf-8"))
+        extension = json.loads(BOUNDARY_BANK_V02.read_text(encoding="utf-8"))
+        questions = base["questions"] + extension["questions"]
+        pair_clusters = [
+            {"Lynx", "Caracal"},
+            {"Reindeer", "Oryx"},
+            {"Scorpion", "Moose"},
+            {"Scorpion", "Caracal"},
+            {"Cobra", "Moose"},
+        ]
+        for cluster in pair_clusters:
+            matching = [
+                question for question in questions
+                if cluster.issubset(set(question["discriminates"]))
+            ]
+            with self.subTest(cluster=sorted(cluster)):
+                self.assertGreaterEqual(len(matching), 2)
+                self.assertGreaterEqual(len({item["domain"] for item in matching}), 2)
+        camel_cluster = [
+            question for question in questions
+            if "Camel" in question["discriminates"]
+            and ({"Reindeer", "Bear"} & set(question["discriminates"]))
+        ]
+        self.assertGreaterEqual(len(camel_cluster), 2)
+        self.assertGreaterEqual(len({item["domain"] for item in camel_cluster}), 2)
 
     def test_desert_taiga_bank_covers_every_desert_anchor(self):
         bank = json.loads(BOUNDARY_BANK.read_text(encoding="utf-8"))

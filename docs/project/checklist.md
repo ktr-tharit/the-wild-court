@@ -68,10 +68,12 @@
 - [x] กำหนด provisional Desert vectors และทดสอบร่วมกับ Taiga
 - [x] implement weighted evidence + confidence-aware distance + animal softmax
 - [x] normalize realm/animal priors และ sum animal probabilities เป็น realm probability
-- [ ] เพิ่ม boundary item คู่ที่สองให้ Taiga–Desert collision clusters
+- [x] เพิ่ม boundary item คู่ที่สองให้ Taiga–Desert collision clusters
+- [x] implement expected-information-gain selector พร้อม domain diversity
+- [x] ผ่าน paired regression gate และ adaptive budget ไม่เกิน 2 ข้อ
 - [ ] เขียน motive probes อย่างน้อย 3 domains และ residual boundary questions
 - [x] รวม weighted evidence เข้า Scoring Model v0.4 sandbox
-- [ ] promote Scoring Model v0.4 เข้า runtime หลัง boundary regression gate ผ่าน
+- [ ] promote Scoring Model v0.4 เข้า runtime (boundary regression gate ผ่านแล้ว)
 
 ## Later
 

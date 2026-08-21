@@ -4,9 +4,11 @@ from pathlib import Path
 from scripts.simulate_taiga_desert import (
     build_report,
     estimate_constructs,
+    expected_information_gain,
     load_json,
     model_errors,
     normalized_priors,
+    animal_profiles,
     softmax_scores,
     DEFAULT_MODEL,
 )
@@ -54,6 +56,20 @@ class TaigaDesertWeightedSoftmaxTests(unittest.TestCase):
         self.assertAlmostEqual(sum(result["animal_probabilities"].values()), 1.0)
         self.assertAlmostEqual(sum(result["realm_probabilities"].values()), 1.0)
 
+    def test_information_gain_is_non_negative(self):
+        profiles = animal_profiles(self.model)
+        priors = normalized_priors(self.model)
+        from scripts.simulate_taiga_desert import load_boundary_bank, normalized_questions
+        question = normalized_questions(load_boundary_bank())[0]
+        gain = expected_information_gain(
+            priors,
+            question,
+            profiles,
+            self.model["simulation"]["response_softmax_temperature"],
+            include_facets=False,
+        )
+        self.assertGreaterEqual(gain, 0.0)
+
     def test_desert_bible_scores_match_canonical_model(self):
         root = Path(__file__).resolve().parents[1]
         bible_dir = root / "docs" / "design" / "animals" / "desert"
@@ -88,6 +104,13 @@ class TaigaDesertWeightedSoftmaxTests(unittest.TestCase):
     def test_adaptive_question_budget_is_bounded(self):
         selected = self.report["modes"][self.report["selected_mode"]]
         self.assertLessEqual(selected["average_extra_questions"], 2.0)
+
+    def test_selected_mode_has_no_material_per_animal_regression(self):
+        baseline = self.report["modes"]["core_softmax"]["per_animal_accuracy"]
+        selected = self.report["modes"][self.report["selected_mode"]]["per_animal_accuracy"]
+        self.assertGreaterEqual(
+            min(selected[name] - baseline[name] for name in baseline), -0.01
+        )
 
 
 if __name__ == "__main__":

@@ -8,20 +8,26 @@ from scripts.validate_question_evidence import motive_domain_coverage
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BANK = ROOT / "data" / "desert-taiga-boundary-bank.v0.1.json"
-OUTPUT = ROOT / "docs" / "design" / "desert-taiga-boundary-bank-v0.1.md"
+BANK_V01 = ROOT / "data" / "desert-taiga-boundary-bank.v0.1.json"
+BANK_V02 = ROOT / "data" / "desert-taiga-boundary-bank.v0.2.json"
+OUTPUT = ROOT / "docs" / "design" / "desert-taiga-boundary-bank-v0.2.md"
 
 
 def render() -> str:
-    bank = json.loads(BANK.read_text(encoding="utf-8"))
+    base = json.loads(BANK_V01.read_text(encoding="utf-8"))
+    extension = json.loads(BANK_V02.read_text(encoding="utf-8"))
+    bank = {
+        **extension,
+        "questions": base["questions"] + extension["questions"],
+    }
     motive_coverage = motive_domain_coverage(bank)
     covered_domains = sorted(set().union(*motive_coverage.values()))
     lines = [
-        "# Desert–Taiga Boundary Questions — v0.1",
+        f"# Desert–Taiga Boundary Questions — v{bank['bank_version']}",
         "",
         "**Status:** Design review  ",
         "**Evidence schema:** v0.2  ",
-        "**Canonical data:** `data/desert-taiga-boundary-bank.v0.1.json`",
+        "**Canonical data:** `data/desert-taiga-boundary-bank.v0.2.json` extends `v0.1`",
         "",
         "> Internal mappings are visible for design review and must be hidden from players.",
         "",
