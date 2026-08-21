@@ -23,12 +23,12 @@
 
 ## Draft court roles
 
-- Jaguar — imperial enforcers / apex nobility
-- Orangutan — scholars / elder houses
-- Toucan or Parrot — messengers / public voice
-- Poison Frog — assassin / alchemist guild
-- Tapir — ancient landkeepers
-- Panther — shadow aristocracy
+- Jaguar — imperial enforcers / sovereign boundary houses
+- Scarlet Macaw — messengers / public voice
+- Poison Dart Frog — alchemist guilds / defended thresholds
+- Okapi — private houses beyond ordinary classification
+- Golden Lion Tamarin — kinship houses / mutual-care networks
+- Blue Morpho — seasonal envoys / rites of transformation
 
 ## Relations
 
@@ -39,6 +39,5 @@
 ## Open questions
 
 - Emperor ได้รับ legitimacy จาก network อย่างไร
-- ความต่างระหว่าง Jaguar และ Panther ต้องชัดขึ้น
-- เลือก Toucan หรือ Parrot หรือเก็บทั้งคู่คนละ archetype
-
+- network politics จะทำให้ visible beauty มีอำนาจโดยไม่กลายเป็น Savanna ได้อย่างไร
+- transformation rites ของ Blue Morpho มีสถานะทางการเมืองหรือเป็น counterculture

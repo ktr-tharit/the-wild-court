@@ -36,6 +36,24 @@ Animal Bible v0.1 พร้อม review แล้ว:
 - [Wolverine](taiga/wolverine.md)
 - [Reindeer](taiga/reindeer.md)
 
+## Desert design slice
+
+Desert Animal Bibles พร้อม review และรอ joint vector model:
+
+- [Desert Animal Bible Architecture v0.1](desert.md)
+- [Fennec Fox](desert/fennec-fox.md)
+- [Caracal](desert/caracal.md)
+- [Cobra](desert/cobra.md)
+- [Camel](desert/camel.md)
+- [Scorpion](desert/scorpion.md)
+- [Oryx](desert/oryx.md)
+
 ## Design quality rule
 
 ทุก animal ต้องมี fantasy ที่น่าอยากเป็นและ shadow ที่รู้สึกจริง ห้ามใช้โครง “predator = powerful / gentle animal = weak support character”
+
+## Portfolio review
+
+- [Animal Admission Gate v0.1](../animal-admission-gate.md)
+- [Animal Roster Audit v0.3](../animal-roster-audit-v0.3.md)
+- [Realm Identity Matrix v0.2](../realm-identity-matrix.md)

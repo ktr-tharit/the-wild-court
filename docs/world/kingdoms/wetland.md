@@ -26,9 +26,9 @@ Wetland ไม่เชื่อว่าโลกแบ่งเป็นจร
 - Crocodile — old ruling families
 - Heron — judges / priests
 - Python — intelligence / occult advisers
-- Frog — common guilds / messengers
 - Capybara — neutral houses / mediators
-- Alligator — regional governors / military clans
+- Giant River Otter — river clans / collective defense
+- Kingfisher — investigators / decisive messengers
 
 ## Relations
 
@@ -38,7 +38,6 @@ Wetland ไม่เชื่อว่าโลกแบ่งเป็นจร
 
 ## Open questions
 
-- ความต่างระหว่าง Crocodile และ Alligator ใน lore
+- river clans คาน old ruling families ได้ด้วยกลไกใด
 - ศาลใดตัดสินว่า precedent ยังใช้ได้
 - มีกลไก forgiveness, amnesty หรือ debt release หรือไม่
-

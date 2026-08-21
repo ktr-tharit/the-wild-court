@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.2",
+  "question": {
+    "id": "XBIOME-Q01",
+    "domain": "public_identity",
+    "scenario": "หลังช่วยเมืองผ่านวิกฤต Court ต้องบันทึกว่าใครเป็นผู้สร้างแผน คุณอยากให้เรื่องนี้ถูกเล่าอย่างไร?",
+    "constructs": ["EXP", "REC"],
+    "options": [
+      {
+        "id": "A",
+        "copy": "ไม่ต้องเอ่ยชื่อฉัน ขอเพียงเก็บวิธีนี้ไว้ให้คนรุ่นต่อไปใช้ได้",
+        "evidence": [
+          {"construct": "EXP", "value": -0.8, "weight": 1.0, "role": "primary"},
+          {"construct": "REC", "value": 0.0, "weight": 0.5, "role": "motive_probe"}
+        ]
+      },
+      {
+        "id": "B",
+        "copy": "บันทึกชื่อทีมทั้งหมด เพราะการถูกมองเห็นควรยืนยันว่าพวกเราทำสิ่งนี้ร่วมกัน",
+        "evidence": [
+          {"construct": "EXP", "value": 0.8, "weight": 1.0, "role": "primary"},
+          {"construct": "REC", "value": 0.5, "weight": 0.5, "role": "motive_probe"}
+        ]
+      },
+      {
+        "id": "C",
+        "copy": "บันทึกชื่อฉันและการตัดสินใจที่รับผิดชอบไว้ชัดเจน ผลงานควรมีผู้ยืนอยู่เบื้องหลังมัน",
+        "evidence": [
+          {"construct": "EXP", "value": 0.8, "weight": 1.0, "role": "primary"},
+          {"construct": "REC", "value": 1.0, "weight": 0.5, "role": "motive_probe"}
+        ]
+      },
+      {
+        "id": "D",
+        "copy": "ให้บันทึกเฉพาะบทเรียนสำคัญ ส่วนชื่อฉันจะอยู่หรือไม่ขึ้นกับธรรมเนียมของ Court",
+        "evidence": [
+          {"construct": "EXP", "value": -0.8, "weight": 1.0, "role": "primary"},
+          {"construct": "REC", "value": 0.5, "weight": 0.5, "role": "motive_probe"}
+        ]
+      }
+    ]
+  }
+}

@@ -1,11 +1,16 @@
 {
-  "bundle_version": "0.1",
+  "bundle_version": "0.3",
   "source_versions": {
     "questions": "0.1",
     "story": "0.1",
     "vectors": "0.3",
     "adaptive": "0.1",
-    "results": "0.1"
+    "results": {
+      "Taiga": "0.1",
+      "Desert": "0.1"
+    },
+    "scoring": "0.4-sandbox",
+    "boundary": "0.2"
   },
   "title": "The First Winter",
   "player_role": "The Unmarked Wayfarer",
@@ -1389,6 +1394,1646 @@
       ]
     }
   ],
+  "boundary_questions": [
+    {
+      "id": "DTB01",
+      "domain": "relationship_boundaries",
+      "title": "สัญญาณที่เพื่อนยังไม่พูด",
+      "scenario": "เพื่อนคนหนึ่งเริ่มเงียบและถอนตัวจากกลุ่ม แต่ยังยืนยันว่าไม่มีอะไรเกิดขึ้น คุณรู้สึกว่ามีบางอย่างผิดปกติ คุณทำอย่างไร?",
+      "discriminates": [
+        "Fennec Fox",
+        "Lynx",
+        "Wolverine"
+      ],
+      "constructs": [
+        "AFF",
+        "AGY"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "ให้พื้นที่และสังเกตต่ออย่างเงียบ ๆ จน pattern ชัดพอ โดยไม่เข้าไปเปลี่ยนสถานการณ์",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "AGY",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "ชวนคุยเรื่องเล็กที่ไม่กดดัน เปิดช่องให้เขาส่งสัญญาณกลับมาในจังหวะของตัวเอง",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "AGY",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "พาเขาออกจากสถานการณ์ทันทีและจัดการสิ่งที่น่าจะเป็นต้นเหตุ แม้ยังไม่ได้รับคำขอ",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "AGY",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "บอกตรง ๆ ว่าคุณสังเกตเห็นอะไร และชวนเขากำหนดด้วยกันว่าต้องการให้ช่วยแบบไหน",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "AGY",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB02",
+      "domain": "identity_expression",
+      "title": "ชื่อของคุณในบันทึกที่ผิด",
+      "scenario": "ผลงานสำคัญของคุณถูกประกาศต่อสาธารณะ แต่คำอธิบายทำให้ตัวตนและเหตุผลของคุณผิดไปจากความจริง คุณแก้สถานการณ์อย่างไร?",
+      "discriminates": [
+        "Caracal",
+        "Lynx",
+        "Moose"
+      ],
+      "constructs": [
+        "EXP",
+        "STR",
+        "RST"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "เก็บข้อเท็จจริงไว้กับตัวและถอนตัวจากพื้นที่นั้น คุณไม่ต้องการให้คำอธิบายของใครครอบครองความจริงภายใน",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "แก้เฉพาะประโยคที่สำคัญด้วยคำพูดสั้นและแม่น แล้วปล่อยให้ผลงานยืนด้วยตัวเอง",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "ขอให้แก้บันทึกอย่างเป็นทางการและวางมาตรฐานว่าคำประกาศแบบนี้ต้องตรวจสอบอย่างไรก่อนเผยแพร่",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "ใช้โอกาสนี้เล่าเรื่องทั้งหมดในแบบของคุณ เพื่อให้ทุกคนเห็นทั้งผลงานและตัวตนที่อยู่เบื้องหลัง",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB03",
+      "domain": "public_power",
+      "title": "พื้นที่ส่วนกลางที่ถูกใช้เกินขอบเขต",
+      "scenario": "กลุ่มหนึ่งใช้พื้นที่ส่วนกลางผิดจากข้อตกลงซ้ำ ๆ จนคนอื่นเริ่มเสียสิทธิ์ แต่กฎเดิมไม่ได้ระบุบทลงโทษไว้ชัด คุณเสนออะไร?",
+      "discriminates": [
+        "Cobra",
+        "Moose"
+      ],
+      "constructs": [
+        "EXP",
+        "STR",
+        "RST"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "ลดการใช้พื้นที่ของตัวเองและรอดูว่าความขัดแย้งจะคลี่คลายหรือมีข้อมูลเพิ่มหรือไม่",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "เพิ่มกฎถาวรที่ใช้กับทุกกลุ่มเหมือนกัน พร้อมกำหนดเขตและบทลงโทษมาตรฐาน",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "ประกาศว่าเกิดความเสียหายอะไร เส้นสุดท้ายอยู่ตรงไหน และผลที่เจาะจงจะตามมาหากเลือกข้ามมันอีก",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "เรียกแต่ละฝ่ายมาคุยและปรับข้อตกลงตามเหตุผลกับความจำเป็นของคนที่เกี่ยวข้อง",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB04",
+      "domain": "care_community",
+      "title": "คำขอที่ยาวกว่ากำลัง",
+      "scenario": "คนใกล้ตัวขอให้คุณช่วยรับผิดชอบเรื่องหนึ่งตลอดหลายเดือน คุณช่วยได้ แต่ต้องลดสิ่งสำคัญบางอย่างในชีวิต คุณตัดสินใจอย่างไร?",
+      "discriminates": [
+        "Camel",
+        "Reindeer"
+      ],
+      "constructs": [
+        "ALG",
+        "RST",
+        "CON"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "รับไว้เพราะความสัมพันธ์และสิ่งที่เคยผ่านมาด้วยกันทำให้คุณมีหน้าที่รักษาความต่อเนื่องนี้",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            },
+            {
+              "construct": "CON",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "วัดเวลา reserve และสิ่งที่ต้องตัดก่อน ถ้ายอมรับต้นทุนได้จึงให้คำมั่นและจัดกำลังให้ไปถึงปลายทาง",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            },
+            {
+              "construct": "CON",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "เสนอความช่วยเหลือที่จำกัดและชัดเจน แต่ไม่รับพันธะระยะยาวที่อาจกลืนชีวิตส่วนอื่น",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            },
+            {
+              "construct": "CON",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "ปฏิเสธรูปแบบเดิมและช่วยคิดทางใหม่ที่ไม่มีใครต้องผูกตัวเองกับภาระนี้นานขนาดนั้น",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            },
+            {
+              "construct": "CON",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB05",
+      "domain": "relationship_boundaries",
+      "title": "สมุดที่ถูกเปิดโดยไม่ได้รับอนุญาต",
+      "scenario": "คุณพบว่าคนที่อยู่ร่วมกันเปิดอ่านสมุดส่วนตัวของคุณ เขาบอกว่าเป็นห่วงและต้องการเข้าใจคุณมากขึ้น คุณตอบสนองอย่างไร?",
+      "discriminates": [
+        "Scorpion",
+        "Lynx",
+        "Wolverine"
+      ],
+      "constructs": [
+        "AGY",
+        "RSK"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "ย้ายสมุดและลดสิ่งที่เขาเข้าถึงได้ จากนั้นสังเกตระยะห่างโดยไม่เปิด conflict",
+          "evidence": [
+            {
+              "construct": "AGY",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RSK",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "บอกว่าความเป็นห่วงไม่สร้างสิทธิ์เข้าถึง ล็อกพื้นที่นั้น และกำหนดว่าต้องเกิดอะไรจึงจะสร้าง trust ใหม่ได้",
+          "evidence": [
+            {
+              "construct": "AGY",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RSK",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "เผชิญหน้าทันที ตัดช่องทางเข้าถึงทั้งหมด และพร้อมออกจากความสัมพันธ์หากอีกฝ่ายพยายามอธิบายแทนการรับผิดชอบ",
+          "evidence": [
+            {
+              "construct": "AGY",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RSK",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "ถามว่าเขากังวลอะไร แล้วเจรจาวิธีแชร์บางส่วนโดยที่คุณยังเป็นคนเลือกขอบเขต",
+          "evidence": [
+            {
+              "construct": "AGY",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RSK",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB06",
+      "domain": "care_community",
+      "title": "อาหารมื้อสวยงามในสัปดาห์ที่ต้องประหยัด",
+      "scenario": "กลุ่มของคุณต้องลดค่าใช้จ่ายหลายสัปดาห์ เพื่อนคนหนึ่งเสนอให้กันทรัพยากรเล็กน้อยทำอาหารมื้อพิเศษเพื่อให้ทุกคนยังรู้สึกว่าชีวิตมีความหมาย คุณเลือกอย่างไร?",
+      "discriminates": [
+        "Oryx",
+        "Bear"
+      ],
+      "constructs": [
+        "AFF",
+        "DCL",
+        "RST"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "เก็บทรัพยากรทั้งหมดไว้ก่อน ความมั่นคงของ reserve สำคัญกว่าความรู้สึกในช่วงสั้น",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "DCL",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "ทำมื้อเล็กแต่ตั้งใจ ใช้เท่าที่ไม่กระทบ reserve เพราะความพอควรหล่อเลี้ยงความงามได้ด้วย",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "ใช้ทรัพยากรส่วนนั้นดูแลคนที่กำลังรับภาระหนักที่สุดเป็นพิเศษ แม้คนอื่นจะไม่ได้รับเท่ากัน",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "จัดมื้อเต็มที่เพื่อให้ทุกคนลืมความขาดแคลนสักคืน แล้วค่อยรับมือผลกระทบภายหลังร่วมกัน",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB07",
+      "domain": "uncertainty_exploration",
+      "title": "งานที่ถูกเห็นก่อนคุณพร้อม",
+      "scenario": "งานที่คุณยังปรับไม่เสร็จถูกนำไปวางในพื้นที่ review โดยไม่ได้ตั้งใจ จุดบกพร่องยังแก้ได้ก่อนกำหนดส่ง แต่คนอื่นเริ่มแสดงความคิดเห็นแล้ว คุณทำอย่างไร?",
+      "discriminates": [
+        "Lynx",
+        "Caracal"
+      ],
+      "constructs": [
+        "EXP",
+        "SEN"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "นำงานกลับไป ตรวจข้อบกพร่องด้วยตัวเอง และไม่เข้าร่วมบทสนทนาจนกว่าจะเห็นภาพครบ",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "SEN",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "ระบุสั้น ๆ ว่าส่วนใดยังไม่ถึงมาตรฐาน แก้จุดสำคัญอย่างแม่น แล้วส่งกลับโดยไม่อธิบายตัวเองเกินจำเป็น",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "SEN",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "ขอให้คนที่เห็นช่วยตรวจตามเกณฑ์ชัดเจน แล้วใช้ feedback เปรียบเทียบกับสิ่งที่คุณพบ",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "SEN",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "เปิดงานไว้และเล่าว่ากำลังทดลองอะไร เพราะ reaction ตอนนี้อาจเผย direction ที่คุณยังมองไม่เห็น",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "SEN",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB08",
+      "domain": "care_community",
+      "title": "ประเพณีในปีที่ทุกคนหมดแรง",
+      "scenario": "ชุมชนจัดงานประจำปีต่อเนื่องมาหลายรุ่น แต่ปีนี้ทุกคนเหนื่อยและทรัพยากรน้อย การยกเลิกจะตัดความต่อเนื่องที่หลายคนยึดถือ คุณเสนออะไร?",
+      "discriminates": [
+        "Reindeer",
+        "Oryx"
+      ],
+      "constructs": [
+        "ALG",
+        "RST",
+        "CON"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "จัดต่อในรูปแบบที่ทุกคนช่วยกันถือ เพราะความต่อเนื่องของชุมชนมีค่าพอให้รับภาระร่วม",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            },
+            {
+              "construct": "CON",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "ทำเพียงส่วนเล็กที่หล่อเลี้ยงใจและตัดพิธีที่กลายเป็นภาระ เพื่อให้ปีนี้ยังงดงามโดยไม่มีใครต้องฝืน",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": 0.0,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            },
+            {
+              "construct": "CON",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "พักงานหนึ่งปีและใช้ทรัพยากรฟื้นตัว โดยไม่ถือว่าตนติดหนี้รูปแบบเดิม",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            },
+            {
+              "construct": "CON",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "รักษาความหมายหลักไว้แต่ชวนทุกคนออกแบบรูปแบบใหม่ที่อาจกลายเป็นประเพณีสำหรับอนาคต",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            },
+            {
+              "construct": "CON",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB09",
+      "domain": "relationship_boundaries",
+      "title": "ของชิ้นเดิมในบ้านหลังใหม่",
+      "scenario": "ครอบครัวคาดหวังให้คุณเก็บของชิ้นใหญ่ที่ส่งต่อกันมาหลายรุ่น แต่บ้านใหม่มีพื้นที่จำกัดและคุณอยากให้ที่นั้นเบาและมีชีวิต คุณเลือกอย่างไร?",
+      "discriminates": [
+        "Reindeer",
+        "Oryx"
+      ],
+      "constructs": [
+        "AFF",
+        "ALG",
+        "RST"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "เก็บไว้และชวนครอบครัวช่วยกันดูแล เพราะการพกสิ่งนี้ต่อทำให้เรื่องราวร่วมไม่ขาดตอน",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "ALG",
+              "value": 0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "เก็บเฉพาะส่วนที่สร้างความหมายและปล่อยน้ำหนักส่วนเกิน เพื่อให้บ้านยังมีพื้นที่สำหรับชีวิตปัจจุบัน",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.6,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "ALG",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "ปฏิเสธของชิ้นนั้นทั้งหมด บ้านควรเกิดจากสิ่งที่คุณเลือกเอง ไม่ใช่หนี้จากอดีต",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "ALG",
+              "value": -0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "นำมาใช้ใหม่ร่วมกันในแบบที่ต่างจากเดิม แม้ต้องใช้พื้นที่มาก เพราะความทรงจำควรเปลี่ยนตามคนที่ยังอยู่",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "ALG",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB10",
+      "domain": "public_power",
+      "title": "ทางผ่านที่เริ่มกลายเป็นสิทธิ์",
+      "scenario": "คุณเคยอนุญาตให้คนกลุ่มหนึ่งผ่านพื้นที่ที่ดูแลเป็นกรณีพิเศษ ตอนนี้พวกเขาเริ่มอ้างว่าการผ่านซ้ำทำให้มีสิทธิ์ถาวร คุณตอบอย่างไร?",
+      "discriminates": [
+        "Scorpion",
+        "Moose"
+      ],
+      "constructs": [
+        "ALG",
+        "EXP"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "ตั้งกฎทางผ่านที่ประกาศต่อทุกคนและใช้เหมือนกัน เพื่อให้พื้นที่ไม่ขึ้นกับการอนุญาตเฉพาะครั้ง",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "EXP",
+              "value": 0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "ถอน access ทันทีและยืนยันว่าการเคยได้รับอนุญาตไม่เปลี่ยนสิทธิ์ในการตัดสินใจของเจ้าของพื้นที่",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "EXP",
+              "value": -0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "คุยกับตัวแทนกลุ่มและออกข้อตกลงใหม่ที่สะท้อนความสัมพันธ์กับเหตุจำเป็นปัจจุบัน",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "EXP",
+              "value": 0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "ส่งเรื่องให้ authority ที่มีหน้าที่กำหนดสิทธิ์ แม้คุณจะไม่เปิดเผย stance ส่วนตัว",
+          "evidence": [
+            {
+              "construct": "ALG",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "EXP",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB11",
+      "domain": "relationship_boundaries",
+      "title": "กุญแจสำรองที่ถูกใช้ผิดความหมาย",
+      "scenario": "คนที่อยู่ร่วมกันมีกุญแจสำรองสำหรับเหตุฉุกเฉิน แต่เริ่มเข้าห้องของคุณเพื่อหยิบของโดยไม่ถาม คุณเลือกวิธีแก้อย่างไร?",
+      "discriminates": [
+        "Scorpion",
+        "Moose"
+      ],
+      "constructs": [
+        "AGY",
+        "STR"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "กำหนดกฎการใช้กุญแจและเหตุฉุกเฉินที่ใช้กับทุกคนในบ้าน พร้อมระบบบันทึกที่ตรวจได้",
+          "evidence": [
+            {
+              "construct": "AGY",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "เปลี่ยนกุญแจและบอกว่า access ถูกถอนจนกว่าคุณจะเลือกให้ใหม่ ไม่ว่าความสัมพันธ์เดิมจะใกล้แค่ไหน",
+          "evidence": [
+            {
+              "construct": "AGY",
+              "value": 0.6,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "ย้ายของสำคัญและหลีกเลี่ยงการปะทะก่อน รอดูว่าเหตุการณ์จะเกิดซ้ำหรือไม่",
+          "evidence": [
+            {
+              "construct": "AGY",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "เผชิญหน้าทันทีและเปลี่ยนรูปแบบการอยู่ร่วมกันทั้งหมด แม้ยังไม่ได้คิดระบบถาวร",
+          "evidence": [
+            {
+              "construct": "AGY",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB12",
+      "domain": "identity_expression",
+      "title": "คำขอดูเบื้องหลังผลงาน",
+      "scenario": "คนที่วิจารณ์ผลงานคุณต่อสาธารณะขอดูบันทึกส่วนตัวและกระบวนการทั้งหมดเพื่อพิสูจน์ว่าคุณซื่อตรง คุณตอบอย่างไร?",
+      "discriminates": [
+        "Scorpion",
+        "Caracal"
+      ],
+      "constructs": [
+        "EXP",
+        "STR"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "ชี้แจงมาตรฐานและข้อเท็จจริงที่จำเป็นอย่างแม่น แต่ไม่ทำชีวิตส่วนตัวให้เป็นหลักฐานของคุณค่า",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": -0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "ปฏิเสธและปิดช่องทางเข้าถึงทั้งหมด การถูกตั้งคำถามไม่ได้สร้างสิทธิ์เหนือบันทึกของคุณ",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "แชร์เฉพาะส่วนที่ตอบข้อสงสัยและกำหนดขอบเขตว่าข้อมูลใดไม่เกี่ยวกับการตรวจสอบ",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "เปิดกระบวนการทั้งหมดต่อสาธารณะเพื่อยุติข้อสงสัยและให้คนอื่นตัดสินจากภาพรวม",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB13",
+      "domain": "relationship_boundaries",
+      "title": "คำขอโทษที่ขอคำอธิบายกลับ",
+      "scenario": "คนใกล้ตัวขอโทษที่ตัดสินคุณผิด แต่บอกว่าจะ repair ได้ก็ต่อเมื่อคุณอธิบายความรู้สึกลึก ๆ และเหตุผลทั้งหมดให้เขาเข้าใจ คุณทำอย่างไร?",
+      "discriminates": [
+        "Scorpion",
+        "Caracal"
+      ],
+      "constructs": [
+        "AFF",
+        "ALG"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "รับคำขอโทษแต่บอกว่าการ repair ต้องเคารพ dignity โดยไม่เรียกร้องให้คุณ perform ความเปราะบาง",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": -0.6,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "ALG",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "ยืนยันว่า access ส่วนนั้นถูกถอน คำขอโทษไม่ทำให้เขามีสิทธิ์กำหนดเงื่อนไขการเปิดเผยของคุณ",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "ALG",
+              "value": -0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "เล่าส่วนที่คุณเลือกเพื่อช่วยให้เข้าใจกัน แต่ไม่ยอมรับว่าความสัมพันธ์สร้างหน้าที่ต้องเปิดทั้งหมด",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "ALG",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "อธิบายอย่างเต็มที่เพราะความสัมพันธ์ที่กำลังซ่อมทำให้คุณมีหน้าที่ช่วยให้อีกฝ่ายเข้าใจ",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "ALG",
+              "value": 0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB14",
+      "domain": "relationship_boundaries",
+      "title": "เส้นเดิมกับคนที่สำคัญ",
+      "scenario": "คนที่สำคัญกับคุณทำพฤติกรรมเดิมซ้ำหลังเคยรับปากว่าจะหยุด เขายอมรับผลกระทบแต่ขอโอกาสโดยไม่มีแผนชัด คุณตอบอย่างไร?",
+      "discriminates": [
+        "Cobra",
+        "Moose"
+      ],
+      "constructs": [
+        "EXP",
+        "STR",
+        "RST"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "บอก harm และ consequence เฉพาะที่ชัด พร้อมให้เขาเลือกว่าจะรับเงื่อนไขสุดท้ายนี้หรือถอย",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "ใช้ rule และ consequence เดิมโดยไม่เปลี่ยนตามความใกล้ชิด เพราะเส้นจะมีความหมายเมื่อคงที่",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.5,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "ลดการเข้าถึงอย่างเงียบ ๆ และเก็บพลังไว้ก่อน โดยยังไม่ประกาศว่าจะเกิดอะไรต่อ",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": -0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": 0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 1.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "คุยว่าความสัมพันธ์ต้องการอะไรตอนนี้และลองรูปแบบใหม่ก่อนกำหนด consequence",
+          "evidence": [
+            {
+              "construct": "EXP",
+              "value": 0.4,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "STR",
+              "value": -0.4,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "RST",
+              "value": 0.0,
+              "weight": 0.5,
+              "role": "motive_probe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB15",
+      "domain": "care_community",
+      "title": "เวรดูแลที่ไม่มีใครรับต่อ",
+      "scenario": "กลุ่มดูแลสมาชิกที่ฟื้นตัวช้า ตารางเดิมกำลังพังและทุกคนเสนอเหตุผลว่าทำไมตนรับเวรเพิ่มไม่ได้ คุณจะจัดการส่วนของตัวเองอย่างไร?",
+      "discriminates": [
+        "Camel",
+        "Reindeer",
+        "Bear"
+      ],
+      "constructs": [
+        "AFF",
+        "DCL",
+        "ALG"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "ประเมิน capacity จริง รับช่วงเวลาที่ถือไหว และทำให้ commitment นั้นแน่นอนโดยไม่รับเกินข้อตกลง",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.5,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.2,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "ALG",
+              "value": 0.6,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "ชวนทั้งกลุ่มแบ่งตารางใหม่และรับส่วนที่ช่วยให้ไม่มีใครหลุดจากวงดูแล แม้ทุกคนต้องขยับร่วมกัน",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.7,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "ALG",
+              "value": 0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "อยู่กับผู้ฟื้นตัวในช่วงที่เปราะบางที่สุดและรับ burden ตรงนั้น แม้ระบบส่วนอื่นต้องหาทางปรับเอง",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": -0.3,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.6,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "ALG",
+              "value": 0.6,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "ปฏิเสธตารางเดิมและสร้างทางเลือกที่ไม่มีใครต้องผูกกับภาระซึ่งระบบจัดการไม่ได้",
+          "evidence": [
+            {
+              "construct": "AFF",
+              "value": -0.7,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "DCL",
+              "value": -0.2,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "ALG",
+              "value": -0.6,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DTB16",
+      "domain": "uncertainty_exploration",
+      "title": "พายุที่ทำให้คนกับเสบียงไปต่อพร้อมกันไม่ได้",
+      "scenario": "พายุทำให้คณะต้องเลือกระหว่างรักษาเสบียงระยะยาว พาคนบาดเจ็บไปหาที่พัก หรือชะลอทั้งกลุ่มจนทุกคนเคลื่อนไปพร้อมกัน คุณเสนออะไร?",
+      "discriminates": [
+        "Camel",
+        "Reindeer",
+        "Bear"
+      ],
+      "constructs": [
+        "STR",
+        "RSK",
+        "DCL"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "copy": "คำนวณ reserve ใหม่ ตัดสิ่งที่ไม่จำเป็น และรักษาเส้นทางที่ทำให้ภาระสำคัญไปถึงโดยไม่หมดกลางทาง",
+          "evidence": [
+            {
+              "construct": "STR",
+              "value": 0.8,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RSK",
+              "value": -0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.2,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "copy": "หยุดสร้างที่พักรอบผู้บาดเจ็บก่อนและยอมให้แผนเสบียงเปลี่ยนตามชีวิตที่ต้องปกป้องตอนนี้",
+          "evidence": [
+            {
+              "construct": "STR",
+              "value": 0.6,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RSK",
+              "value": -0.8,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.6,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "copy": "ชะลอทั้งคณะและแบ่งน้ำหนักใหม่เพื่อให้ทุกคนยังอยู่ในการเดินทางเดียวกัน",
+          "evidence": [
+            {
+              "construct": "STR",
+              "value": 0.3,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RSK",
+              "value": -0.3,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.7,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "copy": "ทิ้งแผนเดิมและเปิดเส้นทางเสี่ยงใหม่ทันที เพราะการพยายามรักษาทุกอย่างจะทำให้เสียทั้งหมด",
+          "evidence": [
+            {
+              "construct": "STR",
+              "value": -0.3,
+              "weight": 1.0,
+              "role": "primary"
+            },
+            {
+              "construct": "RSK",
+              "value": 0.7,
+              "weight": 0.5,
+              "role": "secondary"
+            },
+            {
+              "construct": "DCL",
+              "value": 0.1,
+              "weight": 0.5,
+              "role": "secondary"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "dimensions": [
     {
       "id": "AFF",
@@ -1444,7 +3089,7 @@
         -0.2,
         0.5
       ],
-      "design_note": "Strategic, directive and structuring; selective belonging with pack duty."
+      "design_note": "Canonical Scoring Model v0.4 profile"
     },
     "Reindeer": {
       "kingdom": "Taiga",
@@ -1458,7 +3103,7 @@
         0.7,
         0.8
       ],
-      "design_note": "Collaborative and duty-bound; preserves the group through relational navigation."
+      "design_note": "Canonical Scoring Model v0.4 profile"
     },
     "Lynx": {
       "kingdom": "Taiga",
@@ -1472,7 +3117,7 @@
         -0.1,
         -0.7
       ],
-      "design_note": "Highly independent, guarded and self-authored; observes without needing control."
+      "design_note": "Canonical Scoring Model v0.4 profile"
     },
     "Bear": {
       "kingdom": "Taiga",
@@ -1486,7 +3131,7 @@
         0.6,
         0.6
       ],
-      "design_note": "Protective and preserving; structures safety around particular bonds and duties."
+      "design_note": "Canonical Scoring Model v0.4 profile"
     },
     "Moose": {
       "kingdom": "Taiga",
@@ -1500,7 +3145,7 @@
         -0.5,
         0.1
       ],
-      "design_note": "Boundary-oriented and imposing; preserves territory through direct, impersonal order."
+      "design_note": "Canonical Scoring Model v0.4 profile"
     },
     "Wolverine": {
       "kingdom": "Taiga",
@@ -1514,12 +3159,104 @@
         0.1,
         -0.6
       ],
-      "design_note": "Defiant frontier actor; directive but responsive, exploratory and resistant to inherited duty."
+      "design_note": "Canonical Scoring Model v0.4 profile"
+    },
+    "Fennec Fox": {
+      "kingdom": "Desert",
+      "vector": [
+        0.4,
+        -0.2,
+        -0.6,
+        -0.6,
+        -0.4,
+        0.5,
+        0.5,
+        -0.4
+      ],
+      "design_note": "Canonical Scoring Model v0.4 profile"
+    },
+    "Caracal": {
+      "kingdom": "Desert",
+      "vector": [
+        -0.6,
+        0.5,
+        0.6,
+        0.3,
+        -0.7,
+        -0.4,
+        -0.5,
+        -0.7
+      ],
+      "design_note": "Canonical Scoring Model v0.4 profile"
+    },
+    "Cobra": {
+      "kingdom": "Desert",
+      "vector": [
+        -0.4,
+        0.6,
+        0.2,
+        0.7,
+        0.7,
+        -0.6,
+        -0.7,
+        0.0
+      ],
+      "design_note": "Canonical Scoring Model v0.4 profile"
+    },
+    "Camel": {
+      "kingdom": "Desert",
+      "vector": [
+        0.5,
+        0.0,
+        0.6,
+        0.8,
+        -0.4,
+        -0.8,
+        0.2,
+        0.6
+      ],
+      "design_note": "Canonical Scoring Model v0.4 profile"
+    },
+    "Scorpion": {
+      "kingdom": "Desert",
+      "vector": [
+        -0.8,
+        0.6,
+        -0.5,
+        0.6,
+        -0.8,
+        -0.7,
+        -0.7,
+        -0.8
+      ],
+      "design_note": "Canonical Scoring Model v0.4 profile"
+    },
+    "Oryx": {
+      "kingdom": "Desert",
+      "vector": [
+        0.6,
+        -0.2,
+        0.0,
+        0.6,
+        0.5,
+        -0.7,
+        0.5,
+        0.0
+      ],
+      "design_note": "Canonical Scoring Model v0.4 profile"
     }
   },
-  "realm": {
-    "name": "Taiga",
-    "title": "The Boreal Dominion"
+  "realms": {
+    "Taiga": {
+      "name": "Taiga",
+      "title": "The Boreal Dominion",
+      "belief": "Here, competence is not decoration. It is how one life becomes shelter for another."
+    },
+    "Desert": {
+      "name": "Desert",
+      "title": "The Sunless Crown",
+      "belief": "Here, restraint is not deprivation. It is the art of keeping choice alive."
+    }
   },
   "results": {
     "Grey Wolf": {
@@ -1665,6 +3402,448 @@
       ],
       "bible": "docs/design/animals/taiga/wolverine.md",
       "full_result": "docs/design/results/wolverine-example.md"
+    },
+    "Fennec Fox": {
+      "title": "The Listener in the Dunes",
+      "identity_promise": "Sensitivity is not fragility; it lets you hear the path that force would bury.",
+      "short_result": "คุณไม่ได้อยู่รอดเพราะเสียงดังที่สุด คุณอยู่รอดเพราะได้ยินสิ่งที่คนอื่นรีบผ่านไป—ความลังเลก่อนคำตอบ ช่องว่างก่อนประตูปิด และความเป็นไปได้ที่ยังไม่ต้องใช้ทุกอย่างแลกมา คุณรักษาทางเลือกด้วยการอ่านจังหวะ ทดลองอย่างเบา และขยับก่อนสถานการณ์จะแข็งตัว คนอื่นอาจเห็นเพียงความเปลี่ยนแปลงเร็วหรือความขี้เล่น แต่เบื้องหลังคือวินัยของคนที่รู้ว่าทุกการตัดสินใจมีต้นทุน ความเบาของคุณไม่ใช่การไม่มีน้ำหนัก มันคือการไม่ยอมแบกสิ่งที่โลกยื่นให้โดยยังไม่ได้ฟังว่าจำเป็นจริงหรือไม่",
+      "patterns": {
+        "what_moves_you": "คุณมีชีวิตขึ้นมาเมื่อพบ signal เล็ก ๆ ที่เปิดทางใหม่ได้ คุณไม่ได้ต้องการความแปลกใหม่ตลอดเวลา แต่ต้องการพื้นที่ให้ curiosity และข้อมูลใหม่เปลี่ยนวิธีเดินโดยไม่ถูกมองว่าไร้หลัก",
+        "how_you_connect": "คุณสร้างความใกล้ชิดผ่าน curiosity, humor และการสังเกตที่ไม่รุกล้ำ คุณเปิดประตูเล็ก ๆ ให้อีกฝ่ายเลือกเข้ามา และมักจำรายละเอียดที่เขาไม่คิดว่าจะมีใครได้ยิน",
+        "how_you_protect": "คุณปกป้องด้วย timing และ low-cost adaptation ก่อนเพิ่มกำลัง คุณหาเส้นทางชั่วคราว ลดแรงเสียดทาน และรักษาทางถอยไว้ให้คนอื่นโดยไม่ทำให้การช่วยเหลือกลายเป็นหนี้",
+        "when_winter_closes_in": "ความไวต่อสัญญาณช่วยให้คุณเปลี่ยนทางได้เร็ว แต่เมื่อทุกทางดูมีต้นทุน flexibility อาจกลายเป็นการไม่ยอมเลือก คุณทดลองต่อ เลื่อนคำตอบ และใช้ charm ลดความตึงเครียด จนคนที่รอคุณไม่รู้ว่าความสัมพันธ์หรือคำมั่นนั้นมีที่ยืนจริงหรือไม่",
+        "what_you_rarely_ask_for": "คุณต้องการคนที่เห็นว่าความเบาและความสนุกของคุณไม่ใช่หลักฐานว่าไม่จริงจัง คนที่ให้เวลาคุณฟังโลก แต่ยังถามอย่างอ่อนโยนว่า ‘ทางไหนที่คุณเลือกจะอยู่ต่อ’"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าเปลี่ยนใจง่ายหรือไม่ยอมจริงจัง สิ่งที่พวกเขาไม่เห็นคือคุณกำลังรักษาทางเลือกจากโลกที่ชอบทำให้ทุกคำตอบแพงและถาวรเกินจำเป็น",
+      "restoring_balance": "สมดุลไม่ใช่การเลิกปรับตัว แต่คือการตั้งจุดที่การสำรวจต้องกลายเป็นคำมั่น ลองเลือกหนึ่งทางในระยะเวลาที่ชัด และบอกคนที่เกี่ยวข้องว่าคุณจะอยู่กับมันนานพอให้ผลของการเลือกปรากฏ",
+      "realm_connection": "Desert จำคุณได้จากความสามารถใช้ attention ก่อนใช้ resource แต่คุณต้านส่วนที่ระแวงที่สุดของ Crown: คุณยืนยันว่า warmth, play และ possibility ไม่ใช่ของฟุ่มเฟือย หากสิ่งเหล่านั้นช่วยให้ชีวิตยังมีทางเลือก",
+      "closing": "You were not placed here because you never lose the trail. You were placed here because listening for another path is the shape your courage takes.",
+      "share_line": "My nature belongs to the Fennec—the one who hears a path beneath the wind.",
+      "signatures": [
+        "Attentive adaptation",
+        "Unforced warmth",
+        "Living options"
+      ],
+      "bible": "docs/design/animals/desert/fennec-fox.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Caracal": {
+      "title": "The Silent Standard",
+      "identity_promise": "Your dignity does not begin when the room recognizes it.",
+      "short_result": "คุณรู้ว่ามาตรฐานที่แท้ไม่จำเป็นต้องมีผู้ชม คุณลด noise จนเห็นว่าสิ่งใดควรทำให้ดี สิ่งใดไม่คู่ควรกับพลัง และสิ่งใดไม่ควรถูกต่อรองเพื่อแลก approval ความนิ่งของคุณไม่ใช่การวางตัวเหนือคนอื่น แต่คือการไม่ยกสิทธิ์ให้สายตาภายนอกเป็นผู้ตั้งราคาตัวตน คุณให้เกียรติคนด้วยความแม่น ความสม่ำเสมอ และการไม่ทำให้ vulnerability เป็น spectacle ของขวัญนี้ทำให้คุณยืนได้โดยไม่ต้องแสดง—แต่บางครั้งก็ทำให้คนที่รักคุณไม่รู้ว่าจะเดินเข้ามาช่วยอย่างไร",
+      "patterns": {
+        "what_moves_you": "คุณถูกขับเคลื่อนด้วยคุณภาพที่ยืนได้ด้วยตัวเอง คุณชอบช่วงเวลาที่สิ่งเกินจำเป็นถูกตัดออก เหลือ decision หรือผลงานที่ตรงกับมาตรฐานภายในโดยไม่ต้องอธิบายเกินจริง",
+        "how_you_connect": "คุณให้เกียรติผ่าน space, consistency และ discretion ความใกล้ชิดของคุณไม่ฟุ่มเฟือย แต่มีน้ำหนัก เพราะคนที่ได้รับมันรู้ว่าคุณไม่ได้เลือกจากแรงกดดันหรือภาพลักษณ์",
+        "how_you_protect": "คุณปกป้องด้วย composure และ precision คุณไม่เพิ่ม drama ให้การละเมิด แต่แก้สิ่งสำคัญ ระบุสิ่งที่ไม่ยอมรับ และปล่อยให้การกระทำยืนแทนการพิสูจน์ตัวเอง",
+        "when_winter_closes_in": "self-command ช่วยรักษาศักดิ์ศรีภายใต้สายตา แต่เมื่อถูกเข้าใจผิด pride อาจแข็งเป็น inaccessibility คุณไม่อธิบาย ไม่ขอ และถือว่าการต้องการความช่วยเหลือคือการยอมให้คนอื่นตัดสินคุณค่า สุดท้ายความนิ่งที่ปกป้องคุณก็ปิดคนที่ไม่ได้ต้องการลดทอนคุณออกไปด้วย",
+        "what_you_rarely_ask_for": "คุณต้องการได้รับความรักในวันที่ไม่ polished, precise หรือควบคุมตัวเองได้ทั้งหมด คุณต้องการรู้ว่าการให้ใครเห็นรอยต่อไม่ได้ทำให้มาตรฐานทั้งชีวิตของคุณพังลง"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าหยิ่งหรือเข้าถึงยาก สิ่งที่พวกเขาไม่เห็นคือคุณกำลังปกป้องสิทธิ์ที่จะมีคุณค่าโดยไม่ต้อง perform ตัวตนให้น่าพอใจต่อสายตาของใคร",
+      "restoring_balance": "สมดุลไม่ได้เกิดจากการลดมาตรฐาน แต่จากการแยกการอธิบายเพื่อ repair ออกจากการอธิบายเพื่อขออนุญาตมีตัวตน ลองเปิดเผยสิ่งที่ยังไม่สมบูรณ์หนึ่งอย่างแก่คนที่พิสูจน์แล้วว่าไม่ใช้มันตัดสินคุณ",
+      "realm_connection": "Desert จำคุณได้จาก self-command และการปฏิเสธ excess แต่คุณไม่ยอมให้ Crown เปลี่ยน dignity เป็นราคา สัญญา ตำแหน่ง หรือ approval อาจเปิดประตูได้ ทว่าไม่มีสิ่งใดเป็นผู้อนุญาตว่าคุณควรเป็นใคร",
+      "closing": "You were not placed here because no judgment reaches you. You were placed here because dignity without an audience is the shape your courage takes.",
+      "share_line": "My nature belongs to the Caracal—the standard that does not bend for an audience.",
+      "signatures": [
+        "Quiet precision",
+        "Unpriced dignity",
+        "Composed action"
+      ],
+      "bible": "docs/design/animals/desert/caracal.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Cobra": {
+      "title": "The Keeper of the Final Line",
+      "identity_promise": "A boundary spoken clearly is an act of mercy before consequence becomes necessary.",
+      "short_result": "คุณเชื่อว่าคนควรรู้ terms, consent และ consequence ก่อนตัดสินใจ ความชัดของคุณไม่ได้มีไว้ข่มขู่ แต่มันหยุด hidden cost ไม่ให้ไหลไปหาคนที่อำนาจน้อยกว่า คุณพูดเส้นให้มองเห็น ให้โอกาสอีกฝ่ายเลือกอย่างรู้ผล และใช้กำลังเท่าที่คำเตือนไม่สามารถป้องกันได้ คนอื่นอาจรู้สึกถึงความเด็ดขาดก่อนเห็น care ที่อยู่ข้างใต้: คุณต้องการโลกที่ไม่มีใครต้องเดาว่าคำว่า ‘พอ’ จะเริ่มมีความหมายเมื่อไร ของขวัญนี้ป้องกัน escalation—ตราบใดที่ final line ยังเหลือประตูให้ accountability จริงเดินกลับมาได้",
+      "patterns": {
+        "what_moves_you": "คุณถูกขับเคลื่อนด้วยความชัดที่ทำให้ทุกฝ่ายเลือกได้อย่างรู้ผล คุณทน ambiguity ได้ แต่ไม่ยอมรับ ambiguity ที่ถูกใช้ซ่อนต้นทุน เลื่อน consent หรือทำให้ consequence ตกกับคนอื่น",
+        "how_you_connect": "คุณสร้าง trust ด้วย terms ที่ตรงและการทำตามสิ่งที่ประกาศ คนใกล้ตัวไม่ต้องอ่านใจคุณ เพราะคุณมองว่าความใกล้ชิดที่ดีควรลดการเดา ไม่ใช่เพิ่ม leverage ให้คนที่เดาเก่งกว่า",
+        "how_you_protect": "คุณปกป้องด้วย warning, choice และ proportionate consequence คุณทำให้เส้นปรากฏก่อนต้อง enforce เพื่อให้ความปลอดภัยไม่ขึ้นกับว่าใครอ่านอันตรายได้เร็วที่สุด",
+        "when_winter_closes_in": "moral clarity หยุด hidden harm ได้ แต่เมื่อคำเตือนถูกละเลย certainty อาจแข็งตัวจนทุก disagreement ดูเหมือนการทดสอบเส้น คุณประกาศคำตอบสุดท้ายเร็ว ปิดการเจรจา และไม่แยก mistake จาก pattern จน consequence ที่เคยได้สัดส่วนกลายเป็นกำแพงถาวร",
+        "what_you_rarely_ask_for": "คุณต้องการความสัมพันธ์ที่รับฟังคำว่า ‘พอ’ โดยไม่ต้องเห็นเขี้ยวก่อน คนที่ตอบสนองต่อ boundary เล็ก ๆ ได้ จะทำให้คุณไม่ต้องใช้ danger เป็นภาษาเดียวที่โลกยอมเข้าใจ"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าน่ากลัวหรือเด็ดขาดเกินไป สิ่งที่พวกเขาไม่เห็นคือคุณกำลังทำ consequence ให้มองเห็นก่อนที่ความคลุมเครือจะบังคับให้ใครรับผลโดยไม่เคยได้เลือก",
+      "restoring_balance": "สมดุลไม่ใช่การทำเส้นให้อ่อนลง แต่คือการระบุด้วยว่าอะไรนับเป็น repair ลองบอกทั้ง consequence และเงื่อนไขที่ทำให้ trust เริ่มสร้างใหม่ได้ เพื่อให้ความชัดปกป้องอนาคต ไม่ใช่เพียงตัดสินอดีต",
+      "realm_connection": "Desert จำคุณได้จาก contract ที่ต้องมี informed choice แต่คุณท้าทายอำนาจที่ใช้ threat แบบซ่อนเร้น สำหรับคุณข้อตกลงไม่มีเกียรติ หากอีกฝ่ายเพิ่งรู้ราคาเมื่อสายเกินกว่าจะถอย",
+      "closing": "You were not placed here because every line must become a wall. You were placed here because making consequence visible is the shape your courage takes.",
+      "share_line": "My nature belongs to the Cobra—the one who makes the final line visible.",
+      "signatures": [
+        "Visible boundaries",
+        "Measured consequence",
+        "Moral clarity"
+      ],
+      "bible": "docs/design/animals/desert/cobra.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Camel": {
+      "title": "The Bearer of the Long Measure",
+      "identity_promise": "You know the weight of a promise before you lift it—and that is why yours arrives.",
+      "short_result": "คุณไม่ได้ให้คำมั่นเพราะอยากดูใจกว้าง คุณมองระยะทาง ต้นทุน และ reserve ก่อนตอบรับ แล้วเมื่อเลือกถือบางสิ่ง คุณออกแบบให้มันไปถึงจริง ความน่าเชื่อถือของคุณจึงไม่ใช่การเสียสละแบบไร้ขอบเขต แต่เป็น generosity ที่รู้ราคาของตน คนอื่นอาจเห็นเพียงความอดทนหรือการคิดเป็นระบบ แต่เบื้องหลังคือ care ระยะยาว: คุณไม่อยากให้คำว่า ‘ได้’ ในวันนี้กลายเป็นหนี้ที่ทุกคนต้องจ่ายในวันหน้า อย่างไรก็ตาม คนที่แบกได้ไกลมักถูกลืมถามว่าอยากถูกดูแลอย่างไรเมื่อ reserve ของตนเริ่มต่ำ",
+      "patterns": {
+        "what_moves_you": "คุณรู้สึกมีความหมายเมื่อ commitment ผ่านระยะทางและมาถึงตามที่ตกลง คุณชอบการจัด capacity ให้ความตั้งใจไม่หายไประหว่างทาง และไม่ประทับใจกับคำสัญญาที่สวยแต่ไม่มีโครงรองรับ",
+        "how_you_connect": "คุณสร้าง trust ด้วยการมาตามนัด บอก cost ตรง และให้โดยรู้ว่ากำลังให้อะไร คนที่รักคุณสัมผัส care ผ่านความต่อเนื่องมากกว่าความเข้มข้นชั่วคราว",
+        "how_you_protect": "คุณปกป้องด้วย reserve, pacing และการเลือกภาระ คุณทำให้ความช่วยเหลือเดินทางไกลพอ ไม่ใช้ทุกอย่างกับวิกฤตแรก และไม่ปล่อยให้ generosity วันนี้ทำลาย capacity ของวันพรุ่งนี้",
+        "when_winter_closes_in": "endurance ทำให้คำมั่นของคุณรอด แต่เมื่อทุกคนพึ่งพาคุณ capacity planning อาจกลายเป็น self-erasure คุณแบกต่อเพราะเคยบอกว่าไหว วัดทุก need เป็น logistics และเริ่มจำต้นทุนของความรักจน generosity กลายเป็นบัญชีเงียบ ๆ",
+        "what_you_rarely_ask_for": "คุณต้องการได้รับการดูแลโดยไม่ต้องพิสูจน์ก่อนว่าจะใช้ทรัพยากรนั้นคุ้ม คนที่ให้คุณพักก่อน reserve หมดกำลังยืนยันว่าคุณมีค่าเกินกว่าสิ่งที่สามารถขนไปถึงปลายทาง"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าคิดเป็นต้นทุนเกินไปหรือไม่ spontaneous สิ่งที่พวกเขาไม่เห็นคือคุณกำลังป้องกันไม่ให้ความใจกว้างที่ไม่มีแผนกลายเป็นภาระของคนอื่นในระยะยาว",
+      "restoring_balance": "สมดุลไม่ใช่การเลิกคำนวณ capacity แต่คือการนับตัวคุณเป็นหนึ่งในสิ่งที่ต้องไปถึง ลองตั้ง reserve ที่ไม่ถูกเสนอให้ใคร และขอให้คนหนึ่งช่วยก่อนที่ความเหนื่อยจะกลายเป็นเหตุฉุกเฉิน",
+      "realm_connection": "Desert จำคุณได้จาก resource discipline ที่ทำให้สิ่งสำคัญข้ามระยะได้จริง แต่คุณต้านการใช้ reserve เป็น leverage สำหรับคุณการรู้ต้นทุนทำให้ generosity ซื่อตรงขึ้น ไม่ได้สร้างสิทธิ์ให้ผู้ให้ถือความช่วยเหลือเป็นหนี้ทางใจ",
+      "closing": "You were not placed here because you can carry everything. You were placed here because choosing what can truly arrive is the shape your courage takes.",
+      "share_line": "My nature belongs to the Camel—the one whose promises survive the distance.",
+      "signatures": [
+        "Deliberate endurance",
+        "Honest capacity",
+        "Promises that arrive"
+      ],
+      "bible": "docs/design/animals/desert/camel.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Scorpion": {
+      "title": "The Unbowed Sovereign",
+      "identity_promise": "Your right to a boundary is not measured by your size, status or usefulness.",
+      "short_result": "คุณไม่ต้องใหญ่กว่าใครเพื่อมีสิทธิ์ในตัวเอง ความใกล้ชิดไม่ได้สร้าง entitlement และความเป็นห่วงไม่ใช่กุญแจที่เปิดทุกประตู คุณกำหนด access ต่อเวลา ร่างกาย ความลับ และพื้นที่ภายในโดยไม่ต้องมีอำนาจเหนือใคร พลังของคุณอยู่ในคำปฏิเสธที่ไม่ยืม rank และการใช้ force เท่าที่จำเป็น คนอื่นอาจเห็นเพียงความระวังหรือระยะที่เข้มงวด แต่สิ่งที่คุณปกป้องคือหลักพื้นฐานว่า dignity ไม่ควรขึ้นกับ leverage ความลับของ boundary ที่แข็งแรงที่สุดคือ มันสามารถเปิดประตูใหม่ได้โดยไม่ต้องแสร้งว่าการละเมิดไม่เคยเกิดขึ้น",
+      "patterns": {
+        "what_moves_you": "คุณถูกขับเคลื่อนด้วย sovereignty ที่ไม่ต้องมีตำแหน่ง คุณต้องการโลกที่คำว่า ‘ไม่’ มีผลก่อนเจ้าของคำพูดจะพิสูจน์ว่ามีอำนาจ มีเหตุผลน่าประทับใจ หรือมีประโยชน์พอ",
+        "how_you_connect": "คุณให้ access เป็นชั้นและผูก trust กับการเคารพ consent คนวงเล็กของคุณได้รับ loyalty สูง เพราะพวกเขารู้ว่าความใกล้ชิดไม่ใช่ใบอนุญาตให้ครอบครองกัน",
+        "how_you_protect": "คุณปกป้องด้วย refusal, privacy และ economy of force คุณไม่เปิด private need เกินกว่าที่เลือก และไม่เชื่อว่าการอธิบายตัวเองจนหมดคือค่าธรรมเนียมของ boundary",
+        "when_winter_closes_in": "sovereignty ช่วยให้คุณยืนได้โดยไม่มี rank แต่เมื่อเคยถูกล้ำเส้น embodied alarm อาจอ่านทุก approach เป็น intrusion คุณลง consequence ก่อนแยก ignorance จาก coercion และทำให้การสร้าง trust ใหม่เป็นไปไม่ได้ แม้อีกฝ่ายเริ่มรับผิดชอบจริง",
+        "what_you_rarely_ask_for": "คุณต้องการความใกล้ชิดที่รอ consent ได้โดยไม่ทดสอบว่าจะถูกต่อยหรือไม่ คนที่ไม่ผลักประตูเพียงเพื่อพิสูจน์ว่าคุณรักเขา จะทำให้ privacy กลายเป็นห้องที่แบ่งปันได้ ไม่ใช่ป้อมที่ต้องอยู่คนเดียว"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าปิดกั้นหรือพร้อมตอบโต้ สิ่งที่พวกเขาไม่เห็นคือคุณกำลังรักษาสิทธิ์พื้นฐานที่ไม่ควรลดลงตามขนาด สถานะ ความใกล้ชิด หรือประโยชน์ของเจ้าของมัน",
+      "restoring_balance": "สมดุลไม่ใช่การเปิด access ที่ยังไม่พร้อม แต่คือการแยก warning ปัจจุบันออกจากรอยแผลเดิม ลองกำหนดหนึ่งเงื่อนไขเล็กและตรวจสอบได้สำหรับการสร้าง trust ใหม่ โดยยังรักษาสิทธิ์ถอนตัวไว้ครบ",
+      "realm_connection": "Desert จำคุณได้จากการปกป้องสิ่งที่ไม่ควรถูกซื้อขาย แต่คุณต่อต้าน Crown เมื่อ wealth, debt หรือ hierarchy ถูกใช้ซื้อ access ส่วนตัว สำหรับคุณไม่มีสัญญาใดชอบธรรมหาก consent ถูกทำให้เป็นสินค้าที่ผู้มีอำนาจจ่ายแทนได้",
+      "closing": "You were not placed here because no one may come close. You were placed here because sovereignty without a throne is the shape your courage takes.",
+      "share_line": "My nature belongs to the Scorpion—the sovereign no throne can make smaller.",
+      "signatures": [
+        "Private sovereignty",
+        "Economy of force",
+        "Unborrowed refusal"
+      ],
+      "bible": "docs/design/animals/desert/scorpion.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Oryx": {
+      "title": "The Keeper of the Inner Spring",
+      "identity_promise": "Enoughness can be radiant; survival does not require you to become barren inside.",
+      "short_result": "คุณรู้ว่าความพอไม่จำเป็นต้องดูว่างเปล่า คุณรักษาสิ่งจำเป็นโดยไม่ยอมให้ความกลัวทำให้ชีวิตภายในแห้ง ความงาม ความสุข และ generosity ที่คุณเลือกไม่ใช่ excess แต่มันเตือนว่าการอยู่รอดมีไว้เพื่อให้บางอย่างยังมีชีวิตต่อ คุณสร้าง abundance จาก rhythm, care และการรู้ว่าเมื่อไรควรหยุด คนอื่นอาจเห็นเพียงความสงบหรือความสง่างาม แต่เบื้องหลังคือ discipline ที่ไม่ยอมให้ scarcity กลายเป็นตัวตน ของขวัญนี้หล่อเลี้ยงคนรอบข้าง—ตราบใดที่ความพอไม่ได้กลายเป็นเหตุผลให้คุณซ่อน need ของตัวเอง",
+      "patterns": {
+        "what_moves_you": "คุณถูกขับเคลื่อนด้วยสิ่งที่หล่อเลี้ยงโดยไม่กินอนาคต คุณชอบจังหวะที่ reserve, beauty และ shared life อยู่ร่วมกันได้ และปฏิเสธความคิดว่าความขาดแคลนทำให้ความแห้งแล้งทางใจเป็นคุณธรรม",
+        "how_you_connect": "คุณสร้างความใกล้ชิดผ่าน generosity ที่ไม่เร่ง intimacy คุณจัดพื้นที่ให้คนรับและให้ได้โดยไม่เสีย dignity และทำให้ moment เล็ก ๆ รู้สึกเพียงพอโดยไม่เพิ่ม obligation",
+        "how_you_protect": "คุณปกป้องด้วย sustainable rhythm, self-regulation และ calm presence คุณเก็บ reserve แต่ยอมใช้ส่วนที่พอดีเพื่อรักษา hope เพราะรู้ว่าร่างกายและชุมชนอยู่รอดด้วย nourishment มากกว่าการชะลอ loss",
+        "when_winter_closes_in": "composure ทำให้คนอื่นหายใจได้ แต่เมื่อ scarcity กดดัน ความพออาจแข็งเป็นการไม่ขอ คุณรักษาภาพ calm จัดความยุ่งเหยิงให้สวย และซ่อนว่า reserve ภายในหมด จนไม่มีใครรู้ว่าคนที่สร้าง oasis ก็กำลังกระหายน้ำ",
+        "what_you_rarely_ask_for": "คุณต้องการเชื่อว่าการมี need ไม่ทำให้เป็นภาระหรือคนที่มีวินัยน้อยลง คุณอยากให้ใครบางคนมองเห็นความต้องการก่อนมันกลายเป็น collapse และยังเห็น dignity ของคุณครบ"
+      },
+      "misunderstanding": "พวกเขาอาจคิดว่าคุณไม่เดือดร้อนหรือไม่ต้องการอะไร สิ่งที่พวกเขาไม่เห็นคือความสงบของคุณเป็นสิ่งที่ดูแลอย่างตั้งใจ ไม่ใช่หลักฐานว่า reserve ภายในไม่มีวันหมด",
+      "restoring_balance": "สมดุลไม่ได้เกิดจากการละทิ้ง enoughness แต่จากการอนุญาตให้ need เป็นส่วนหนึ่งของมัน ลองขอสิ่งเล็กหนึ่งอย่างก่อนจำเป็น และปล่อยให้การรับจากคนอื่นเป็นส่วนของ abundance ไม่ใช่ความล้มเหลวของ self-control",
+      "realm_connection": "Desert จำคุณได้จาก restraint ที่สร้าง sustainable abundance แต่คุณต้านการยก deprivation เป็นความบริสุทธิ์ สำหรับคุณ beauty, celebration และ rest มีสิทธิ์อยู่ในโลกที่ต้องระวังทรัพยากร หากมันช่วยให้ชีวิตยังคู่ควรกับการรักษา",
+      "closing": "You were not placed here because you never thirst. You were placed here because keeping an inner spring alive is the shape your courage takes.",
+      "share_line": "My nature belongs to the Oryx—the one who keeps an inner spring beneath the sun.",
+      "signatures": [
+        "Radiant enoughness",
+        "Sustainable grace",
+        "Nourishing restraint"
+      ],
+      "bible": "docs/design/animals/desert/oryx.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
     }
+  },
+  "scoring": {
+    "model_version": "0.4-sandbox",
+    "core_dimensions": [
+      "AFF",
+      "AGY",
+      "SEN",
+      "STR",
+      "EXP",
+      "RSK",
+      "DCL",
+      "ALG"
+    ],
+    "motive_facets": [
+      "REC",
+      "MAS",
+      "RCP",
+      "CON",
+      "RST"
+    ],
+    "construct_weights": {
+      "AFF": 1.0,
+      "AGY": 1.0,
+      "SEN": 1.0,
+      "STR": 1.0,
+      "EXP": 1.0,
+      "RSK": 1.0,
+      "DCL": 1.0,
+      "ALG": 1.0,
+      "REC": 0.5,
+      "MAS": 0.5,
+      "RCP": 0.5,
+      "CON": 0.5,
+      "RST": 0.5
+    },
+    "confidence_targets": {
+      "AFF": 4.0,
+      "AGY": 4.0,
+      "SEN": 4.0,
+      "STR": 4.0,
+      "EXP": 4.0,
+      "RSK": 4.0,
+      "DCL": 4.0,
+      "ALG": 4.0,
+      "REC": 1.5,
+      "MAS": 1.5,
+      "RCP": 1.5,
+      "CON": 1.5,
+      "RST": 1.5
+    },
+    "animal_softmax_temperature": 0.2,
+    "prior_policy": "equal_realm_then_equal_animal",
+    "animals": {
+      "Grey Wolf": {
+        "realm": "Taiga",
+        "core": [
+          -0.2,
+          0.7,
+          0.6,
+          0.8,
+          -0.6,
+          -0.1,
+          -0.2,
+          0.5
+        ],
+        "facets": [
+          0.0,
+          0.5,
+          0.0,
+          0.5,
+          0.0
+        ]
+      },
+      "Reindeer": {
+        "realm": "Taiga",
+        "core": [
+          0.8,
+          -0.3,
+          0.1,
+          0.3,
+          0.1,
+          -0.3,
+          0.7,
+          0.8
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.5,
+          1.0,
+          0.0
+        ]
+      },
+      "Lynx": {
+        "realm": "Taiga",
+        "core": [
+          -0.9,
+          0.0,
+          0.5,
+          0.1,
+          -0.9,
+          -0.1,
+          -0.1,
+          -0.7
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Bear": {
+        "realm": "Taiga",
+        "core": [
+          -0.3,
+          0.3,
+          0.0,
+          0.6,
+          -0.5,
+          -0.8,
+          0.6,
+          0.6
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "Moose": {
+        "realm": "Taiga",
+        "core": [
+          0.0,
+          0.4,
+          -0.2,
+          0.7,
+          -0.3,
+          -0.8,
+          -0.5,
+          0.1
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          0.5
+        ]
+      },
+      "Wolverine": {
+        "realm": "Taiga",
+        "core": [
+          -0.7,
+          0.8,
+          -0.4,
+          -0.3,
+          -0.1,
+          0.7,
+          0.1,
+          -0.6
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Fennec Fox": {
+        "realm": "Desert",
+        "core": [
+          0.4,
+          -0.2,
+          -0.6,
+          -0.6,
+          -0.4,
+          0.5,
+          0.5,
+          -0.4
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Caracal": {
+        "realm": "Desert",
+        "core": [
+          -0.6,
+          0.5,
+          0.6,
+          0.3,
+          -0.7,
+          -0.4,
+          -0.5,
+          -0.7
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5
+        ]
+      },
+      "Cobra": {
+        "realm": "Desert",
+        "core": [
+          -0.4,
+          0.6,
+          0.2,
+          0.7,
+          0.7,
+          -0.6,
+          -0.7,
+          0.0
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5
+        ]
+      },
+      "Camel": {
+        "realm": "Desert",
+        "core": [
+          0.5,
+          0.0,
+          0.6,
+          0.8,
+          -0.4,
+          -0.8,
+          0.2,
+          0.6
+        ],
+        "facets": [
+          0.0,
+          0.5,
+          0.0,
+          0.5,
+          1.0
+        ]
+      },
+      "Scorpion": {
+        "realm": "Desert",
+        "core": [
+          -0.8,
+          0.6,
+          -0.5,
+          0.6,
+          -0.8,
+          -0.7,
+          -0.7,
+          -0.8
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Oryx": {
+        "realm": "Desert",
+        "core": [
+          0.6,
+          -0.2,
+          0.0,
+          0.6,
+          0.5,
+          -0.7,
+          0.5,
+          0.0
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "response_softmax_temperature": 0.7,
+    "max_adaptive_questions": 2,
+    "minimum_information_gain": 0.01,
+    "require_adaptive_domain_diversity": true
   }
 }

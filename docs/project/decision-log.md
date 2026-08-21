@@ -1,7 +1,7 @@
 # Decision Log
 
 **Status:** Active  
-**Last updated:** 2026-08-21
+**Last updated:** 2026-08-22
 
 ใช้ไฟล์นี้บันทึกเฉพาะการตัดสินใจที่เปลี่ยนทิศทางหรือ architecture ของโปรเจกต์ ไม่ใช้แทน meeting notes
 
@@ -101,3 +101,51 @@
 - **Decision:** ผู้เล่นเป็น the Unmarked Wayfarer ที่มาถึง Hearthhold ระหว่าง early winter crisis และถูกดึงเข้าสู่วิกฤตหลัง Keeper of the Passage หายตัว
 - **Reason:** เชื่อมคำถามเดิมทั้ง journey, relationship, care, scarcity, identity และ public pressure โดยไม่ทำให้ politics เป็นเนื้อหาหลัก
 - **Consequence:** 16 core questions ใช้ลำดับ Arrival → Bonds → Fracture; Judgment เป็น adaptive identity reflection และ prototype ใช้ remembered continuity ก่อน branching plot จริง
+
+## D-014 — Realm Identity มาก่อน Political Identity
+
+- **Date:** 2026-08-22
+- **Status:** Accepted for roster review
+- **Decision:** Realm ทุกแห่งต้องมี player-facing emotional worldview, belonging currency, desirable gift และ shadow ที่เกิดจากรากเดียวกัน ส่วน governance และ policy เป็นผลที่ worldview นั้นสร้างเมื่อขยายเป็นสังคม
+- **Reason:** ผู้เล่นต้องสามารถภูมิใจกับ realm result โดยไม่จำเป็นต้องเห็นด้วยกับระบอบการเมือง และทั้ง 8 realms ต้องต่างกันในระดับ identity fantasy ไม่ใช่เพียง worldbuilding
+- **Consequence:** Animal roster, result copy, visuals และ scoring construct audit ต้องอ้างอิง Realm Identity Matrix v0.2 ก่อนสร้าง biome vertical slice ถัดไป
+
+## D-015 — Sample ทั้ง 8 Realms ก่อนทำ Biome ที่สองแบบ Full
+
+- **Date:** 2026-08-22
+- **Status:** Accepted
+- **Decision:** ใช้ embody/resist anchors realm ละสองตัวเพื่อตรวจ construct coverage ก่อนเขียน Desert Animal Bible หรือ numeric vectors ครบ 48 ตัว
+- **Reason:** การทดสอบ Taiga/Desert อย่างเดียวอาจทำให้ Trait Model และ scoring overfit boundary คู่แรกโดยไม่เห็น motive ที่ Savanna, Rainforest, Alpine และ Wetland ต้องใช้
+- **Consequence:** ขั้นถัดไปคือ 16-anchor numeric sandbox และ motive-facet ablation; Taiga + Desert เป็น full cross-biome slice หลัง sandbox ผ่าน
+
+## D-016 — คง 8 Core Dimensions และทดลอง Motive เป็น Supporting Facets
+
+- **Date:** 2026-08-22
+- **Status:** Accepted for sandbox
+- **Decision:** คง primary behavioral vector 8 แกน และใช้ Recognition, Mastery, Reciprocity, Continuity และ Restraint เป็น motive probes น้ำหนักกลุ่ม `0.5` แทนการเพิ่มเป็น primary axes ทันที
+- **Reason:** 16-anchor simulation เพิ่ม recovery จาก 73.90% เป็น 81.85%, ทำให้ critical clusters ทั้งสี่ดีขึ้น และไม่มี per-animal regression แต่ยังเป็น synthetic evidence ไม่ใช่ player-response validation
+- **Consequence:** รับ Question Evidence Schema v0.2 เป็น authoring contract และเดินหน้า Taiga + Desert full slice; facets ยังไม่เข้า production score จนมีคำถามอย่างน้อย 3 domains และ question-level simulation
+
+## D-017 — ใช้ Main / Dev / Biome Branch Hierarchy
+
+- **Date:** 2026-08-22
+- **Status:** Accepted
+- **Decision:** รักษา `main` เป็น playable release, ใช้ `dev` รวม slice ที่ผ่าน tests และแตก `biome/<realm>` จาก `dev` สำหรับงานของแต่ละ realm
+- **Reason:** biome slice เปลี่ยน lore, vectors, questions, results และ visuals พร้อมกัน การมี integration branch ช่วยรักษา Taiga baseline และให้ validate cross-realm behavior ก่อน release
+- **Consequence:** Desert ทำบน `biome/desert` และ merge เข้า `dev`; เมื่อ integration พร้อมจึง merge `dev` เข้า `main`
+
+## D-018 — ใช้ Weighted Evidence และ Softmax เป็น Scoring Candidate
+
+- **Date:** 2026-08-22
+- **Status:** Accepted for sandbox
+- **Decision:** estimate constructs ด้วย evidence weights/confidence แล้วแปลง weighted animal distances เป็น probability ผ่าน softmax; realm probability เกิดจากผลรวม animal probabilities พร้อม equal-realm/equal-animal priors
+- **Reason:** final result ต้องรักษาความไม่แน่นอนและไม่ให้ evidence ทุกชิ้นหรือ roster size มีอำนาจเท่ากันโดยอัตโนมัติ Taiga–Desert simulation ยืนยันว่า weighted boundaries ช่วย classification แต่ motive facets ยังมี evidence ไม่พอ
+- **Consequence:** ใช้ `information_gain_core` เป็น experiment default พร้อม domain diversity และไม่เกิน 2 items; motive probes เก็บข้อมูลแต่ยังไม่เข้า final score
+
+## D-019 — เลือก Information Gain สำหรับ Adaptive Boundary Selection
+
+- **Date:** 2026-08-22
+- **Status:** Accepted for runtime candidate
+- **Decision:** rank boundary items ด้วย expected posterior entropy reduction จาก animal softmax probabilities เลือกไม่เกิน 2 ข้อ และห้าม adaptive items ซ้ำ domain ใน playthrough เดียว
+- **Reason:** paired simulation เพิ่ม animal accuracy 76.83% → 78.85% และ realm accuracy 80.02% → 81.01%; ไม่มี animal regression เกิน 1 pp ขณะที่ exact top-pair matching เพิ่มได้น้อยกว่า
+- **Consequence:** Boundary Bank v0.2 ผ่าน regression gate ขั้นถัดไปคือ integrate weighted-softmax + information gain เข้า session/runtime โดย motive facets ยังเป็น telemetry

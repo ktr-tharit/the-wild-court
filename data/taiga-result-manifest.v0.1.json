@@ -2,6 +2,7 @@
   "manifest_version": "0.1",
   "realm": "Taiga",
   "realm_title": "The Boreal Dominion",
+  "realm_belief": "Here, competence is not decoration. It is how one life becomes shelter for another.",
   "animals": {
     "Grey Wolf": {
       "title": "The Winter Strategist",

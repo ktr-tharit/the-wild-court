@@ -8,6 +8,12 @@ from pathlib import Path
 from typing import Any
 
 from scripts.session_runner import load_result_manifest
+from scripts.simulate_taiga_desert import (
+    DEFAULT_MODEL as SCORING_MODEL,
+    load_boundary_bank,
+    load_json,
+    normalized_questions,
+)
 from scripts.simulate_adaptive import load_adaptive_bank
 from scripts.simulate_questions import load_bank
 from scripts.taiga_story import load_story, merge_story, story_errors
@@ -16,6 +22,7 @@ from scripts.validate_vectors import load_model
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "web" / "app" / "game-data.generated.json"
+DESERT_RESULTS = ROOT / "data" / "desert-result-manifest.v0.1.json"
 
 
 def build_bundle() -> dict[str, Any]:
@@ -23,18 +30,26 @@ def build_bundle() -> dict[str, Any]:
     story = load_story()
     model = load_model()
     adaptive = load_adaptive_bank()
-    manifest = load_result_manifest()
+    taiga_manifest = load_result_manifest()
+    desert_manifest = load_result_manifest(DESERT_RESULTS)
+    scoring_model = load_json(SCORING_MODEL)
+    boundary = load_boundary_bank()
     errors = story_errors(story, bank)
     if errors:
         raise ValueError("Invalid story overlay: " + "; ".join(errors))
     return {
-        "bundle_version": "0.1",
+        "bundle_version": "0.3",
         "source_versions": {
             "questions": bank["bank_version"],
             "story": story["story_version"],
             "vectors": model["model_version"],
             "adaptive": adaptive["bank_version"],
-            "results": manifest["manifest_version"],
+            "results": {
+                "Taiga": taiga_manifest["manifest_version"],
+                "Desert": desert_manifest["manifest_version"],
+            },
+            "scoring": scoring_model["model_version"],
+            "boundary": boundary["bank_version"],
         },
         "title": story["title"],
         "player_role": story["player_role"],
@@ -43,13 +58,42 @@ def build_bundle() -> dict[str, Any]:
         "judgment": story["judgment"],
         "core_scenes": merge_story(story, bank),
         "adaptive_questions": adaptive["questions"],
+        "boundary_questions": normalized_questions(boundary),
         "dimensions": model["dimensions"],
-        "animals": model["animals"],
-        "realm": {
-            "name": manifest["realm"],
-            "title": manifest["realm_title"],
+        "animals": {
+            name: {
+                "kingdom": animal["realm"],
+                "vector": animal["core"],
+                "design_note": "Canonical Scoring Model v0.4 profile",
+            }
+            for name, animal in scoring_model["animals"].items()
         },
-        "results": manifest["animals"],
+        "realms": {
+            manifest["realm"]: {
+                "name": manifest["realm"],
+                "title": manifest["realm_title"],
+                "belief": manifest["realm_belief"],
+            }
+            for manifest in (taiga_manifest, desert_manifest)
+        },
+        "results": {
+            **taiga_manifest["animals"],
+            **desert_manifest["animals"],
+        },
+        "scoring": {
+            "model_version": scoring_model["model_version"],
+            "core_dimensions": scoring_model["core_dimensions"],
+            "motive_facets": scoring_model["motive_facets"],
+            "construct_weights": scoring_model["construct_weights"],
+            "confidence_targets": scoring_model["confidence_targets"],
+            "animal_softmax_temperature": scoring_model["animal_softmax_temperature"],
+            "prior_policy": scoring_model["prior_policy"],
+            "animals": scoring_model["animals"],
+            "response_softmax_temperature": scoring_model["simulation"]["response_softmax_temperature"],
+            "max_adaptive_questions": scoring_model["simulation"]["max_adaptive_questions"],
+            "minimum_information_gain": scoring_model["simulation"]["minimum_information_gain"],
+            "require_adaptive_domain_diversity": scoring_model["simulation"]["require_adaptive_domain_diversity"],
+        },
     }
 
 

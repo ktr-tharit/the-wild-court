@@ -56,6 +56,11 @@
 .wildcourt-realm-backdrop::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #06100db8 0%, #07100d91 44%, #07100de8 100%), radial-gradient(circle at 50% 45%, transparent 0 17%, #06100d87 70%); }
 .wildcourt-reveal-content { position: relative; z-index: 1; display: flex; width: min(100%, 760px); flex-direction: column; align-items: center; text-shadow: 0 2px 28px #000; }
 .wildcourt-realm-reveal .wildcourt-realm-glyph { background: #08110e45; backdrop-filter: blur(7px); }
+.wildcourt-realm-reveal[data-realm="desert"] { background: #171310; }
+.wildcourt-realm-reveal[data-realm="desert"] .wildcourt-realm-backdrop::after { background: linear-gradient(180deg, #171310b5 0%, #17131073 43%, #171310e8 100%), radial-gradient(circle at 50% 45%, transparent 0 18%, #17131080 72%); }
+.wildcourt-realm-reveal[data-realm="desert"] .wildcourt-eyebrow,
+.wildcourt-realm-reveal[data-realm="desert"] h3 { color: #c27a55; }
+.wildcourt-realm-reveal[data-realm="desert"] .wildcourt-realm-glyph { background: #17131057; box-shadow: 0 0 70px #3f756d24; }
 
 .wildcourt-animal-reveal { padding-inline: clamp(22px, 6vw, 90px); }
 .wildcourt-animal-reveal-grid { display: grid; width: min(100%, 1060px); grid-template-columns: minmax(260px, 430px) minmax(0, 520px); gap: clamp(42px, 7vw, 92px); align-items: center; text-align: left; }
@@ -69,10 +74,24 @@
 .wildcourt-animal-reveal-copy { min-width: 0; }
 .wildcourt-animal-reveal-copy .wildcourt-reveal-copy { margin-inline: 0; }
 .wildcourt-animal-reveal-copy .wildcourt-result-signatures { justify-content: flex-start; }
+.wildcourt-animal-reveal[data-realm="desert"] { background: radial-gradient(circle at 70% 28%, #6b513d52, transparent 28%), linear-gradient(135deg, #25283b 0%, #171310 72%); }
+.wildcourt-animal-reveal[data-realm="desert"] .wildcourt-eyebrow,
+.wildcourt-animal-reveal[data-realm="desert"] h3 { color: #c27a55; }
+.wildcourt-review-selector { position: relative; z-index: 12; display: flex; min-height: 48px; align-items: stretch; justify-content: center; overflow-x: auto; border-bottom: 1px solid #e8d8bc1f; background: #171310; scrollbar-width: none; }
+.wildcourt-review-selector::-webkit-scrollbar { display: none; }
+.wildcourt-review-selector button { flex: 0 0 auto; border: 0; border-bottom: 2px solid transparent; padding: 0 17px; background: transparent; color: #9f9689; font-size: 8px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; cursor: pointer; }
+.wildcourt-review-selector button[data-selected="true"] { border-bottom-color: #a65f3e; color: #e8d8bc; }
+.wildcourt-review-spec { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 28px; }
+.wildcourt-review-spec span { border: 1px solid #e8d8bc2b; border-radius: 99px; padding: 7px 10px; color: #a89f92; font-size: 8px; letter-spacing: .08em; text-transform: uppercase; }
 
 .wildcourt-result-masthead { position: relative; isolation: isolate; min-height: 680px; overflow: hidden; padding: 72px clamp(22px, 6vw, 84px); }
 .wildcourt-result-landscape::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #07100df2 0%, #07100dbd 42%, #07100db0 100%), linear-gradient(0deg, #07100df2 0%, transparent 48%, #07100d70 100%); }
 .wildcourt-result-landscape img { transform: scale(1.035); filter: saturate(.8); }
+.wildcourt-deep-result[data-realm="desert"] .wildcourt-result-masthead { background: #171310; }
+.wildcourt-deep-result[data-realm="desert"] .wildcourt-result-landscape::after { background: linear-gradient(90deg, #171310f2 0%, #171310bd 42%, #171310a8 100%), linear-gradient(0deg, #171310f2 0%, transparent 48%, #25283b66 100%); }
+.wildcourt-deep-result[data-realm="desert"] .wildcourt-result-landscape img { filter: saturate(.86); }
+.wildcourt-deep-result[data-realm="desert"] .wildcourt-result-identity h2,
+.wildcourt-deep-result[data-realm="desert"] .wildcourt-result-identity .wildcourt-eyebrow { color: #c27a55; }
 .wildcourt-result-hero { display: grid; width: min(100%, 1080px); grid-template-columns: minmax(250px, 390px) minmax(0, 540px); gap: clamp(42px, 7vw, 92px); align-items: center; }
 .wildcourt-result-animal { aspect-ratio: 4 / 5; }
 .wildcourt-result-identity { min-width: 0; text-align: left; }
@@ -82,6 +101,7 @@
 
 @media (max-width: 760px) {
   .wildcourt-realm-backdrop img { object-position: 54% center; }
+  .wildcourt-realm-reveal[data-realm="desert"] .wildcourt-realm-backdrop img { object-position: 52% center; }
   .wildcourt-realm-reveal { justify-content: flex-end; padding-bottom: 68px; }
   .wildcourt-realm-reveal .wildcourt-realm-glyph { width: 78px; height: 78px; margin-bottom: 19px; font-size: 44px; }
   .wildcourt-realm-reveal .wildcourt-reveal-copy { max-width: 330px; }
@@ -90,6 +110,10 @@
   .wildcourt-animal-portrait { width: min(100%, 310px); aspect-ratio: 4 / 4.65; }
   .wildcourt-animal-reveal-copy .wildcourt-reveal-copy { margin-inline: auto; }
   .wildcourt-animal-reveal-copy .wildcourt-result-signatures { justify-content: center; }
+  .wildcourt-review-selector { justify-content: flex-start; }
+  .wildcourt-review-selector button { min-height: 46px; padding-inline: 14px; }
+  .wildcourt-animal-review .wildcourt-animal-reveal { min-height: calc(100svh - 147px); }
+  .wildcourt-animal-review .wildcourt-review-spec { justify-content: center; }
   .wildcourt-result-masthead { min-height: auto; padding: 30px 20px 54px; }
   .wildcourt-result-landscape img { object-position: 56% center; }
   .wildcourt-result-landscape::after { background: linear-gradient(0deg, #07100df5 0%, #07100dcc 61%, #07100d91 100%); }

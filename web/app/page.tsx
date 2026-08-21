@@ -5,7 +5,7 @@ import { evaluateAnswers, gameBundle, type Evaluation } from "./game-engine";
 
 type Stage = "threshold" | "journey" | "interlude" | "realm" | "animal" | "result";
 
-const storageKey = "wildcourt.taiga.answers.v1";
+const storageKey = "wildcourt.two-realm.answers.v1";
 const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI"];
 const palette = [
   { name: "Pine Night", code: "#08110E", role: "Ceremony" }, { name: "Deep Fir", code: "#10221B", role: "Surface" },
@@ -13,7 +13,10 @@ const palette = [
   { name: "Lichen Silver", code: "#A8B5A7", role: "Guidance" }, { name: "Ember Copper", code: "#C78E62", role: "Identity" },
   { name: "Covenant Red", code: "#743B3D", role: "Consequence" },
 ];
-const taigaRealmImage = "/biomes/taiga/realm-v1.jpg";
+const realmImages: Record<string, string> = {
+  Taiga: "/biomes/taiga/realm-v1.jpg",
+  Desert: "/biomes/desert/realm-v1.jpg",
+};
 const animalImages: Record<string, string> = {
   "Grey Wolf": "/animals/taiga/grey-wolf-v1.jpg",
   Reindeer: "/animals/taiga/reindeer-v1.jpg",
@@ -21,12 +24,19 @@ const animalImages: Record<string, string> = {
   Bear: "/animals/taiga/bear-v1.jpg",
   Moose: "/animals/taiga/moose-v1.jpg",
   Wolverine: "/animals/taiga/wolverine-v1.jpg",
+  "Fennec Fox": "/animals/desert/fennec-fox-v1.jpg",
+  Caracal: "/animals/desert/caracal-v1.jpg",
+  Cobra: "/animals/desert/cobra-v1.jpg",
+  Camel: "/animals/desert/camel-v1.jpg",
+  Scorpion: "/animals/desert/scorpion-v1.jpg",
+  Oryx: "/animals/desert/oryx-v1.jpg",
 };
 const courtSigils: Record<string, string> = {
   Bonds: "/sigils/bonds.svg",
   Fracture: "/sigils/fracture.svg",
   Judgment: "/sigils/judgment.svg",
   Taiga: "/sigils/taiga.svg",
+  Desert: "/sigils/desert.svg",
 };
 
 export default function Home() {
@@ -96,7 +106,7 @@ export default function Home() {
     <main className={`wildcourt-app wildcourt-stage-${stage}`}>
       <header className="wildcourt-header">
         <button className="wildcourt-wordmark" type="button" onClick={() => setStage("threshold")} aria-label="Return to opening"><span className="wildcourt-wordmark-mark">W</span><span>The Wild Court</span></button>
-        <div className="wildcourt-header-meta"><span>{answers.length ? `${answers.length} choices remembered` : "Taiga prototype"}</span><button className="wildcourt-palette-toggle" type="button" onClick={() => setPaletteOpen(true)}>Palette</button>{answers.length > 0 && <button className="wildcourt-palette-toggle" type="button" onClick={restart}>Restart</button>}</div>
+        <div className="wildcourt-header-meta"><span>{answers.length ? `${answers.length} choices remembered` : "Taiga · Desert prototype"}</span><button className="wildcourt-palette-toggle" type="button" onClick={() => setPaletteOpen(true)}>Palette</button>{answers.length > 0 && <button className="wildcourt-palette-toggle" type="button" onClick={restart}>Restart</button>}</div>
       </header>
 
       {stage === "threshold" && <Threshold savedCount={savedAnswers.length} onBegin={startFresh} onResume={resume} />}
@@ -122,20 +132,20 @@ export default function Home() {
       )}
 
       {stage === "realm" && result && (
-        <section className="wildcourt-reveal wildcourt-realm-reveal">
-          <div className="wildcourt-realm-backdrop" aria-hidden="true"><img src={taigaRealmImage} alt="" /></div>
-          <div className="wildcourt-reveal-content"><p className="wildcourt-eyebrow">Your native realm</p><div className="wildcourt-realm-glyph" aria-hidden="true"><img src={courtSigils.Taiga} alt="" /></div><h2>{result.realm.name}</h2><h3>{result.realm.title}</h3><div className="wildcourt-threshold-rule"><span>THE COURT HAS ANSWERED</span></div><p className="wildcourt-reveal-copy">Here, competence is not decoration. It is how one life becomes shelter for another.</p><button className="wildcourt-primary-action" type="button" onClick={() => setStage("animal")}>Meet your nature <span aria-hidden="true">→</span></button></div>
+        <section className="wildcourt-reveal wildcourt-realm-reveal" data-realm={result.realm.name.toLowerCase()}>
+          <div className="wildcourt-realm-backdrop" aria-hidden="true"><img src={realmImages[result.realm.name]} alt="" /></div>
+          <div className="wildcourt-reveal-content"><p className="wildcourt-eyebrow">Your native realm</p><RealmGlyph realm={result.realm.name} /><h2>{result.realm.name}</h2><h3>{result.realm.title}</h3><div className="wildcourt-threshold-rule"><span>THE COURT HAS ANSWERED</span></div><p className="wildcourt-reveal-copy">{result.realm.belief}</p><button className="wildcourt-primary-action" type="button" onClick={() => setStage("animal")}>Meet your nature <span aria-hidden="true">→</span></button></div>
         </section>
       )}
 
       {stage === "animal" && result && (
-        <section className="wildcourt-reveal wildcourt-animal-reveal">
+        <section className="wildcourt-reveal wildcourt-animal-reveal" data-realm={result.realm.name.toLowerCase()}>
           <div className="wildcourt-animal-reveal-grid"><figure className="wildcourt-animal-portrait"><img src={animalImages[result.primary_animal]} alt={`Illustrated portrait of the ${result.primary_animal}`} /></figure><div className="wildcourt-animal-reveal-copy"><p className="wildcourt-eyebrow">{result.realm.name} · Your true nature</p><h2>{result.primary_animal}</h2><h3>{result.identity.title}</h3><p className="wildcourt-reveal-copy">{result.identity.identity_promise}</p><div className="wildcourt-result-signatures">{result.identity.signatures.map((signature) => <span key={signature}>{signature}</span>)}</div><button className="wildcourt-primary-action" type="button" onClick={() => setStage("result")}>Read your result <span aria-hidden="true">↓</span></button></div></div>
         </section>
       )}
 
       {stage === "result" && result && <ResultPage result={result} onRestart={restart} />}
-      <footer className="wildcourt-footer"><span>THE BOREAL DOMINION</span><span>Never waste what the winter may need.</span></footer>
+      <footer className="wildcourt-footer"><span>THE WILD COURT</span><span>Two realms are listening.</span></footer>
       {paletteOpen && <PaletteDrawer onClose={() => setPaletteOpen(false)} />}
     </main>
   );
@@ -143,6 +153,10 @@ export default function Home() {
 
 function Threshold({ savedCount, onBegin, onResume }: { savedCount: number; onBegin: () => void; onResume: () => void }) {
   return <section className="wildcourt-threshold"><div className="wildcourt-forest" aria-hidden="true"><span className="wildcourt-tree wildcourt-tree-one"/><span className="wildcourt-tree wildcourt-tree-two"/><span className="wildcourt-tree wildcourt-tree-three"/><span className="wildcourt-tree wildcourt-tree-four"/></div><div className="wildcourt-threshold-copy"><p className="wildcourt-eyebrow">An identity adventure</p><h1>Winter remembers<br/>how you arrived.</h1><p className="wildcourt-threshold-thai">ฤดูหนาวมาเร็วกว่าที่ควร และในกระเป๋าเสื้อของคุณมีข้อความซึ่งอาจเปลี่ยนชะตาของ Hearthhold</p><div className="wildcourt-threshold-rule"><span>THE FIRST WINTER</span></div><div className="wildcourt-threshold-actions"><button className="wildcourt-primary-action" type="button" onClick={onBegin}>{savedCount ? "Begin again" : "Cross the threshold"} <span aria-hidden="true">→</span></button>{savedCount > 0 && <button className="wildcourt-secondary-action" type="button" onClick={onResume}>Continue {savedCount} remembered choices</button>}</div><p className="wildcourt-duration">16–18 choices · progress saved on this device</p></div><aside className="wildcourt-unmarked-note"><span>Guest record</span><strong>The Unmarked Wayfarer</strong><p>No house. No inherited allegiance. Only the pattern of your choices.</p></aside></section>;
+}
+
+function RealmGlyph({ realm }: { realm: string }) {
+  return <div className="wildcourt-realm-glyph" aria-hidden="true"><img src={courtSigils[realm]} alt="" /></div>;
 }
 
 function ResultPage({ result, onRestart }: { result: NonNullable<Evaluation["result"]>; onRestart: () => void }) {
@@ -154,9 +168,9 @@ function ResultPage({ result, onRestart }: { result: NonNullable<Evaluation["res
     ["What you rarely ask for", result.identity.patterns.what_you_rarely_ask_for],
   ];
 
-  return <section className="wildcourt-deep-result">
+  return <section className="wildcourt-deep-result" data-realm={result.realm.name.toLowerCase()}>
     <header className="wildcourt-result-masthead">
-      <div className="wildcourt-result-landscape" aria-hidden="true"><img src={taigaRealmImage} alt="" /></div>
+      <div className="wildcourt-result-landscape" aria-hidden="true"><img src={realmImages[result.realm.name]} alt="" /></div>
       <div className="wildcourt-result-hero">
         <figure className="wildcourt-result-animal"><img src={animalImages[result.primary_animal]} alt={`Illustrated portrait of the ${result.primary_animal}`} /></figure>
         <div className="wildcourt-result-identity"><p className="wildcourt-eyebrow">{result.realm.name} · The Court remembers</p><h1>{result.primary_animal}</h1><h2>{result.identity.title}</h2><p>{result.identity.identity_promise}</p><div className="wildcourt-result-signatures">{result.identity.signatures.map((signature) => <span key={signature}>{signature}</span>)}</div></div>
@@ -167,7 +181,7 @@ function ResultPage({ result, onRestart }: { result: NonNullable<Evaluation["res
       <section className="wildcourt-pattern-section"><span className="wildcourt-result-index">02 · Your pattern</span><h3>The way your nature moves</h3><div className="wildcourt-pattern-grid">{patternCards.map(([title, copy], index) => <article className="wildcourt-pattern-card" data-shadow={index === 3} key={title}><span>0{index + 1}</span><h4>{title}</h4><p>{copy}</p></article>)}</div></section>
       <section><span className="wildcourt-result-index">03 · Your journey</span><h3>What the Court remembers</h3><div className="wildcourt-result-memories">{result.callbacks.map((callback, index) => <p key={callback}><span>0{index + 1}</span>{callback}</p>)}</div></section>
       <section className="wildcourt-misunderstanding"><span className="wildcourt-result-index">04 · Seen from outside</span><h3>The misunderstanding</h3><blockquote>“{result.identity.misunderstanding}”</blockquote><div className="wildcourt-balance-note"><span>Restoring balance</span><p>{result.identity.restoring_balance}</p></div></section>
-      <section><span className="wildcourt-result-index">05 · Belonging</span><h3>Why Taiga knows you</h3><p>{result.identity.realm_connection}</p></section>
+      <section><span className="wildcourt-result-index">05 · Belonging</span><h3>Why {result.realm.name} knows you</h3><p>{result.identity.realm_connection}</p></section>
       <blockquote className="wildcourt-result-closing">“{result.identity.closing}”</blockquote>
       <div className="wildcourt-result-actions"><button className="wildcourt-primary-action" type="button" onClick={() => navigator.clipboard?.writeText(`${result.primary_animal} — ${result.identity.title}\n${result.identity.identity_promise}`)}>Copy share text <span aria-hidden="true">＋</span></button><button className="wildcourt-secondary-action wildcourt-secondary-dark" type="button" onClick={onRestart}>Begin again</button></div>
       <p className="wildcourt-result-footnote">Answered {result.questions_answered} questions · {result.adaptive_questions_answered} Judgment questions · exact scores remain private</p>
