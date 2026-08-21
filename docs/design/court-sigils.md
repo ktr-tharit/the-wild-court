@@ -21,6 +21,7 @@ Court Sigils replace temporary letter marks with a visual language that belongs 
 | Fracture | A whole put under pressure by a consequential split | A broken ring with an ember-colored fault line | `/sigils/fracture.svg` |
 | Judgment | Many possible actions resolving into one revealed nature | Three paths converge at a central ember and rise toward one point | `/sigils/judgment.svg` |
 | Taiga | Endurance, stored warmth and deep-rooted order | A northern pine above roots/tree rings with an ember in its trunk | `/sigils/taiga.svg` |
+| Desert | Chosen exposure, protected capacity and restraint that preserves possibility | A measured sun above layered shade and a copper drop held at the protected center | `/sigils/desert.svg` |
 
 ## Placement rules
 

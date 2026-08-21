@@ -4,12 +4,24 @@ from scripts.export_web_bundle import DEFAULT_OUTPUT, build_bundle, render_bundl
 
 
 class WebBundleV01Tests(unittest.TestCase):
-    def test_bundle_contains_complete_taiga_runtime(self):
+    def test_bundle_contains_complete_two_realm_runtime(self):
         bundle = build_bundle()
         self.assertEqual(len(bundle["core_scenes"]), 16)
         self.assertEqual(len(bundle["adaptive_questions"]), 6)
-        self.assertEqual(len(bundle["animals"]), 6)
+        self.assertEqual(len(bundle["animals"]), 12)
         self.assertEqual(set(bundle["results"]), set(bundle["animals"]))
+        self.assertEqual(set(bundle["realms"]), {"Taiga", "Desert"})
+
+    def test_bundle_contains_two_biome_scoring_runtime(self):
+        bundle = build_bundle()
+        self.assertEqual(bundle["bundle_version"], "0.3")
+        self.assertEqual(len(bundle["boundary_questions"]), 16)
+        self.assertEqual(len(bundle["scoring"]["animals"]), 12)
+        realms = {
+            animal["realm"] for animal in bundle["scoring"]["animals"].values()
+        }
+        self.assertEqual(realms, {"Taiga", "Desert"})
+        self.assertEqual(bundle["scoring"]["max_adaptive_questions"], 2)
 
     def test_generated_bundle_is_current(self):
         self.assertTrue(DEFAULT_OUTPUT.exists())

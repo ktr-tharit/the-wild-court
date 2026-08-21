@@ -1,11 +1,33 @@
 import rawBundle from "./game-data.generated.json";
 
 export type Evidence = Record<string, number>;
+export type WeightedEvidence = { construct: string; value: number; weight: number; role: string };
 export type GameOption = { id: string; copy: string; evidence: Evidence; consequence_tags?: string[] };
+export type BoundaryOption = Omit<GameOption, "evidence"> & { evidence: WeightedEvidence[] };
 export type GameQuestion = {
   id: string; act: string; title: string; scenario: string; targets: string[];
   options: GameOption[]; setup?: string; transition_after?: string; location?: string;
   intensity?: string; scene_order?: number; discriminates?: string[];
+};
+export type BoundaryQuestion = Omit<GameQuestion, "options"> & {
+  domain: string;
+  constructs: string[];
+  options: BoundaryOption[];
+};
+export type ScoringAnimal = { realm: string; core: number[]; facets: number[] };
+export type ScoringModel = {
+  model_version: string;
+  core_dimensions: string[];
+  motive_facets: string[];
+  construct_weights: Record<string, number>;
+  confidence_targets: Record<string, number>;
+  animal_softmax_temperature: number;
+  prior_policy: "equal_realm_then_equal_animal";
+  animals: Record<string, ScoringAnimal>;
+  response_softmax_temperature: number;
+  max_adaptive_questions: number;
+  minimum_information_gain: number;
+  require_adaptive_domain_diversity: boolean;
 };
 export type ResultIdentity = {
   title: string; identity_promise: string; short_result: string; share_line: string;
@@ -21,15 +43,32 @@ export type GameBundle = {
   acts: Record<string, { title: string; intro: string; outro: string }>;
   judgment: { intro: string; transition_to_result: string };
   core_scenes: GameQuestion[]; adaptive_questions: GameQuestion[];
+  boundary_questions: BoundaryQuestion[];
   dimensions: { id: string; negative: string; positive: string }[];
   animals: Record<string, { kingdom: string; vector: number[]; design_note: string }>;
-  realm: { name: string; title: string };
+  realms: Record<string, { name: string; title: string; belief: string }>;
   results: Record<string, ResultIdentity>;
+  scoring: ScoringModel;
 };
 
-export type ResponseRecord = { question_id: string; act: string; option_id: string; evidence: Evidence; consequence_tags: string[] };
+export type ScoringResponse = { evidence: Evidence | WeightedEvidence[] };
+export type SoftmaxResult = {
+  estimates: Record<string, number>;
+  confidence: Record<string, number>;
+  animal_probabilities: Record<string, number>;
+  realm_probabilities: Record<string, number>;
+  distances: Record<string, number>;
+  ranking: string[];
+  top_animal: string;
+  top_realm: string;
+  top_margin: number;
+};
+export type BoundarySelection = { question: BoundaryQuestion; information_gain: number };
+
+export type PlayableQuestion = GameQuestion | (BoundaryQuestion & { act: "Judgment"; location: string });
+export type ResponseRecord = { question_id: string; act: string; option_id: string; evidence: Evidence | WeightedEvidence[]; consequence_tags: string[] };
 export type GameResult = {
-  realm: { name: string; title: string };
+  realm: { name: string; title: string; belief: string };
   primary_animal: string;
   identity: ResultIdentity;
   callbacks: string[];
@@ -39,7 +78,7 @@ export type GameResult = {
 };
 export type Evaluation = {
   answers: string[];
-  current: GameQuestion | null;
+  current: PlayableQuestion | null;
   phase: string;
   core_answered: number;
   judgment_total: number;
@@ -50,6 +89,169 @@ export type Evaluation = {
 };
 
 export const gameBundle = rawBundle as unknown as GameBundle;
+
+const motiveFacets = new Set(["REC", "MAS", "RCP", "CON", "RST"]);
+
+function weightedEvidence(evidence: Evidence | WeightedEvidence[]): WeightedEvidence[] {
+  if (Array.isArray(evidence)) return evidence;
+  return Object.entries(evidence).map(([construct, value]) => ({
+    construct, value, weight: 1, role: "primary",
+  }));
+}
+
+function scoringProfiles(model: ScoringModel) {
+  const constructs = [...model.core_dimensions, ...model.motive_facets];
+  return Object.fromEntries(Object.entries(model.animals).map(([name, animal]) => [
+    name,
+    Object.fromEntries(constructs.map((construct, index) => [
+      construct,
+      [...animal.core, ...animal.facets][index],
+    ])),
+  ])) as Record<string, Record<string, number>>;
+}
+
+function estimateConstructs(responses: ScoringResponse[], model: ScoringModel) {
+  const sums = Object.fromEntries(model.core_dimensions.map((construct) => [construct, 0])) as Record<string, number>;
+  const evidenceWeights = Object.fromEntries(model.core_dimensions.map((construct) => [construct, 0])) as Record<string, number>;
+  responses.forEach((response) => weightedEvidence(response.evidence).forEach((item) => {
+    if (!(item.construct in sums) || motiveFacets.has(item.construct)) return;
+    sums[item.construct] += item.value * item.weight;
+    evidenceWeights[item.construct] += item.weight;
+  }));
+  const estimates: Record<string, number> = {};
+  const confidence: Record<string, number> = {};
+  model.core_dimensions.forEach((construct) => {
+    if (evidenceWeights[construct] <= 0) return;
+    estimates[construct] = sums[construct] / evidenceWeights[construct];
+    confidence[construct] = Math.min(1, evidenceWeights[construct] / model.confidence_targets[construct]);
+  });
+  return { estimates, confidence };
+}
+
+function normalizedPriors(model: ScoringModel) {
+  const realms: Record<string, string[]> = {};
+  Object.entries(model.animals).forEach(([name, animal]) => {
+    (realms[animal.realm] ??= []).push(name);
+  });
+  const realmPrior = 1 / Object.keys(realms).length;
+  return Object.fromEntries(Object.entries(model.animals).map(([name, animal]) => [
+    name, realmPrior / realms[animal.realm].length,
+  ])) as Record<string, number>;
+}
+
+export function scoreResponses(
+  responses: ScoringResponse[],
+  bundle: GameBundle = gameBundle,
+): SoftmaxResult {
+  const model = bundle.scoring;
+  const profiles = scoringProfiles(model);
+  const priors = normalizedPriors(model);
+  const { estimates, confidence } = estimateConstructs(responses, model);
+  const distances: Record<string, number> = {};
+  const logits: Record<string, number> = {};
+  Object.entries(profiles).forEach(([animal, profile]) => {
+    const terms = Object.keys(estimates).map((construct) => ({
+      construct,
+      weight: model.construct_weights[construct] * confidence[construct],
+    }));
+    const denominator = terms.reduce((sum, item) => sum + item.weight, 0);
+    const distance = denominator
+      ? terms.reduce((sum, item) => sum + item.weight * (estimates[item.construct] - profile[item.construct]) ** 2, 0) / denominator
+      : 0;
+    distances[animal] = distance;
+    logits[animal] = -distance / model.animal_softmax_temperature + Math.log(priors[animal]);
+  });
+  const peak = Math.max(...Object.values(logits));
+  const exponentials = Object.fromEntries(Object.entries(logits).map(([animal, value]) => [animal, Math.exp(value - peak)]));
+  const total = Object.values(exponentials).reduce((sum, value) => sum + value, 0);
+  const animalProbabilities = Object.fromEntries(Object.entries(exponentials).map(([animal, value]) => [animal, value / total]));
+  const realmProbabilities: Record<string, number> = {};
+  Object.entries(animalProbabilities).forEach(([animal, probability]) => {
+    const realm = model.animals[animal].realm;
+    realmProbabilities[realm] = (realmProbabilities[realm] ?? 0) + probability;
+  });
+  const ranking = Object.keys(animalProbabilities).sort((left, right) => animalProbabilities[right] - animalProbabilities[left]);
+  const topRealm = Object.keys(realmProbabilities).sort((left, right) => realmProbabilities[right] - realmProbabilities[left])[0];
+  return {
+    estimates,
+    confidence,
+    animal_probabilities: animalProbabilities,
+    realm_probabilities: realmProbabilities,
+    distances,
+    ranking,
+    top_animal: ranking[0],
+    top_realm: topRealm,
+    top_margin: animalProbabilities[ranking[0]] - animalProbabilities[ranking[1]],
+  };
+}
+
+function optionProbabilities(
+  profile: Record<string, number>,
+  question: BoundaryQuestion,
+  temperature: number,
+) {
+  const utilities = question.options.map((option) => {
+    const evidence = option.evidence.filter((item) => !motiveFacets.has(item.construct));
+    const totalWeight = evidence.reduce((sum, item) => sum + item.weight, 0);
+    const squaredError = evidence.reduce((sum, item) =>
+      sum + item.weight * (profile[item.construct] - item.value) ** 2, 0) / totalWeight;
+    return -squaredError / temperature;
+  });
+  const peak = Math.max(...utilities);
+  const exponentials = utilities.map((value) => Math.exp(value - peak));
+  const total = exponentials.reduce((sum, value) => sum + value, 0);
+  return exponentials.map((value) => value / total);
+}
+
+function entropy(probabilities: Record<string, number>) {
+  return -Object.values(probabilities).reduce((sum, probability) =>
+    probability > 0 ? sum + probability * Math.log(probability) : sum, 0);
+}
+
+export function expectedInformationGain(
+  animalProbabilities: Record<string, number>,
+  question: BoundaryQuestion,
+  bundle: GameBundle = gameBundle,
+) {
+  const profiles = scoringProfiles(bundle.scoring);
+  const likelihoods = Object.fromEntries(Object.entries(profiles).map(([animal, profile]) => [
+    animal,
+    optionProbabilities(profile, question, bundle.scoring.response_softmax_temperature),
+  ])) as Record<string, number[]>;
+  let expectedEntropy = 0;
+  question.options.forEach((_, optionIndex) => {
+    const optionProbability = Object.entries(animalProbabilities).reduce((sum, [animal, probability]) =>
+      sum + probability * likelihoods[animal][optionIndex], 0);
+    if (optionProbability <= 0) return;
+    const posterior = Object.fromEntries(Object.entries(animalProbabilities).map(([animal, probability]) => [
+      animal,
+      probability * likelihoods[animal][optionIndex] / optionProbability,
+    ]));
+    expectedEntropy += optionProbability * entropy(posterior);
+  });
+  return entropy(animalProbabilities) - expectedEntropy;
+}
+
+export function selectNextBoundaryQuestion(
+  responses: ScoringResponse[],
+  askedQuestionIds: string[] = [],
+  usedDomains: string[] = [],
+  bundle: GameBundle = gameBundle,
+): BoundarySelection | null {
+  const model = bundle.scoring;
+  if (askedQuestionIds.length >= model.max_adaptive_questions) return null;
+  const result = scoreResponses(responses, bundle);
+  const candidates = bundle.boundary_questions.filter((question) =>
+    !askedQuestionIds.includes(question.id)
+    && (!model.require_adaptive_domain_diversity || !usedDomains.includes(question.domain)));
+  const ranked = candidates.map((question) => ({
+    question,
+    information_gain: expectedInformationGain(result.animal_probabilities, question, bundle),
+  })).sort((left, right) =>
+    right.information_gain - left.information_gain || right.question.id.localeCompare(left.question.id));
+  const selection = ranked[0];
+  return selection && selection.information_gain >= model.minimum_information_gain ? selection : null;
+}
 
 const tagCallbacks: Record<string, string> = {
   acted_alone: "เมื่อคนอื่นลังเล คุณมักเริ่มจากพื้นที่ที่ตัวเองรับผิดชอบได้",
@@ -70,31 +272,11 @@ const tagCallbacks: Record<string, string> = {
   took_risk: "คุณยอมเปิดทางใหม่ เมื่อเส้นทางเดิมไม่พอจะพาใครไปถึงอนาคต",
 };
 
-function distance(left: number[], right: number[]) {
-  return Math.sqrt(left.reduce((sum, value, index) => sum + (value - right[index]) ** 2, 0) / left.length);
-}
-
-function estimateVector(responses: ResponseRecord[], bundle: GameBundle) {
-  const sums: Record<string, number> = {};
-  const counts: Record<string, number> = {};
-  bundle.dimensions.forEach(({ id }) => { sums[id] = 0; counts[id] = 0; });
-  responses.forEach((response) => Object.entries(response.evidence).forEach(([trait, value]) => {
-    sums[trait] += value; counts[trait] += 1;
-  }));
-  return bundle.dimensions.map(({ id }) => counts[id] ? sums[id] / counts[id] : 0);
-}
-
-function rankAnimals(vector: number[], bundle: GameBundle) {
-  return Object.keys(bundle.animals).sort((left, right) =>
-    distance(vector, bundle.animals[left].vector) - distance(vector, bundle.animals[right].vector),
-  );
-}
-
-function optionFor(question: GameQuestion, optionId: string) {
+function optionFor(question: PlayableQuestion, optionId: string) {
   return question.options.find((option) => option.id === optionId.toUpperCase()) ?? question.options[0];
 }
 
-function responseFor(question: GameQuestion, optionId: string): ResponseRecord {
+function responseFor(question: PlayableQuestion, optionId: string): ResponseRecord {
   const option = optionFor(question, optionId);
   return { question_id: question.id, act: question.act, option_id: option.id, evidence: option.evidence, consequence_tags: option.consequence_tags ?? [] };
 }
@@ -107,12 +289,8 @@ function callbacksFrom(tags: Record<string, number>) {
     .filter(Boolean);
 }
 
-function judgmentFor(responses: ResponseRecord[], bundle: GameBundle) {
-  const ranking = rankAnimals(estimateVector(responses, bundle), bundle);
-  const pair = new Set(ranking.slice(0, 2));
-  return bundle.adaptive_questions.filter((question) =>
-    question.discriminates?.length === 2 && question.discriminates.every((animal) => pair.has(animal)),
-  ).map((question) => ({ ...question, setup: bundle.judgment.intro, location: "Hall of Judgment" }));
+function asJudgmentQuestion(question: BoundaryQuestion, bundle: GameBundle): PlayableQuestion {
+  return { ...question, act: "Judgment", setup: bundle.judgment.intro, location: "Hall of Judgment" };
 }
 
 export function evaluateAnswers(answerIds: string[], bundle: GameBundle = gameBundle): Evaluation {
@@ -134,45 +312,67 @@ export function evaluateAnswers(answerIds: string[], bundle: GameBundle = gameBu
     return { answers: acceptedAnswers, current: bundle.core_scenes[acceptedAnswers.length], phase: bundle.core_scenes[acceptedAnswers.length].act, core_answered: acceptedAnswers.length, judgment_total: 0, judgment_answered: 0, tags, callbacks: callbacksFrom(tags), result: null };
   }
 
-  const judgmentQuestions = judgmentFor(responses, bundle);
-  const extraAnswers = answerIds.slice(coreCount, coreCount + judgmentQuestions.length);
-  judgmentQuestions.forEach((question, index) => {
-    if (index >= extraAnswers.length) return;
-    const option = optionFor(question, extraAnswers[index]);
+  const scoringResponses: ScoringResponse[] = responses.map(({ evidence }) => ({ evidence }));
+  const askedQuestionIds: string[] = [];
+  const usedDomains: string[] = [];
+  const extraAnswers = answerIds.slice(coreCount, coreCount + bundle.scoring.max_adaptive_questions);
+  for (const answer of extraAnswers) {
+    const selection = selectNextBoundaryQuestion(scoringResponses, askedQuestionIds, usedDomains, bundle);
+    if (!selection) break;
+    const question = asJudgmentQuestion(selection.question, bundle);
+    const option = optionFor(question, answer);
     acceptedAnswers.push(option.id);
-    responses.push(responseFor(question, option.id));
-  });
-
-  if (extraAnswers.length < judgmentQuestions.length) {
-    return { answers: acceptedAnswers, current: judgmentQuestions[extraAnswers.length], phase: "Judgment", core_answered: coreCount, judgment_total: judgmentQuestions.length, judgment_answered: extraAnswers.length, tags, callbacks: callbacksFrom(tags), result: null };
+    const response = responseFor(question, option.id);
+    responses.push(response);
+    scoringResponses.push({ evidence: response.evidence });
+    askedQuestionIds.push(question.id);
+    usedDomains.push(selection.question.domain);
   }
 
-  const vector = estimateVector(responses, bundle);
-  const ranking = rankAnimals(vector, bundle);
-  const primary = ranking[0];
-  const distances = Object.fromEntries(ranking.map((animal) => [animal, distance(vector, bundle.animals[animal].vector)]));
+  const nextSelection = selectNextBoundaryQuestion(scoringResponses, askedQuestionIds, usedDomains, bundle);
+  if (nextSelection) {
+    return {
+      answers: acceptedAnswers,
+      current: asJudgmentQuestion(nextSelection.question, bundle),
+      phase: "Judgment",
+      core_answered: coreCount,
+      judgment_total: askedQuestionIds.length + 1,
+      judgment_answered: askedQuestionIds.length,
+      tags,
+      callbacks: callbacksFrom(tags),
+      result: null,
+    };
+  }
+
+  const scored = scoreResponses(scoringResponses, bundle);
+  const primary = scored.top_animal;
   const result: GameResult = {
-    realm: bundle.realm,
+    realm: bundle.realms[scored.top_realm],
     primary_animal: primary,
     identity: bundle.results[primary],
     callbacks: callbacksFrom(tags),
     questions_answered: responses.length,
-    adaptive_questions_answered: responses.length - coreCount,
+    adaptive_questions_answered: askedQuestionIds.length,
     internal: {
-      vector: Object.fromEntries(bundle.dimensions.map(({ id }, index) => [id, vector[index]])),
-      ranking, distances, responses,
+      vector: Object.fromEntries(bundle.scoring.core_dimensions.map((id) => [id, scored.estimates[id] ?? 0])),
+      ranking: scored.ranking,
+      distances: scored.distances,
+      responses,
     },
   };
-  return { answers: acceptedAnswers, current: null, phase: "Result", core_answered: coreCount, judgment_total: judgmentQuestions.length, judgment_answered: judgmentQuestions.length, tags, callbacks: result.callbacks, result };
+  return { answers: acceptedAnswers, current: null, phase: "Result", core_answered: coreCount, judgment_total: askedQuestionIds.length, judgment_answered: askedQuestionIds.length, tags, callbacks: result.callbacks, result };
 }
 
-export function bestAnswerForAnimal(question: GameQuestion, animal: string, bundle: GameBundle = gameBundle) {
-  const vector = bundle.animals[animal].vector;
-  const index = Object.fromEntries(bundle.dimensions.map(({ id }, position) => [id, position]));
+export function bestAnswerForAnimal(question: PlayableQuestion, animal: string, bundle: GameBundle = gameBundle) {
+  const profile = bundle.scoring.animals[animal];
+  const values = Object.fromEntries([...bundle.scoring.core_dimensions, ...bundle.scoring.motive_facets].map((id, index) => [id, [...profile.core, ...profile.facets][index]]));
+  const optionDistance = (option: GameOption | BoundaryOption) => {
+    const evidence = weightedEvidence(option.evidence).filter((item) => item.construct in values);
+    const denominator = evidence.reduce((sum, item) => sum + item.weight, 0);
+    return evidence.reduce((sum, item) => sum + item.weight * (values[item.construct] - item.value) ** 2, 0) / denominator;
+  };
   return question.options.reduce((best, option) => {
-    const score = Object.entries(option.evidence).reduce((sum, [trait, value]) => sum + (vector[index[trait]] - value) ** 2, 0);
-    const bestScore = Object.entries(best.evidence).reduce((sum, [trait, value]) => sum + (vector[index[trait]] - value) ** 2, 0);
-    return score < bestScore ? option : best;
+    return optionDistance(option) < optionDistance(best) ? option : best;
   }, question.options[0]).id;
 }
 

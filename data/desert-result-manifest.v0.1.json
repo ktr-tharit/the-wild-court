@@ -1,0 +1,128 @@
+{
+  "manifest_version": "0.1",
+  "realm": "Desert",
+  "realm_title": "The Sunless Crown",
+  "realm_belief": "Here, restraint is not deprivation. It is the art of keeping choice alive.",
+  "animals": {
+    "Fennec Fox": {
+      "title": "The Listener in the Dunes",
+      "identity_promise": "Sensitivity is not fragility; it lets you hear the path that force would bury.",
+      "short_result": "คุณไม่ได้อยู่รอดเพราะเสียงดังที่สุด คุณอยู่รอดเพราะได้ยินสิ่งที่คนอื่นรีบผ่านไป—ความลังเลก่อนคำตอบ ช่องว่างก่อนประตูปิด และความเป็นไปได้ที่ยังไม่ต้องใช้ทุกอย่างแลกมา คุณรักษาทางเลือกด้วยการอ่านจังหวะ ทดลองอย่างเบา และขยับก่อนสถานการณ์จะแข็งตัว คนอื่นอาจเห็นเพียงความเปลี่ยนแปลงเร็วหรือความขี้เล่น แต่เบื้องหลังคือวินัยของคนที่รู้ว่าทุกการตัดสินใจมีต้นทุน ความเบาของคุณไม่ใช่การไม่มีน้ำหนัก มันคือการไม่ยอมแบกสิ่งที่โลกยื่นให้โดยยังไม่ได้ฟังว่าจำเป็นจริงหรือไม่",
+      "patterns": {
+        "what_moves_you": "คุณมีชีวิตขึ้นมาเมื่อพบ signal เล็ก ๆ ที่เปิดทางใหม่ได้ คุณไม่ได้ต้องการความแปลกใหม่ตลอดเวลา แต่ต้องการพื้นที่ให้ curiosity และข้อมูลใหม่เปลี่ยนวิธีเดินโดยไม่ถูกมองว่าไร้หลัก",
+        "how_you_connect": "คุณสร้างความใกล้ชิดผ่าน curiosity, humor และการสังเกตที่ไม่รุกล้ำ คุณเปิดประตูเล็ก ๆ ให้อีกฝ่ายเลือกเข้ามา และมักจำรายละเอียดที่เขาไม่คิดว่าจะมีใครได้ยิน",
+        "how_you_protect": "คุณปกป้องด้วย timing และ low-cost adaptation ก่อนเพิ่มกำลัง คุณหาเส้นทางชั่วคราว ลดแรงเสียดทาน และรักษาทางถอยไว้ให้คนอื่นโดยไม่ทำให้การช่วยเหลือกลายเป็นหนี้",
+        "when_winter_closes_in": "ความไวต่อสัญญาณช่วยให้คุณเปลี่ยนทางได้เร็ว แต่เมื่อทุกทางดูมีต้นทุน flexibility อาจกลายเป็นการไม่ยอมเลือก คุณทดลองต่อ เลื่อนคำตอบ และใช้ charm ลดความตึงเครียด จนคนที่รอคุณไม่รู้ว่าความสัมพันธ์หรือคำมั่นนั้นมีที่ยืนจริงหรือไม่",
+        "what_you_rarely_ask_for": "คุณต้องการคนที่เห็นว่าความเบาและความสนุกของคุณไม่ใช่หลักฐานว่าไม่จริงจัง คนที่ให้เวลาคุณฟังโลก แต่ยังถามอย่างอ่อนโยนว่า ‘ทางไหนที่คุณเลือกจะอยู่ต่อ’"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าเปลี่ยนใจง่ายหรือไม่ยอมจริงจัง สิ่งที่พวกเขาไม่เห็นคือคุณกำลังรักษาทางเลือกจากโลกที่ชอบทำให้ทุกคำตอบแพงและถาวรเกินจำเป็น",
+      "restoring_balance": "สมดุลไม่ใช่การเลิกปรับตัว แต่คือการตั้งจุดที่การสำรวจต้องกลายเป็นคำมั่น ลองเลือกหนึ่งทางในระยะเวลาที่ชัด และบอกคนที่เกี่ยวข้องว่าคุณจะอยู่กับมันนานพอให้ผลของการเลือกปรากฏ",
+      "realm_connection": "Desert จำคุณได้จากความสามารถใช้ attention ก่อนใช้ resource แต่คุณต้านส่วนที่ระแวงที่สุดของ Crown: คุณยืนยันว่า warmth, play และ possibility ไม่ใช่ของฟุ่มเฟือย หากสิ่งเหล่านั้นช่วยให้ชีวิตยังมีทางเลือก",
+      "closing": "You were not placed here because you never lose the trail. You were placed here because listening for another path is the shape your courage takes.",
+      "share_line": "My nature belongs to the Fennec—the one who hears a path beneath the wind.",
+      "signatures": ["Attentive adaptation", "Unforced warmth", "Living options"],
+      "bible": "docs/design/animals/desert/fennec-fox.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Caracal": {
+      "title": "The Silent Standard",
+      "identity_promise": "Your dignity does not begin when the room recognizes it.",
+      "short_result": "คุณรู้ว่ามาตรฐานที่แท้ไม่จำเป็นต้องมีผู้ชม คุณลด noise จนเห็นว่าสิ่งใดควรทำให้ดี สิ่งใดไม่คู่ควรกับพลัง และสิ่งใดไม่ควรถูกต่อรองเพื่อแลก approval ความนิ่งของคุณไม่ใช่การวางตัวเหนือคนอื่น แต่คือการไม่ยกสิทธิ์ให้สายตาภายนอกเป็นผู้ตั้งราคาตัวตน คุณให้เกียรติคนด้วยความแม่น ความสม่ำเสมอ และการไม่ทำให้ vulnerability เป็น spectacle ของขวัญนี้ทำให้คุณยืนได้โดยไม่ต้องแสดง—แต่บางครั้งก็ทำให้คนที่รักคุณไม่รู้ว่าจะเดินเข้ามาช่วยอย่างไร",
+      "patterns": {
+        "what_moves_you": "คุณถูกขับเคลื่อนด้วยคุณภาพที่ยืนได้ด้วยตัวเอง คุณชอบช่วงเวลาที่สิ่งเกินจำเป็นถูกตัดออก เหลือ decision หรือผลงานที่ตรงกับมาตรฐานภายในโดยไม่ต้องอธิบายเกินจริง",
+        "how_you_connect": "คุณให้เกียรติผ่าน space, consistency และ discretion ความใกล้ชิดของคุณไม่ฟุ่มเฟือย แต่มีน้ำหนัก เพราะคนที่ได้รับมันรู้ว่าคุณไม่ได้เลือกจากแรงกดดันหรือภาพลักษณ์",
+        "how_you_protect": "คุณปกป้องด้วย composure และ precision คุณไม่เพิ่ม drama ให้การละเมิด แต่แก้สิ่งสำคัญ ระบุสิ่งที่ไม่ยอมรับ และปล่อยให้การกระทำยืนแทนการพิสูจน์ตัวเอง",
+        "when_winter_closes_in": "self-command ช่วยรักษาศักดิ์ศรีภายใต้สายตา แต่เมื่อถูกเข้าใจผิด pride อาจแข็งเป็น inaccessibility คุณไม่อธิบาย ไม่ขอ และถือว่าการต้องการความช่วยเหลือคือการยอมให้คนอื่นตัดสินคุณค่า สุดท้ายความนิ่งที่ปกป้องคุณก็ปิดคนที่ไม่ได้ต้องการลดทอนคุณออกไปด้วย",
+        "what_you_rarely_ask_for": "คุณต้องการได้รับความรักในวันที่ไม่ polished, precise หรือควบคุมตัวเองได้ทั้งหมด คุณต้องการรู้ว่าการให้ใครเห็นรอยต่อไม่ได้ทำให้มาตรฐานทั้งชีวิตของคุณพังลง"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าหยิ่งหรือเข้าถึงยาก สิ่งที่พวกเขาไม่เห็นคือคุณกำลังปกป้องสิทธิ์ที่จะมีคุณค่าโดยไม่ต้อง perform ตัวตนให้น่าพอใจต่อสายตาของใคร",
+      "restoring_balance": "สมดุลไม่ได้เกิดจากการลดมาตรฐาน แต่จากการแยกการอธิบายเพื่อ repair ออกจากการอธิบายเพื่อขออนุญาตมีตัวตน ลองเปิดเผยสิ่งที่ยังไม่สมบูรณ์หนึ่งอย่างแก่คนที่พิสูจน์แล้วว่าไม่ใช้มันตัดสินคุณ",
+      "realm_connection": "Desert จำคุณได้จาก self-command และการปฏิเสธ excess แต่คุณไม่ยอมให้ Crown เปลี่ยน dignity เป็นราคา สัญญา ตำแหน่ง หรือ approval อาจเปิดประตูได้ ทว่าไม่มีสิ่งใดเป็นผู้อนุญาตว่าคุณควรเป็นใคร",
+      "closing": "You were not placed here because no judgment reaches you. You were placed here because dignity without an audience is the shape your courage takes.",
+      "share_line": "My nature belongs to the Caracal—the standard that does not bend for an audience.",
+      "signatures": ["Quiet precision", "Unpriced dignity", "Composed action"],
+      "bible": "docs/design/animals/desert/caracal.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Cobra": {
+      "title": "The Keeper of the Final Line",
+      "identity_promise": "A boundary spoken clearly is an act of mercy before consequence becomes necessary.",
+      "short_result": "คุณเชื่อว่าคนควรรู้ terms, consent และ consequence ก่อนตัดสินใจ ความชัดของคุณไม่ได้มีไว้ข่มขู่ แต่มันหยุด hidden cost ไม่ให้ไหลไปหาคนที่อำนาจน้อยกว่า คุณพูดเส้นให้มองเห็น ให้โอกาสอีกฝ่ายเลือกอย่างรู้ผล และใช้กำลังเท่าที่คำเตือนไม่สามารถป้องกันได้ คนอื่นอาจรู้สึกถึงความเด็ดขาดก่อนเห็น care ที่อยู่ข้างใต้: คุณต้องการโลกที่ไม่มีใครต้องเดาว่าคำว่า ‘พอ’ จะเริ่มมีความหมายเมื่อไร ของขวัญนี้ป้องกัน escalation—ตราบใดที่ final line ยังเหลือประตูให้ accountability จริงเดินกลับมาได้",
+      "patterns": {
+        "what_moves_you": "คุณถูกขับเคลื่อนด้วยความชัดที่ทำให้ทุกฝ่ายเลือกได้อย่างรู้ผล คุณทน ambiguity ได้ แต่ไม่ยอมรับ ambiguity ที่ถูกใช้ซ่อนต้นทุน เลื่อน consent หรือทำให้ consequence ตกกับคนอื่น",
+        "how_you_connect": "คุณสร้าง trust ด้วย terms ที่ตรงและการทำตามสิ่งที่ประกาศ คนใกล้ตัวไม่ต้องอ่านใจคุณ เพราะคุณมองว่าความใกล้ชิดที่ดีควรลดการเดา ไม่ใช่เพิ่ม leverage ให้คนที่เดาเก่งกว่า",
+        "how_you_protect": "คุณปกป้องด้วย warning, choice และ proportionate consequence คุณทำให้เส้นปรากฏก่อนต้อง enforce เพื่อให้ความปลอดภัยไม่ขึ้นกับว่าใครอ่านอันตรายได้เร็วที่สุด",
+        "when_winter_closes_in": "moral clarity หยุด hidden harm ได้ แต่เมื่อคำเตือนถูกละเลย certainty อาจแข็งตัวจนทุก disagreement ดูเหมือนการทดสอบเส้น คุณประกาศคำตอบสุดท้ายเร็ว ปิดการเจรจา และไม่แยก mistake จาก pattern จน consequence ที่เคยได้สัดส่วนกลายเป็นกำแพงถาวร",
+        "what_you_rarely_ask_for": "คุณต้องการความสัมพันธ์ที่รับฟังคำว่า ‘พอ’ โดยไม่ต้องเห็นเขี้ยวก่อน คนที่ตอบสนองต่อ boundary เล็ก ๆ ได้ จะทำให้คุณไม่ต้องใช้ danger เป็นภาษาเดียวที่โลกยอมเข้าใจ"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าน่ากลัวหรือเด็ดขาดเกินไป สิ่งที่พวกเขาไม่เห็นคือคุณกำลังทำ consequence ให้มองเห็นก่อนที่ความคลุมเครือจะบังคับให้ใครรับผลโดยไม่เคยได้เลือก",
+      "restoring_balance": "สมดุลไม่ใช่การทำเส้นให้อ่อนลง แต่คือการระบุด้วยว่าอะไรนับเป็น repair ลองบอกทั้ง consequence และเงื่อนไขที่ทำให้ trust เริ่มสร้างใหม่ได้ เพื่อให้ความชัดปกป้องอนาคต ไม่ใช่เพียงตัดสินอดีต",
+      "realm_connection": "Desert จำคุณได้จาก contract ที่ต้องมี informed choice แต่คุณท้าทายอำนาจที่ใช้ threat แบบซ่อนเร้น สำหรับคุณข้อตกลงไม่มีเกียรติ หากอีกฝ่ายเพิ่งรู้ราคาเมื่อสายเกินกว่าจะถอย",
+      "closing": "You were not placed here because every line must become a wall. You were placed here because making consequence visible is the shape your courage takes.",
+      "share_line": "My nature belongs to the Cobra—the one who makes the final line visible.",
+      "signatures": ["Visible boundaries", "Measured consequence", "Moral clarity"],
+      "bible": "docs/design/animals/desert/cobra.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Camel": {
+      "title": "The Bearer of the Long Measure",
+      "identity_promise": "You know the weight of a promise before you lift it—and that is why yours arrives.",
+      "short_result": "คุณไม่ได้ให้คำมั่นเพราะอยากดูใจกว้าง คุณมองระยะทาง ต้นทุน และ reserve ก่อนตอบรับ แล้วเมื่อเลือกถือบางสิ่ง คุณออกแบบให้มันไปถึงจริง ความน่าเชื่อถือของคุณจึงไม่ใช่การเสียสละแบบไร้ขอบเขต แต่เป็น generosity ที่รู้ราคาของตน คนอื่นอาจเห็นเพียงความอดทนหรือการคิดเป็นระบบ แต่เบื้องหลังคือ care ระยะยาว: คุณไม่อยากให้คำว่า ‘ได้’ ในวันนี้กลายเป็นหนี้ที่ทุกคนต้องจ่ายในวันหน้า อย่างไรก็ตาม คนที่แบกได้ไกลมักถูกลืมถามว่าอยากถูกดูแลอย่างไรเมื่อ reserve ของตนเริ่มต่ำ",
+      "patterns": {
+        "what_moves_you": "คุณรู้สึกมีความหมายเมื่อ commitment ผ่านระยะทางและมาถึงตามที่ตกลง คุณชอบการจัด capacity ให้ความตั้งใจไม่หายไประหว่างทาง และไม่ประทับใจกับคำสัญญาที่สวยแต่ไม่มีโครงรองรับ",
+        "how_you_connect": "คุณสร้าง trust ด้วยการมาตามนัด บอก cost ตรง และให้โดยรู้ว่ากำลังให้อะไร คนที่รักคุณสัมผัส care ผ่านความต่อเนื่องมากกว่าความเข้มข้นชั่วคราว",
+        "how_you_protect": "คุณปกป้องด้วย reserve, pacing และการเลือกภาระ คุณทำให้ความช่วยเหลือเดินทางไกลพอ ไม่ใช้ทุกอย่างกับวิกฤตแรก และไม่ปล่อยให้ generosity วันนี้ทำลาย capacity ของวันพรุ่งนี้",
+        "when_winter_closes_in": "endurance ทำให้คำมั่นของคุณรอด แต่เมื่อทุกคนพึ่งพาคุณ capacity planning อาจกลายเป็น self-erasure คุณแบกต่อเพราะเคยบอกว่าไหว วัดทุก need เป็น logistics และเริ่มจำต้นทุนของความรักจน generosity กลายเป็นบัญชีเงียบ ๆ",
+        "what_you_rarely_ask_for": "คุณต้องการได้รับการดูแลโดยไม่ต้องพิสูจน์ก่อนว่าจะใช้ทรัพยากรนั้นคุ้ม คนที่ให้คุณพักก่อน reserve หมดกำลังยืนยันว่าคุณมีค่าเกินกว่าสิ่งที่สามารถขนไปถึงปลายทาง"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าคิดเป็นต้นทุนเกินไปหรือไม่ spontaneous สิ่งที่พวกเขาไม่เห็นคือคุณกำลังป้องกันไม่ให้ความใจกว้างที่ไม่มีแผนกลายเป็นภาระของคนอื่นในระยะยาว",
+      "restoring_balance": "สมดุลไม่ใช่การเลิกคำนวณ capacity แต่คือการนับตัวคุณเป็นหนึ่งในสิ่งที่ต้องไปถึง ลองตั้ง reserve ที่ไม่ถูกเสนอให้ใคร และขอให้คนหนึ่งช่วยก่อนที่ความเหนื่อยจะกลายเป็นเหตุฉุกเฉิน",
+      "realm_connection": "Desert จำคุณได้จาก resource discipline ที่ทำให้สิ่งสำคัญข้ามระยะได้จริง แต่คุณต้านการใช้ reserve เป็น leverage สำหรับคุณการรู้ต้นทุนทำให้ generosity ซื่อตรงขึ้น ไม่ได้สร้างสิทธิ์ให้ผู้ให้ถือความช่วยเหลือเป็นหนี้ทางใจ",
+      "closing": "You were not placed here because you can carry everything. You were placed here because choosing what can truly arrive is the shape your courage takes.",
+      "share_line": "My nature belongs to the Camel—the one whose promises survive the distance.",
+      "signatures": ["Deliberate endurance", "Honest capacity", "Promises that arrive"],
+      "bible": "docs/design/animals/desert/camel.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Scorpion": {
+      "title": "The Unbowed Sovereign",
+      "identity_promise": "Your right to a boundary is not measured by your size, status or usefulness.",
+      "short_result": "คุณไม่ต้องใหญ่กว่าใครเพื่อมีสิทธิ์ในตัวเอง ความใกล้ชิดไม่ได้สร้าง entitlement และความเป็นห่วงไม่ใช่กุญแจที่เปิดทุกประตู คุณกำหนด access ต่อเวลา ร่างกาย ความลับ และพื้นที่ภายในโดยไม่ต้องมีอำนาจเหนือใคร พลังของคุณอยู่ในคำปฏิเสธที่ไม่ยืม rank และการใช้ force เท่าที่จำเป็น คนอื่นอาจเห็นเพียงความระวังหรือระยะที่เข้มงวด แต่สิ่งที่คุณปกป้องคือหลักพื้นฐานว่า dignity ไม่ควรขึ้นกับ leverage ความลับของ boundary ที่แข็งแรงที่สุดคือ มันสามารถเปิดประตูใหม่ได้โดยไม่ต้องแสร้งว่าการละเมิดไม่เคยเกิดขึ้น",
+      "patterns": {
+        "what_moves_you": "คุณถูกขับเคลื่อนด้วย sovereignty ที่ไม่ต้องมีตำแหน่ง คุณต้องการโลกที่คำว่า ‘ไม่’ มีผลก่อนเจ้าของคำพูดจะพิสูจน์ว่ามีอำนาจ มีเหตุผลน่าประทับใจ หรือมีประโยชน์พอ",
+        "how_you_connect": "คุณให้ access เป็นชั้นและผูก trust กับการเคารพ consent คนวงเล็กของคุณได้รับ loyalty สูง เพราะพวกเขารู้ว่าความใกล้ชิดไม่ใช่ใบอนุญาตให้ครอบครองกัน",
+        "how_you_protect": "คุณปกป้องด้วย refusal, privacy และ economy of force คุณไม่เปิด private need เกินกว่าที่เลือก และไม่เชื่อว่าการอธิบายตัวเองจนหมดคือค่าธรรมเนียมของ boundary",
+        "when_winter_closes_in": "sovereignty ช่วยให้คุณยืนได้โดยไม่มี rank แต่เมื่อเคยถูกล้ำเส้น embodied alarm อาจอ่านทุก approach เป็น intrusion คุณลง consequence ก่อนแยก ignorance จาก coercion และทำให้การสร้าง trust ใหม่เป็นไปไม่ได้ แม้อีกฝ่ายเริ่มรับผิดชอบจริง",
+        "what_you_rarely_ask_for": "คุณต้องการความใกล้ชิดที่รอ consent ได้โดยไม่ทดสอบว่าจะถูกต่อยหรือไม่ คนที่ไม่ผลักประตูเพียงเพื่อพิสูจน์ว่าคุณรักเขา จะทำให้ privacy กลายเป็นห้องที่แบ่งปันได้ ไม่ใช่ป้อมที่ต้องอยู่คนเดียว"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าปิดกั้นหรือพร้อมตอบโต้ สิ่งที่พวกเขาไม่เห็นคือคุณกำลังรักษาสิทธิ์พื้นฐานที่ไม่ควรลดลงตามขนาด สถานะ ความใกล้ชิด หรือประโยชน์ของเจ้าของมัน",
+      "restoring_balance": "สมดุลไม่ใช่การเปิด access ที่ยังไม่พร้อม แต่คือการแยก warning ปัจจุบันออกจากรอยแผลเดิม ลองกำหนดหนึ่งเงื่อนไขเล็กและตรวจสอบได้สำหรับการสร้าง trust ใหม่ โดยยังรักษาสิทธิ์ถอนตัวไว้ครบ",
+      "realm_connection": "Desert จำคุณได้จากการปกป้องสิ่งที่ไม่ควรถูกซื้อขาย แต่คุณต่อต้าน Crown เมื่อ wealth, debt หรือ hierarchy ถูกใช้ซื้อ access ส่วนตัว สำหรับคุณไม่มีสัญญาใดชอบธรรมหาก consent ถูกทำให้เป็นสินค้าที่ผู้มีอำนาจจ่ายแทนได้",
+      "closing": "You were not placed here because no one may come close. You were placed here because sovereignty without a throne is the shape your courage takes.",
+      "share_line": "My nature belongs to the Scorpion—the sovereign no throne can make smaller.",
+      "signatures": ["Private sovereignty", "Economy of force", "Unborrowed refusal"],
+      "bible": "docs/design/animals/desert/scorpion.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Oryx": {
+      "title": "The Keeper of the Inner Spring",
+      "identity_promise": "Enoughness can be radiant; survival does not require you to become barren inside.",
+      "short_result": "คุณรู้ว่าความพอไม่จำเป็นต้องดูว่างเปล่า คุณรักษาสิ่งจำเป็นโดยไม่ยอมให้ความกลัวทำให้ชีวิตภายในแห้ง ความงาม ความสุข และ generosity ที่คุณเลือกไม่ใช่ excess แต่มันเตือนว่าการอยู่รอดมีไว้เพื่อให้บางอย่างยังมีชีวิตต่อ คุณสร้าง abundance จาก rhythm, care และการรู้ว่าเมื่อไรควรหยุด คนอื่นอาจเห็นเพียงความสงบหรือความสง่างาม แต่เบื้องหลังคือ discipline ที่ไม่ยอมให้ scarcity กลายเป็นตัวตน ของขวัญนี้หล่อเลี้ยงคนรอบข้าง—ตราบใดที่ความพอไม่ได้กลายเป็นเหตุผลให้คุณซ่อน need ของตัวเอง",
+      "patterns": {
+        "what_moves_you": "คุณถูกขับเคลื่อนด้วยสิ่งที่หล่อเลี้ยงโดยไม่กินอนาคต คุณชอบจังหวะที่ reserve, beauty และ shared life อยู่ร่วมกันได้ และปฏิเสธความคิดว่าความขาดแคลนทำให้ความแห้งแล้งทางใจเป็นคุณธรรม",
+        "how_you_connect": "คุณสร้างความใกล้ชิดผ่าน generosity ที่ไม่เร่ง intimacy คุณจัดพื้นที่ให้คนรับและให้ได้โดยไม่เสีย dignity และทำให้ moment เล็ก ๆ รู้สึกเพียงพอโดยไม่เพิ่ม obligation",
+        "how_you_protect": "คุณปกป้องด้วย sustainable rhythm, self-regulation และ calm presence คุณเก็บ reserve แต่ยอมใช้ส่วนที่พอดีเพื่อรักษา hope เพราะรู้ว่าร่างกายและชุมชนอยู่รอดด้วย nourishment มากกว่าการชะลอ loss",
+        "when_winter_closes_in": "composure ทำให้คนอื่นหายใจได้ แต่เมื่อ scarcity กดดัน ความพออาจแข็งเป็นการไม่ขอ คุณรักษาภาพ calm จัดความยุ่งเหยิงให้สวย และซ่อนว่า reserve ภายในหมด จนไม่มีใครรู้ว่าคนที่สร้าง oasis ก็กำลังกระหายน้ำ",
+        "what_you_rarely_ask_for": "คุณต้องการเชื่อว่าการมี need ไม่ทำให้เป็นภาระหรือคนที่มีวินัยน้อยลง คุณอยากให้ใครบางคนมองเห็นความต้องการก่อนมันกลายเป็น collapse และยังเห็น dignity ของคุณครบ"
+      },
+      "misunderstanding": "พวกเขาอาจคิดว่าคุณไม่เดือดร้อนหรือไม่ต้องการอะไร สิ่งที่พวกเขาไม่เห็นคือความสงบของคุณเป็นสิ่งที่ดูแลอย่างตั้งใจ ไม่ใช่หลักฐานว่า reserve ภายในไม่มีวันหมด",
+      "restoring_balance": "สมดุลไม่ได้เกิดจากการละทิ้ง enoughness แต่จากการอนุญาตให้ need เป็นส่วนหนึ่งของมัน ลองขอสิ่งเล็กหนึ่งอย่างก่อนจำเป็น และปล่อยให้การรับจากคนอื่นเป็นส่วนของ abundance ไม่ใช่ความล้มเหลวของ self-control",
+      "realm_connection": "Desert จำคุณได้จาก restraint ที่สร้าง sustainable abundance แต่คุณต้านการยก deprivation เป็นความบริสุทธิ์ สำหรับคุณ beauty, celebration และ rest มีสิทธิ์อยู่ในโลกที่ต้องระวังทรัพยากร หากมันช่วยให้ชีวิตยังคู่ควรกับการรักษา",
+      "closing": "You were not placed here because you never thirst. You were placed here because keeping an inner spring alive is the shape your courage takes.",
+      "share_line": "My nature belongs to the Oryx—the one who keeps an inner spring beneath the sun.",
+      "signatures": ["Radiant enoughness", "Sustainable grace", "Nourishing restraint"],
+      "bible": "docs/design/animals/desert/oryx.md",
+      "full_result": "data/desert-result-manifest.v0.1.json"
+    }
+  }
+}

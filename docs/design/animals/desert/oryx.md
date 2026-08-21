@@ -73,8 +73,8 @@ Canonical sandbox values อยู่ใน `data/vector-model.v0.4.json`
 ## Visual direction
 
 - **Silhouette:** long symmetrical horns framing an open center; elegant strength with grounded stance
-- **Clothing:** flowing ivory-black layers, water-blue lining, restrained gold geometry
-- **Palette:** bone ivory, sun gold, deep indigo, inner-spring blue
+- **Clothing:** flowing ivory-black layers, water-blue lining, restrained copper geometry
+- **Palette:** bone ivory, dune ochre, deep indigo, inner-spring verdigris
 - **Environment:** shaded garden with one reflecting pool and a table set simply but beautifully
 - **Avoid:** decorative prey animal, passive princess, luxury influencer, purity symbolism, grace without physical power
 

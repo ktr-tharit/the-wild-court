@@ -51,6 +51,8 @@ P(j | θ) = softmax(logitⱼ)
 
 Prior normalize แบบ equal realm แล้ว equal animal ภายใน realm เพื่อป้องกัน roster-size bias ดู implementation ที่ `scripts/simulate_taiga_desert.py` และผลที่ `docs/reports/taiga-desert-weighted-softmax-v0.4.md`
 
+Frontend parity implementation อยู่ที่ `web/app/game-engine.ts` และรับ canonical model/boundary questions จาก generated bundle v0.2 โดยมี golden test เทียบผล Python โดยตรง ก่อนเชื่อมเข้ากับ player-facing session flow
+
 ## Biome probability
 
 ```text

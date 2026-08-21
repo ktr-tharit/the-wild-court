@@ -68,7 +68,7 @@ Canonical sandbox values อยู่ใน `data/vector-model.v0.4.json`
 
 - **Silhouette:** raised but not striking; hood becomes a ceremonial frame for eye contact
 - **Clothing:** copper throat collar, black translucent layers, clearly marked threshold cords
-- **Palette:** black stone, oxidized copper, venom green used sparingly, sun-white
+- **Palette:** black stone, oxidized copper, garnet seal, sun-white
 - **Environment:** open threshold court where every exit remains visible
 - **Avoid:** hypnotist, femme-fatale coding, secret poisoner, evil priest, random aggression
 

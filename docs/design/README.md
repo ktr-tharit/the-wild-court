@@ -16,10 +16,12 @@
 | Desert–Taiga boundaries | Design review v0.2 | [Boundary Question Bank](desert-taiga-boundary-bank-v0.2.md) |
 | Visual theme | Prototype v0.1 | [Boreal Ceremonial](theme-system.md) |
 | Animal visuals | Concept review v0.1 | [Boreal Tapestry](animal-visual-system.md) |
+| Desert visuals | Review v0.1 / ready for concept test | [The Measured Sun](desert-visual-direction.md) |
 | Court symbols | Prototype accepted v0.1 | [Court Sigils](court-sigils.md) |
 
 ## Result examples
 
+- [Desert result manifest — all 6 animals](../../data/desert-result-manifest.v0.1.json)
 - [Grey Wolf full result](results/grey-wolf-example.md)
 - [Reindeer full result](results/reindeer-example.md)
 - [Bear full result](results/bear-example.md)
