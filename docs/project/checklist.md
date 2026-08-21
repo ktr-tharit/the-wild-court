@@ -62,9 +62,16 @@
 - [ ] ทำ Taiga + Desert full cross-biome slice
 - [x] ออกแบบ Desert Animal Bible architecture และ pairwise distinctions
 - [x] approve Desert identity fantasy, titles และ ambiguity clusters
-- [ ] แตก Desert architecture เป็น Animal Bibles รายตัว 6 ไฟล์
+- [x] เขียน Desert–Taiga boundary bank ครบ 6 Desert anchors
+- [x] กระจาย Desert motive probes อย่างน้อย 3 domains
+- [x] แตก Desert architecture เป็น Animal Bibles รายตัว 6 ไฟล์
+- [x] กำหนด provisional Desert vectors และทดสอบร่วมกับ Taiga
+- [x] implement weighted evidence + confidence-aware distance + animal softmax
+- [x] normalize realm/animal priors และ sum animal probabilities เป็น realm probability
+- [ ] เพิ่ม boundary item คู่ที่สองให้ Taiga–Desert collision clusters
 - [ ] เขียน motive probes อย่างน้อย 3 domains และ residual boundary questions
-- [ ] รวม weighted evidence เข้า Scoring Model v0.4 หลัง question-level simulation
+- [x] รวม weighted evidence เข้า Scoring Model v0.4 sandbox
+- [ ] promote Scoring Model v0.4 เข้า runtime หลัง boundary regression gate ผ่าน
 
 ## Later
 

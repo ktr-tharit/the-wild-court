@@ -133,3 +133,11 @@
 - **Decision:** รักษา `main` เป็น playable release, ใช้ `dev` รวม slice ที่ผ่าน tests และแตก `biome/<realm>` จาก `dev` สำหรับงานของแต่ละ realm
 - **Reason:** biome slice เปลี่ยน lore, vectors, questions, results และ visuals พร้อมกัน การมี integration branch ช่วยรักษา Taiga baseline และให้ validate cross-realm behavior ก่อน release
 - **Consequence:** Desert ทำบน `biome/desert` และ merge เข้า `dev`; เมื่อ integration พร้อมจึง merge `dev` เข้า `main`
+
+## D-018 — ใช้ Weighted Evidence และ Softmax เป็น Scoring Candidate
+
+- **Date:** 2026-08-22
+- **Status:** Accepted for sandbox
+- **Decision:** estimate constructs ด้วย evidence weights/confidence แล้วแปลง weighted animal distances เป็น probability ผ่าน softmax; realm probability เกิดจากผลรวม animal probabilities พร้อม equal-realm/equal-animal priors
+- **Reason:** final result ต้องรักษาความไม่แน่นอนและไม่ให้ evidence ทุกชิ้นหรือ roster size มีอำนาจเท่ากันโดยอัตโนมัติ Taiga–Desert simulation ยืนยันว่า weighted boundaries ช่วย classification แต่ motive facets ยังมี evidence ไม่พอ
+- **Consequence:** ใช้ `adaptive_weighted_core` เป็น experiment default; motive probes เก็บข้อมูลแต่ยังไม่เข้า final score และ boundary bank ต้องมีสอง items ต่อ collision ก่อน runtime promotion

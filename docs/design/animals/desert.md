@@ -1,6 +1,6 @@
 # Desert Animal Bible Architecture v0.1
 
-**Status:** Design review  
+**Status:** Animal Bibles + provisional vectors v0.4  
 **Last reviewed:** 2026-08-22  
 **Realm:** The Sunless Crown / Desert
 
@@ -20,6 +20,30 @@ Desert เชื่อว่า **restraint protects freedom** แต่ restrai
 | Camel | The Bearer of the Long Measure | Capacity | ฉันเลือกภาระด้วยความเข้าใจต้นทุน แล้วพามันไปถึงปลายทาง |
 | Scorpion | The Unbowed Sovereign | Access | ไม่มีใครได้สิทธิ์เข้าถึงฉันเพียงเพราะตัวใหญ่กว่า มีตำแหน่งกว่า หรือเรียกร้องดังกว่า |
 | Oryx | The Keeper of the Inner Spring | Desire | ฉันเลือกความพอโดยไม่ทำให้ชีวิต ความงาม หรือความหวังของตัวเองเล็กลง |
+
+## Animal Bibles
+
+| Animal | Working title | Bible |
+|---|---|---|
+| Fennec Fox | The Listener in the Dunes | [Read](desert/fennec-fox.md) |
+| Caracal | The Silent Standard | [Read](desert/caracal.md) |
+| Cobra | The Keeper of the Final Line | [Read](desert/cobra.md) |
+| Camel | The Bearer of the Long Measure | [Read](desert/camel.md) |
+| Scorpion | The Unbowed Sovereign | [Read](desert/scorpion.md) |
+| Oryx | The Keeper of the Inner Spring | [Read](desert/oryx.md) |
+
+## Provisional Trait Model v0.4 vectors
+
+Canonical values อยู่ใน `data/vector-model.v0.4.json` และต้องเปลี่ยนผ่าน joint Taiga–Desert simulation ไม่ tune แยกรายตัว
+
+| Animal | AFF | AGY | SEN | STR | EXP | RSK | DCL | ALG |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Fennec Fox | +0.4 | -0.2 | -0.6 | -0.6 | -0.4 | +0.5 | +0.5 | -0.4 |
+| Caracal | -0.6 | +0.5 | +0.6 | +0.3 | -0.7 | -0.4 | -0.5 | -0.7 |
+| Cobra | -0.4 | +0.6 | +0.2 | +0.7 | +0.7 | -0.6 | -0.7 | 0.0 |
+| Camel | +0.5 | 0.0 | +0.6 | +0.8 | -0.4 | -0.8 | +0.2 | +0.6 |
+| Scorpion | -0.8 | +0.6 | -0.5 | +0.6 | -0.8 | -0.7 | -0.7 | -0.8 |
+| Oryx | +0.6 | -0.2 | 0.0 | +0.6 | +0.5 | -0.7 | +0.5 | 0.0 |
 
 ## Portfolio shape
 
@@ -209,5 +233,7 @@ Questions ต้องแยก `keep options open`, `carry the selected weight`
 - [x] approve identity fantasy และ working title ทั้ง 6 ตัว
 - [x] approve Boundary cluster และ Restraint cluster
 - [x] ทุกตัวมีอย่างน้อยหนึ่ง ordinary-life scenario ที่ไม่เกี่ยวกับ politics
-- [ ] เขียน cross-realm boundary questions สำหรับ Taiga neighbors ตัวละอย่างน้อยหนึ่งข้อ
-- [ ] จากนั้นจึงสร้างไฟล์ `desert/*.md` และ provisional vectors
+- [x] เขียน cross-realm boundary questions สำหรับ Taiga neighbors ตัวละอย่างน้อยหนึ่งข้อ
+- [x] สร้างไฟล์ `desert/*.md` ครบ 6 ตัว
+- [x] กำหนด provisional vectors พร้อมกันใน joint Taiga–Desert model
+- [ ] เพิ่ม boundary item คู่ที่สองให้ remaining collision clusters

@@ -13,6 +13,7 @@
 | Realm identities | Accepted for construct audit v0.2 | [Realm Identity Matrix](realm-identity-matrix.md) |
 | Cross-biome constructs | Review v0.1 | [16-Anchor Audit](cross-biome-construct-audit-v0.1.md) |
 | Question evidence | Sandbox contract v0.2 | [Evidence Schema](question-evidence-schema-v0.2.md) |
+| Desert–Taiga boundaries | Design review v0.1 | [Boundary Question Bank](desert-taiga-boundary-bank-v0.1.md) |
 | Visual theme | Prototype v0.1 | [Boreal Ceremonial](theme-system.md) |
 | Animal visuals | Concept review v0.1 | [Boreal Tapestry](animal-visual-system.md) |
 | Court symbols | Prototype accepted v0.1 | [Court Sigils](court-sigils.md) |
@@ -38,6 +39,7 @@
 - [Question Simulation v0.1](../reports/question-simulation-v0.1.md) — 16 narrative questions, trait coverage และ answer-to-animal recovery
 - [Adaptive Simulation v0.1](../reports/adaptive-simulation-v0.1.md) — pair-specific Judgment questions, accuracy lift และ question cost
 - [Cross-Biome Numeric Sandbox v0.1](../reports/cross-biome-numeric-sandbox-v0.1.md) — 16 anchors, core-only vs core+facet ablation และ residual collisions
+- [Taiga–Desert Weighted Softmax v0.4](../reports/taiga-desert-weighted-softmax-v0.4.md) — weighted evidence, normalized priors, animal softmax และ realm aggregation
 
 ## Dependency order
 

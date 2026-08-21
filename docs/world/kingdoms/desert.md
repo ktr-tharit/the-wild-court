@@ -25,9 +25,10 @@
 
 - Fennec — diplomats / courtiers
 - Caracal — military aristocracy
-- Cobra — priesthood / intelligence
+- Cobra — consent witnesses / threshold courts
 - Camel — merchant dynasties
-- Scorpion — debt collection / covert enforcement
+- Scorpion — private-rights wardens / sealed archives
+- Oryx — renewal gardens / communal stewards
 
 ## Relations
 
@@ -40,4 +41,3 @@
 - ownership และ access ของ water ถูกกำกับอย่างไร
 - merchant council คานราชวงศ์ได้แค่ไหน
 - debt มีข้อจำกัดทางศีลธรรมหรือ covenant หรือไม่
-

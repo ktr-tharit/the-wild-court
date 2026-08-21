@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.2",
+  "bank_version": "0.1",
+  "status": "design_review",
+  "language": "th",
+  "questions": [
+    {
+      "id": "DTB01",
+      "domain": "relationship_boundaries",
+      "title": "สัญญาณที่เพื่อนยังไม่พูด",
+      "scenario": "เพื่อนคนหนึ่งเริ่มเงียบและถอนตัวจากกลุ่ม แต่ยังยืนยันว่าไม่มีอะไรเกิดขึ้น คุณรู้สึกว่ามีบางอย่างผิดปกติ คุณทำอย่างไร?",
+      "discriminates": ["Fennec Fox", "Lynx", "Wolverine"],
+      "constructs": ["AFF", "AGY"],
+      "options": [
+        {"id": "A", "copy": "ให้พื้นที่และสังเกตต่ออย่างเงียบ ๆ จน pattern ชัดพอ โดยไม่เข้าไปเปลี่ยนสถานการณ์", "evidence": [{"construct": "AFF", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "AGY", "value": -0.4, "weight": 1.0, "role": "primary"}]},
+        {"id": "B", "copy": "ชวนคุยเรื่องเล็กที่ไม่กดดัน เปิดช่องให้เขาส่งสัญญาณกลับมาในจังหวะของตัวเอง", "evidence": [{"construct": "AFF", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "AGY", "value": -0.4, "weight": 1.0, "role": "primary"}]},
+        {"id": "C", "copy": "พาเขาออกจากสถานการณ์ทันทีและจัดการสิ่งที่น่าจะเป็นต้นเหตุ แม้ยังไม่ได้รับคำขอ", "evidence": [{"construct": "AFF", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "AGY", "value": 0.8, "weight": 1.0, "role": "primary"}]},
+        {"id": "D", "copy": "บอกตรง ๆ ว่าคุณสังเกตเห็นอะไร และชวนเขากำหนดด้วยกันว่าต้องการให้ช่วยแบบไหน", "evidence": [{"construct": "AFF", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "AGY", "value": 0.4, "weight": 1.0, "role": "primary"}]}
+      ]
+    },
+    {
+      "id": "DTB02",
+      "domain": "identity_expression",
+      "title": "ชื่อของคุณในบันทึกที่ผิด",
+      "scenario": "ผลงานสำคัญของคุณถูกประกาศต่อสาธารณะ แต่คำอธิบายทำให้ตัวตนและเหตุผลของคุณผิดไปจากความจริง คุณแก้สถานการณ์อย่างไร?",
+      "discriminates": ["Caracal", "Lynx", "Moose"],
+      "constructs": ["EXP", "STR", "RST"],
+      "options": [
+        {"id": "A", "copy": "เก็บข้อเท็จจริงไว้กับตัวและถอนตัวจากพื้นที่นั้น คุณไม่ต้องการให้คำอธิบายของใครครอบครองความจริงภายใน", "evidence": [{"construct": "EXP", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": -0.4, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "B", "copy": "แก้เฉพาะประโยคที่สำคัญด้วยคำพูดสั้นและแม่น แล้วปล่อยให้ผลงานยืนด้วยตัวเอง", "evidence": [{"construct": "EXP", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.4, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.5, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "C", "copy": "ขอให้แก้บันทึกอย่างเป็นทางการและวางมาตรฐานว่าคำประกาศแบบนี้ต้องตรวจสอบอย่างไรก่อนเผยแพร่", "evidence": [{"construct": "EXP", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.8, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.5, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "D", "copy": "ใช้โอกาสนี้เล่าเรื่องทั้งหมดในแบบของคุณ เพื่อให้ทุกคนเห็นทั้งผลงานและตัวตนที่อยู่เบื้องหลัง", "evidence": [{"construct": "EXP", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": -0.4, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]}
+      ]
+    },
+    {
+      "id": "DTB03",
+      "domain": "public_power",
+      "title": "พื้นที่ส่วนกลางที่ถูกใช้เกินขอบเขต",
+      "scenario": "กลุ่มหนึ่งใช้พื้นที่ส่วนกลางผิดจากข้อตกลงซ้ำ ๆ จนคนอื่นเริ่มเสียสิทธิ์ แต่กฎเดิมไม่ได้ระบุบทลงโทษไว้ชัด คุณเสนออะไร?",
+      "discriminates": ["Cobra", "Moose"],
+      "constructs": ["EXP", "STR", "RST"],
+      "options": [
+        {"id": "A", "copy": "ลดการใช้พื้นที่ของตัวเองและรอดูว่าความขัดแย้งจะคลี่คลายหรือมีข้อมูลเพิ่มหรือไม่", "evidence": [{"construct": "EXP", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": -0.4, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "B", "copy": "เพิ่มกฎถาวรที่ใช้กับทุกกลุ่มเหมือนกัน พร้อมกำหนดเขตและบทลงโทษมาตรฐาน", "evidence": [{"construct": "EXP", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.8, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.5, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "C", "copy": "ประกาศว่าเกิดความเสียหายอะไร เส้นสุดท้ายอยู่ตรงไหน และผลที่เจาะจงจะตามมาหากเลือกข้ามมันอีก", "evidence": [{"construct": "EXP", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": 0.0, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "D", "copy": "เรียกแต่ละฝ่ายมาคุยและปรับข้อตกลงตามเหตุผลกับความจำเป็นของคนที่เกี่ยวข้อง", "evidence": [{"construct": "EXP", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "STR", "value": -0.4, "weight": 0.5, "role": "secondary"}, {"construct": "RST", "value": 0.5, "weight": 0.5, "role": "motive_probe"}]}
+      ]
+    },
+    {
+      "id": "DTB04",
+      "domain": "care_community",
+      "title": "คำขอที่ยาวกว่ากำลัง",
+      "scenario": "คนใกล้ตัวขอให้คุณช่วยรับผิดชอบเรื่องหนึ่งตลอดหลายเดือน คุณช่วยได้ แต่ต้องลดสิ่งสำคัญบางอย่างในชีวิต คุณตัดสินใจอย่างไร?",
+      "discriminates": ["Camel", "Reindeer"],
+      "constructs": ["ALG", "RST", "CON"],
+      "options": [
+        {"id": "A", "copy": "รับไว้เพราะความสัมพันธ์และสิ่งที่เคยผ่านมาด้วยกันทำให้คุณมีหน้าที่รักษาความต่อเนื่องนี้", "evidence": [{"construct": "ALG", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 0.5, "weight": 0.5, "role": "motive_probe"}, {"construct": "CON", "value": 1.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "B", "copy": "วัดเวลา reserve และสิ่งที่ต้องตัดก่อน ถ้ายอมรับต้นทุนได้จึงให้คำมั่นและจัดกำลังให้ไปถึงปลายทาง", "evidence": [{"construct": "ALG", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}, {"construct": "CON", "value": 0.5, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "C", "copy": "เสนอความช่วยเหลือที่จำกัดและชัดเจน แต่ไม่รับพันธะระยะยาวที่อาจกลืนชีวิตส่วนอื่น", "evidence": [{"construct": "ALG", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}, {"construct": "CON", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "D", "copy": "ปฏิเสธรูปแบบเดิมและช่วยคิดทางใหม่ที่ไม่มีใครต้องผูกตัวเองกับภาระนี้นานขนาดนั้น", "evidence": [{"construct": "ALG", "value": -0.8, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 0.0, "weight": 0.5, "role": "motive_probe"}, {"construct": "CON", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]}
+      ]
+    },
+    {
+      "id": "DTB05",
+      "domain": "relationship_boundaries",
+      "title": "สมุดที่ถูกเปิดโดยไม่ได้รับอนุญาต",
+      "scenario": "คุณพบว่าคนที่อยู่ร่วมกันเปิดอ่านสมุดส่วนตัวของคุณ เขาบอกว่าเป็นห่วงและต้องการเข้าใจคุณมากขึ้น คุณตอบสนองอย่างไร?",
+      "discriminates": ["Scorpion", "Lynx", "Wolverine"],
+      "constructs": ["AGY", "RSK"],
+      "options": [
+        {"id": "A", "copy": "ย้ายสมุดและลดสิ่งที่เขาเข้าถึงได้ จากนั้นสังเกตระยะห่างโดยไม่เปิด conflict", "evidence": [{"construct": "AGY", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "RSK", "value": -0.4, "weight": 1.0, "role": "primary"}]},
+        {"id": "B", "copy": "บอกว่าความเป็นห่วงไม่สร้างสิทธิ์เข้าถึง ล็อกพื้นที่นั้น และกำหนดว่าต้องเกิดอะไรจึงจะสร้าง trust ใหม่ได้", "evidence": [{"construct": "AGY", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "RSK", "value": -0.8, "weight": 1.0, "role": "primary"}]},
+        {"id": "C", "copy": "เผชิญหน้าทันที ตัดช่องทางเข้าถึงทั้งหมด และพร้อมออกจากความสัมพันธ์หากอีกฝ่ายพยายามอธิบายแทนการรับผิดชอบ", "evidence": [{"construct": "AGY", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "RSK", "value": 0.8, "weight": 1.0, "role": "primary"}]},
+        {"id": "D", "copy": "ถามว่าเขากังวลอะไร แล้วเจรจาวิธีแชร์บางส่วนโดยที่คุณยังเป็นคนเลือกขอบเขต", "evidence": [{"construct": "AGY", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "RSK", "value": 0.4, "weight": 1.0, "role": "primary"}]}
+      ]
+    },
+    {
+      "id": "DTB06",
+      "domain": "care_community",
+      "title": "อาหารมื้อสวยงามในสัปดาห์ที่ต้องประหยัด",
+      "scenario": "กลุ่มของคุณต้องลดค่าใช้จ่ายหลายสัปดาห์ เพื่อนคนหนึ่งเสนอให้กันทรัพยากรเล็กน้อยทำอาหารมื้อพิเศษเพื่อให้ทุกคนยังรู้สึกว่าชีวิตมีความหมาย คุณเลือกอย่างไร?",
+      "discriminates": ["Oryx", "Bear"],
+      "constructs": ["AFF", "DCL", "RST"],
+      "options": [
+        {"id": "A", "copy": "เก็บทรัพยากรทั้งหมดไว้ก่อน ความมั่นคงของ reserve สำคัญกว่าความรู้สึกในช่วงสั้น", "evidence": [{"construct": "AFF", "value": -0.4, "weight": 0.5, "role": "secondary"}, {"construct": "DCL", "value": -0.4, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "B", "copy": "ทำมื้อเล็กแต่ตั้งใจ ใช้เท่าที่ไม่กระทบ reserve เพราะความพอควรหล่อเลี้ยงความงามได้ด้วย", "evidence": [{"construct": "AFF", "value": 0.8, "weight": 0.5, "role": "secondary"}, {"construct": "DCL", "value": 0.4, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 1.0, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "C", "copy": "ใช้ทรัพยากรส่วนนั้นดูแลคนที่กำลังรับภาระหนักที่สุดเป็นพิเศษ แม้คนอื่นจะไม่ได้รับเท่ากัน", "evidence": [{"construct": "AFF", "value": 0.4, "weight": 0.5, "role": "secondary"}, {"construct": "DCL", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 0.5, "weight": 0.5, "role": "motive_probe"}]},
+        {"id": "D", "copy": "จัดมื้อเต็มที่เพื่อให้ทุกคนลืมความขาดแคลนสักคืน แล้วค่อยรับมือผลกระทบภายหลังร่วมกัน", "evidence": [{"construct": "AFF", "value": 0.8, "weight": 0.5, "role": "secondary"}, {"construct": "DCL", "value": 0.8, "weight": 1.0, "role": "primary"}, {"construct": "RST", "value": 0.0, "weight": 0.5, "role": "motive_probe"}]}
+      ]
+    }
+  ]
+}

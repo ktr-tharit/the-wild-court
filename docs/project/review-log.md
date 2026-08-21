@@ -194,3 +194,33 @@
 - approve Restraint cluster: Fennec/Camel/Oryx
 - ตั้ง `dev` เป็น integration branch และ `biome/desert` เป็น working branch ของ slice นี้
 - รอบถัดไป: เขียน cross-realm boundary questions แล้วแตก Animal Bibles รายตัว
+
+## 2026-08-22 — Desert–Taiga Boundary Bank v0.1
+
+- เขียน boundary scenarios 6 ข้อ ครบ Fennec, Caracal, Cobra, Camel, Scorpion และ Oryx
+- แยก Fennec/Lynx/Wolverine, Caracal/Lynx/Moose, Cobra/Moose, Camel/Reindeer, Scorpion/Lynx/Wolverine และ Oryx/Bear
+- ใช้ Question Evidence Schema v0.2 โดยแยก value และ weight จริง
+- motive probes ครอบคลุม identity expression, public power และ care/community
+- schema, Desert-anchor coverage, domain coverage และ generated-document tests ผ่าน
+- รอบถัดไป: แตก Animal Bibles รายตัวและตั้ง provisional Desert vectors ก่อน question-level simulation
+
+## 2026-08-22 — Desert Animal Bibles v0.1
+
+- แตก Fennec, Caracal, Cobra, Camel, Scorpion และ Oryx เป็น Bible รายตัวครบ
+- เพิ่ม court role, kingdom fit, qualitative trait rationale, cross-realm distinctions, adaptive seeds, visual direction และ result-page draft
+- รักษา prestige fantasy ของทุกตัวโดยไม่ใช้ predator/prey hierarchy
+- Camel ถูกกำหนดเป็น deliberate generosity, Scorpion เป็น compact sovereignty และ Oryx เป็น radiant enoughness
+- ยังไม่ใส่ decimal vectors เพื่อป้องกันการ tune ทีละตัวก่อนเห็น Taiga–Desert space ร่วมกัน
+- รอบถัดไป: สร้าง provisional 12-animal model และรัน pairwise/recovery simulation
+
+## 2026-08-22 — Taiga–Desert Weighted Softmax v0.4
+
+- สร้าง provisional model 12 animals พร้อม core vectors และ motive metadata
+- implement primary `1.0`, secondary `0.5`, motive-probe `0.5` evidence weights
+- ใช้ confidence-aware weighted distance, normalized priors และ softmax animal probabilities
+- realm probability มาจากผลรวม probability ของสัตว์ ไม่ hard-split biome ก่อน
+- core softmax baseline: animal 76.41%, realm 79.56%
+- adaptive weighted core: animal 76.99%, realm 80.11%, extra questions เฉลี่ย 0.44
+- asking all boundary questions ได้ animal 79.99% แต่ทำให้ Scorpion regression จึงไม่ใช้เป็น default
+- motive facets ลด aggregate performance เมื่อเปิดทุกข้อ จึงยังเป็น telemetry เท่านั้น
+- รอบถัดไป: เพิ่ม independent boundary item คู่ที่สองให้ collision clusters แล้ว rerun

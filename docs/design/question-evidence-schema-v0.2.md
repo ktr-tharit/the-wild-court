@@ -32,6 +32,14 @@
 | `weight` | `1.0` หรือ `0.5` | strong หรือ supporting evidence |
 | `role` | `primary`, `secondary`, `motive_probe` | หน้าที่ของ evidence ใน item design |
 
+Role และ weight ใช้ contract คงที่:
+
+| Role | Weight | Use |
+|---|---:|---|
+| `primary` | `1.0` | construct หลักที่ trade-off ของ option แสดงโดยตรง |
+| `secondary` | `0.5` | behavioral signal รองที่ช่วยแยกคำตอบแต่ไม่ควรมีอำนาจเท่าแกนหลัก |
+| `motive_probe` | `0.5` | hypothesis เรื่องเหตุผลเบื้องหลัง; ยังไม่ใช่ production axis |
+
 Approved motive IDs ใน sandbox:
 
 | ID | Facet | `0` | `0.5` | `1` |

@@ -38,9 +38,15 @@ Animal Bible v0.1 พร้อม review แล้ว:
 
 ## Desert design slice
 
-Desert อยู่ใน architecture review ก่อนแตกเป็น Bible รายตัว:
+Desert Animal Bibles พร้อม review และรอ joint vector model:
 
 - [Desert Animal Bible Architecture v0.1](desert.md)
+- [Fennec Fox](desert/fennec-fox.md)
+- [Caracal](desert/caracal.md)
+- [Cobra](desert/cobra.md)
+- [Camel](desert/camel.md)
+- [Scorpion](desert/scorpion.md)
+- [Oryx](desert/oryx.md)
 
 ## Design quality rule
 
