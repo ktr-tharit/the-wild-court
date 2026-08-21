@@ -36,6 +36,12 @@ Animal Bible v0.1 พร้อม review แล้ว:
 - [Wolverine](taiga/wolverine.md)
 - [Reindeer](taiga/reindeer.md)
 
+## Desert design slice
+
+Desert อยู่ใน architecture review ก่อนแตกเป็น Bible รายตัว:
+
+- [Desert Animal Bible Architecture v0.1](desert.md)
+
 ## Design quality rule
 
 ทุก animal ต้องมี fantasy ที่น่าอยากเป็นและ shadow ที่รู้สึกจริง ห้ามใช้โครง “predator = powerful / gentle animal = weak support character”

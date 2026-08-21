@@ -125,3 +125,11 @@
 - **Decision:** คง primary behavioral vector 8 แกน และใช้ Recognition, Mastery, Reciprocity, Continuity และ Restraint เป็น motive probes น้ำหนักกลุ่ม `0.5` แทนการเพิ่มเป็น primary axes ทันที
 - **Reason:** 16-anchor simulation เพิ่ม recovery จาก 73.90% เป็น 81.85%, ทำให้ critical clusters ทั้งสี่ดีขึ้น และไม่มี per-animal regression แต่ยังเป็น synthetic evidence ไม่ใช่ player-response validation
 - **Consequence:** รับ Question Evidence Schema v0.2 เป็น authoring contract และเดินหน้า Taiga + Desert full slice; facets ยังไม่เข้า production score จนมีคำถามอย่างน้อย 3 domains และ question-level simulation
+
+## D-017 — ใช้ Main / Dev / Biome Branch Hierarchy
+
+- **Date:** 2026-08-22
+- **Status:** Accepted
+- **Decision:** รักษา `main` เป็น playable release, ใช้ `dev` รวม slice ที่ผ่าน tests และแตก `biome/<realm>` จาก `dev` สำหรับงานของแต่ละ realm
+- **Reason:** biome slice เปลี่ยน lore, vectors, questions, results และ visuals พร้อมกัน การมี integration branch ช่วยรักษา Taiga baseline และให้ validate cross-realm behavior ก่อน release
+- **Consequence:** Desert ทำบน `biome/desert` และ merge เข้า `dev`; เมื่อ integration พร้อมจึง merge `dev` เข้า `main`

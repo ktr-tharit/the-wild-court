@@ -60,6 +60,9 @@
 - [x] ตรวจ per-animal regression และ critical collision clusters
 - [ ] ตรวจ construct coverage กับ remaining animals หลัง anchor sandbox ผ่าน
 - [ ] ทำ Taiga + Desert full cross-biome slice
+- [x] ออกแบบ Desert Animal Bible architecture และ pairwise distinctions
+- [x] approve Desert identity fantasy, titles และ ambiguity clusters
+- [ ] แตก Desert architecture เป็น Animal Bibles รายตัว 6 ไฟล์
 - [ ] เขียน motive probes อย่างน้อย 3 domains และ residual boundary questions
 - [ ] รวม weighted evidence เข้า Scoring Model v0.4 หลัง question-level simulation
 

@@ -185,3 +185,12 @@
 - residual collisions หลักคือ Otter/Orca และ Jaguar/Wolverine
 - ยืนยัน 8 core dimensions; motive facets ยังเป็น probes ไม่ใช่ production axes
 - รอบถัดไป: Taiga + Desert full cross-biome slice พร้อม motive questions และ boundary cases
+
+## 2026-08-22 — Desert Architecture + Branch Workflow
+
+- approve identity fantasy และ working titles ของ Desert ทั้ง 6 ตัว
+- แยก portfolio ด้วยสิ่งที่แต่ละ archetype ไม่ยอมใช้โดยไร้ความหมาย: attention, dignity, consequence, capacity, access และ desire
+- approve Boundary cluster: Caracal/Cobra/Scorpion
+- approve Restraint cluster: Fennec/Camel/Oryx
+- ตั้ง `dev` เป็น integration branch และ `biome/desert` เป็น working branch ของ slice นี้
+- รอบถัดไป: เขียน cross-realm boundary questions แล้วแตก Animal Bibles รายตัว
