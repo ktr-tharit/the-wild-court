@@ -18,6 +18,7 @@
 | Visual system | [Theme](theme-system.md) · [Animal Visuals](animal-visual-system.md) · [Court Sigils](court-sigils.md) |
 | Desert visuals | [The Measured Sun](desert-visual-direction.md) |
 | Rainforest visuals | [The Living Veil](rainforest-visual-direction.md) |
+| Savanna visuals | [The Witnessed Sun](savanna-visual-direction.md) |
 
 ## Canonical runtime data
 
@@ -25,7 +26,7 @@
 - Adaptive Taiga questions: `data/adaptive-question-bank.v0.1.json`
 - Taiga–Desert boundary questions: `data/desert-taiga-boundary-bank.v0.1.json` + `v0.2.json`
 - Current vectors and classifier settings: `data/vector-model.v0.5.json`
-- Result content: `data/taiga-result-manifest.v0.1.json` + `data/desert-result-manifest.v0.1.json`
+- Result content: the Taiga, Desert, Rainforest and Savanna manifests under `data/`
 - Playable bundle: `web/app/game-data.generated.json`
 
 ## Current validation

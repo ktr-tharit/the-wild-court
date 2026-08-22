@@ -60,6 +60,18 @@ Rainforest roster ล็อกด้าน identity แล้ว โดยยั
 - [Golden Lion Tamarin](rainforest/golden-lion-tamarin.md)
 - [Blue Morpho](rainforest/blue-morpho.md)
 
+## Savanna design slice
+
+Savanna ล็อก roster direction แล้วและกำลัง review realm/animal architecture ก่อนแตก Bible รายตัว:
+
+- [Savanna Animal Bible Architecture v0.1](savanna.md)
+- [Lion](savanna/lion.md)
+- [Elephant](savanna/elephant.md)
+- [Secretary Bird](savanna/secretary-bird.md)
+- [Hyena](savanna/hyena.md)
+- [Greater Kudu](savanna/greater-kudu.md)
+- [Giraffe](savanna/giraffe.md)
+
 ## Design quality rule
 
 ทุก animal ต้องมี fantasy ที่น่าอยากเป็นและ shadow ที่รู้สึกจริง ห้ามใช้โครง “predator = powerful / gentle animal = weak support character”

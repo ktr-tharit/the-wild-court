@@ -130,7 +130,7 @@ Audit นี้ใช้ animal สองตัวต่อ realm:
 - **Embodies Savanna:** strength becomes real through witness
 - **Resists Savanna:** visibility ไม่ใช่ entitlement และ crown ต้องตอบต่อคนที่มองอยู่
 - **Motive not fully visible:** desire for witnessed impact ไม่เท่ากับ EXP หรือ AGY สูง
-- **Nearest within realm:** Elephant, Cheetah
+- **Nearest within realm:** Elephant, Secretary Bird
 - **Nearest across realms:** Golden Eagle, Grey Wolf
 
 #### Hyena — resist
@@ -142,7 +142,7 @@ Audit นี้ใช้ animal สองตัวต่อ realm:
 - **Embodies Savanna:** power ต้องถูกได้ยินและตอบสนองในพื้นที่สาธารณะ
 - **Resists Savanna:** prestige ไม่ควรผูกกับ respectable appearance หรือสายเลือด
 - **Motive not fully visible:** network influence ต่างจาก intimacy, care หรือ consensus seeking อย่างไร
-- **Nearest within realm:** Gazelle, Elephant
+- **Nearest within realm:** Greater Kudu, Elephant
 - **Nearest across realms:** Golden Lion Tamarin, Giant River Otter, Dolphin
 
 **Question seed:** เมื่อ court ปิดบังความล้มเหลว—คุณยืนกลางลานและผูกชื่อของตนกับคำตอบ หรือทำให้ข้อมูลเดินทางผ่านเครือข่ายจน center ไม่สามารถควบคุมเรื่องเล่าได้?

@@ -1,8 +1,8 @@
 # The Wild Court — Web
 
-Playable frontend for the Taiga, Desert and provisional Rainforest slice. It
+Playable frontend for the Taiga, Desert, Rainforest and provisional Savanna slice. It
 runs the canonical question bundle, adaptive Judgment scoring, realm reveal and
-eighteen complete animal results.
+twenty-four complete animal results.
 
 ## Development
 
@@ -22,8 +22,8 @@ pnpm test
 ```
 
 The test command builds the production bundle, verifies the rendered product
-shell and runs deterministic scoring journeys across all eighteen animals,
-including a locked Jaguar → Rainforest result path.
+shell and runs deterministic scoring journeys across all twenty-four animals,
+including locked Jaguar → Rainforest and Lion → Savanna result paths.
 
 `app/game-data.generated.json` is produced from the canonical files in the root
 `data/` directory by `scripts/export_web_bundle.py`. It remains committed so a

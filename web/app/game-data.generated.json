@@ -1,5 +1,5 @@
 {
-  "bundle_version": "0.5",
+  "bundle_version": "0.6",
   "source_versions": {
     "questions": "0.1",
     "story": "0.1",
@@ -8,9 +8,10 @@
     "results": {
       "Taiga": "0.1",
       "Desert": "0.1",
-      "Rainforest": "0.1-provisional"
+      "Rainforest": "0.1-provisional",
+      "Savanna": "0.1-provisional"
     },
-    "scoring": "0.6-provisional-three-realm",
+    "scoring": "0.7-provisional-four-realm",
     "boundary": "0.2"
   },
   "title": "The First Winter",
@@ -3329,6 +3330,90 @@
         -0.8
       ],
       "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Lion": {
+      "kingdom": "Savanna",
+      "vector": [
+        0.8,
+        0.9,
+        0.0,
+        0.6,
+        0.9,
+        0.4,
+        -0.3,
+        0.4
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Elephant": {
+      "kingdom": "Savanna",
+      "vector": [
+        0.7,
+        0.3,
+        0.6,
+        0.8,
+        0.1,
+        -0.7,
+        0.6,
+        0.8
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Secretary Bird": {
+      "kingdom": "Savanna",
+      "vector": [
+        0.1,
+        0.8,
+        0.7,
+        0.8,
+        0.6,
+        0.3,
+        -0.8,
+        -0.3
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Hyena": {
+      "kingdom": "Savanna",
+      "vector": [
+        0.8,
+        0.4,
+        -0.6,
+        -0.6,
+        0.9,
+        0.7,
+        0.5,
+        -0.7
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Greater Kudu": {
+      "kingdom": "Savanna",
+      "vector": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        0.0,
+        -0.8
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Giraffe": {
+      "kingdom": "Savanna",
+      "vector": [
+        -0.3,
+        -0.3,
+        0.8,
+        0.4,
+        0.3,
+        0.0,
+        -0.4,
+        0.4
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
     }
   },
   "realms": {
@@ -3346,6 +3431,11 @@
       "name": "Rainforest",
       "title": "The Verdant Empire",
       "belief": "Here, connection is not ownership. It is how many lives make room to grow beside one another."
+    },
+    "Savanna": {
+      "name": "Savanna",
+      "title": "The Golden Crown",
+      "belief": "Here, visibility is not vanity. It is the courage to let your gifts, choices and consequences be witnessed."
     }
   },
   "results": {
@@ -3780,10 +3870,154 @@
       ],
       "bible": "docs/design/animals/rainforest/blue-morpho.md",
       "full_result": "data/rainforest-result-manifest.v0.1.json"
+    },
+    "Lion": {
+      "title": "The Crown in Full View",
+      "identity_promise": "Authority becomes honorable only when it accepts the gaze and consequence of those it moves.",
+      "short_result": "คุณไม่ต้องการให้ทุกสายตายอมจำนน คุณต้องการให้ direction มีคนออกมายืนรับผิดชอบ ความกล้าของคุณจึงไม่ใช่การไม่ถูกตั้งคำถาม แต่คือการยังอยู่ในที่มองเห็นได้เมื่อคำถามและ consequence เดินกลับมาถึงคุณ",
+      "patterns": {
+        "what_moves_you": "คุณขยับเมื่อทุกคนกำลังรับผลจาก direction ที่ไม่มีใครยอมออกหน้าเป็นเจ้าของ",
+        "how_you_connect": "คุณรักผ่าน affirmation การยืนข้างกันอย่างเปิดเผย และการทำให้ contribution ของคนสำคัญถูกมองเห็น",
+        "how_you_protect": "คุณรวบผู้คนรอบ direction ที่ชัด แล้วรับแรงกดดันส่วนที่ไม่ควรถูกผลักลงไปหาคนข้างล่าง",
+        "when_winter_closes_in": "คุณอาจเข้าใจ attention เป็น consent เพิ่ม volume เมื่อ mandate สั่น และอ่าน dissent เป็นความไม่ภักดี",
+        "what_you_rarely_ask_for": "คุณต้องการได้รับความรักในวันที่ยังไม่มีคำตอบ เวที หรือภาพลักษณ์เข้มแข็งให้ปกป้อง"
+      },
+      "misunderstanding": "คนอื่นอาจเห็นเพียงความต้องการเป็นศูนย์กลาง แต่ไม่เห็นว่าคุณเลือกพื้นที่เปิดเพราะเชื่อว่าคนถืออำนาจต้องเป็นคนแรกที่ถูกถามและรับ consequence",
+      "restoring_balance": "ก่อนประกาศ direction ให้ถามว่าใครยังไม่มีทางตอบกลับ การเว้นพื้นที่ให้ dissent ไม่ได้ทำให้ mandate อ่อนแอ แต่มันทำให้ authority คู่ควรกับความไว้วางใจ",
+      "realm_connection": "Savanna จำคุณได้จาก public courage และ accountable presence แต่คุณต่อต้าน Crown ทุกครั้งที่ applause, lineage หรือ spectacle ถูกใช้แทน legitimacy",
+      "closing": "You were not placed here because every gaze must obey you. You were placed here because standing where consequence can find you is the shape your courage takes.",
+      "share_line": "My nature belongs to the Lion—the crown willing to stand in full view.",
+      "signatures": [
+        "Accountable presence",
+        "Public courage",
+        "Shared direction"
+      ],
+      "bible": "docs/design/animals/savanna/lion.md",
+      "full_result": "data/savanna-result-manifest.v0.1.json"
+    },
+    "Elephant": {
+      "title": "The Keeper of the Living Legacy",
+      "identity_promise": "What a people remembers should protect the lives still becoming, not only the names already carved in stone.",
+      "short_result": "คุณจำเพื่อให้สิ่งที่เคยเกิดมีความหมายต่อชีวิตซึ่งกำลังมา และเพื่อให้งานที่ไม่มีชื่อบนอนุสาวรีย์ยังคงค้ำอนาคตได้ Legacy ของคุณมีชีวิตเพราะมันยอมให้คนรุ่นถัดไปตอบกลับ",
+      "patterns": {
+        "what_moves_you": "คุณขยับเมื่อ progress กำลังลบทั้งผู้วางรากฐาน cost เก่า และชีวิตที่จะต้องรับผลในอนาคต",
+        "how_you_connect": "คุณรักผ่าน remembrance ความต่อเนื่อง และการทำให้คนรู้ว่าชีวิตของเขาไม่ใช่เหตุการณ์ชั่วคราว",
+        "how_you_protect": "คุณสร้าง archive พิธี และระบบส่งต่อที่ทำให้บทเรียนกับทรัพยากรอยู่ได้นานกว่าผู้เริ่มต้น",
+        "when_winter_closes_in": "คุณอาจใช้ precedent ปิดการทดลองใหม่ ถือว่าตัวเองรู้บริบทกว่าเสียงอายุน้อย และเปลี่ยน memory เป็น monument",
+        "what_you_rarely_ask_for": "คุณต้องการช่วงเวลาที่ไม่ต้องเป็น archive, anchor หรือผู้ใหญ่ที่สุดในห้อง"
+      },
+      "misunderstanding": "คนอื่นอาจเรียกคุณว่ายึดอดีต สิ่งที่ไม่เห็นคือคุณมอง backward เพื่อหยุด old harm จากการกลับมาในชื่อใหม่ และเพื่อรักษางานที่โลกชอบลืม",
+      "restoring_balance": "เปิดแผ่นบันทึกหนึ่งแผ่นให้คนรุ่นถัดไปแก้ไข ความทรงจำปกป้องอนาคตได้ดีที่สุดเมื่อผู้รับ inheritance มีสิทธิ์ตอบกลับมัน",
+      "realm_connection": "Savanna จำคุณได้เพราะคุณทำ contribution และ consequence ให้มองเห็นข้ามรุ่น แต่คุณต่อต้าน reputation economy ที่จำเฉพาะชื่อซึ่งขึ้นเวที",
+      "closing": "You were not placed here to make every life repeat the road behind you. You were placed here because making memory answer to the future is the shape your courage takes.",
+      "share_line": "My nature belongs to the Elephant—the keeper who makes memory answer to the future.",
+      "signatures": [
+        "Living memory",
+        "Generational care",
+        "Future stewardship"
+      ],
+      "bible": "docs/design/animals/savanna/elephant.md",
+      "full_result": "data/savanna-result-manifest.v0.1.json"
+    },
+    "Secretary Bird": {
+      "title": "The Step That Ends the Argument",
+      "identity_promise": "When the moment becomes clear, you act where everyone can see the consequence.",
+      "short_result": "คุณไม่ได้รีบเพราะไม่เคารพความซับซ้อน คุณรู้ว่าความซับซ้อนเองก็ถูกใช้เป็นที่ซ่อนได้ เมื่อ moment ชัด คุณยอมให้ action และ consequence ปรากฏในที่ซึ่งทุกคน—including yourself—ต้องตอบต่อมัน",
+      "patterns": {
+        "what_moves_you": "คุณขยับเมื่อ deliberation ให้ข้อมูลพอแล้ว แต่ delay กำลังกลายเป็น harm ที่ไม่มีใครรับผิดชอบ",
+        "how_you_connect": "คุณรักผ่าน clarity การลด uncertainty ที่ยืดเยื้อ และการทำตามสิ่งที่บอกว่าจะทำ",
+        "how_you_protect": "คุณสรุปสิ่งที่รู้ ตั้งชื่อ next action และทำให้เจ้าของกับ consequence ตรวจสอบได้ในที่สาธารณะ",
+        "when_winter_closes_in": "คุณอาจปิด deliberation เร็ว เชื่อว่าความลังเลคือ cowardice และทำ action ให้เป็น demonstration มากกว่าความจำเป็น",
+        "what_you_rarely_ask_for": "คุณต้องการคนที่ชะลอคุณได้โดยไม่ลบความชัดหรือทำเหมือน danger ไม่เคยมีอยู่"
+      },
+      "misunderstanding": "คนอื่นอาจเรียกคุณว่าใจร้อน สิ่งที่ไม่เห็นคือคุณเคารพการคิดมากพอจะรู้ว่าเมื่อใดการพูดเพิ่มเป็นเพียงวิธีเลื่อนความรับผิดชอบ",
+      "restoring_balance": "ก่อนก้าวสุดท้าย ให้ตั้งชื่อข้อมูลหนึ่งอย่างที่อาจเปลี่ยนระดับ action และสร้างทางกลับไว้ ความเด็ดขาดยังชัดได้โดยไม่ปิดประตูต่อความจริงใหม่",
+      "realm_connection": "Savanna จำคุณได้เพราะคุณทำ decision ให้เกิดผลต่อหน้าพยาน แต่คุณต่อต้าน ceremony และ rhetoric เมื่อมันถูกใช้แทน follow-through",
+      "closing": "You were not placed here because every hesitation is weakness. You were placed here because making consequence visible is the shape your courage takes.",
+      "share_line": "My nature belongs to the Secretary Bird—the step that makes consequence visible.",
+      "signatures": [
+        "Visible action",
+        "Decisive clarity",
+        "Proportionate consequence"
+      ],
+      "bible": "docs/design/animals/savanna/secretary-bird.md",
+      "full_result": "data/savanna-result-manifest.v0.1.json"
+    },
+    "Hyena": {
+      "title": "The Laugh Beneath the Throne",
+      "identity_promise": "Your laughter reminds the room that no one is too important to be questioned.",
+      "short_result": "คุณรู้ว่าความเคร่งขรึมไม่ได้เท่ากับความจริง และชื่อเสียงที่แตะต้องไม่ได้มักกำลังซ่อนบางอย่าง Laughter ของคุณมีเกียรติที่สุดเมื่อมันเปิดพื้นที่ให้คนกลับเข้าวง ไม่ใช่สอนว่าห้องนี้ทิ้งใครได้อย่างปลอดภัย",
+      "patterns": {
+        "what_moves_you": "คุณขยับเมื่อ status, decorum หรือความจริงจังถูกใช้เป็นเกราะให้ hypocrisy ซึ่งทุกคนเห็นแต่ไม่มีใครกล้าตั้งชื่อ",
+        "how_you_connect": "คุณรักผ่าน humor, social rhythm และการช่วยให้คนหัวเราะกับความไม่สมบูรณ์โดยไม่ถูกลดเป็นตัวตลก",
+        "how_you_protect": "คุณเปลี่ยน tone ของห้อง ทำให้ truth ผ่าน defense และกระจาย prestige ที่เคยรวมอยู่กับคนไม่กี่คน",
+        "when_winter_closes_in": "คุณอาจใช้ humor หลบ sincerity เปลี่ยน critique เป็น humiliation และทำให้ทุกความจริงจังดูน่าอาย",
+        "what_you_rarely_ask_for": "คุณต้องการพื้นที่ที่ตัวเองเศร้า จริงจัง หรือไม่สนุกได้โดยยังไม่ถูกถอดออกจากวง"
+      },
+      "misunderstanding": "คนอื่นอาจเห็นเพียงความไม่เคารพ แต่ไม่เห็นว่าคุณกำลังปกป้องห้องจากอำนาจซึ่งทำตัวสูงเกินกว่าจะถูกตั้งคำถามและปกป้องคนจาก shame",
+      "restoring_balance": "หลัง joke landed ให้กลับไปหาคนที่รับแรงของมันและถามว่าพื้นที่เปิดขึ้นจริงหรือไม่ Truth-telling สมบูรณ์เมื่อมันสร้าง accountability ไม่ใช่เป้ารายใหม่",
+      "realm_connection": "Savanna จำคุณได้เพราะคุณใช้ audience ทำให้ hidden hypocrisy ปรากฏ แต่คุณต่อต้าน Court เมื่อ beauty, reputation และ decorum ตั้งราคาสิทธิ์ในการพูด",
+      "closing": "You were not placed here because nothing deserves reverence. You were placed here because keeping the untouchable answerable is the shape your courage takes.",
+      "share_line": "My nature belongs to the Hyena—the laugh that keeps the throne answerable.",
+      "signatures": [
+        "Irreverent truth",
+        "Social courage",
+        "Restorative laughter"
+      ],
+      "bible": "docs/design/animals/savanna/hyena.md",
+      "full_result": "data/savanna-result-manifest.v0.1.json"
+    },
+    "Greater Kudu": {
+      "title": "The Crown That Never Asked",
+      "identity_promise": "You do not need to claim the center for your presence to carry its own authority.",
+      "short_result": "คุณไม่ปฏิเสธ visibility แต่ไม่ยอมให้ applause, title หรือความสามารถในการ perform กลายเป็นผู้ตั้งราคาตัวตน คุณฟังก่อนพูดและเลือก moment ที่ contribution มีน้ำหนักโดยไม่ต้องแย่งพื้นที่เพื่อยืนยันว่าตนมีอยู่",
+      "patterns": {
+        "what_moves_you": "คุณขยับเมื่อเสียงเบาหรือ inward truth กำลังถูก noise ของการแข่งขันทำให้ดูไม่มีน้ำหนัก",
+        "how_you_connect": "คุณรักผ่าน attention, respectful space และการเห็นคุณค่าอีกฝ่ายโดยไม่เรียกร้องให้เขา perform กลับ",
+        "how_you_protect": "คุณรักษาจังหวะภายใน เลือก access ตาม trust และใช้ presence มากกว่าการแย่ง direction",
+        "when_winter_closes_in": "คุณอาจถอนตัวแล้วเรียกมันว่าความเหนือ noise ปล่อยให้คนอื่นเดาความต้องการ และไม่ยอมเสี่ยงถูกมองผิด",
+        "what_you_rarely_ask_for": "คุณต้องการถูกเชิญเข้ามาโดยไม่ต้องพิสูจน์ก่อนว่าเหตุใดเสียงของคุณจึงคู่ควร"
+      },
+      "misunderstanding": "คนอื่นอาจเรียกคุณว่าเงียบหรือไม่ร่วมมือ สิ่งที่ไม่เห็นคือคุณกำลังรักษา authority ที่มีอยู่ก่อน title และไม่ยอมให้อudience เป็นเจ้าของคุณค่า",
+      "restoring_balance": "เลือกหนึ่งสิ่งที่ควรถูกได้ยินแล้วพูดก่อน moment จะผ่าน Dignity ไม่ต้องพิสูจน์ตัวเอง แต่ contribution ยังต้องมีทางเดินออกจากพื้นที่ภายใน",
+      "realm_connection": "Savanna จำคุณได้เพราะ quiet presence ของคุณมี public gravity แต่คุณต่อต้านทุกเวทีที่เปลี่ยน visibility เป็นเงื่อนไขของ worth",
+      "closing": "You were not placed here because the center has nothing to offer. You were placed here because carrying authority without begging for applause is the shape your courage takes.",
+      "share_line": "My nature belongs to the Greater Kudu—the crown that never needed permission to exist.",
+      "signatures": [
+        "Inherent dignity",
+        "Deep listening",
+        "Selective presence"
+      ],
+      "bible": "docs/design/animals/savanna/greater-kudu.md",
+      "full_result": "data/savanna-result-manifest.v0.1.json"
+    },
+    "Giraffe": {
+      "title": "The Witness of the Far Horizon",
+      "identity_promise": "Seeing farther matters when you bring the horizon back without looking down on those beside you.",
+      "short_result": "คุณเห็นสิ่งที่ยังไม่ส่งเสียงดังพอให้ทั้งห้องสนใจ และถือ horizon ไว้นานพอให้ possibility หรือ warning มีภาษา Vision ของคุณสมบูรณ์เมื่อมันกลับลงมาสู่ชีวิตจริง เป็นทางที่คนอื่นเดินได้ ไม่ใช่เพียงวิวที่พิสูจน์ว่าคุณมองไกลกว่า",
+      "patterns": {
+        "what_moves_you": "คุณขยับเมื่อ urgency และ applause ระยะสั้นกำลังปิดบัง consequence หรือ possibility ที่รออยู่ไกลกว่า",
+        "how_you_connect": "คุณรักผ่าน perspective ความเป็นไปได้ และการจำว่าอีกฝ่ายกำลังกลายเป็นใคร ไม่ใช่เพียงเป็นอะไรวันนี้",
+        "how_you_protect": "คุณถอยมอง pattern เชื่อมหลายช่วงเวลา แล้วนำ warning หรือเส้นทางกลับมาในภาษาที่คนอื่นใช้ได้",
+        "when_winter_closes_in": "คุณอาจเพิ่มระยะห่าง พูดจากภาพรวมแทนการอยู่กับ cost เฉพาะหน้า และมอง disagreement เป็นสายตาที่สั้นกว่า",
+        "what_you_rarely_ask_for": "คุณต้องการคนที่ชวนลงมาอยู่กับปัจจุบันโดยไม่ดูถูกสิ่งที่คุณมองเห็นไกล"
+      },
+      "misunderstanding": "คนอื่นอาจเรียกคุณว่าห่างหรือคิดมาก สิ่งที่ไม่เห็นคือคุณกำลังถืออนาคตซึ่งยังไม่มีเสียงดังพอจะปกป้องตัวเองในห้องปัจจุบัน",
+      "restoring_balance": "แปล horizon ให้เป็นก้าวเดียวที่คนข้างคุณเดินได้วันนี้ และถามว่าความจริงหน้างานเปลี่ยนภาพไกลของคุณอย่างไร Perspective ต้องเดินทางได้สองทิศ",
+      "realm_connection": "Savanna จำคุณได้เพราะคุณทำ future consequence ให้ visible แต่คุณต่อต้าน spectacle ที่กลืน warning เพียงเพราะมันยังไม่ dramatic",
+      "closing": "You were not placed here because distance makes you wiser than those beside you. You were placed here because bringing the far horizon home is the shape your courage takes.",
+      "share_line": "My nature belongs to the Giraffe—the witness who brings the far horizon home.",
+      "signatures": [
+        "Far perspective",
+        "Early warning",
+        "Grounded foresight"
+      ],
+      "bible": "docs/design/animals/savanna/giraffe.md",
+      "full_result": "data/savanna-result-manifest.v0.1.json"
     }
   },
   "scoring": {
-    "model_version": "0.6-provisional-three-realm",
+    "model_version": "0.7-provisional-four-realm",
     "classification_policy": "soft_realm_then_conditional_animal",
     "core_dimensions": [
       "AFF",
@@ -4193,6 +4427,126 @@
           0.0,
           0.5,
           0.0,
+          0.0
+        ]
+      },
+      "Lion": {
+        "realm": "Savanna",
+        "core": [
+          0.8,
+          0.9,
+          0.0,
+          0.6,
+          0.9,
+          0.4,
+          -0.3,
+          0.4
+        ],
+        "facets": [
+          1.0,
+          0.5,
+          0.5,
+          0.5,
+          0.0
+        ]
+      },
+      "Elephant": {
+        "realm": "Savanna",
+        "core": [
+          0.7,
+          0.3,
+          0.6,
+          0.8,
+          0.1,
+          -0.7,
+          0.6,
+          0.8
+        ],
+        "facets": [
+          0.5,
+          0.5,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "Secretary Bird": {
+        "realm": "Savanna",
+        "core": [
+          0.1,
+          0.8,
+          0.7,
+          0.8,
+          0.6,
+          0.3,
+          -0.8,
+          -0.3
+        ],
+        "facets": [
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Hyena": {
+        "realm": "Savanna",
+        "core": [
+          0.8,
+          0.4,
+          -0.6,
+          -0.6,
+          0.9,
+          0.7,
+          0.5,
+          -0.7
+        ],
+        "facets": [
+          0.5,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Greater Kudu": {
+        "realm": "Savanna",
+        "core": [
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          0.0,
+          -0.8
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.5
+        ]
+      },
+      "Giraffe": {
+        "realm": "Savanna",
+        "core": [
+          -0.3,
+          -0.3,
+          0.8,
+          0.4,
+          0.3,
+          0.0,
+          -0.4,
+          0.4
+        ],
+        "facets": [
+          0.0,
+          0.5,
+          0.5,
+          0.5,
           0.0
         ]
       }

@@ -15,7 +15,7 @@ test("renders The Wild Court product shell", async () => {
   assert.match(html, /The Wild Court/);
   assert.match(html, /Winter remembers/);
   assert.match(html, /Cross the threshold/);
-  assert.match(html, /Taiga · Desert · Rainforest prototype/);
+  assert.match(html, /Taiga · Desert · Rainforest · Savanna prototype/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Building your site/);
 });
 
@@ -46,4 +46,24 @@ test("renders the Rainforest animal visual review", async () => {
   assert.match(html, /\/animals\/rainforest\/jaguar-v2\.jpg/);
   assert.match(html, /1122×1402/);
   assert.match(html, /THE VERDANT EMPIRE/);
+});
+
+test("renders the Savanna realm visual review", async () => {
+  const response = await render("/visual-review/savanna-realm");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /The Golden Crown/);
+  assert.match(html, /\/biomes\/savanna\/realm-v1\.jpg/);
+  assert.match(html, /\/sigils\/savanna\.svg/);
+  assert.match(html, /I was not made to disappear\./);
+});
+
+test("renders the Savanna animal visual review", async () => {
+  const response = await render("/visual-review/savanna-animals");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  for (const animal of ["Lion", "Elephant", "Secretary Bird", "Hyena", "Greater Kudu", "Giraffe"]) assert.match(html, new RegExp(animal));
+  assert.match(html, /\/animals\/savanna\/lion-v1\.jpg/);
+  assert.match(html, /1122×1402/);
+  assert.match(html, /THE GOLDEN CROWN/);
 });

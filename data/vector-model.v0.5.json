@@ -1,6 +1,6 @@
 {
-  "model_version": "0.6-provisional-three-realm",
-  "status": "provisional_taiga_desert_rainforest",
+  "model_version": "0.7-provisional-four-realm",
+  "status": "provisional_taiga_desert_rainforest_savanna",
   "classification_policy": "soft_realm_then_conditional_animal",
   "core_dimensions": ["AFF", "AGY", "SEN", "STR", "EXP", "RSK", "DCL", "ALG"],
   "motive_facets": ["REC", "MAS", "RCP", "CON", "RST"],
@@ -35,7 +35,13 @@
     "Orchid Mantis": {"realm": "Rainforest", "core": [-0.4, 0.5, 0.5, 0.7, 0.0, -0.4, 0.0, -0.7], "facets": [0.0, 0.5, 0.0, 0.0, 0.0]},
     "Okapi": {"realm": "Rainforest", "core": [-0.5, -0.4, -0.4, -0.7, -0.8, 0.0, 0.5, -0.8], "facets": [0.5, 0.0, 0.0, 0.0, 0.0]},
     "Golden Lion Tamarin": {"realm": "Rainforest", "core": [0.9, 0.0, -0.4, -0.5, 0.7, 0.1, 0.9, 0.4], "facets": [0.5, 0.0, 1.0, 0.5, 0.0]},
-    "Blue Morpho": {"realm": "Rainforest", "core": [0.2, -0.3, -0.7, -0.9, 0.4, 0.9, 0.7, -0.8], "facets": [0.5, 0.0, 0.5, 0.0, 0.0]}
+    "Blue Morpho": {"realm": "Rainforest", "core": [0.2, -0.3, -0.7, -0.9, 0.4, 0.9, 0.7, -0.8], "facets": [0.5, 0.0, 0.5, 0.0, 0.0]},
+    "Lion": {"realm": "Savanna", "core": [0.8, 0.9, 0.0, 0.6, 0.9, 0.4, -0.3, 0.4], "facets": [1.0, 0.5, 0.5, 0.5, 0.0]},
+    "Elephant": {"realm": "Savanna", "core": [0.7, 0.3, 0.6, 0.8, 0.1, -0.7, 0.6, 0.8], "facets": [0.5, 0.5, 1.0, 1.0, 1.0]},
+    "Secretary Bird": {"realm": "Savanna", "core": [0.1, 0.8, 0.7, 0.8, 0.6, 0.3, -0.8, -0.3], "facets": [0.5, 0.5, 0.0, 0.0, 0.0]},
+    "Hyena": {"realm": "Savanna", "core": [0.8, 0.4, -0.6, -0.6, 0.9, 0.7, 0.5, -0.7], "facets": [0.5, 0.0, 1.0, 0.0, 0.0]},
+    "Greater Kudu": {"realm": "Savanna", "core": [-0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.0, -0.8], "facets": [0.0, 0.0, 0.5, 0.0, 0.5]},
+    "Giraffe": {"realm": "Savanna", "core": [-0.3, -0.3, 0.8, 0.4, 0.3, 0.0, -0.4, 0.4], "facets": [0.0, 0.5, 0.5, 0.5, 0.0]}
   },
   "simulation": {
     "seed": 20260825,

@@ -15,11 +15,11 @@ Interactive personality adventure ที่จับคู่ผู้เล่�
 
 ## สถานะปัจจุบัน
 
-- Project stage: **Playable Taiga + Desert + provisional Rainforest slice**
+- Project stage: **Playable Taiga + Desert + Rainforest + provisional Savanna slice**
 - World structure: **8 kingdoms selected**
 - Kingdom vibe and politics: **Draft v0.1 migrated**
-- Psychological traits: **8-dimensional model with provisional three-realm hierarchical scoring v0.6**
-- Animal roster: **18 playable profiles across Taiga, Desert and Rainforest**
+- Psychological traits: **8-dimensional model with provisional four-realm hierarchical scoring v0.7**
+- Animal roster: **24 playable profiles across Taiga, Desert, Rainforest and Savanna**
 - Scoring and adaptive flow: **Soft realm → conditional animal, covered by automated tests**
 
 ## รันตัวเกม

@@ -14,7 +14,7 @@ test("starts with the canonical first scene", () => {
   assert.equal(session.phase, "Arrival");
 });
 
-test("all eighteen deterministic journeys reach a realm-coherent result", () => {
+test("all twenty-four deterministic journeys reach a realm-coherent result", () => {
   for (const animal of Object.keys(gameBundle.animals)) {
     const session = runAnimalFixture(animal);
     const resultAnimal = session.result?.primary_animal ?? "";
@@ -54,7 +54,7 @@ test("result contains callbacks and an eight-dimensional audit vector", () => {
   assert.equal(Object.keys(session.result?.internal.vector ?? {}).length, 8);
 });
 
-test("all eighteen animals have complete deep-result content", () => {
+test("all twenty-four animals have complete deep-result content", () => {
   for (const [animal, identity] of Object.entries(gameBundle.results)) {
     assert.ok(identity.full_result, `${animal} is missing a full result document`);
     assert.equal(Object.keys(identity.patterns).length, 5);
@@ -67,32 +67,58 @@ test("all eighteen animals have complete deep-result content", () => {
 
 test("playable flow uses information-gain Judgment and returns a dynamic realm", () => {
   const afterCore = evaluateAnswers(Array(16).fill("A"));
-  assert.equal(afterCore.current?.id, "DTB06");
+  assert.equal(afterCore.current?.id, "DTB11");
   assert.equal(afterCore.phase, "Judgment");
 
   const afterFirstJudgment = evaluateAnswers(Array(17).fill("A"));
-  assert.equal(afterFirstJudgment.current?.id, "DTB11");
+  assert.equal(afterFirstJudgment.current?.id, "DTB06");
 
   const complete = evaluateAnswers(Array(18).fill("A"));
-  assert.equal(complete.result?.primary_animal, "Okapi");
-  assert.equal(complete.result?.realm.name, "Rainforest");
-  assert.equal(complete.result?.realm.title, "The Verdant Empire");
+  assert.equal(complete.result?.primary_animal, "Greater Kudu");
+  assert.equal(complete.result?.realm.name, "Savanna");
+  assert.equal(complete.result?.realm.title, "The Golden Crown");
 });
 
-test("three-realm weighted softmax probabilities are normalized", () => {
+test("four-realm weighted softmax probabilities are normalized", () => {
   const responses = gameBundle.core_scenes.map((question) => ({
     evidence: question.options[0].evidence,
   }));
   const result = scoreResponses(responses);
   const animalTotal = Object.values(result.animal_probabilities).reduce((sum, value) => sum + value, 0);
   const realmTotal = Object.values(result.realm_probabilities).reduce((sum, value) => sum + value, 0);
-  assert.equal(Object.keys(result.animal_probabilities).length, 18);
+  assert.equal(Object.keys(result.animal_probabilities).length, 24);
   assert.ok(Math.abs(animalTotal - 1) < 1e-12);
   assert.ok(Math.abs(realmTotal - 1) < 1e-12);
   for (const probabilities of Object.values(result.conditional_animal_probabilities)) {
     assert.ok(Math.abs(Object.values(probabilities).reduce((sum, value) => sum + value, 0) - 1) < 1e-12);
   }
-  assert.equal(Object.keys(result.realm_probabilities).length, 3);
+  assert.equal(Object.keys(result.realm_probabilities).length, 4);
+});
+
+test("Lion fixture completes the playable flow with a Savanna result", () => {
+  const session = runAnimalFixture("Lion");
+  assert.equal(session.result?.realm.name, "Savanna");
+  assert.equal(session.result?.realm.title, "The Golden Crown");
+  assert.equal(session.result?.primary_animal, "Lion");
+  assert.equal(session.result?.identity.title, "The Crown in Full View");
+  assert.ok((session.result?.questions_answered ?? 0) >= 16);
+  assert.ok((session.result?.questions_answered ?? 0) <= 18);
+});
+
+test("every Savanna animal has a locked playable smoke path", () => {
+  const paths: Record<string, string> = {
+    Lion: "CDDDDDBDBCADDBDCDA",
+    Elephant: "BDDDDDDCDDDBDDBDAD",
+    "Secretary Bird": "DDDBDDABBDBDDADDDC",
+    Hyena: "CCBBBCBCACAACADCBD",
+    "Greater Kudu": "AAAAAAAAAAAAAAAACA",
+    Giraffe: "BCBDCABCBBBBCBADAA",
+  };
+  for (const [animal, path] of Object.entries(paths)) {
+    const session = evaluateAnswers([...path]);
+    assert.equal(session.result?.realm.name, "Savanna", `${animal} path left Savanna`);
+    assert.equal(session.result?.primary_animal, animal, `${animal} path resolved to another animal`);
+  }
 });
 
 test("Jaguar fixture completes the playable flow with a Rainforest result", () => {
@@ -109,8 +135,8 @@ test("information gain selection matches the Python reference and respects its b
     evidence: question.options[0].evidence,
   }));
   const first = selectNextBoundaryQuestion(responses);
-  assert.equal(first?.question.id, "DTB06");
-  assert.ok(Math.abs((first?.information_gain ?? 0) - 0.13633634486322266) < 1e-12);
+  assert.equal(first?.question.id, "DTB11");
+  assert.ok(Math.abs((first?.information_gain ?? 0) - 0.1100482265322611) < 1e-12);
 
   responses.push({ evidence: first!.question.options[0].evidence });
   const second = selectNextBoundaryQuestion(
@@ -118,7 +144,7 @@ test("information gain selection matches the Python reference and respects its b
     [first!.question.id],
     [first!.question.domain],
   );
-  assert.equal(second?.question.id, "DTB11");
+  assert.equal(second?.question.id, "DTB06");
   assert.notEqual(second?.question.domain, first?.question.domain);
 
   const exhausted = selectNextBoundaryQuestion(

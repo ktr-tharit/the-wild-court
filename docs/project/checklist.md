@@ -7,6 +7,34 @@
 
 ## Current — Portfolio-first biome expansion
 
+- [x] เปิด `biome/savanna` จาก current `dev`
+- [x] ล็อก Savanna theme direction: visibility, witnessed courage and public accountability
+- [x] replace Cheetah with Secretary Bird to remove Jaguar surface collision
+- [x] replace Gazelle with Greater Kudu to strengthen prestige and inherent-dignity fantasy
+- [x] define Hyena as prestigious truth-telling jester, never comic relief
+- [x] draft Savanna Animal Bible Architecture v0.1
+- [x] draft Savanna realm visual direction `The Witnessed Sun`
+- [x] owner approve Savanna roster direction and working titles
+- [x] owner approve realm component hierarchy before image generation
+- [x] generate Savanna realm v1 and export canonical master/web sizes
+- [x] create Savanna realm visual-review route
+- [x] owner approve Savanna realm v1
+- [x] write individual Savanna Animal Bibles v0.1 ครบหกตัว
+- [x] owner review Savanna Animal Bible identity promises, shadows and distinctions
+- [x] design Savanna personal territories ครบหกเขต
+- [x] owner approve Savanna territory briefs
+- [x] generate Secretary Bird + Greater Kudu calibration pair
+- [x] generate Savanna animal portrait v1 ครบหกตัว
+- [x] normalize Savanna master/web portraits เป็น `1122×1402` / `1120×1400`
+- [x] create Savanna animal visual-review route
+- [x] owner review Savanna animal concept set v1
+- [x] assign provisional Savanna vectors และเขียน result manifest ครบหกตัว
+- [x] integrate Savanna realm, sigil, realm art และ animal art เข้า playable flow
+- [x] deterministic path: Lion → Savanna / Lion; all-A path → Savanna / Greater Kudu
+- [x] lock deterministic smoke path สำหรับ Savanna animals ครบทั้งหกตัว
+- [x] four-realm scoring regression และ canonical bundle export ผ่าน
+- [ ] global calibration หลัง core realms และ animal portfolio พร้อม
+
 - [x] เลื่อน per-biome vector tuning และ synthetic accuracy optimization ไปหลัง core portfolio ครบ
 - [x] ใช้ desirability, recognition, distinction และ share intent เป็น content gate หลัก
 - [x] ล็อก Rainforest roster: Jaguar, Scarlet Macaw, Orchid Mantis, Okapi, Golden Lion Tamarin, Blue Morpho

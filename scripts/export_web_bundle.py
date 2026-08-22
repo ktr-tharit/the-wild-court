@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "web" / "app" / "game-data.generated.json"
 DESERT_RESULTS = ROOT / "data" / "desert-result-manifest.v0.1.json"
 RAINFOREST_RESULTS = ROOT / "data" / "rainforest-result-manifest.v0.1.json"
+SAVANNA_RESULTS = ROOT / "data" / "savanna-result-manifest.v0.1.json"
 
 
 def build_bundle() -> dict[str, Any]:
@@ -34,13 +35,14 @@ def build_bundle() -> dict[str, Any]:
     taiga_manifest = load_result_manifest()
     desert_manifest = load_result_manifest(DESERT_RESULTS)
     rainforest_manifest = load_result_manifest(RAINFOREST_RESULTS)
+    savanna_manifest = load_result_manifest(SAVANNA_RESULTS)
     scoring_model = load_json(SCORING_MODEL)
     boundary = load_boundary_bank()
     errors = story_errors(story, bank)
     if errors:
         raise ValueError("Invalid story overlay: " + "; ".join(errors))
     return {
-        "bundle_version": "0.5",
+        "bundle_version": "0.6",
         "source_versions": {
             "questions": bank["bank_version"],
             "story": story["story_version"],
@@ -50,6 +52,7 @@ def build_bundle() -> dict[str, Any]:
                 "Taiga": taiga_manifest["manifest_version"],
                 "Desert": desert_manifest["manifest_version"],
                 "Rainforest": rainforest_manifest["manifest_version"],
+                "Savanna": savanna_manifest["manifest_version"],
             },
             "scoring": scoring_model["model_version"],
             "boundary": boundary["bank_version"],
@@ -77,12 +80,13 @@ def build_bundle() -> dict[str, Any]:
                 "title": manifest["realm_title"],
                 "belief": manifest["realm_belief"],
             }
-            for manifest in (taiga_manifest, desert_manifest, rainforest_manifest)
+            for manifest in (taiga_manifest, desert_manifest, rainforest_manifest, savanna_manifest)
         },
         "results": {
             **taiga_manifest["animals"],
             **desert_manifest["animals"],
             **rainforest_manifest["animals"],
+            **savanna_manifest["animals"],
         },
         "scoring": {
             "model_version": scoring_model["model_version"],

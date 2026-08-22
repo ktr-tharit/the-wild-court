@@ -173,3 +173,11 @@
 - **Decision:** Rainforest core roster คือ Jaguar, Scarlet Macaw, Orchid Mantis, Okapi, Golden Lion Tamarin และ Blue Morpho; ไม่เพิ่ม Harpy Eagle และใช้ Orchid Mantis แทน Poison Dart Frog
 - **Reason:** Orchid Mantis รักษา small-body prestige และ defended beauty แต่มี identity strategy ที่ชัดกว่า—authorship of presentation—ขณะที่ roster หกตัวยังคงสมดุลระหว่าง power, voice, strategy, privacy, care และ transformation
 - **Consequence:** เขียน Animal Bible ทั้งหกโดยใช้ qualitative construct directions เท่านั้น Numeric vectors, tie-breaker questions และ classification tuning ถูก defer ตาม D-021
+
+## D-023 — วาง Savanna บน Visibility และปรับ Roster เพื่อ Distinction
+
+- **Date:** 2026-08-23
+- **Status:** Accepted for architecture review
+- **Decision:** Savanna ใช้ witnessed courage, public presence และ accountability เป็น emotional center; roster คือ Lion, Elephant, Secretary Bird, Hyena, Greater Kudu และ Giraffe โดย Secretary Bird แทน Cheetah, Greater Kudu แทน Gazelle และ Hyena ใช้ truth-telling jester fantasy
+- **Reason:** ทำให้ realm ต่างจาก survival/competition fantasy, ลด Jaguar–Cheetah surface collision, เพิ่ม natural prestige ที่ shareable และทำให้ politics ยังเด่นผ่านสิทธิ์ในการมองเห็น วิจารณ์ และตอบอำนาจ
+- **Consequence:** Realm visual direction ต้องแสดง open civic court, shade และ horizon โดยไม่ใช้ safari/Lion King/cultural-collage shorthand; numeric vectors และ question tuning ยัง defer ตาม D-021

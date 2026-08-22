@@ -14,7 +14,7 @@
 |---|---:|---|
 | Taiga | 6 | Keep all six |
 | Arctic | 6 | Specify Harp Seal; add Narwhal |
-| Savanna | 6 | Keep all; sharpen Gazelle species/art direction |
+| Savanna | 6 | Replace Cheetah with Secretary Bird and Gazelle with Greater Kudu; retitle Hyena as court jester |
 | Rainforest | 6 | Choose Scarlet Macaw; replace Poison Dart Frog with Orchid Mantis; replace Orangutan, Tapir and Panther with Golden Lion Tamarin, Blue Morpho and Okapi |
 | Desert | 6 | Keep five; add Oryx |
 | Ocean | 6 | Replace Whale with Green Sea Turtle; specify Great White Shark |
@@ -55,12 +55,14 @@ Recommended portfolio มี 48 slots แต่ตัวเลขนี้ไม
 |---|---|---|---|---|---|
 | Lion — The Crown in Daylight | **Approve** | `AGY+ EXP+ AFF+`, recognition facet | รับแรงกดดันของการถูกมองและเปลี่ยน presence เป็น direction | เรียนรู้ว่า visibility ไม่ให้สิทธิ์เหนือคนอื่นโดยอัตโนมัติ | Sovereign presence |
 | Elephant — The Keeper of the Long Horizon | **Approve** | `ALG+ STR+ AFF+ SEN+` | เปลี่ยน memory, lineage และ public gravity เป็น continuity | ต้าน spectacle ระยะสั้นด้วยผลลัพธ์ที่ต้องรับผิดชอบข้ามรุ่น | Wisdom and gravitas |
-| Cheetah — The Arrow of Noon | **Approve** | `AGY+ RSK+ EXP+`, mastery facet | ทำ excellence ให้มองเห็นและสร้าง moment ที่ทุกคนเคลื่อนตาม | เปิดเผยว่าความเร็วต้องมี recovery และคุณค่าไม่ควรขึ้นกับชัยชนะทุกครั้ง | Brilliance and precision |
-| Hyena — The Unbroken Chorus | **Approve** | `AFF+ SEN+ STR− EXP+` | ใช้ social intelligence, voice และ network สร้างอำนาจนอก throne | ท้าระบบ respectability ที่ให้ prestige ตามรูปลักษณ์และ reputation เดิม | Subversive belonging |
-| Gazelle — The Grace Between Dangers | **Approve** | `RSK+ SEN− AGY− EXP+` | ทำ grace, timing และ visible composure ให้เป็น social force | พิสูจน์ว่า soft power ไม่ต้องเลียนแบบ dominance | Beauty and agility |
-| Giraffe — The Far-Seer | **Approve** | `SEN+ EXP+ AGY− AFF−/0` | ยอมรับ visibility และใช้ vantage เพื่อเตือนสังคมก่อนปัญหามาถึง | รักษาระยะจาก noise, rivalry และความเร่งของ court | Perspective and elegance |
+| Secretary Bird — The Step That Ends the Argument | **Revise → Secretary Bird** | `AGY+ SEN+ EXP+ DCL−` | ทำ decision และ consequence ให้มองเห็นและตรวจสอบได้ | ไม่ยอมให้ debate หรือ ceremony ยืดจนไม่มีใครลงมือ | Visible decisiveness |
+| Hyena — The Laugh Beneath the Throne | **Approve / retitle** | `AFF+ SEN+ STR− EXP+` | ใช้ satire, social intelligence และ audience เปิดความจริงต่อสาธารณะ | ท้า respectability และทำให้ status ไม่มีใครอยู่เหนือคำถาม | Irreverent belonging |
+| Greater Kudu — The Crown That Never Asked | **Revise → Greater Kudu** | `AFF−/0 AGY− EXP− SEN−/+` | presence ที่สง่างามทำให้ dignity มองเห็นได้โดยไม่ต้องประกาศ | ปฏิเสธว่า recognition หรือ center stage เป็นผู้มอบคุณค่า | Natural dignity and listening |
+| Giraffe — The Witness of the Far Horizon | **Approve / retitle** | `SEN+ EXP+ AGY− AFF−/0` | ยอมรับ visibility และใช้ vantage เพื่อเตือนสังคมก่อนปัญหามาถึง | รักษาระยะจาก noise, rivalry และความเร่งของ court | Perspective and elegance |
+| Cheetah | **Cut from core result roster** | — | visible precision แข็งแรงแต่ surface fantasy ชน Jaguar ด้าน elegant decisive predator | เก็บเป็น military/world character ได้ | — |
+| Gazelle | **Cut / replaced by Greater Kudu** | — | grace under scrutiny มีคุณค่าแต่ share fantasy ต้องพึ่ง writing/art มากกว่า Kudu | Greater Kudu รักษา quiet grace พร้อม silhouette และ natural prestige ที่ชัดกว่า | — |
 
-**Savanna status:** strong roster หาก Lion ไม่ถูกเขียนเป็น best result และ Hyena ได้ prestige เท่าเทียมกับ apex animals
+**Savanna status:** roster direction locked for architecture review; Lion ต้องไม่เป็น best result, Hyena ต้องเป็น prestigious truth-telling jester ไม่ใช่ comic relief และ Kudu/Giraffe ต้องแยก inner dignity ออกจาก long-view responsibility
 
 ## Rainforest — connection multiplies possibility
 

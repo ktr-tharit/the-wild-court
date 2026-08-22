@@ -6,7 +6,7 @@
 |---|---|---|---|
 | The Boreal Dominion | Taiga | Wolf, Reindeer, Lynx, Bear, Moose, Wolverine | [Read](taiga.md) |
 | The Ivory Expanse | Arctic | Polar Bear, Arctic Fox, Walrus, Snowy Owl, Harp Seal, Narwhal | [Read](arctic.md) |
-| The Golden Crown | Savanna | Lion, Elephant, Cheetah, Hyena, Gazelle, Giraffe | [Read](savanna.md) |
+| The Golden Crown | Savanna | Lion, Elephant, Secretary Bird, Hyena, Greater Kudu, Giraffe | [Read](savanna.md) |
 | The Verdant Empire | Rainforest | Jaguar, Scarlet Macaw, Orchid Mantis, Okapi, Golden Lion Tamarin, Blue Morpho | [Read](rainforest.md) |
 | The Sunless Crown | Desert | Fennec, Caracal, Cobra, Camel, Scorpion, Oryx | [Read](desert.md) |
 | The Abyssal Court | Ocean | Orca, Green Sea Turtle, Octopus, Great White, Dolphin, Manta | [Read](ocean.md) |

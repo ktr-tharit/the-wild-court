@@ -31,7 +31,7 @@ class TaigaDesertWeightedSoftmaxTests(unittest.TestCase):
             prior for name, prior in priors.items()
             if self.model["animals"][name]["realm"] == "Taiga"
         )
-        self.assertAlmostEqual(taiga, 1.0 / 3.0)
+        self.assertAlmostEqual(taiga, 1.0 / 4.0)
 
     def test_weighted_estimate_respects_evidence_strength(self):
         responses = [{
@@ -131,7 +131,7 @@ class TaigaDesertWeightedSoftmaxTests(unittest.TestCase):
         selected = self.report["modes"][self.report["selected_mode"]]
         self.assertLessEqual(selected["average_extra_questions"], 2.0)
 
-    def test_provisional_three_realm_mode_limits_per_animal_regression(self):
+    def test_provisional_multi_realm_mode_limits_per_animal_regression(self):
         baseline = self.report["modes"]["core_softmax"]["per_animal_accuracy"]
         selected = self.report["modes"][self.report["selected_mode"]]["per_animal_accuracy"]
         # Rainforest is intentionally integrated before final portfolio tuning.

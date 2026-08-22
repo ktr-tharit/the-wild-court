@@ -1,36 +1,37 @@
 # The Golden Crown — Savanna
 
-**Status:** Draft v0.1  
-**Survival belief:** Strength and reputation make us survive.  
+**Status:** Review v0.2
+**Survival belief:** Presence becomes power when it can be witnessed and answered.
 **Political model:** Competitive monarchy
 
 ## Vibe and aesthetic
 
-ยิ่งใหญ่ แดดแรง ทองแดง ผ้าแดง ขบวนพิธีการ และเมืองเปิดกว้าง ทุกอย่างต้องถูกเห็น เพราะอำนาจที่ไม่มีใครเห็นถูกมองว่าเป็นอำนาจที่ไม่มีจริง
+สว่าง เปิดกว้าง และมีชีวิตทางสังคม เมืองหินสี warm ochre วางตามแนวที่ราบสูง มีลานอภิปราย ระเบียงร่มเงา ผ้าทอสีแดงเข้ม และถนนพิธีซึ่งมองเห็นได้จากระยะไกล อำนาจต้องออกมายืนต่อหน้าคนที่ได้รับผล ไม่ใช่ซ่อนอยู่หลังห้องบัลลังก์
 
 ## Governance
 
-ตำแหน่งและ throne ถูก challenge ผ่าน reputation, victory, wealth, alliances และ public support ราชวงศ์ Lion มักครอง throne แต่ Elephant houses, Hyena guilds หรือ Cheetah military elite สามารถ balance อำนาจได้ การเมืองเกิดผ่าน court debate, ceremony, patronage, tournament และ alliance marriage
+ตำแหน่งและ throne ถูก challenge ผ่าน reputation, public service, debate, craft, ceremony, alliance และการยอมรับจากผู้ที่ต้องรับผลของอำนาจ ราชวงศ์ Lion มักครอง throne แต่ Elephant memory houses, Hyena jester guilds และ civic orders อื่นสามารถทำให้ Crown ต้องตอบคำถามต่อหน้าสาธารณะ
 
 ## Central rule
 
-> Strength must be witnessed.
+> What shapes the many must stand where the many can see it.
 
-Status ไม่ใช่แค่ vanity แต่เป็น social technology ที่ทำให้สังคมรู้ว่าจะตามใคร
+`Strength must be witnessed` ยังคงเป็นคำขวัญเก่า แต่หลักการที่ mature กว่าคือ visibility ต้องสร้าง accountability ไม่ใช่สิทธิ์เหนือผู้อื่น
 
 ## Virtue and weakness
 
-- **Virtue:** ambition, visibility, courage, public accountability
+- **Virtue:** visible courage, celebration, social momentum, public accountability
 - **Weakness:** reputation economy ทำให้คนกลัวเสียหน้า และ spectacle อาจชนะ substance
+- **Love doctrine:** Love is letting another life be fully seen without competing with its light.
 
 ## Draft court roles
 
-- Lion — throne
-- Elephant — old political families
-- Cheetah — military prestige
-- Hyena — information networks / commerce
-- Gazelle — diplomatic class
-- Giraffe — watchers / long-view advisers
+- Lion — Crown / public responsibility
+- Elephant — memory houses / generational stewardship
+- Secretary Bird — public consequence / decisive civic order
+- Hyena — jester guilds / satire / unofficial truth networks
+- Greater Kudu — unclaimed dignity / listening houses
+- Giraffe — horizon witnesses / long-view advisers
 
 ## Relations
 
@@ -42,5 +43,9 @@ Status ไม่ใช่แค่ vanity แต่เป็น social technolog
 
 - กลไก challenge throne ที่ไม่กลายเป็น civil war ทุกครั้ง
 - บทบาทของ popular support เทียบกับ noble houses
-- status ของ guilds และ non-predator factions
+- jester guild มี immunity ในการวิจารณ์ Crown แค่ไหน
+- จะปกป้องงานสำคัญที่ไม่มีเวทีและคนซึ่งไม่ต้องการ visibility อย่างไร
 
+## Animal Bible
+
+- [Savanna Animal Bible Architecture](../../design/animals/savanna.md)

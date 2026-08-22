@@ -5,7 +5,7 @@ import { evaluateAnswers, gameBundle, type Evaluation } from "./game-engine";
 
 type Stage = "threshold" | "journey" | "interlude" | "realm" | "animal" | "result";
 
-const storageKey = "wildcourt.three-realm.answers.v1";
+const storageKey = "wildcourt.four-realm.answers.v1";
 const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI"];
 const palette = [
   { name: "Pine Night", code: "#08110E", role: "Ceremony" }, { name: "Deep Fir", code: "#10221B", role: "Surface" },
@@ -17,6 +17,7 @@ const realmImages: Record<string, string> = {
   Taiga: "/biomes/taiga/realm-v1.jpg",
   Desert: "/biomes/desert/realm-v1.jpg",
   Rainforest: "/biomes/rainforest/realm-v5.jpg",
+  Savanna: "/biomes/savanna/realm-v1.jpg",
 };
 const animalImages: Record<string, string> = {
   "Grey Wolf": "/animals/taiga/grey-wolf-v1.jpg",
@@ -37,6 +38,12 @@ const animalImages: Record<string, string> = {
   Okapi: "/animals/rainforest/okapi-v2.jpg",
   "Golden Lion Tamarin": "/animals/rainforest/golden-lion-tamarin-v2.jpg",
   "Blue Morpho": "/animals/rainforest/blue-morpho-v2.jpg",
+  Lion: "/animals/savanna/lion-v1.jpg",
+  Elephant: "/animals/savanna/elephant-v1.jpg",
+  "Secretary Bird": "/animals/savanna/secretary-bird-v1.jpg",
+  Hyena: "/animals/savanna/hyena-v1.jpg",
+  "Greater Kudu": "/animals/savanna/greater-kudu-v1.jpg",
+  Giraffe: "/animals/savanna/giraffe-v1.jpg",
 };
 const courtSigils: Record<string, string> = {
   Bonds: "/sigils/bonds.svg",
@@ -45,6 +52,7 @@ const courtSigils: Record<string, string> = {
   Taiga: "/sigils/taiga.svg",
   Desert: "/sigils/desert.svg",
   Rainforest: "/sigils/rainforest.svg",
+  Savanna: "/sigils/savanna.svg",
 };
 
 export default function Home() {
@@ -114,7 +122,7 @@ export default function Home() {
     <main className={`wildcourt-app wildcourt-stage-${stage}`}>
       <header className="wildcourt-header">
         <button className="wildcourt-wordmark" type="button" onClick={() => setStage("threshold")} aria-label="Return to opening"><span className="wildcourt-wordmark-mark">W</span><span>The Wild Court</span></button>
-        <div className="wildcourt-header-meta"><span>{answers.length ? `${answers.length} choices remembered` : "Taiga · Desert · Rainforest prototype"}</span><button className="wildcourt-palette-toggle" type="button" onClick={() => setPaletteOpen(true)}>Palette</button>{answers.length > 0 && <button className="wildcourt-palette-toggle" type="button" onClick={restart}>Restart</button>}</div>
+        <div className="wildcourt-header-meta"><span>{answers.length ? `${answers.length} choices remembered` : "Taiga · Desert · Rainforest · Savanna prototype"}</span><button className="wildcourt-palette-toggle" type="button" onClick={() => setPaletteOpen(true)}>Palette</button>{answers.length > 0 && <button className="wildcourt-palette-toggle" type="button" onClick={restart}>Restart</button>}</div>
       </header>
 
       {stage === "threshold" && <Threshold savedCount={savedAnswers.length} onBegin={startFresh} onResume={resume} />}
@@ -153,7 +161,7 @@ export default function Home() {
       )}
 
       {stage === "result" && result && <ResultPage result={result} onRestart={restart} />}
-      <footer className="wildcourt-footer"><span>THE WILD COURT</span><span>Three realms are listening.</span></footer>
+      <footer className="wildcourt-footer"><span>THE WILD COURT</span><span>Four realms are listening.</span></footer>
       {paletteOpen && <PaletteDrawer onClose={() => setPaletteOpen(false)} />}
     </main>
   );
