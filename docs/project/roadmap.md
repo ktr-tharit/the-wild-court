@@ -35,7 +35,7 @@
 
 ## Phase 3 — Kingdom and animal vectors
 
-- ให้ kingdom ทุกแห่งมี prototype vector
+- ให้ realm classifier มี evidence contract ที่ขยายได้ครบทุก biome
 - ทำ Taiga animals 6 ตัวเป็น vertical slice
 - เขียน desire, fear, strength, shadow, court role และ stress behavior
 - ตรวจระยะห่างระหว่างสัตว์และขอบเขตระหว่าง biome
@@ -46,8 +46,9 @@
 
 - คำนวณ player trait vector จาก responses
 - ใช้ weighted distance + softmax similarity
-- derive biome probability จากผลรวมของ animal probabilities
-- ทดลอง temperature, weights และ priors
+- สร้าง soft realm posterior ด้วย roster-size-normalized likelihood
+- เลือก animal แบบ conditional ภายใน winning realm
+- ทดลอง temperature, weights และ priors โดยไม่ให้ global animal override realm
 
 **Exit condition:** simulation ให้ผลสมเหตุผลและไม่กระจุกที่สัตว์ไม่กี่ตัว
 

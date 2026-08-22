@@ -67,13 +67,14 @@
 - [x] แตก Desert architecture เป็น Animal Bibles รายตัว 6 ไฟล์
 - [x] กำหนด provisional Desert vectors และทดสอบร่วมกับ Taiga
 - [x] implement weighted evidence + confidence-aware distance + animal softmax
-- [x] normalize realm/animal priors และ sum animal probabilities เป็น realm probability
+- [x] normalize realm likelihood ด้วย mean pooling และเลือก animal แบบ conditional ภายใน winning realm
 - [x] เพิ่ม boundary item คู่ที่สองให้ Taiga–Desert collision clusters
 - [x] implement expected-information-gain selector พร้อม domain diversity
 - [x] ผ่าน paired regression gate และ adaptive budget ไม่เกิน 2 ข้อ
 - [ ] เขียน motive probes อย่างน้อย 3 domains และ residual boundary questions
 - [x] รวม weighted evidence เข้า Scoring Model v0.4 sandbox
 - [x] promote Scoring Model v0.4 เข้า TypeScript scoring engine พร้อม Python parity test
+- [x] promote hierarchical Scoring Model v0.5 พร้อม cross-realm coherence regression
 - [x] เชื่อม information-gain selector เข้า playable session flow
 
 ## Later

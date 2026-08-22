@@ -14,13 +14,21 @@ class WebBundleV01Tests(unittest.TestCase):
 
     def test_bundle_contains_two_biome_scoring_runtime(self):
         bundle = build_bundle()
-        self.assertEqual(bundle["bundle_version"], "0.3")
+        self.assertEqual(bundle["bundle_version"], "0.4")
         self.assertEqual(len(bundle["boundary_questions"]), 16)
         self.assertEqual(len(bundle["scoring"]["animals"]), 12)
         realms = {
             animal["realm"] for animal in bundle["scoring"]["animals"].values()
         }
         self.assertEqual(realms, {"Taiga", "Desert"})
+        self.assertEqual(
+            bundle["scoring"]["classification_policy"],
+            "soft_realm_then_conditional_animal",
+        )
+        self.assertEqual(
+            bundle["scoring"]["realm_pooling"],
+            "mean_animal_likelihood",
+        )
         self.assertEqual(bundle["scoring"]["max_adaptive_questions"], 2)
 
     def test_generated_bundle_is_current(self):

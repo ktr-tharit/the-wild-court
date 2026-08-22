@@ -1,5 +1,5 @@
 {
-  "bundle_version": "0.3",
+  "bundle_version": "0.4",
   "source_versions": {
     "questions": "0.1",
     "story": "0.1",
@@ -9,7 +9,7 @@
       "Taiga": "0.1",
       "Desert": "0.1"
     },
-    "scoring": "0.4-sandbox",
+    "scoring": "0.5-hierarchical-sandbox",
     "boundary": "0.2"
   },
   "title": "The First Winter",
@@ -3089,7 +3089,7 @@
         -0.2,
         0.5
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Reindeer": {
       "kingdom": "Taiga",
@@ -3103,7 +3103,7 @@
         0.7,
         0.8
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Lynx": {
       "kingdom": "Taiga",
@@ -3117,7 +3117,7 @@
         -0.1,
         -0.7
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Bear": {
       "kingdom": "Taiga",
@@ -3131,7 +3131,7 @@
         0.6,
         0.6
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Moose": {
       "kingdom": "Taiga",
@@ -3145,7 +3145,7 @@
         -0.5,
         0.1
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Wolverine": {
       "kingdom": "Taiga",
@@ -3159,7 +3159,7 @@
         0.1,
         -0.6
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Fennec Fox": {
       "kingdom": "Desert",
@@ -3173,7 +3173,7 @@
         0.5,
         -0.4
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Caracal": {
       "kingdom": "Desert",
@@ -3187,7 +3187,7 @@
         -0.5,
         -0.7
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Cobra": {
       "kingdom": "Desert",
@@ -3201,7 +3201,7 @@
         -0.7,
         0.0
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Camel": {
       "kingdom": "Desert",
@@ -3215,7 +3215,7 @@
         0.2,
         0.6
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Scorpion": {
       "kingdom": "Desert",
@@ -3229,7 +3229,7 @@
         -0.7,
         -0.8
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     },
     "Oryx": {
       "kingdom": "Desert",
@@ -3243,7 +3243,7 @@
         0.5,
         0.0
       ],
-      "design_note": "Canonical Scoring Model v0.4 profile"
+      "design_note": "Canonical Scoring Model v0.5 profile"
     }
   },
   "realms": {
@@ -3549,7 +3549,8 @@
     }
   },
   "scoring": {
-    "model_version": "0.4-sandbox",
+    "model_version": "0.5-hierarchical-sandbox",
+    "classification_policy": "soft_realm_then_conditional_animal",
     "core_dimensions": [
       "AFF",
       "AGY",
@@ -3598,6 +3599,7 @@
       "RST": 1.5
     },
     "animal_softmax_temperature": 0.2,
+    "realm_pooling": "mean_animal_likelihood",
     "prior_policy": "equal_realm_then_equal_animal",
     "animals": {
       "Grey Wolf": {

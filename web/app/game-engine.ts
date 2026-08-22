@@ -17,11 +17,13 @@ export type BoundaryQuestion = Omit<GameQuestion, "options"> & {
 export type ScoringAnimal = { realm: string; core: number[]; facets: number[] };
 export type ScoringModel = {
   model_version: string;
+  classification_policy: "soft_realm_then_conditional_animal";
   core_dimensions: string[];
   motive_facets: string[];
   construct_weights: Record<string, number>;
   confidence_targets: Record<string, number>;
   animal_softmax_temperature: number;
+  realm_pooling: "mean_animal_likelihood";
   prior_policy: "equal_realm_then_equal_animal";
   animals: Record<string, ScoringAnimal>;
   response_softmax_temperature: number;
@@ -57,8 +59,11 @@ export type SoftmaxResult = {
   confidence: Record<string, number>;
   animal_probabilities: Record<string, number>;
   realm_probabilities: Record<string, number>;
+  conditional_animal_probabilities: Record<string, Record<string, number>>;
   distances: Record<string, number>;
+  realm_scores: Record<string, number>;
   ranking: string[];
+  within_realm_ranking: string[];
   top_animal: string;
   top_realm: string;
   top_margin: number;
@@ -128,60 +133,75 @@ function estimateConstructs(responses: ScoringResponse[], model: ScoringModel) {
   return { estimates, confidence };
 }
 
-function normalizedPriors(model: ScoringModel) {
-  const realms: Record<string, string[]> = {};
-  Object.entries(model.animals).forEach(([name, animal]) => {
-    (realms[animal.realm] ??= []).push(name);
-  });
-  const realmPrior = 1 / Object.keys(realms).length;
-  return Object.fromEntries(Object.entries(model.animals).map(([name, animal]) => [
-    name, realmPrior / realms[animal.realm].length,
-  ])) as Record<string, number>;
-}
-
 export function scoreResponses(
   responses: ScoringResponse[],
   bundle: GameBundle = gameBundle,
 ): SoftmaxResult {
   const model = bundle.scoring;
   const profiles = scoringProfiles(model);
-  const priors = normalizedPriors(model);
   const { estimates, confidence } = estimateConstructs(responses, model);
   const distances: Record<string, number> = {};
-  const logits: Record<string, number> = {};
-  Object.entries(profiles).forEach(([animal, profile]) => {
+  const distanceTo = (profile: Record<string, number>) => {
     const terms = Object.keys(estimates).map((construct) => ({
       construct,
       weight: model.construct_weights[construct] * confidence[construct],
-    }));
+    })).filter(({ construct }) => construct in profile);
     const denominator = terms.reduce((sum, item) => sum + item.weight, 0);
-    const distance = denominator
+    return denominator
       ? terms.reduce((sum, item) => sum + item.weight * (estimates[item.construct] - profile[item.construct]) ** 2, 0) / denominator
       : 0;
-    distances[animal] = distance;
-    logits[animal] = -distance / model.animal_softmax_temperature + Math.log(priors[animal]);
+  };
+
+  const realmAnimals: Record<string, string[]> = {};
+  Object.entries(model.animals).forEach(([animal, profile]) => {
+    (realmAnimals[profile.realm] ??= []).push(animal);
+    distances[animal] = distanceTo(profiles[animal]);
   });
+  const logits = Object.fromEntries(Object.entries(distances).map(([animal, distance]) => [
+    animal, -distance / model.animal_softmax_temperature,
+  ]));
   const peak = Math.max(...Object.values(logits));
-  const exponentials = Object.fromEntries(Object.entries(logits).map(([animal, value]) => [animal, Math.exp(value - peak)]));
-  const total = Object.values(exponentials).reduce((sum, value) => sum + value, 0);
-  const animalProbabilities = Object.fromEntries(Object.entries(exponentials).map(([animal, value]) => [animal, value / total]));
-  const realmProbabilities: Record<string, number> = {};
-  Object.entries(animalProbabilities).forEach(([animal, probability]) => {
-    const realm = model.animals[animal].realm;
-    realmProbabilities[realm] = (realmProbabilities[realm] ?? 0) + probability;
+  const likelihoods = Object.fromEntries(Object.entries(logits).map(([animal, value]) => [
+    animal, Math.exp(value - peak),
+  ]));
+  const realmScores = Object.fromEntries(Object.entries(realmAnimals).map(([realm, animals]) => [
+    realm,
+    animals.reduce((sum, animal) => sum + likelihoods[animal], 0) / animals.length,
+  ]));
+  const realmTotal = Object.values(realmScores).reduce((sum, score) => sum + score, 0);
+  const realmProbabilities = Object.fromEntries(Object.entries(realmScores).map(([realm, score]) => [
+    realm, score / realmTotal,
+  ]));
+  const conditionalAnimalProbabilities: Record<string, Record<string, number>> = {};
+  Object.entries(realmAnimals).forEach(([realm, animals]) => {
+    const total = animals.reduce((sum, animal) => sum + likelihoods[animal], 0);
+    conditionalAnimalProbabilities[realm] = Object.fromEntries(animals.map((animal) => [
+      animal, likelihoods[animal] / total,
+    ]));
   });
+  const animalProbabilities = Object.fromEntries(Object.entries(model.animals).map(([animal, profile]) => [
+    animal,
+    realmProbabilities[profile.realm] * conditionalAnimalProbabilities[profile.realm][animal],
+  ]));
   const ranking = Object.keys(animalProbabilities).sort((left, right) => animalProbabilities[right] - animalProbabilities[left]);
   const topRealm = Object.keys(realmProbabilities).sort((left, right) => realmProbabilities[right] - realmProbabilities[left])[0];
+  const withinRealmRanking = [...realmAnimals[topRealm]].sort((left, right) =>
+    conditionalAnimalProbabilities[topRealm][right] - conditionalAnimalProbabilities[topRealm][left]);
+  const topAnimal = withinRealmRanking[0];
   return {
     estimates,
     confidence,
     animal_probabilities: animalProbabilities,
     realm_probabilities: realmProbabilities,
+    conditional_animal_probabilities: conditionalAnimalProbabilities,
     distances,
+    realm_scores: realmScores,
     ranking,
-    top_animal: ranking[0],
+    within_realm_ranking: withinRealmRanking,
+    top_animal: topAnimal,
     top_realm: topRealm,
-    top_margin: animalProbabilities[ranking[0]] - animalProbabilities[ranking[1]],
+    top_margin: conditionalAnimalProbabilities[topRealm][withinRealmRanking[0]]
+      - conditionalAnimalProbabilities[topRealm][withinRealmRanking[1]],
   };
 }
 

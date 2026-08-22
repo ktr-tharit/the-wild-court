@@ -12,7 +12,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_MODEL = ROOT / "data" / "vector-model.v0.4.json"
+DEFAULT_MODEL = ROOT / "data" / "vector-model.v0.5.json"
 CORE_BANK = ROOT / "data" / "question-bank.v0.1.json"
 BOUNDARY_BANK_V01 = ROOT / "data" / "desert-taiga-boundary-bank.v0.1.json"
 BOUNDARY_BANK_V02 = ROOT / "data" / "desert-taiga-boundary-bank.v0.2.json"
@@ -48,6 +48,10 @@ def model_errors(model: dict[str, Any]) -> list[str]:
         errors.append("confidence targets must cover every construct exactly")
     if model.get("prior_policy") != "equal_realm_then_equal_animal":
         errors.append("sandbox requires normalized realm/animal priors")
+    if model.get("classification_policy") != "soft_realm_then_conditional_animal":
+        errors.append("sandbox requires hierarchical realm/animal classification")
+    if model.get("realm_pooling") != "mean_animal_likelihood":
+        errors.append("sandbox requires roster-size-normalized realm pooling")
     for name, animal in animals.items():
         realms[animal.get("realm", "")] = realms.get(animal.get("realm", ""), 0) + 1
         if len(animal.get("core", [])) != len(core):
@@ -181,16 +185,16 @@ def softmax_scores(
     model: dict[str, Any],
 ) -> dict[str, Any]:
     profiles = animal_profiles(model)
-    priors = normalized_priors(model)
-    logits: dict[str, float] = {}
     distances: dict[str, float] = {}
-    for name, profile in profiles.items():
+
+    def distance_to(profile: dict[str, float]) -> float:
         weighted_terms = {
             construct: model["construct_weights"][construct] * confidence[construct]
             for construct in estimates
+            if construct in profile
         }
         denominator = sum(weighted_terms.values())
-        distance = (
+        return (
             sum(
                 weight * (estimates[construct] - profile[construct]) ** 2
                 for construct, weight in weighted_terms.items()
@@ -198,27 +202,64 @@ def softmax_scores(
             if denominator
             else 0.0
         )
-        distances[name] = distance
-        logits[name] = (
-            -distance / model["animal_softmax_temperature"] + math.log(priors[name])
-        )
-    peak = max(logits.values())
-    exponentials = {name: math.exp(value - peak) for name, value in logits.items()}
-    total = sum(exponentials.values())
-    animal_probabilities = {
-        name: value / total for name, value in exponentials.items()
+
+    realm_animals: dict[str, list[str]] = {}
+    for name, animal in model["animals"].items():
+        realm_animals.setdefault(animal["realm"], []).append(name)
+    for name, profile in profiles.items():
+        distances[name] = distance_to(profile)
+    logits = {
+        name: -distance / model["animal_softmax_temperature"]
+        for name, distance in distances.items()
     }
-    realm_probabilities: dict[str, float] = {}
-    for name, probability in animal_probabilities.items():
-        realm = model["animals"][name]["realm"]
-        realm_probabilities[realm] = realm_probabilities.get(realm, 0.0) + probability
+    global_peak = max(logits.values())
+    likelihoods = {
+        name: math.exp(value - global_peak) for name, value in logits.items()
+    }
+    realm_scores = {
+        realm: sum(likelihoods[name] for name in names) / len(names)
+        for realm, names in realm_animals.items()
+    }
+    realm_total = sum(realm_scores.values())
+    realm_probabilities = {
+        realm: score / realm_total for realm, score in realm_scores.items()
+    }
+    conditional_animal_probabilities: dict[str, dict[str, float]] = {}
+    for realm, names in realm_animals.items():
+        total = sum(likelihoods[name] for name in names)
+        conditional_animal_probabilities[realm] = {
+            name: likelihoods[name] / total for name in names
+        }
+    animal_probabilities = {
+        name: realm_probabilities[animal["realm"]]
+        * conditional_animal_probabilities[animal["realm"]][name]
+        for name, animal in model["animals"].items()
+    }
+    top_realm = max(realm_probabilities, key=realm_probabilities.get)
+    top_animal = max(
+        conditional_animal_probabilities[top_realm],
+        key=conditional_animal_probabilities[top_realm].get,
+    )
     ranked = sorted(animal_probabilities, key=animal_probabilities.get, reverse=True)
+    within_realm_ranking = sorted(
+        conditional_animal_probabilities[top_realm],
+        key=conditional_animal_probabilities[top_realm].get,
+        reverse=True,
+    )
     return {
         "animal_probabilities": animal_probabilities,
         "realm_probabilities": realm_probabilities,
+        "conditional_animal_probabilities": conditional_animal_probabilities,
         "distances": distances,
-        "top_animal": ranked[0],
-        "top_margin": animal_probabilities[ranked[0]] - animal_probabilities[ranked[1]],
+        "realm_scores": realm_scores,
+        "ranking": ranked,
+        "within_realm_ranking": within_realm_ranking,
+        "top_realm": top_realm,
+        "top_animal": top_animal,
+        "top_margin": (
+            conditional_animal_probabilities[top_realm][within_realm_ranking[0]]
+            - conditional_animal_probabilities[top_realm][within_realm_ranking[1]]
+        ),
     }
 
 
@@ -415,10 +456,7 @@ def simulate_mode(
             result = softmax_scores(estimates, confidence, model)
             predicted = result["top_animal"]
             source_realm = model["animals"][source]["realm"]
-            predicted_realm = max(
-                result["realm_probabilities"],
-                key=result["realm_probabilities"].get,
-            )
+            predicted_realm = result["top_realm"]
             animal_correct += predicted == source
             realm_correct += predicted_realm == source_realm
             per_animal_correct[source] += predicted == source

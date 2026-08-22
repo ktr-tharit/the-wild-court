@@ -32,7 +32,7 @@ Caracal fantasy คือ dignity without performance ไม่ใช่คว�
 
 ## Provisional trait rationale
 
-Canonical sandbox values อยู่ใน `data/vector-model.v0.4.json`
+Canonical sandbox values อยู่ใน `data/vector-model.v0.5.json`
 
 | Trait | Score | Evidence |
 |---|---:|---|

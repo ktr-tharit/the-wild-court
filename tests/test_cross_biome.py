@@ -3,7 +3,6 @@ import unittest
 from pathlib import Path
 
 from scripts.simulate_cross_biome import build_report, load_model, model_errors
-from scripts.render_desert_boundary_bank import OUTPUT as BOUNDARY_DOC
 from scripts.render_desert_boundary_bank import render as render_boundary_bank
 from scripts.validate_question_evidence import (
     evidence_errors,
@@ -80,10 +79,10 @@ class CrossBiomeSandboxTests(unittest.TestCase):
         domains = set().union(*motive_domain_coverage(bank).values())
         self.assertGreaterEqual(len(domains), 3)
 
-    def test_rendered_boundary_bank_is_current(self):
-        self.assertEqual(
-            BOUNDARY_DOC.read_text(encoding="utf-8"), render_boundary_bank()
-        )
+    def test_boundary_bank_can_render_for_on_demand_review(self):
+        rendered = render_boundary_bank()
+        self.assertIn("Desert–Taiga Boundary Questions — v0.2", rendered)
+        self.assertEqual(rendered.count("## DTB"), 16)
 
     def test_all_desert_animal_bibles_are_complete(self):
         expected = {

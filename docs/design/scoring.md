@@ -1,7 +1,7 @@
 # Scoring Architecture
 
-**Status:** Weighted-softmax sandbox v0.4 implemented  
-**Last reviewed:** 2026-08-22
+**Status:** Hierarchical weighted-softmax sandbox v0.5 implemented
+**Last reviewed:** 2026-08-23
 
 ## Principle
 
@@ -9,7 +9,7 @@
 
 ระบบประเมิน animal candidates ทุกตัวพร้อมกันตลอด quiz และไม่ปิด biome ใดก่อนมีหลักฐานเพียงพอ
 
-## Prototype model
+## Shared evidence model
 
 ให้ player vector เป็น `θ` และ animal `j` มี prototype vector `μⱼ`
 
@@ -17,17 +17,17 @@
 D²ⱼ = Σₖ wₖ(θₖ - μⱼₖ)²
 ```
 
-แปลง similarity เป็น probability ด้วย softmax:
+แปลง distance เป็น unnormalized animal likelihood:
 
 ```text
-P(j | θ) = exp(-D²ⱼ / T + bⱼ) / Σₗ exp(-D²ₗ / T + bₗ)
+Lⱼ = exp(-D²ⱼ / T)
 ```
 
 - `wₖ` — น้ำหนักของ trait
 - `T` — temperature; ต่ำทำให้ winner ชัด สูงทำให้ probability กระจาย
-- `bⱼ` — prior/bias สำหรับ calibration distribution โดยไม่แก้นิยามสัตว์
+- realm และ animal ใช้ evidence ชุดเดียวกันใน v0.5; ยังไม่มีคำถามหรือ vector ใหม่
 
-## v0.4 weighted evidence implementation
+## Weighted evidence implementation
 
 Question Evidence Schema v0.2 แยก `value` และ `weight`:
 
@@ -42,30 +42,44 @@ cₖ = min(1, Σ evidence_weightᵢₖ / confidence_targetₖ)
 D²ⱼ = Σ(ωₖcₖ(θₖ − μⱼₖ)²) / Σ(ωₖcₖ)
 ```
 
-Final classification ไม่เลือกจาก average score แต่ใช้:
+## v0.5 hierarchical classification
+
+ห้ามเลือก global top animal แล้วนำ realm มาต่อภายหลัง เพราะ animal เดี่ยวสามารถขัดกับ evidence รวมของ realm ได้ ระบบแบ่งการตัดสินเป็นสองระดับโดยไม่ hard-lock biome ระหว่าง session
+
+Realm score ใช้ค่าเฉลี่ย likelihood ของสัตว์ใน realm เพื่อ normalize roster size:
 
 ```text
-logitⱼ = −D²ⱼ / T + log(priorⱼ)
-P(j | θ) = softmax(logitⱼ)
+S_B = (1 / |A_B|) Σⱼ∈B Lⱼ
+P(B | θ) = S_B / Σ_C S_C
 ```
 
-Prior normalize แบบ equal realm แล้ว equal animal ภายใน realm เพื่อป้องกัน roster-size bias ดู implementation ที่ `scripts/simulate_taiga_desert.py` และผลที่ `docs/reports/taiga-desert-weighted-softmax-v0.4.md`
-
-Frontend parity implementation อยู่ที่ `web/app/game-engine.ts` และรับ canonical model/boundary questions จาก generated bundle v0.2 โดยมี golden test เทียบผล Python โดยตรง ก่อนเชื่อมเข้ากับ player-facing session flow
-
-## Biome probability
+ภายในแต่ละ realm normalize สัตว์แบบ conditional:
 
 ```text
-P(biome B) = Σ P(j) for every animal j in B
+P(j | B, θ) = Lⱼ / Σₗ∈B Lₗ
 ```
 
-ผลลัพธ์จึงสามารถแสดง primary realm, secondary realm และ top animal โดยยังรักษาความไม่แน่นอน
+Final decode เป็น hierarchical:
+
+```text
+B* = argmax_B P(B | θ)
+j* = argmax_{j∈B*} P(j | B*, θ)
+```
+
+ดังนั้น global closest animal อาจอยู่คนละ realm กับผลสุดท้ายได้ เช่น Lynx เป็น global closest แต่ Desert มี evidence รวมสูงกว่า ระบบต้องคืนสัตว์ Desert ที่ใกล้ที่สุด เช่น Caracal ไม่ใช่ Lynx แห่ง Desert
+
+`P(j | θ) = P(B | θ)P(j | B, θ)` ยังเก็บไว้สำหรับ information gain และ diagnostics แต่ไม่ override hierarchical final decode
+
+Frontend parity implementation อยู่ที่ `web/app/game-engine.ts` และรับ canonical model จาก generated bundle v0.4 โดยมี regression case สำหรับ global Lynx / Desert / conditional Caracal ทั้ง Python และ TypeScript
+
+ระบบยังประเมินทุก realm และสัตว์พร้อมกันตลอด session การเลือก realm ก่อน animal เกิดเฉพาะ final decoding ไม่ใช่การปิด candidate กลาง quiz
 
 ## Response updates — candidate accepted
 
 - ใช้ weighted evidence estimate
 - track confidence แยกต่อ construct
-- ใช้ softmax probability เหนือสัตว์ทุกตัวพร้อมกัน
+- ใช้ mean animal likelihood เพื่อสร้าง soft realm posterior โดยไม่ให้ roster ใหญ่กว่าได้เปรียบ
+- เลือก animal แบบ conditional ภายใน winning realm
 - motive probes ยังไม่เข้า final score จนกว่า coverage จะผ่าน
 
 MVP ควรเริ่มจากวิธีที่อธิบายและ simulate ง่าย ก่อนเพิ่ม complexity
@@ -84,7 +98,7 @@ QuestionScore(q)
 
 การเลือก purely maximum information อาจถามหัวข้อเดิมซ้ำจน pacing แย่ จึงต้องรวม game-design constraints
 
-### v0.4 information-gain candidate
+### v0.5 information-gain candidate
 
 Boundary Bank v0.2 ใช้ current animal softmax posterior เป็น prior สำหรับแต่ละ item:
 

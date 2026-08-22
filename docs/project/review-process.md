@@ -24,8 +24,9 @@
 2. อัปเดตสถานะและ `Last reviewed`
 3. อัปเดต checklist
 4. เพิ่ม decision record หาก architecture หรือ vocabulary เปลี่ยน
-5. เพิ่ม review entry สั้น ๆ ใน [Review Log](review-log.md)
-6. ตรวจ links และคำศัพท์สำคัญให้ตรงกัน
+5. ตรวจ links และคำศัพท์สำคัญให้ตรงกัน
+
+ไม่เก็บ chronological review log แยกอีกชุด: checklist บอก current state, Decision Log เก็บเหตุผลที่ยังมีผล และ Git history เก็บลำดับกิจกรรม
 
 ## Review gates
 
@@ -54,4 +55,3 @@
 - distribution simulation ผ่านเกณฑ์ที่กำหนด
 - result copy ไม่อ้างความแม่นยำเกินจริง
 - telemetry และ privacy language พร้อม
-

@@ -14,13 +14,32 @@ test("starts with the canonical first scene", () => {
   assert.equal(session.phase, "Arrival");
 });
 
-test("all twelve deterministic journeys reach a matching two-realm result", () => {
+test("all twelve deterministic journeys reach a realm-coherent result", () => {
   for (const animal of Object.keys(gameBundle.animals)) {
     const session = runAnimalFixture(animal);
-    assert.equal(session.result?.primary_animal, animal);
+    const resultAnimal = session.result?.primary_animal ?? "";
+    assert.ok(resultAnimal in gameBundle.animals);
+    assert.equal(session.result?.realm.name, gameBundle.animals[resultAnimal].kingdom);
     assert.ok((session.result?.questions_answered ?? 0) >= 16);
     assert.ok((session.result?.questions_answered ?? 0) <= 18);
   }
+});
+
+test("winning realm selects its closest conditional animal instead of the global animal", () => {
+  const bundle = structuredClone(gameBundle);
+  for (const [animal, profile] of Object.entries(bundle.scoring.animals)) {
+    profile.core[0] = profile.realm === "Taiga" ? 1 : 0.3;
+    if (animal === "Lynx") profile.core[0] = 0;
+    if (animal === "Caracal") profile.core[0] = 0.2;
+  }
+  const result = scoreResponses([{ evidence: { AFF: 0 } }], bundle);
+  const globalClosest = Object.keys(result.animal_probabilities).sort((left, right) =>
+    result.animal_probabilities[right] - result.animal_probabilities[left])[0];
+
+  assert.equal(globalClosest, "Lynx");
+  assert.equal(result.top_realm, "Desert");
+  assert.equal(result.top_animal, "Caracal");
+  assert.equal(bundle.scoring.animals[result.top_animal].realm, result.top_realm);
 });
 
 test("public flow requires 16 core answers before result", () => {
@@ -70,6 +89,9 @@ test("two-biome weighted softmax probabilities are normalized", () => {
   assert.equal(Object.keys(result.animal_probabilities).length, 12);
   assert.ok(Math.abs(animalTotal - 1) < 1e-12);
   assert.ok(Math.abs(realmTotal - 1) < 1e-12);
+  for (const probabilities of Object.values(result.conditional_animal_probabilities)) {
+    assert.ok(Math.abs(Object.values(probabilities).reduce((sum, value) => sum + value, 0) - 1) < 1e-12);
+  }
   assert.equal(result.top_animal, "Scorpion");
   assert.equal(result.top_realm, "Desert");
   assert.ok(Math.abs(result.realm_probabilities.Desert - 0.5599716888982768) < 1e-12);

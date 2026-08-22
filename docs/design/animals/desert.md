@@ -32,9 +32,9 @@ Desert เชื่อว่า **restraint protects freedom** แต่ restrai
 | Scorpion | The Unbowed Sovereign | [Read](desert/scorpion.md) |
 | Oryx | The Keeper of the Inner Spring | [Read](desert/oryx.md) |
 
-## Provisional Trait Model v0.4 vectors
+## Provisional Trait Model v0.5 vectors
 
-Canonical values อยู่ใน `data/vector-model.v0.4.json` และต้องเปลี่ยนผ่าน joint Taiga–Desert simulation ไม่ tune แยกรายตัว
+Canonical values อยู่ใน `data/vector-model.v0.5.json` และต้องเปลี่ยนผ่าน joint Taiga–Desert simulation ไม่ tune แยกรายตัว
 
 | Animal | AFF | AGY | SEN | STR | EXP | RSK | DCL | ALG |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|

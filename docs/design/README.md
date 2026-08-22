@@ -1,64 +1,44 @@
 # Design System Index
 
-**Overall status:** Draft / pre-production
+**Overall status:** Taiga + Desert playable prototype
 
-| Area | Status | Document |
-|---|---|---|
-| Psychological traits | Candidate model | [Traits](traits.md) |
-| Animal archetypes | Schema ready; profiles incomplete | [Animals](animals/README.md) |
-| Animal portfolio | Accepted for construct audit v0.3 | [Admission Gate](animal-admission-gate.md) · [Roster Audit](animal-roster-audit-v0.3.md) |
-| Scoring | Architecture accepted | [Scoring](scoring.md) |
-| Narrative quiz flow | Concept accepted | [Quiz Flow](quiz-flow.md) |
-| Result experience | Playable deep result v0.2 | [Result Experience Bible](result-experience.md) · [Wireframe](result-wireframe.md) |
-| Realm identities | Accepted for construct audit v0.2 | [Realm Identity Matrix](realm-identity-matrix.md) |
-| Cross-biome constructs | Review v0.1 | [16-Anchor Audit](cross-biome-construct-audit-v0.1.md) |
-| Question evidence | Sandbox contract v0.2 | [Evidence Schema](question-evidence-schema-v0.2.md) |
-| Desert–Taiga boundaries | Design review v0.2 | [Boundary Question Bank](desert-taiga-boundary-bank-v0.2.md) |
-| Visual theme | Prototype v0.1 | [Boreal Ceremonial](theme-system.md) |
-| Animal visuals | Concept review v0.1 | [Boreal Tapestry](animal-visual-system.md) |
-| Desert visuals | Review v0.1 / ready for concept test | [The Measured Sun](desert-visual-direction.md) |
-| Court symbols | Prototype accepted v0.1 | [Court Sigils](court-sigils.md) |
+อ่านเฉพาะเอกสารในตารางนี้ก่อน เอกสารที่เป็น JSON คือ canonical runtime data; review sheets ที่ render จาก JSON ไม่เก็บซ้ำใน repository และสร้างใหม่จาก `scripts/render_*.py` ได้เมื่อจำเป็น
 
-## Result examples
+| Area | Current source of truth |
+|---|---|
+| Realm identities | [Realm Identity Matrix](realm-identity-matrix.md) |
+| Psychological model | [Traits](traits.md) |
+| Scoring | [Scoring Architecture](scoring.md) |
+| Story and pacing | [Central Narrative Spine](narrative-spine.md) |
+| Question evidence | [Evidence Schema](question-evidence-schema-v0.2.md) |
+| Result structure | [Result Experience Bible](result-experience.md) |
+| Animal admission | [Admission Gate](animal-admission-gate.md) · [Roster Audit](animal-roster-audit-v0.3.md) |
+| Animal bibles | [Animal Index](animals/README.md) |
+| Cross-biome coverage | [16-Anchor Construct Audit](cross-biome-construct-audit-v0.1.md) |
+| Visual system | [Theme](theme-system.md) · [Animal Visuals](animal-visual-system.md) · [Court Sigils](court-sigils.md) |
+| Desert visuals | [The Measured Sun](desert-visual-direction.md) |
 
-- [Desert result manifest — all 6 animals](../../data/desert-result-manifest.v0.1.json)
-- [Grey Wolf full result](results/grey-wolf-example.md)
-- [Reindeer full result](results/reindeer-example.md)
-- [Bear full result](results/bear-example.md)
-- [Moose full result](results/moose-example.md)
-- [Lynx full result](results/lynx-example.md)
-- [Wolverine full result](results/wolverine-example.md)
+## Canonical runtime data
 
-## Narrative prototype
+- Core questions: `data/question-bank.v0.1.json`
+- Adaptive Taiga questions: `data/adaptive-question-bank.v0.1.json`
+- Taiga–Desert boundary questions: `data/desert-taiga-boundary-bank.v0.1.json` + `v0.2.json`
+- Current vectors and classifier settings: `data/vector-model.v0.5.json`
+- Result content: `data/taiga-result-manifest.v0.1.json` + `data/desert-result-manifest.v0.1.json`
+- Playable bundle: `web/app/game-data.generated.json`
 
-- [Central Narrative Spine v0.1 — The First Winter](narrative-spine.md)
-- [Taiga Playable Script v0.1](taiga-playable-script-v0.1.md)
-- [Taiga Session Runner v0.1](session-runner.md)
+## Current validation
 
-## Validation reports
+- [Cross-Biome Numeric Sandbox v0.1](../reports/cross-biome-numeric-sandbox-v0.1.md) — why the 8 core dimensions and 5 motive probes were retained
+- [Hierarchical Scoring v0.5](../reports/hierarchical-scoring-v0.5.md) — current soft realm → conditional animal behavior and regression metrics
 
-- [Vector Validation v0.3](../reports/vector-validation-v0.3.md) — Taiga animal separation, simulated recovery และ kingdom collision
-- [Question Simulation v0.1](../reports/question-simulation-v0.1.md) — 16 narrative questions, trait coverage และ answer-to-animal recovery
-- [Adaptive Simulation v0.1](../reports/adaptive-simulation-v0.1.md) — pair-specific Judgment questions, accuracy lift และ question cost
-- [Cross-Biome Numeric Sandbox v0.1](../reports/cross-biome-numeric-sandbox-v0.1.md) — 16 anchors, core-only vs core+facet ablation และ residual collisions
-- [Taiga–Desert Weighted Softmax v0.4](../reports/taiga-desert-weighted-softmax-v0.4.md) — weighted evidence, normalized priors, animal softmax และ realm aggregation
+Older simulations and rendered review sheets are recoverable from Git history. Their accepted conclusions live in the [Decision Log](../project/decision-log.md), so they are not part of the active reading path.
 
 ## Dependency order
 
 ```text
-World Bible
-    ↓
-Trait definitions
-    ↓
-Kingdom + animal vectors
-    ↓
-Scoring prototype
-    ↓
-Question bank + story flow
-    ↓
-Adaptive selection
-    ↓
-Results + calibration
+Realm identity → traits → animal profiles → scoring
+              → story/evidence → results → calibration
 ```
 
-อย่าเขียน question bank จำนวนมากก่อน trait definitions และ animal vectors ผ่าน review เพราะทุกคำถามต้องอธิบายได้ว่ากำลังวัดอะไร
+อย่าเขียน question bank จำนวนมากก่อน realm identity, trait evidence และ animal distinctions ที่เกี่ยวข้องผ่าน review

@@ -1,3 +1,4 @@
+import json
 import unittest
 from pathlib import Path
 
@@ -55,6 +56,31 @@ class TaigaDesertWeightedSoftmaxTests(unittest.TestCase):
         result = softmax_scores(estimates, confidence, self.model)
         self.assertAlmostEqual(sum(result["animal_probabilities"].values()), 1.0)
         self.assertAlmostEqual(sum(result["realm_probabilities"].values()), 1.0)
+        for probabilities in result["conditional_animal_probabilities"].values():
+            self.assertAlmostEqual(sum(probabilities.values()), 1.0)
+
+    def test_final_animal_is_selected_inside_winning_realm(self):
+        model = json.loads(json.dumps(self.model))
+        for name, animal in model["animals"].items():
+            animal["core"][0] = 1.0 if animal["realm"] == "Taiga" else 0.3
+            if name == "Lynx":
+                animal["core"][0] = 0.0
+            if name == "Caracal":
+                animal["core"][0] = 0.2
+        estimates = {"AFF": 0.0}
+        confidence = {"AFF": 1.0}
+        result = softmax_scores(estimates, confidence, model)
+        global_closest = max(
+            result["animal_probabilities"],
+            key=result["animal_probabilities"].get,
+        )
+        self.assertEqual(global_closest, "Lynx")
+        self.assertEqual(result["top_realm"], "Desert")
+        self.assertEqual(result["top_animal"], "Caracal")
+        self.assertEqual(
+            model["animals"][result["top_animal"]]["realm"],
+            result["top_realm"],
+        )
 
     def test_information_gain_is_non_negative(self):
         profiles = animal_profiles(self.model)

@@ -15,12 +15,12 @@ Interactive personality adventure ที่จับคู่ผู้เล่�
 
 ## สถานะปัจจุบัน
 
-- Project stage: **Playable Taiga vertical slice**
+- Project stage: **Playable Taiga + Desert vertical slice**
 - World structure: **8 kingdoms selected**
 - Kingdom vibe and politics: **Draft v0.1 migrated**
-- Psychological traits: **8-dimensional prototype model v0.3**
-- Taiga animal roster: **6 complete profiles and result experiences**
-- Scoring and adaptive flow: **Implemented and covered by automated tests**
+- Psychological traits: **8-dimensional model with hierarchical scoring v0.5**
+- Animal roster: **Taiga + Desert, 12 complete profiles and result experiences**
+- Scoring and adaptive flow: **Soft realm → conditional animal, covered by automated tests**
 
 ## รันตัวเกม
 
@@ -46,5 +46,6 @@ pnpm test
 - เนื้อหาที่ตกลงแล้วต้องถูกย้ายจากบทสนทนามาอยู่ใน repository นี้
 - ทุกเอกสารใช้สถานะ `Seed`, `Draft`, `Review`, `Locked` หรือ `Deprecated`
 - การเปลี่ยนหลักการสำคัญต้องบันทึกใน [Decision Log](docs/project/decision-log.md)
-- หลังจบแต่ละ design session ให้อัปเดต checklist และเพิ่มบันทึกใน [Review Log](docs/project/review-log.md)
+- หลังจบแต่ละ design session ให้อัปเดต checklist; บันทึกเฉพาะ architecture/vocabulary decisions ที่มีผลระยะยาวใน Decision Log
+- ใช้ Git history เป็น activity history แทนการเขียน chronological review log ซ้ำอีกชุด
 - ห้ามใช้ chat history เป็น source of truth ระยะยาว

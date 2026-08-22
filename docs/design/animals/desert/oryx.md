@@ -32,7 +32,7 @@ Oryx fantasy คือ radiant enoughness ไม่ใช่ beauty ที่ว
 
 ## Provisional trait rationale
 
-Canonical sandbox values อยู่ใน `data/vector-model.v0.4.json`
+Canonical sandbox values อยู่ใน `data/vector-model.v0.5.json`
 
 | Trait | Score | Evidence |
 |---|---:|---|

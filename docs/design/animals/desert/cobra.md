@@ -32,7 +32,7 @@ Cobra fantasy คือ sacred clarity ไม่ใช่ poison, manipulation �
 
 ## Provisional trait rationale
 
-Canonical sandbox values อยู่ใน `data/vector-model.v0.4.json`
+Canonical sandbox values อยู่ใน `data/vector-model.v0.5.json`
 
 | Trait | Score | Evidence |
 |---|---:|---|

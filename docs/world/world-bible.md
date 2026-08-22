@@ -46,7 +46,6 @@
 ## Related documents
 
 - [Kingdom Index](kingdoms/README.md)
-- [Quiz Flow](../design/quiz-flow.md)
+- [Central Narrative Spine](../design/narrative-spine.md)
 - [Trait System](../design/traits.md)
 - [Decision Log](../project/decision-log.md)
-

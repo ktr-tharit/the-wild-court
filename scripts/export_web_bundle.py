@@ -38,7 +38,7 @@ def build_bundle() -> dict[str, Any]:
     if errors:
         raise ValueError("Invalid story overlay: " + "; ".join(errors))
     return {
-        "bundle_version": "0.3",
+        "bundle_version": "0.4",
         "source_versions": {
             "questions": bank["bank_version"],
             "story": story["story_version"],
@@ -64,7 +64,7 @@ def build_bundle() -> dict[str, Any]:
             name: {
                 "kingdom": animal["realm"],
                 "vector": animal["core"],
-                "design_note": "Canonical Scoring Model v0.4 profile",
+                "design_note": "Canonical Scoring Model v0.5 profile",
             }
             for name, animal in scoring_model["animals"].items()
         },
@@ -82,11 +82,13 @@ def build_bundle() -> dict[str, Any]:
         },
         "scoring": {
             "model_version": scoring_model["model_version"],
+            "classification_policy": scoring_model["classification_policy"],
             "core_dimensions": scoring_model["core_dimensions"],
             "motive_facets": scoring_model["motive_facets"],
             "construct_weights": scoring_model["construct_weights"],
             "confidence_targets": scoring_model["confidence_targets"],
             "animal_softmax_temperature": scoring_model["animal_softmax_temperature"],
+            "realm_pooling": scoring_model["realm_pooling"],
             "prior_policy": scoring_model["prior_policy"],
             "animals": scoring_model["animals"],
             "response_softmax_temperature": scoring_model["simulation"]["response_softmax_temperature"],

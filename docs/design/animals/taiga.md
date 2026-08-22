@@ -65,10 +65,10 @@ Moose     → “What line keeps this place intact?”
 
 ## Validation
 
-- [Vector Validation v0.3](../../reports/vector-validation-v0.3.md)
-- [Question Simulation v0.1](../../reports/question-simulation-v0.1.md)
-- [Adaptive Judgment Questions](../adaptive-question-bank-v0.1.md)
-- [Adaptive Simulation v0.1](../../reports/adaptive-simulation-v0.1.md)
+- [Current scoring architecture](../scoring.md)
+- [Hierarchical scoring report v0.5](../../reports/hierarchical-scoring-v0.5.md)
+- Canonical core questions: `data/question-bank.v0.1.json`
+- Canonical adaptive questions: `data/adaptive-question-bank.v0.1.json`
 
 ## Acceptance status
 
