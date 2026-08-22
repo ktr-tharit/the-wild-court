@@ -157,3 +157,19 @@
 - **Decision:** คำนวณ realm posterior จาก mean animal likelihood ที่ normalize ตามจำนวนสัตว์ จากนั้นเลือกสัตว์ที่มี conditional probability สูงสุดภายใน winning realm; global animal posterior ใช้สำหรับ information gain และ diagnostics เท่านั้น
 - **Reason:** flat animal winner และ aggregated realm winner สามารถอยู่คนละ biome ทำให้ result card ผสม animal/realm ที่ขัดกัน ขณะที่ animal-first อย่างเดียวปล่อยให้ archetype เดี่ยวลาก biome ตามตัวเอง
 - **Consequence:** final result รับประกัน `realm(primary_animal) = primary_realm`; deterministic animal fixture ไม่ถือเป็น ground truth ข้าม realm อีกต่อไป และยังไม่เพิ่มคำถามหรือ evidence ใหม่ในรอบนี้
+
+## D-021 — ใช้ Portfolio-First Expansion และเลื่อน Calibration ไปท้ายรอบ
+
+- **Date:** 2026-08-23
+- **Status:** Accepted
+- **Decision:** biome ใหม่ต้องผ่าน identity desirability, whole-person recognition, roster distinction, visual prestige และ share intent ก่อน ส่วน numeric vectors ใช้ provisional placement เพื่อให้ runtime ทำงาน โดยไม่ tune temperature, distribution หรือ synthetic accuracy แยกทุก biome
+- **Reason:** simulation ปัจจุบันสร้างจาก prototype และ response assumptions ของโปรเจกต์เอง ไม่ใช่ข้อมูลประชากรจริง การ optimize ทุก slice จึงเสี่ยง overfit synthetic model ขณะที่คุณค่าที่ผู้เล่นรับรู้คือผลลัพธ์สะท้อนตน น่าสนใจ และน่าแชร์
+- **Consequence:** calibration, cross-realm boundary questions และ per-animal recovery tuning ทำพร้อมกันหลัง core realm/animal portfolio มองเห็นครบ แต่ technical invariants เช่น normalized probabilities, coherent realm/animal result และ runtime stability ยังต้องผ่านทุก integration
+
+## D-022 — ล็อก Rainforest Roster และแทน Poison Dart Frog ด้วย Orchid Mantis
+
+- **Date:** 2026-08-23
+- **Status:** Accepted for Animal Bible
+- **Decision:** Rainforest core roster คือ Jaguar, Scarlet Macaw, Orchid Mantis, Okapi, Golden Lion Tamarin และ Blue Morpho; ไม่เพิ่ม Harpy Eagle และใช้ Orchid Mantis แทน Poison Dart Frog
+- **Reason:** Orchid Mantis รักษา small-body prestige และ defended beauty แต่มี identity strategy ที่ชัดกว่า—authorship of presentation—ขณะที่ roster หกตัวยังคงสมดุลระหว่าง power, voice, strategy, privacy, care และ transformation
+- **Consequence:** เขียน Animal Bible ทั้งหกโดยใช้ qualitative construct directions เท่านั้น Numeric vectors, tie-breaker questions และ classification tuning ถูก defer ตาม D-021

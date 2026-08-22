@@ -48,6 +48,18 @@ Desert Animal Bibles พร้อม review และรอ joint vector model:
 - [Scorpion](desert/scorpion.md)
 - [Oryx](desert/oryx.md)
 
+## Rainforest design slice
+
+Rainforest roster ล็อกด้าน identity แล้ว โดยยังไม่ assign numeric vectors หรือเขียนคำถามแยกสัตว์:
+
+- [Rainforest Animal Bible Architecture v0.1](rainforest.md)
+- [Jaguar](rainforest/jaguar.md)
+- [Scarlet Macaw](rainforest/scarlet-macaw.md)
+- [Orchid Mantis](rainforest/orchid-mantis.md)
+- [Okapi](rainforest/okapi.md)
+- [Golden Lion Tamarin](rainforest/golden-lion-tamarin.md)
+- [Blue Morpho](rainforest/blue-morpho.md)
+
 ## Design quality rule
 
 ทุก animal ต้องมี fantasy ที่น่าอยากเป็นและ shadow ที่รู้สึกจริง ห้ามใช้โครง “predator = powerful / gentle animal = weak support character”

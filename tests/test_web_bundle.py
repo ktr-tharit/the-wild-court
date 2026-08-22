@@ -4,23 +4,23 @@ from scripts.export_web_bundle import DEFAULT_OUTPUT, build_bundle, render_bundl
 
 
 class WebBundleV01Tests(unittest.TestCase):
-    def test_bundle_contains_complete_two_realm_runtime(self):
+    def test_bundle_contains_complete_three_realm_runtime(self):
         bundle = build_bundle()
         self.assertEqual(len(bundle["core_scenes"]), 16)
         self.assertEqual(len(bundle["adaptive_questions"]), 6)
-        self.assertEqual(len(bundle["animals"]), 12)
+        self.assertEqual(len(bundle["animals"]), 18)
         self.assertEqual(set(bundle["results"]), set(bundle["animals"]))
-        self.assertEqual(set(bundle["realms"]), {"Taiga", "Desert"})
+        self.assertEqual(set(bundle["realms"]), {"Taiga", "Desert", "Rainforest"})
 
-    def test_bundle_contains_two_biome_scoring_runtime(self):
+    def test_bundle_contains_three_realm_scoring_runtime(self):
         bundle = build_bundle()
-        self.assertEqual(bundle["bundle_version"], "0.4")
+        self.assertEqual(bundle["bundle_version"], "0.5")
         self.assertEqual(len(bundle["boundary_questions"]), 16)
-        self.assertEqual(len(bundle["scoring"]["animals"]), 12)
+        self.assertEqual(len(bundle["scoring"]["animals"]), 18)
         realms = {
             animal["realm"] for animal in bundle["scoring"]["animals"].values()
         }
-        self.assertEqual(realms, {"Taiga", "Desert"})
+        self.assertEqual(realms, {"Taiga", "Desert", "Rainforest"})
         self.assertEqual(
             bundle["scoring"]["classification_policy"],
             "soft_realm_then_conditional_animal",

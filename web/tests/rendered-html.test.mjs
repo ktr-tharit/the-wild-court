@@ -15,6 +15,7 @@ test("renders The Wild Court product shell", async () => {
   assert.match(html, /The Wild Court/);
   assert.match(html, /Winter remembers/);
   assert.match(html, /Cross the threshold/);
+  assert.match(html, /Taiga · Desert · Rainforest prototype/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Building your site/);
 });
 
@@ -35,4 +36,14 @@ test("renders the Desert animal visual review", async () => {
   for (const animal of ["Fennec Fox", "Caracal", "Cobra", "Camel", "Scorpion", "Oryx"]) assert.match(html, new RegExp(animal));
   assert.match(html, /\/animals\/desert\/fennec-fox-v1\.jpg/);
   assert.match(html, /1122×1402/);
+});
+
+test("renders the Rainforest animal visual review", async () => {
+  const response = await render("/visual-review/rainforest-animals");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  for (const animal of ["Jaguar", "Scarlet Macaw", "Orchid Mantis", "Okapi", "Golden Lion Tamarin", "Blue Morpho"]) assert.match(html, new RegExp(animal));
+  assert.match(html, /\/animals\/rainforest\/jaguar-v2\.jpg/);
+  assert.match(html, /1122×1402/);
+  assert.match(html, /THE VERDANT EMPIRE/);
 });

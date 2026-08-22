@@ -170,7 +170,7 @@ Audit นี้ใช้ animal สองตัวต่อ realm:
 - **Embodies Rainforest:** อ่าน terrain และผลกระทบใน ecosystem อย่างลึก
 - **Resists Rainforest:** interdependence ไม่ให้สิทธิ์ใครเข้าถึงทุกชีวิต
 - **Motive not fully visible:** protective sovereignty ต่างจาก Desert self-possession หรือ Ocean autonomy อย่างไร
-- **Nearest within realm:** Okapi, Poison Dart Frog
+- **Nearest within realm:** Okapi, Orchid Mantis
 - **Nearest across realms:** Caracal, Great White, Snow Leopard
 
 **Question seed:** เมื่อพันธมิตรเก่าใช้ความสัมพันธ์ขอข้อยกเว้นที่ทำร้ายชุมชน—คุณเปิดวง care เพื่อซ่อม reciprocal trust หรือปิด boundary และหยุด access ก่อนการเจรจา?

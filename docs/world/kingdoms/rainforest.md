@@ -1,6 +1,6 @@
 # The Verdant Empire — Rainforest
 
-**Status:** Draft v0.1  
+**Status:** Review v0.2
 **Survival belief:** Nothing survives alone.  
 **Political model:** Network politics / web of courts
 
@@ -20,12 +20,13 @@
 
 - **Virtue:** interdependence, adaptability, reciprocity, pluralism
 - **Weakness:** favor, debt, secret alliance และ informal power ทำให้ไม่มีใครรู้ว่าใครคุมใคร
+- **Love doctrine:** Love is allowing another life to grow wild beside your own.
 
 ## Draft court roles
 
 - Jaguar — imperial enforcers / sovereign boundary houses
 - Scarlet Macaw — messengers / public voice
-- Poison Dart Frog — alchemist guilds / defended thresholds
+- Orchid Mantis — ceremonial envoys / image strategists / controlled revelation
 - Okapi — private houses beyond ordinary classification
 - Golden Lion Tamarin — kinship houses / mutual-care networks
 - Blue Morpho — seasonal envoys / rites of transformation
@@ -41,3 +42,7 @@
 - Emperor ได้รับ legitimacy จาก network อย่างไร
 - network politics จะทำให้ visible beauty มีอำนาจโดยไม่กลายเป็น Savanna ได้อย่างไร
 - transformation rites ของ Blue Morpho มีสถานะทางการเมืองหรือเป็น counterculture
+
+## Animal Bible
+
+- [Rainforest Animal Bible Architecture](../../design/animals/rainforest.md)

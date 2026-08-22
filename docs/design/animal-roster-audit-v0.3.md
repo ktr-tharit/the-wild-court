@@ -1,7 +1,7 @@
 # Animal Roster Audit v0.3
 
 **Status:** Accepted for construct audit  
-**Last reviewed:** 2026-08-22  
+**Last reviewed:** 2026-08-23
 **Target portfolio:** up to 48 core results; no quota filling
 
 เอกสารนี้ตรวจ draft roster ด้วย [Animal Admission Gate](animal-admission-gate.md) และ [Realm Identity Matrix](realm-identity-matrix.md) ยังไม่ใช่ numeric vector assignment หรือ Animal Bible ฉบับล็อก
@@ -15,7 +15,7 @@
 | Taiga | 6 | Keep all six |
 | Arctic | 6 | Specify Harp Seal; add Narwhal |
 | Savanna | 6 | Keep all; sharpen Gazelle species/art direction |
-| Rainforest | 6 | Choose Scarlet Macaw; specify Poison Dart Frog; replace Orangutan, Tapir and Panther with Golden Lion Tamarin, Blue Morpho and Okapi |
+| Rainforest | 6 | Choose Scarlet Macaw; replace Poison Dart Frog with Orchid Mantis; replace Orangutan, Tapir and Panther with Golden Lion Tamarin, Blue Morpho and Okapi |
 | Desert | 6 | Keep five; add Oryx |
 | Ocean | 6 | Replace Whale with Green Sea Turtle; specify Great White Shark |
 | Alpine | 6 | Specify Golden Eagle; rename Lammergeier to Bearded Vulture; add Red Panda |
@@ -68,7 +68,7 @@ Recommended portfolio มี 48 slots แต่ตัวเลขนี้ไม
 |---|---|---|---|---|---|
 | Jaguar — The Sovereign Under Leaves | **Approve** | `AGY+ AFF− STR− DCL−` | ปกป้อง network ด้วย decisive force ที่เข้าใจ terrain | วาง boundary ต่อ favor, entanglement และ informal coercion | Hidden power |
 | Scarlet Macaw — The Voice of the Living Canopy | **Revise → Scarlet Macaw** | `AFF+ EXP+ ALG+ RSK+` | ทำ connection, signal และ public emotion ให้เดินทางข้าม canopy | เปิดสิ่งที่ network อยากเก็บเป็น coded favor หรือความลับ | Beauty and voice |
-| Poison Dart Frog — The Jewel That Warns | **Revise → species-specific Frog** | `EXP+ STR+ AFF−`, boundary facet | เปลี่ยนความไวต่อ environment เป็น signal ที่ ecosystem อ่านได้ | ปฏิเสธว่าตัวเล็กต้อง available, harmless หรือไร้ boundary | Beauty and defended presence |
+| Orchid Mantis — The Beautiful Ambush | **Approve** | `STR+ SEN+`, selective `EXP`, presentation facet | ใช้ perception, timing และ controlled presentation เป็น intelligence ภายใน network | ปฏิเสธว่า visibility หรือ beauty ให้สิทธิ์ community เข้าถึงตัวตนทั้งหมด | Strategic beauty and authorship |
 | Okapi — The Unwritten Heir | **Candidate** | `AFF− EXP− ALG− SEN−`, identity facet | อยู่ใน network โดยอ่านมันอย่างละเอียดโดยไม่ทำลายมัน | ปฏิเสธให้ community ตั้งชื่อหรือมองเห็นตัวตนทั้งหมด | Mystery and self-possession |
 | Golden Lion Tamarin — The Golden Thread | **Candidate** | `AFF+ DCL+ EXP+ ALG+`, reciprocity facet | ทำ kinship, shared care และ living participation ให้เป็นพลังที่มองเห็นได้ | ต่อต้าน network ที่เปลี่ยน care เป็น favor ด้วย affection และ responsibility ที่ตรงไปตรงมา | Beauty and relational warmth |
 | Blue Morpho Butterfly — The Light Between Leaves | **Candidate** | `RSK+ STR− AFF− EXP+/−`, transformation facet | ทำการเปลี่ยน form และการตอบสนองต่อ environment ให้กลายเป็น visible wonder | ไม่ยอมให้ connection กลายเป็นการครอบครอง—มันปรากฏ เชื่อมโลกชั่วขณะ แล้วเคลื่อนต่อ | Transformation and iridescent beauty |
@@ -77,7 +77,7 @@ Recommended portfolio มี 48 slots แต่ตัวเลขนี้ไม
 | Panther | **Cut / merge into Jaguar** | — | ภาพและ fantasy ซ้ำกับ Jaguar | ไม่มี construct distinction ที่คุ้มหนึ่ง result slot | — |
 | Toucan | **Reserve** | `EXP+ AFF+` | visual messenger ของ canopy | ปัจจุบัน slot voice/network แข็งแรงกว่าด้วย Scarlet Macaw | Graphic beauty |
 
-**Nearest risks:** Golden Lion Tamarin/Scarlet Macaw ต้องแยก intimate reciprocity ออกจาก public voice; Blue Morpho ต้องไม่พึ่ง beauty/transformation โดยไม่มี observable relationship strategy
+**Nearest risks:** Golden Lion Tamarin/Scarlet Macaw ต้องแยก intimate reciprocity ออกจาก public voice; Orchid Mantis/Blue Morpho ต้องแยก authored presentation ออกจาก relational transformation; Jaguar/Okapi ต้องแยก enforced boundary ออกจาก private identity
 
 ## Desert — restraint protects freedom
 
@@ -157,7 +157,7 @@ Candidate placement was checked against representative habitat references; ecolo
 - [Narwhal](https://animaldiversity.org/accounts/Monodon_monoceros/) and [Harp Seal](https://animaldiversity.org/accounts/Pagophilus_groenlandicus/) — Arctic waters, ice and seasonal migration
 - [Golden Lion Tamarin](https://animaldiversity.org/accounts/Leontopithecus_rosalia/) and [Blue Morpho](https://www.artis.nl/en/artis-zoo/what-to-explore-in-artis-zoo/morpho-butterfly) — tropical rainforest environments
 - [Okapi](https://animaldiversity.org/accounts/Okapia_johnstoni/) — tropical forest environment
-- [Poison Dart Frog](https://animaldiversity.org/accounts/Oophaga_histrionica/) — rainforest ecology
+- [Orchid Mantis](https://doi.org/10.1086/673858) — flower-like colour and shape function in pollinator attraction; used only as an ecological metaphor for controlled presentation
 - [Scimitar-horned Oryx](https://animaldiversity.org/accounts/Oryx_dammah/) — desert to semidesert steppe
 - [Green Sea Turtle](https://www.fisheries.noaa.gov/species/green-turtle) — long-distance marine migration and return to natal nesting region
 - [Great White Shark](https://animaldiversity.org/accounts/Carcharodon_carcharias/) — coastal and offshore marine habitat

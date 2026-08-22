@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Simulate weighted evidence and softmax scoring across Taiga and Desert."""
+"""Simulate weighted evidence and softmax scoring across playable realms."""
 
 from __future__ import annotations
 
@@ -40,8 +40,8 @@ def model_errors(model: dict[str, Any]) -> list[str]:
     constructs = core + facets
     animals = model.get("animals", {})
     realms: dict[str, int] = {}
-    if len(animals) != 12:
-        errors.append(f"expected 12 animals, found {len(animals)}")
+    if len(animals) != 18:
+        errors.append(f"expected 18 animals, found {len(animals)}")
     if set(model.get("construct_weights", {})) != set(constructs):
         errors.append("construct weights must cover every construct exactly")
     if set(model.get("confidence_targets", {})) != set(constructs):
@@ -62,7 +62,7 @@ def model_errors(model: dict[str, Any]) -> list[str]:
             errors.append(f"{name} core value outside [-1, 1]")
         if any(value not in {0.0, 0.5, 1.0} for value in animal.get("facets", [])):
             errors.append(f"{name} facet values must use the ordinal scale")
-    if realms != {"Taiga": 6, "Desert": 6}:
+    if realms != {"Taiga": 6, "Desert": 6, "Rainforest": 6}:
         errors.append(f"expected six animals in each realm, found {realms}")
     return errors
 

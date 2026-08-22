@@ -1,9 +1,50 @@
 # Current Checklist
 
 **Status:** Active  
-**Last updated:** 2026-08-22
+**Last updated:** 2026-08-23
 
 เอกสารนี้คือหน้าหลักสำหรับเริ่มและจบทุก design session
+
+## Current — Portfolio-first biome expansion
+
+- [x] เลื่อน per-biome vector tuning และ synthetic accuracy optimization ไปหลัง core portfolio ครบ
+- [x] ใช้ desirability, recognition, distinction และ share intent เป็น content gate หลัก
+- [x] ล็อก Rainforest roster: Jaguar, Scarlet Macaw, Orchid Mantis, Okapi, Golden Lion Tamarin, Blue Morpho
+- [x] เปลี่ยน Poison Dart Frog เป็น Orchid Mantis
+- [x] เขียน Rainforest Animal Bible v0.1 ครบ 6 ตัว
+- [x] owner approve Rainforest identity direction for provisional playable integration
+- [x] ล็อก Rainforest visual direction `The Living Veil`
+- [x] สร้าง Rainforest realm background v1 และ canonical web export
+- [x] Rainforest realm background v1 ผ่าน technical crop QA แต่ไม่ผ่าน owner visual review
+- [x] ระบุ failure: building mass ทำให้ settlement dominate ecosystem
+- [x] สร้าง ecosystem-first realm background v2 ที่ crafted structures เป็นเพียง visual accent
+- [x] Rainforest realm background v2 ผ่าน technical crop QA ที่ desktop/mobile
+- [x] owner re-review Rainforest realm v2: rejected เพราะ settlement หายและ rendering cinematic เกิน Taiga/Desert
+- [x] เขียน Rainforest canonical portrait grammar และ visual sheets ครบ 6 ตัว
+- [x] สร้าง Jaguar/Orchid Mantis calibration pair และแก้ Mantis gender-coding รอบแรก
+- [x] สร้าง Rainforest animal concept portraits v1 ครบ 6 ตัว
+- [x] normalize Rainforest master/web portraits เป็น `1122×1402` / `1120×1400`
+- [x] สร้าง Rainforest animal visual-review route
+- [x] owner review Rainforest animal concept set v1: rejected เพราะ style drift และ personal court setting ไม่ชัด
+- [x] สร้าง Rainforest realm v3 แบบ ecological settlement + painterly match
+- [x] Rainforest realm v3 ผ่าน technical crop QA ที่ desktop/mobile
+- [x] owner review Rainforest realm v3: rejected เพราะ roots/foliage dominate และ civilization ดู temporary/โทรม
+- [x] redesign realm v4 เป็น ancient inhabited waterfall court พร้อม foliage simplification contract
+- [x] owner approve Rainforest realm v4 components ก่อน generation
+- [x] สร้าง realm v4 และ reject เพราะ civilization ครอง frame มากเกินไป
+- [x] สร้าง pulled-back Rainforest realm v5 พร้อม simplified forest masses
+- [x] Rainforest realm v5 ผ่าน technical crop QA ที่ desktop/mobile
+- [x] owner approve Rainforest realm v5
+- [x] ล็อก Rainforest animal territory briefs v2 ครบหกเขต
+- [x] regenerate Rainforest animal territory v2 ครบหกตัวโดยใช้ Lynx/Grey Wolf เป็น style references
+- [x] normalize Rainforest animal v2 master/web เป็น `1122×1402` / `1120×1400`
+- [x] update Rainforest animal visual-review route ให้ใช้ v2
+- [x] owner approve Rainforest animal territory concept set v2 (for now)
+- [x] เขียน provisional Rainforest result manifest ครบ schema ทั้งหกตัว
+- [x] assign provisional vectors เพื่อ runtime integration โดยไม่ tune distribution
+- [x] ต่อ Rainforest realm/animal asset paths เข้าหน้า reveal และ deep result
+- [x] deterministic playable test: Jaguar → Rainforest / Jaguar ใน 18 คำถาม
+- [ ] ทำ global calibration หลัง core realms และ animal portfolio พร้อม
 
 ## Now — Project organization
 

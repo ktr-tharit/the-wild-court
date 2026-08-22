@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export canonical Taiga design data into a frontend-safe runtime bundle."""
+"""Export canonical playable-realm data into a frontend-safe runtime bundle."""
 
 from __future__ import annotations
 
@@ -23,6 +23,7 @@ from scripts.validate_vectors import load_model
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "web" / "app" / "game-data.generated.json"
 DESERT_RESULTS = ROOT / "data" / "desert-result-manifest.v0.1.json"
+RAINFOREST_RESULTS = ROOT / "data" / "rainforest-result-manifest.v0.1.json"
 
 
 def build_bundle() -> dict[str, Any]:
@@ -32,13 +33,14 @@ def build_bundle() -> dict[str, Any]:
     adaptive = load_adaptive_bank()
     taiga_manifest = load_result_manifest()
     desert_manifest = load_result_manifest(DESERT_RESULTS)
+    rainforest_manifest = load_result_manifest(RAINFOREST_RESULTS)
     scoring_model = load_json(SCORING_MODEL)
     boundary = load_boundary_bank()
     errors = story_errors(story, bank)
     if errors:
         raise ValueError("Invalid story overlay: " + "; ".join(errors))
     return {
-        "bundle_version": "0.4",
+        "bundle_version": "0.5",
         "source_versions": {
             "questions": bank["bank_version"],
             "story": story["story_version"],
@@ -47,6 +49,7 @@ def build_bundle() -> dict[str, Any]:
             "results": {
                 "Taiga": taiga_manifest["manifest_version"],
                 "Desert": desert_manifest["manifest_version"],
+                "Rainforest": rainforest_manifest["manifest_version"],
             },
             "scoring": scoring_model["model_version"],
             "boundary": boundary["bank_version"],
@@ -74,11 +77,12 @@ def build_bundle() -> dict[str, Any]:
                 "title": manifest["realm_title"],
                 "belief": manifest["realm_belief"],
             }
-            for manifest in (taiga_manifest, desert_manifest)
+            for manifest in (taiga_manifest, desert_manifest, rainforest_manifest)
         },
         "results": {
             **taiga_manifest["animals"],
             **desert_manifest["animals"],
+            **rainforest_manifest["animals"],
         },
         "scoring": {
             "model_version": scoring_model["model_version"],

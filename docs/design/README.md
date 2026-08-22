@@ -17,6 +17,7 @@
 | Cross-biome coverage | [16-Anchor Construct Audit](cross-biome-construct-audit-v0.1.md) |
 | Visual system | [Theme](theme-system.md) · [Animal Visuals](animal-visual-system.md) · [Court Sigils](court-sigils.md) |
 | Desert visuals | [The Measured Sun](desert-visual-direction.md) |
+| Rainforest visuals | [The Living Veil](rainforest-visual-direction.md) |
 
 ## Canonical runtime data
 

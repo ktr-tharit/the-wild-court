@@ -1,5 +1,5 @@
 {
-  "bundle_version": "0.4",
+  "bundle_version": "0.5",
   "source_versions": {
     "questions": "0.1",
     "story": "0.1",
@@ -7,9 +7,10 @@
     "adaptive": "0.1",
     "results": {
       "Taiga": "0.1",
-      "Desert": "0.1"
+      "Desert": "0.1",
+      "Rainforest": "0.1-provisional"
     },
-    "scoring": "0.5-hierarchical-sandbox",
+    "scoring": "0.6-provisional-three-realm",
     "boundary": "0.2"
   },
   "title": "The First Winter",
@@ -3244,6 +3245,90 @@
         0.0
       ],
       "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Jaguar": {
+      "kingdom": "Rainforest",
+      "vector": [
+        -0.5,
+        0.8,
+        0.0,
+        -0.6,
+        -0.6,
+        0.5,
+        -0.3,
+        -0.8
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Scarlet Macaw": {
+      "kingdom": "Rainforest",
+      "vector": [
+        0.8,
+        0.4,
+        -0.3,
+        -0.6,
+        0.9,
+        0.6,
+        0.8,
+        0.0
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Orchid Mantis": {
+      "kingdom": "Rainforest",
+      "vector": [
+        -0.4,
+        0.5,
+        0.5,
+        0.7,
+        0.0,
+        -0.4,
+        0.0,
+        -0.7
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Okapi": {
+      "kingdom": "Rainforest",
+      "vector": [
+        -0.5,
+        -0.4,
+        -0.4,
+        -0.7,
+        -0.8,
+        0.0,
+        0.5,
+        -0.8
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Golden Lion Tamarin": {
+      "kingdom": "Rainforest",
+      "vector": [
+        0.9,
+        0.0,
+        -0.4,
+        -0.5,
+        0.7,
+        0.1,
+        0.9,
+        0.4
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
+    },
+    "Blue Morpho": {
+      "kingdom": "Rainforest",
+      "vector": [
+        0.2,
+        -0.3,
+        -0.7,
+        -0.9,
+        0.4,
+        0.9,
+        0.7,
+        -0.8
+      ],
+      "design_note": "Canonical Scoring Model v0.5 profile"
     }
   },
   "realms": {
@@ -3256,6 +3341,11 @@
       "name": "Desert",
       "title": "The Sunless Crown",
       "belief": "Here, restraint is not deprivation. It is the art of keeping choice alive."
+    },
+    "Rainforest": {
+      "name": "Rainforest",
+      "title": "The Verdant Empire",
+      "belief": "Here, connection is not ownership. It is how many lives make room to grow beside one another."
     }
   },
   "results": {
@@ -3546,10 +3636,154 @@
       ],
       "bible": "docs/design/animals/desert/oryx.md",
       "full_result": "data/desert-result-manifest.v0.1.json"
+    },
+    "Jaguar": {
+      "title": "The Sovereign Under Leaves",
+      "identity_promise": "Connection does not require surrendering the right to say no.",
+      "short_result": "คุณไม่ได้ยืนอยู่นอกความสัมพันธ์ คุณรู้ต่างหากว่าความสัมพันธ์จะมีชีวิตได้ก็ต่อเมื่อไม่มีใครถูกกลืนหายอยู่ข้างใน คุณอ่านแรงดึงที่คนอื่นเรียกว่า loyalty มองเห็น access ที่ปลอมเป็น care และพร้อมทำให้คำปฏิเสธมีน้ำหนัก",
+      "patterns": {
+        "what_moves_you": "คุณขยับเมื่อพื้นที่ ชีวิต หรือ consent ของใครบางคนกำลังถูกกลืนด้วยแรงของคนหมู่มาก",
+        "how_you_connect": "คุณให้ความใกล้ชิดผ่าน protection, privacy และความไว้ใจที่ไม่เรียกร้องสิทธิ์เหนือกัน",
+        "how_you_protect": "คุณอ่าน terrain ก่อนลงมือ แล้วใช้แรงเท่าที่จำเป็นเพื่อทำให้ boundary กลับมามีผลจริง",
+        "when_winter_closes_in": "ความมั่นใจใน danger ที่มองเห็นอาจทำให้คุณตัดสินใจแทนคนที่ตั้งใจจะปกป้องและปิดการเจรจาเร็วเกินไป",
+        "what_you_rarely_ask_for": "คุณต้องการคนที่ปกป้องพื้นที่ของคุณก่อนที่คุณจะต้องพิสูจน์ว่าตัวเองแข็งแรงพอจะยืนลำพัง"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าห่างเหินหรือดุดัน สิ่งที่ไม่เห็นคือพลังของคุณเริ่มจากความเชื่อว่าความสัมพันธ์ซึ่งไม่มีสิทธิ์ปฏิเสธไม่ใช่ความสัมพันธ์ที่ปลอดภัย",
+      "restoring_balance": "ให้คนที่ได้รับการปกป้องมีส่วนกำหนดว่าพลังของคุณควรไปถึงตรงไหน เพื่อให้ intervention คืน agency แทนการเปลี่ยนผู้ควบคุมคนหนึ่งเป็นอีกคนหนึ่ง",
+      "realm_connection": "Rainforest จำคุณได้เพราะคุณปกป้อง living web แต่คุณต่อต้าน Empire ทุกครั้งที่คำว่า interdependence ถูกใช้เพื่อลบ sovereignty และ consent",
+      "closing": "You were not placed here because you stand outside the web. You were placed here because giving the web a boundary is the shape your courage takes.",
+      "share_line": "My nature belongs to the Jaguar—the sovereign boundary within the living web.",
+      "signatures": [
+        "Sovereign care",
+        "Terrain intelligence",
+        "Decisive protection"
+      ],
+      "bible": "docs/design/animals/rainforest/jaguar.md",
+      "full_result": "data/rainforest-result-manifest.v0.1.json"
+    },
+    "Scarlet Macaw": {
+      "title": "The Voice of the Living Canopy",
+      "identity_promise": "Your visibility is not vanity when it helps truth reach the lives that need it.",
+      "short_result": "คุณทำให้สิ่งที่ซ่อนอยู่ในเครือข่ายเดินทางไปถึงคนที่ควรได้ยิน อารมณ์ เสียงเตือน และความจริงจึงไม่ต้องรอให้ผู้มีอำนาจอนุญาตก่อนจะมีตัวตน ความชัดเจนของคุณเป็นการเชื่อมต่อ ไม่ใช่เพียงการยืนเด่น",
+      "patterns": {
+        "what_moves_you": "คุณมีพลังเมื่อ message หนึ่งสามารถเปลี่ยนทั้งบรรยากาศและทำให้ผู้คนตอบสนองต่อกันได้",
+        "how_you_connect": "คุณเชื่อมผ่านเสียง สีสัน humor และการทำให้ความรู้สึกสำคัญมองเห็นได้โดยไม่ต้องขอโทษ",
+        "how_you_protect": "คุณส่ง warning และ truth ข้ามกำแพงที่ silence เคยใช้ปกป้อง hidden arrangement",
+        "when_winter_closes_in": "ความเร่งด่วนอาจทำให้คุณพูดแทน เปิดเผยเรื่องที่ไม่ใช่ของตน หรือวัดความจริงใจจากความดังของการแสดงออก",
+        "what_you_rarely_ask_for": "คุณต้องการพื้นที่ซึ่งไม่ต้องสร้างพลังให้ทั้งวง และยังได้รับการฟังแม้พูดด้วยเสียงที่เบากว่าปกติ"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าเรียกร้องความสนใจ สิ่งที่ไม่เห็นคือคุณใช้ visibility ทำให้ข้อมูลและความรู้สึกไปถึงคนที่ระบบอยากให้เงียบ",
+      "restoring_balance": "ก่อนส่งสัญญาณครั้งใหญ่ ถามว่าเรื่องนี้เป็นของใครและเจ้าของเรื่องต้องการให้มันเดินทางไกลแค่ไหน ความจริงยังทรงพลังได้โดยไม่แย่ง authorship",
+      "realm_connection": "Rainforest จำคุณได้จากความสามารถทำให้ network ตอบสนอง แต่คุณต่อต้าน alliance ที่ใช้ silence และ etiquette เป็นเครื่องมือซ่อนอำนาจ",
+      "closing": "You were not placed here because every room must look at you. You were placed here because helping truth travel is the shape your courage takes.",
+      "share_line": "My nature belongs to the Scarlet Macaw—the voice that lets the living canopy answer itself.",
+      "signatures": [
+        "Living signal",
+        "Vivid honesty",
+        "Public courage"
+      ],
+      "bible": "docs/design/animals/rainforest/scarlet-macaw.md",
+      "full_result": "data/rainforest-result-manifest.v0.1.json"
+    },
+    "Orchid Mantis": {
+      "title": "The Beautiful Ambush",
+      "identity_promise": "What you reveal is chosen; beauty can be intelligence rather than permission.",
+      "short_result": "คุณเข้าใจว่าการปรากฏตัวไม่เคยเป็นกลาง รูปแบบ จังหวะ และสิ่งที่เลือกไม่เปิดเผยล้วนเปลี่ยน interaction ได้ คุณไม่ได้ใช้ความงามเพื่อขออนุญาต แต่ใช้ presentation อย่างมีสติเพื่อรักษา authorship ของตัวเอง",
+      "patterns": {
+        "what_moves_you": "คุณสนใจช่วงเวลาที่ framing ที่แม่นยำเปลี่ยนสิ่งซึ่งโลกคิดว่ากำลังมองเห็น",
+        "how_you_connect": "คุณเปิด access เป็นชั้น ๆ ผ่านรายละเอียด gesture และการเปิดเผยที่เลือกตาม trust",
+        "how_you_protect": "คุณจัดฉากและ timing ให้ vulnerability ไม่ถูกส่งมอบแก่คนที่ยังไม่ได้พิสูจน์ความระมัดระวัง",
+        "when_winter_closes_in": "การควบคุม perception อาจแน่นจนไม่มีใครพบตัวจริง และทุก interaction กลายเป็นการทดสอบที่อีกฝ่ายไม่รู้กติกา",
+        "what_you_rarely_ask_for": "คุณต้องการถูกมองเห็นในวันที่ยังจัด form ไม่สมบูรณ์ โดยไม่ถูกตีความว่าคุณสูญเสียคุณค่าหรืออำนาจ"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าคำนวณหรือไม่จริงใจ สิ่งที่ไม่เห็นคือ selective revelation เป็นวิธีรักษาสิทธิ์เหนือภาพและเรื่องราวของตนเอง",
+      "restoring_balance": "เลือกหนึ่งความสัมพันธ์ที่ปลอดภัยพอให้เปิดสิ่งซึ่งยังไม่ได้จัดวางอย่างสมบูรณ์ intimacy ต้องการบางช่วงเวลาที่ presentation ไม่ทำหน้าที่เป็นเกราะ",
+      "realm_connection": "Rainforest จำคุณได้เพราะคุณอ่าน ecology ของ perception แต่คุณไม่ยอมให้ court หรือ network อ้างสิทธิ์เหนือสิ่งที่คุณเลือกเปิดเผย",
+      "closing": "You were not placed here because beauty hides every intention. You were placed here because choosing what may be seen is the shape your courage takes.",
+      "share_line": "My nature belongs to the Orchid Mantis—the beauty that chooses what the world is allowed to see.",
+      "signatures": [
+        "Chosen visibility",
+        "Precise timing",
+        "Authored beauty"
+      ],
+      "bible": "docs/design/animals/rainforest/orchid-mantis.md",
+      "full_result": "data/rainforest-result-manifest.v0.1.json"
+    },
+    "Okapi": {
+      "title": "The Unwritten Heir",
+      "identity_promise": "You can belong without becoming completely legible.",
+      "short_result": "คุณเคลื่อนอยู่ในความสัมพันธ์โดยไม่ยอมให้คำอธิบายเดียวครอบครองตัวตน การถูกมองไม่หมดไม่ใช่การหลอกลวง แต่เป็นสิทธิ์ให้ส่วนที่ยังไม่มีชื่อเติบโตตามจังหวะของมัน คุณเลือกคนที่อ่านความเงียบโดยไม่รีบเติมคำตอบแทน",
+      "patterns": {
+        "what_moves_you": "คุณถูกดึงดูดด้วยพื้นที่ซึ่ง identity ยังไม่ถูกบังคับให้เลือกคำอธิบายเดียวเพื่อให้คนอื่นสบายใจ",
+        "how_you_connect": "คุณสร้าง trust ผ่าน presence ที่ละเอียด ความทรงจำเฉพาะ และ disclosure ที่ค่อย ๆ ลึกขึ้น",
+        "how_you_protect": "คุณเก็บบางส่วนของชีวิตไว้นอกสายตาสาธารณะ เพื่อไม่ให้ network เปลี่ยนความรู้เป็นสิทธิ์ครอบครอง",
+        "when_winter_closes_in": "privacy อาจกลายเป็น disappearance คุณถอนสัญญาณจนคนที่เคารพคุณจริงไม่รู้ว่าควรอยู่ใกล้หรือปล่อยให้ไป",
+        "what_you_rarely_ask_for": "คุณต้องการคนที่ยอมรับคำว่า ‘ยังไม่รู้’ และยังถือที่ว่างให้คุณโดยไม่รีบตั้งชื่อแทน"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าลึกลับหรือไม่ยอมมีส่วนร่วม สิ่งที่ไม่เห็นคือคุณกำลังรักษาชีวิตส่วนที่เสียรูปทันทีเมื่อถูกเร่งให้อ่านง่าย",
+      "restoring_balance": "privacy ไม่จำเป็นต้องแปลว่าไม่มี signal ลองบอกคนที่ไว้ใจว่าคุณยังอยู่และกำลังต้องการพื้นที่ โดยไม่ต้องอธิบายทุกอย่างที่เกิดขึ้นภายใน",
+      "realm_connection": "Rainforest จำคุณได้จากการเคลื่อนอย่างละเอียดใน network แต่คุณปฏิเสธการถูกจัดประเภทเพื่อความสะดวกของส่วนรวมและสายตาของ court",
+      "closing": "You were not placed here because no one can know you. You were placed here because protecting the unwritten self is the shape your courage takes.",
+      "share_line": "My nature belongs to the Okapi—the heir no single story can contain.",
+      "signatures": [
+        "Layered identity",
+        "Quiet belonging",
+        "Protected interior"
+      ],
+      "bible": "docs/design/animals/rainforest/okapi.md",
+      "full_result": "data/rainforest-result-manifest.v0.1.json"
+    },
+    "Golden Lion Tamarin": {
+      "title": "The Golden Thread",
+      "identity_promise": "Care is not softness at the edge of life; it is the thread that lets life continue together.",
+      "short_result": "คุณมอง care เป็นโครงสร้างที่มีชีวิต ไม่ใช่ของตกแต่งหลังงานสำคัญเสร็จ คุณสังเกตว่าใครหลุดจากวง ทำให้ affection มองเห็น และสร้างทางให้ความช่วยเหลือไหลกลับได้ ความอบอุ่นของคุณจึงมีทั้งความเบาและวินัย",
+      "patterns": {
+        "what_moves_you": "คุณรู้สึกมีความหมายเมื่อหลายชีวิตเติบโตได้เพราะ attention และ resource หมุนเวียนถึงกันจริง",
+        "how_you_connect": "คุณเชื่อมผ่าน affection, play, shared ritual และการตอบสนองต่อ need ก่อนมันต้องกลายเป็นวิกฤต",
+        "how_you_protect": "คุณสร้างวงดูแลที่ไม่มีคนเดียวกลายเป็นทั้งผู้ให้ตลอดไปหรือผู้รับซึ่งไม่มีสิทธิ์ตอบแทน",
+        "when_winter_closes_in": "care อาจกลายเป็น obligation คุณรับผิดชอบ mood ของทุกคนและเริ่มนับความรักจากการที่อีกฝ่ายยังต้องการคุณ",
+        "what_you_rarely_ask_for": "คุณต้องการได้รับการดูแลโดยไม่ต้องเป็นคนสร้างบรรยากาศหรืออธิบายก่อนว่าคนอื่นควรช่วยอย่างไร"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าอ่อนโยนเกินไป สิ่งที่ไม่เห็นคือคุณกำลังดูแล infrastructure ซึ่งทำให้กลุ่มยังมีแรงทำสิ่งยากร่วมกัน",
+      "restoring_balance": "ปล่อยให้ care เดินกลับมาหาคุณโดยไม่รีบชดใช้ และถามตรง ๆ ว่าความช่วยเหลือนั้นยังสมัครใจหรือเริ่มกลายเป็น hidden debt",
+      "realm_connection": "Rainforest จำคุณได้จาก reciprocity ที่สัมผัสได้ แต่คุณต่อต้าน culture ของ favor เมื่อ affection ถูกเปลี่ยนเป็นภาระที่ไม่มีวันชำระหมด",
+      "closing": "You were not placed here because you can hold everyone together alone. You were placed here because making care reciprocal is the shape your courage takes.",
+      "share_line": "My nature belongs to the Golden Lion Tamarin—the golden thread that lets care move both ways.",
+      "signatures": [
+        "Reciprocal care",
+        "Visible affection",
+        "Living participation"
+      ],
+      "bible": "docs/design/animals/rainforest/golden-lion-tamarin.md",
+      "full_result": "data/rainforest-result-manifest.v0.1.json"
+    },
+    "Blue Morpho": {
+      "title": "The Light Between Leaves",
+      "identity_promise": "Change does not make your connections unreal, and connection does not give anyone ownership of what you become.",
+      "short_result": "คุณยอมให้ encounter เปลี่ยนสิ่งที่คุณเป็นโดยไม่ถือว่าตัวตนเดิมเป็นคำสัญญาถาวร ความสัมพันธ์มีน้ำหนักเพราะมันเปลี่ยนชีวิตได้ ไม่ใช่เพราะมันมีสิทธิ์หยุดการเปลี่ยนแปลง ความงามของคุณอยู่ตรงการพา history ไปสู่ form ใหม่",
+      "patterns": {
+        "what_moves_you": "คุณมีชีวิตขึ้นมาเมื่อพบ possibility ที่ทำให้ตัวตนและอนาคตขยายเกินขอบของรูปแบบเดิม",
+        "how_you_connect": "คุณเชื่อมผ่าน wonder, shared experience และการยอมให้อีกคนเปลี่ยนมุมที่คุณมองโลกได้จริง",
+        "how_you_protect": "คุณเปิดทางให้ชีวิตขยับก่อน role หรือ expectation จะกลายเป็นกรงที่เรียกตัวเองว่าความต่อเนื่อง",
+        "when_winter_closes_in": "freedom to become อาจกลายเป็นการจากไปทุกครั้งที่ permanence เริ่มเรียกร้องงาน ความสม่ำเสมอ หรือการ repair",
+        "what_you_rarely_ask_for": "คุณต้องการคนที่รักการเปลี่ยนแปลงของคุณโดยไม่ทำให้ทุก phase ใหม่ต้องพิสูจน์ว่าความสัมพันธ์เก่าไม่เคยสำคัญ"
+      },
+      "misunderstanding": "พวกเขาอาจเรียกคุณว่าไม่มั่นคง สิ่งที่ไม่เห็นคือคุณพยายามรักษาชีวิตไว้จากคำสัญญาที่ต้องการให้คนหนึ่งหยุดเติบโตเพื่อพิสูจน์ความรัก",
+      "restoring_balance": "การเปลี่ยนแปลงไม่จำเป็นต้องตัดสายสัมพันธ์ ลองบอกสิ่งที่กำลังเปลี่ยนและสิ่งที่คุณยังเลือกถือไว้ เพื่อให้ freedom มี continuity โดยไม่กลายเป็น captivity",
+      "realm_connection": "Rainforest จำคุณได้จาก transformation ผ่าน encounter แต่คุณปฏิเสธว่าความสัมพันธ์ทุกครั้งต้องกลายเป็น ownership เหนือ future identity",
+      "closing": "You were not placed here because every form must be left behind. You were placed here because becoming without denying connection is the shape your courage takes.",
+      "share_line": "My nature belongs to the Blue Morpho—the light that changes without denying where it has been.",
+      "signatures": [
+        "Living transformation",
+        "Relational wonder",
+        "Unowned becoming"
+      ],
+      "bible": "docs/design/animals/rainforest/blue-morpho.md",
+      "full_result": "data/rainforest-result-manifest.v0.1.json"
     }
   },
   "scoring": {
-    "model_version": "0.5-hierarchical-sandbox",
+    "model_version": "0.6-provisional-three-realm",
     "classification_policy": "soft_realm_then_conditional_animal",
     "core_dimensions": [
       "AFF",
@@ -3840,6 +4074,126 @@
           0.0,
           0.0,
           1.0
+        ]
+      },
+      "Jaguar": {
+        "realm": "Rainforest",
+        "core": [
+          -0.5,
+          0.8,
+          0.0,
+          -0.6,
+          -0.6,
+          0.5,
+          -0.3,
+          -0.8
+        ],
+        "facets": [
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.0
+        ]
+      },
+      "Scarlet Macaw": {
+        "realm": "Rainforest",
+        "core": [
+          0.8,
+          0.4,
+          -0.3,
+          -0.6,
+          0.9,
+          0.6,
+          0.8,
+          0.0
+        ],
+        "facets": [
+          0.5,
+          0.0,
+          0.5,
+          0.0,
+          0.0
+        ]
+      },
+      "Orchid Mantis": {
+        "realm": "Rainforest",
+        "core": [
+          -0.4,
+          0.5,
+          0.5,
+          0.7,
+          0.0,
+          -0.4,
+          0.0,
+          -0.7
+        ],
+        "facets": [
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Okapi": {
+        "realm": "Rainforest",
+        "core": [
+          -0.5,
+          -0.4,
+          -0.4,
+          -0.7,
+          -0.8,
+          0.0,
+          0.5,
+          -0.8
+        ],
+        "facets": [
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Golden Lion Tamarin": {
+        "realm": "Rainforest",
+        "core": [
+          0.9,
+          0.0,
+          -0.4,
+          -0.5,
+          0.7,
+          0.1,
+          0.9,
+          0.4
+        ],
+        "facets": [
+          0.5,
+          0.0,
+          1.0,
+          0.5,
+          0.0
+        ]
+      },
+      "Blue Morpho": {
+        "realm": "Rainforest",
+        "core": [
+          0.2,
+          -0.3,
+          -0.7,
+          -0.9,
+          0.4,
+          0.9,
+          0.7,
+          -0.8
+        ],
+        "facets": [
+          0.5,
+          0.0,
+          0.5,
+          0.0,
+          0.0
         ]
       }
     },

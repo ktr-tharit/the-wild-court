@@ -61,6 +61,11 @@
 .wildcourt-realm-reveal[data-realm="desert"] .wildcourt-eyebrow,
 .wildcourt-realm-reveal[data-realm="desert"] h3 { color: #c27a55; }
 .wildcourt-realm-reveal[data-realm="desert"] .wildcourt-realm-glyph { background: #17131057; box-shadow: 0 0 70px #3f756d24; }
+.wildcourt-realm-reveal[data-realm="rainforest"] { background: #071713; }
+.wildcourt-realm-reveal[data-realm="rainforest"] .wildcourt-realm-backdrop::after { background: linear-gradient(180deg, #071713a8 0%, #07171366 43%, #071713ed 100%), radial-gradient(circle at 50% 45%, transparent 0 18%, #07171387 72%); }
+.wildcourt-realm-reveal[data-realm="rainforest"] .wildcourt-eyebrow,
+.wildcourt-realm-reveal[data-realm="rainforest"] h3 { color: #c7a65a; }
+.wildcourt-realm-reveal[data-realm="rainforest"] .wildcourt-realm-glyph { background: #07171357; box-shadow: 0 0 70px #4f7c6238; }
 
 .wildcourt-animal-reveal { padding-inline: clamp(22px, 6vw, 90px); }
 .wildcourt-animal-reveal-grid { display: grid; width: min(100%, 1060px); grid-template-columns: minmax(260px, 430px) minmax(0, 520px); gap: clamp(42px, 7vw, 92px); align-items: center; text-align: left; }
@@ -77,6 +82,9 @@
 .wildcourt-animal-reveal[data-realm="desert"] { background: radial-gradient(circle at 70% 28%, #6b513d52, transparent 28%), linear-gradient(135deg, #25283b 0%, #171310 72%); }
 .wildcourt-animal-reveal[data-realm="desert"] .wildcourt-eyebrow,
 .wildcourt-animal-reveal[data-realm="desert"] h3 { color: #c27a55; }
+.wildcourt-animal-reveal[data-realm="rainforest"] { background: radial-gradient(circle at 70% 28%, #4f7c6245, transparent 30%), linear-gradient(135deg, #12352a 0%, #071713 72%); }
+.wildcourt-animal-reveal[data-realm="rainforest"] .wildcourt-eyebrow,
+.wildcourt-animal-reveal[data-realm="rainforest"] h3 { color: #c7a65a; }
 .wildcourt-review-selector { position: relative; z-index: 12; display: flex; min-height: 48px; align-items: stretch; justify-content: center; overflow-x: auto; border-bottom: 1px solid #e8d8bc1f; background: #171310; scrollbar-width: none; }
 .wildcourt-review-selector::-webkit-scrollbar { display: none; }
 .wildcourt-review-selector button { flex: 0 0 auto; border: 0; border-bottom: 2px solid transparent; padding: 0 17px; background: transparent; color: #9f9689; font-size: 8px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; cursor: pointer; }
@@ -92,6 +100,11 @@
 .wildcourt-deep-result[data-realm="desert"] .wildcourt-result-landscape img { filter: saturate(.86); }
 .wildcourt-deep-result[data-realm="desert"] .wildcourt-result-identity h2,
 .wildcourt-deep-result[data-realm="desert"] .wildcourt-result-identity .wildcourt-eyebrow { color: #c27a55; }
+.wildcourt-deep-result[data-realm="rainforest"] .wildcourt-result-masthead { background: #071713; }
+.wildcourt-deep-result[data-realm="rainforest"] .wildcourt-result-landscape::after { background: linear-gradient(90deg, #071713f2 0%, #071713bd 42%, #071713a8 100%), linear-gradient(0deg, #071713f2 0%, transparent 48%, #2f6f8f45 100%); }
+.wildcourt-deep-result[data-realm="rainforest"] .wildcourt-result-landscape img { filter: saturate(.9); }
+.wildcourt-deep-result[data-realm="rainforest"] .wildcourt-result-identity h2,
+.wildcourt-deep-result[data-realm="rainforest"] .wildcourt-result-identity .wildcourt-eyebrow { color: #c7a65a; }
 .wildcourt-result-hero { display: grid; width: min(100%, 1080px); grid-template-columns: minmax(250px, 390px) minmax(0, 540px); gap: clamp(42px, 7vw, 92px); align-items: center; }
 .wildcourt-result-animal { aspect-ratio: 4 / 5; }
 .wildcourt-result-identity { min-width: 0; text-align: left; }
@@ -102,6 +115,7 @@
 @media (max-width: 760px) {
   .wildcourt-realm-backdrop img { object-position: 54% center; }
   .wildcourt-realm-reveal[data-realm="desert"] .wildcourt-realm-backdrop img { object-position: 52% center; }
+  .wildcourt-realm-reveal[data-realm="rainforest"] .wildcourt-realm-backdrop img { object-position: 58% center; }
   .wildcourt-realm-reveal { justify-content: flex-end; padding-bottom: 68px; }
   .wildcourt-realm-reveal .wildcourt-realm-glyph { width: 78px; height: 78px; margin-bottom: 19px; font-size: 44px; }
   .wildcourt-realm-reveal .wildcourt-reveal-copy { max-width: 330px; }
